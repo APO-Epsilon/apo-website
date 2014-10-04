@@ -1,0 +1,33 @@
+Classes
+	Member (method to distinguish Standard/Project Leader/Master)
+	User (person viewing page)
+	Events
+		regular
+		one-time
+		shifts
+		PD
+	Week (method required to distinguish from default/current/next)
+	Day
+	Waiting List
+	Sign-Up List
+
+
+
+
+
+
+
+
+
+
+Agents
+	Service Manager
+		Recorder
+		Editor
+		Deleter 
+	Attendance Manager
+		Recorder
+		Editor
+		Deleter 
+	Reporter
+	

@@ -1,0 +1,70 @@
+ul { list-style: none inside; }
+			
+#zone-bar {
+	background: #0033AB;
+	min-height: 20px;
+	padding: 5px;
+	font: 80.5% Arial, Helvetica, sans-serif;
+	position: relative;
+	padding: 2px 5px 5px;
+	height: 20px;
+	}
+	#zone-bar ul {
+		display: block;
+		}
+		#zone-bar ul li {
+			height: 16px;
+			position: relative;
+			float: left;
+			margin-right: 10px;
+			}
+			#zone-bar ul li:hover {
+				background: url(nav_images/zonebar-navleft_gold.png) center left no-repeat;
+			}
+			#zone-bar ul li a {
+				display: block;
+				float: left;
+				position: relative;
+				top: -12px;
+				right: -15px;
+				padding-top: 3px;
+				color: #000;
+				font-weight: bold;
+				font-size: 1.1em;
+				text-decoration: none;
+				}
+				#zone-bar ul li a:hover {
+					background: url(nav_images/zonebar-navright_gold.png) center right no-repeat;
+				}
+				#zone-bar ul li a span {
+					position: relative;
+					top: 6px;
+				}
+			#zone-bar ul li ul {
+				display: none;
+				position: absolute;
+				top: 29px;
+				left: 0px;
+				width: 170px;
+				border: 1px solid #ccc;
+				background: white;
+				padding: 10px 0 0 0;
+				}
+				#zone-bar ul li ul li {
+					float: none;
+					padding: 0; margin: 0;
+					height: 100%;
+				}
+				#zone-bar ul li ul li:hover {
+					background: none;
+					}
+					#zone-bar ul li ul li a {
+						display: block;
+						float: none;
+						margin-left: -5px;
+						padding: 5px 0 0 10px;
+						width: 140px;
+					}
+					#zone-bar ul li ul li a:hover {
+						background: #C0C0C0;
+					}

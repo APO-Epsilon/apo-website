@@ -1,0 +1,205 @@
+What is the application supposed to be?
+	An events management system.
+What is the application supposed to do?
+	Permissions (User < PL < VP)
+	Permissions inherited
+		User (U) can view all events
+			User can sign up for events
+			User can remove from an event
+			User can choose to drive
+			User can view PL information about an event
+			User can get on waiting list for full events
+		PL (P) can view persons signed up
+		PL can modify hours by individual
+		PL can approve individuals
+		PL can deny individuals
+		VP (V) can modify current week
+		VP can modify future week
+		VP can modify default week
+		VP can assign PL
+		VP can remove PL
+		VP can create events
+		VP can modify events
+		VP can cancel events
+	Events
+		Events may be either Regular OR Large (Mutually Exclusive)
+		VP only has access to their respective events
+		Events can be recurring or non-recurring
+		Recurring events can recurr on any schedule
+Who is going to be using this application?
+	Members of Alpha Phi Omega with an account. 
+		Active
+		Associate 
+		Pledge 
+		
+		
+		
+USE CASES
+	
+	
+	permission: U can view all events
+		case A: 	U mouses over "Members tab".
+					U clicks on "Service Sign-ups"
+						[log-in flow]
+					U sees table listing all events
+						[events list]
+						
+		permission: U can sign up for events	
+			case A1:	U clicks "sign-up"
+						System registers user
+							[registration]
+						System refreshes page				
+		permission: U can remove from an event			
+			case A2: 	U clicks "remove"
+						System removes user
+							[remove from my activities]
+						System refreshes page
+		permission: U can choose to drive
+			case A3: 	(enrolled) 
+						U clicks drive
+						System displays input text box
+						U enters number of seats
+						U clicks submit
+						System records value
+						System refreshes page
+		permission: U can view PL information about an event
+			case A4: 	U clicks "info" under an event
+						System queries DB for information				
+						System display information beneath event
+		permission: U can get on waiting list	
+			case A5: 	(event full)
+						System displays "wait-list" instead of sign-up/remove
+						U clicks "wait-list"
+						System displays message 
+							[wait-list message]
+						U clicks "accept"
+						System records U on wait-list for event
+						System refreshes
+						
+	permission: P can view specific information for their events
+		case B: 	P mouses over "members" and clicks "project leader view"
+					System loads past/present events
+					System loads events in table
+					System orders by date, most recent first
+					System loads text above table to show past, current, future 
+					System loads current by default
+					
+			permission: P can view persons signed up
+				case B1: 	P clicks event_name
+							System expands view to display attendees
+			permission: P can approve attendance/ record absence
+				case B2:	P clicks event_name
+							System expands view to display attendees
+								and loads default hours for event
+								in expanded view
+							System loads all attendees names and hours if they 
+								had been previously recorded
+							P has option to overide hours for event by member
+							P has option to record absence for event by member
+							P clicks "record"
+							System records data 
+							System reloads
+	permission: create events						
+		case C: 	V mouses over "executive" and clicks "Service Manager"
+					System displays "+ event" 
+					V clicks "+ event" 
+					System display form to add an event
+						Details: 
+							event name
+							description
+							servicetype
+							meeting_location
+							notes
+					V enters data
+					System verifies data onInput
+						[validation]
+					V clicks "submit"
+					System processes data
+					System refreshes to "Service Manager"
+		
+		
+	
+	
+Lauri
+
+	once signed up
+		who is in charge
+		contact information
+		who else is driving
+		
+	attendance
+		VP should be able to record attendance
+		Record 
+		Edit Attendance for past events
+		PL / Membership should be able to record attendance
+	
+	events
+		edit event for just the week
+	
+	UI issues
+	
+	seperate page for attendance for the week
+	
+	locked at midnight
+	
+	PL or VP should be able to override (remove or add)
+	
+	U should be able to sign up up to 1 hour before
+	
+	U cannot remove after midnight night before
+	
+	Week set-up on Monday
+	
+	Reminder email if week hasn't been set up by Wednesday
+	
+	Events become available on Thursday
+	
+	Possible text messaging reminders (at least email)
+	
+	Shifts
+	
+	Notes for events
+	
+	Some sort of way to track users who miss X events
+		send warning emails, lock, VP should be able 
+		to unlock
+		
+	
+		
+Ally
+
+	Thomas tried to have pledge trainers fill out Google doc with all 
+		information regarding pledges, req. etc.
+		PT's should be able to do this
+		VP should be able to see this
+	
+	We should be able to store Big/Little relationships
+	
+	PT's should be able to see info about their small groups
+	
+	Attendance perhaps not so useful for pledges
+	
+	View of users who have less than 20 hours
+	
+	
+	
+Uploads table	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				
+				
+				
+				
+				
+			

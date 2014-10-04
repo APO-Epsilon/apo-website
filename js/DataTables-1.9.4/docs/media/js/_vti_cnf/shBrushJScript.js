@@ -1,0 +1,7 @@
+vti_encoding:SR|utf8-nl
+vti_timelastmodified:TR|21 Nov 2012 08:18:02 -0000
+vti_extenderversion:SR|5.0.2.6790
+vti_lineageid:SR|{A123ED11-658E-4CB5-8BA8-14115DAA50F1}
+vti_cacheddtm:TX|21 Nov 2012 08:18:02 -0000
+vti_filesize:IR|1649
+vti_backlinkinfo:VX|js/DataTables-1.9.4/docs/DataTable.models.oSettings.oPreviousSearch.html js/DataTables-1.9.4/docs/index.html js/DataTables-1.9.4/docs/DataTable.defaults.html js/DataTables-1.9.4/docs/DataTable.defaults.oLanguage.oAria.html js/DataTables-1.9.4/docs/DataTable.html js/DataTables-1.9.4/docs/DataTable.models.oColumn.html js/DataTables-1.9.4/docs/DataTable.models.oSettings.oBrowser.html js/DataTables-1.9.4/docs/DataTable.models.oSettings.oFeatures.html js/DataTables-1.9.4/docs/34cdb56b2c.html js/DataTables-1.9.4/docs/DataTable.defaults.columns.html js/DataTables-1.9.4/docs/DataTable.ext.html js/DataTables-1.9.4/docs/DataTable.models.ext.html js/DataTables-1.9.4/docs/DataTable.models.oSearch.html js/DataTables-1.9.4/docs/DataTable.defaults.oLanguage.html js/DataTables-1.9.4/docs/DataTable.defaults.oLanguage.oPaginate.html js/DataTables-1.9.4/docs/DataTable.defaults.oSearch.html js/DataTables-1.9.4/docs/DataTable.models.html js/DataTables-1.9.4/docs/DataTable.models.oRow.html js/DataTables-1.9.4/docs/DataTable.models.oSettings.html js/DataTables-1.9.4/docs/DataTable.models.oSettings.oLanguage.html js/DataTables-1.9.4/docs/DataTable.models.oSettings.oScroll.html

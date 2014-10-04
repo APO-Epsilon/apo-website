@@ -1,0 +1,74 @@
+What is the application supposed to be?
+	An events management system.
+	
+	
+What is the application supposed to do?
+	Permissions (User < PL < VP)
+	Permissions inherited
+		User (U) can view all events
+		User can sign up for events
+		User can remove from an event
+		User can choose to drive
+		User can view PL information about an event
+		User can get on waiting list for full events
+		U should be able to sign up up to 1 hour before
+		U cannot remove after midnight night before
+		PL (P) can view persons signed up
+		PL can modify hours by individual
+		PL can approve individuals
+		PL can deny individuals
+		PL or VP should be able to override (remove or add)
+		VP (V) can modify current week
+		VP can modify next week
+		VP can modify default week
+		VP can assign PL
+		VP can remove PL
+		VP can create events
+		VP can modify events
+		VP can cancel events
+		VP edit event for just the week
+		VP only has access to their respective events
+		
+	Events
+		Events can be recurring or non-recurring
+		Recurring events can recurr on any schedule
+		Events become available on Thursday
+		Shifts
+		Notes for events
+		Some sort of way to track users who miss X events
+			send warning emails, lock, VP should be able 
+			to unlock
+		Week set-up on Monday				
+		Possible text messaging reminders (at least email)
+		locked at midnight
+		
+	attendance
+		VP should be able to record attendance
+		Record 
+		Edit Attendance for past events
+		PL / Membership should be able to record attendance
+		seperate page for attendance for the week
+
+		
+Who is going to be using this application?
+	Members of Alpha Phi Omega with an account. 
+		Active
+		Associate 
+		Pledge 
+
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+				
+				
+				
+				
+				
+			

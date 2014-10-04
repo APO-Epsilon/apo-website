@@ -1,0 +1,196 @@
+/*
+Design by predic8 GmbH
+http://www.predic8.de
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	padding: 0px;
+	margin: 0px;
+	color: #ffffff;
+	text-shadow: 0px 1px -1px #000000;
+	text-align: center;
+	font: normal 15px Arial;
+	background: url("css_images/background.png");
+}
+
+h1 {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#E6B800), color-stop( 50%, #E8BF19), color-stop(50%, #E8BF19), to(#E6B800));
+	margin: 0px;
+	height: 34px;
+	font-size: 22px;
+	text-shadow: 0px 1px -1px #ffffff;
+	border-bottom: 1px solid black;
+	color: #0A0A2F;
+	padding: 8px 0px 0px 0px;
+	text-align: center;
+	border: 1px solid #0A0A2F;
+}
+
+h2{
+	text-align: left;
+	font-size: 19px;
+	margin-left: 12px;
+}
+
+p{
+	margin: 1em;
+}
+
+ul{
+	list-style: none;
+	margin: 10px;
+	padding: 0px;
+}
+h3{
+	background-color: white;
+	border: 1px solid #0A0A2F;
+	margin-bottom: -2px;
+	padding: 12px 10px;
+	text-align: left;
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+}
+
+
+li{
+	background-color: white;
+	border: 1px solid #0A0A2F;
+	margin-bottom: -2px;
+	padding: 12px 10px;
+	text-align: left;
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+}
+
+li.arrow{
+	background-image: url("arrow.png");
+  	background-position: right center;
+  	background-repeat: no-repeat;	
+}
+
+li span.right{
+	position:absolute;
+	right: 45px;
+	text-align: right;
+	color: #385487;
+	font-weight: normal;
+}
+
+li:first-child{
+   -webkit-border-top-left-radius: 12px;
+   -webkit-border-top-right-radius: 12px;
+}
+
+li:last-child {
+   -webkit-border-bottom-left-radius: 12px;
+   -webkit-border-bottom-right-radius: 12px;
+}
+
+.button{
+	-webkit-box-shadow: 0px -1px 1px #2f3740, 0px 1px 1px #bfcbdb;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0A0A2F), color-stop( 50%, #191970), color-stop(50%, #191970), to(#0A0A2F));
+	-webkit-border-radius: 4px;
+	font: bold 12px Arial;
+	text-align: center;
+	line-height: 34px;
+	color: white;
+	text-shadow: rgba(0,0,0,0.5) 0px -1px 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-tap-highlight-color: white;
+	padding: 4px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 1px solid #3e444c;
+	
+}
+
+.button-bold{
+	-webkit-box-shadow: 0px -1px 1px #2f3740, 0px 1px 1px #bfcbdb;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0A0A2F), color-stop( 50%, #191970), color-stop(50%, #191970), to(#0A0A2F));
+	-webkit-border-radius: 4px;
+	font: bold 32px Arial;
+	width: 27px;
+	text-align: center;
+	line-height: 34px;
+	color: white;
+	text-shadow: rgba(0,0,0,0.5) 0px -1px 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-tap-highlight-color: white;
+	padding: 4px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	border: 1px solid #3e444c;
+}
+
+/* 
+CSS3 Accordion Experiment
+Date: 25th June 2009
+Author: Paul Hayes
+*/
+ 
+.accordion {
+ 	background: #0A0A2F;
+	margin: 0px;
+	padding: 0px;
+	text-align : center;
+}
+
+.accordion h2 {
+background-color: white;
+	border: 1px solid #0A0A2F;
+	margin-bottom: -2px;
+	padding: 10px 10px;
+	text-align: left;
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+}
+ 
+.accordion .section {
+	background: #fff;
+	color: #0A0A2F;
+}
+ 
+.accordion h2 a {
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+}
+
+.accordion h2 a:hover {
+	text-decoration: none;
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+}
+ 
+.accordion h2 + div {
+	height: 0;
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+	overflow: hidden;
+	-webkit-transition: height 0.3s ease-in;
+	-moz-transition: height 0.3s ease-in;
+	-o-transition: height 0.3s ease-in;
+	-ms-transition: height 0.3s ease-in;
+	transition: height 0.3s ease-in;
+}
+
+.accordion :target h2 a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+}
+
+.accordion :target h2 + div {
+	height: 300px;
+	color: #0A0A2F;
+	text-shadow: 0px 1px -1px #ffffff;
+}
+
+.accordion .section.large:target h2 + div {
+	overflow: auto;
+}
