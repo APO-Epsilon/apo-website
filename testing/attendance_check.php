@@ -19,7 +19,7 @@ error_reporting(-1);
     <!-- PHP method to include header -->
 
 <?php
-echo("<div class=\"content\">");
+echo("<div class=\"row\">");
 
 function list_attendance_stats($user_id){
 
