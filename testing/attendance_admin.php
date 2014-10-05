@@ -18,7 +18,6 @@ require_once ('mysql_access.php');
     <!-- PHP method to include header -->
 
 <?php
-print_r($_POST);
 global $current_semester;
 echo("<div class=\"row\">");
 //0 => not under development, 1 => under development.
@@ -1002,7 +1001,6 @@ echo
                 Go to...<br/>
                      <select name="show">
                         <option>Select one...</option>
-                        <option value="show_create">create</option>
                         <option value="show_add">assign</option>
                         <option value="show_log">log</option>
                         <option value="check">check</option>

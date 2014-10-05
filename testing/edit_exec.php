@@ -27,7 +27,7 @@ $position = $_SESSION['sessionposition'];
 
 if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
 	if ($_GET['action'] == "delete_exec") {
-		$id = $_GET[id];
+		$id = $_GET['id'];
 		$sql = "UPDATE `contact_information` SET `exec` = 0, `position` = '', `status` = 'Active' WHERE `id`=$id";
 		if ($querey = mysql_query($sql)) {
 			echo "Removed position";
