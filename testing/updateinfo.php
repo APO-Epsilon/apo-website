@@ -80,7 +80,7 @@ if (!isset($_SESSION['sessionID'])) {
 		}
 
 	$force = "";
-	if ($_GET['forced'] == "true") {
+	if (isset($_GET['forced']) == "true") {
 		$force = "<div style='margin: 50px; padding: 10px; background: #F08080; '><h1 style='color:red;'>Please update your information for this semester.</h1> Do you have any new <b>Littles</b>, different <b>status</b>, have a new <b>local address</b>, or change your <b>major</b> recently?  You will not be able to access the site until you have clicked 'Update' below.  If you have problems, contact the webmaster!</div>";
 	}
 

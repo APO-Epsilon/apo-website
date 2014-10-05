@@ -159,7 +159,6 @@ echo("</table></div>");}
 }
 
 $position = $_SESSION['sessionposition'];
-echo "$position";
 if($position != "Webmaster" && $position != "President"){echo("you do not have permission to view this page.");
 }else{
 
