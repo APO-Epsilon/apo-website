@@ -11,7 +11,7 @@ require_once ('session.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
-        <div class="large-10 medium-9 small-12 column large-centered medium-centered">
+        <div class="large-5 medium-9 small-12 column">
 
     <h1> <b> President </b> </h1>
 <p> Matthew Karner <br>
@@ -54,13 +54,14 @@ apo.epsilon.treasurer@gmail.com </p>
 apo.epsilon.scouting@gmail.com </p>
 <hr>
 <h2> <b> Brotherhood Chairman </b> </h2>
- <p> Shelby miller </p>
+ <p> Shelby miller
+ apo.epsilon.broho@gmail.com</p>
  <hr>
-<h2> <b> Alumni Secretary </b> </h2> 
+<h2> <b> Alumni Secretary </b> </h2>
 <p> Matthew LaPointe <br>
 apo.epsilon.alumni@gmail.com </p>
 <hr>
-<h2> <b> Chaplain </b> </h2> 
+<h2> <b> Chaplain </b> </h2>
 <p> Emese Mattingly <br>
 apo.epsilon.chaplain@gmail.com </p>
 <hr>
@@ -70,6 +71,9 @@ apo.epsilon.historian@gmail.com <br>
 Katie Kerkemeyer <br>
 apo.epsilon.historian@gmail.com </p>
 <hr>
+</div>
+<div class="large-5 medium-9 small-12 column">
+
 <h2> <b> Fundraising Chairman </b> </h2>
 <p> Ashley Banze <br>
 apo.epsilon.fundraising@gmail.com <br>
@@ -105,7 +109,7 @@ Kristen Womble <br>
 apo.epsilon.redcross@gmail.com </p>
 <hr>
 <h2> <b> Philanthropy </b> </h2>
-<p> Callie Templeton <br> 
+<p> Callie Templeton <br>
 apo.epsilon.philanthropy@gmail.com <br>
 Jordyn Williams <br>
 apo.epsilon.philanthropy@gmail.com <br>
@@ -118,14 +122,17 @@ apo.epsilon.philanthropy@gmail.com </p>
 <hr>
 <h2> <b> Communications Secretary </b> </h2>
 <p> Lucy Bowe <br>
-apo.epsilon.comsec@gmail.com </p> 
+apo.epsilon.comsec@gmail.com </p>
 <hr>
 <h2> <b> Homecoming Chairman </b> </h2>
 <p> Alyssa Talkington <br>
-Emma Westin </p>
+ apo.epsilon.homecoming@gmail.com <br>
+Emma Westin <br>
+apo.epsilon.homecoming@gmail.com</p>
 <hr>
 <h2> <b> Advisor Liaison </b> </h2>
-<p> Rosalie Swingle </p>
+<p> Rosalie Swingle <br>
+ apo.epsilon.advisorliasion@gmail.com </p>
 <hr>
 <h2> <b> Rush Chairman </b> </h2>
 <p>Connor Madden <br>
@@ -137,9 +144,9 @@ apo.epsilon.rushchair@gmail.com <br>
 Mario Castellanos <br>
 apo.epsilon.rushchair@gmail.com <br>
 </p>
-   
+
 <div class="row">
-        <div class="large-10 medium-9 small-12 column large-centered medium-centered">
+        <div class="large-10 medium-9 small-12 column">
 
         </div>
     </div>
