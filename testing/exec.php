@@ -131,7 +131,7 @@ Emma Westin <br>
 apo.epsilon.homecoming@gmail.com</p>
 <hr>
 <h2> <b> Advisor Liaison </b> </h2>
-<p> Rosalie Swingle
+<p> Rosalie Swingle <br>
  apo.epsilon.advisorliasion@gmail.com </p>
 <hr>
 <h2> <b> Rush Chairman </b> </h2>
