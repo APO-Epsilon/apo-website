@@ -14,7 +14,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="?work" aria-haspopup="true"><span>Meet The Members</span></a>
+			<a href="?work" aria-haspopup="true"><span>Our Members</span></a>
 			<ul>
 				<li><a href="exec.php">Executive Board</a></li>
 				<li><a href="actives.php">Actives</a></li>
