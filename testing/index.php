@@ -26,8 +26,6 @@ require_once ('session.php');
             Today Epsilon is one of the strongest organizations on the Truman State University campus. It is also the largest non-honor group on Trumans campus, with over 200 members. Epsilons service program now includes the Red Cross Blood Drives, Camp Silver Meadows, YMCA, Ray Miller, and Twin Pines Retirement Community. Epsilon also hosts a philanthropy event every fall and St. Baldricks in the spring! Through friendship and service, Epsilon is poised to lead the Kirksville and Truman communities into the twenty-first century.
             <br>
             </p>
-            <h6> New pledges, follow <a href="./register.php">this link</a> to register for the site!</h6>
-
         </div>
     </div>
     <!-- Javascript method to include footer -->
