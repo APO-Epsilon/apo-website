@@ -1,25 +1,8 @@
 <?php
-require_once ('session.php');
-?>
-<!doctype html>
-<html>
-<head>
-    <?php require 'head.php';?>
-</head>
-
-<body>
-    <!-- Javascript method to include navigation -->
-    <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
-    <!-- PHP method to include navigation -->
-
-    <!-- Javascript method to include header -->
-    <div id="header"><?php include 'header.php';?></div>
-    <!-- PHP method to include header -->
-
-<?php
+require_once ('layout.php');
 require_once ('mysql_access.php');
 page_header();
-echo("<div class=\"row\">");
+echo("<div class=\"content\">");
 $user_id = $_SESSION['sessionID'];
 if (!isset($_SESSION['sessionID'])) {
 
@@ -89,8 +72,9 @@ function list_attendance_stats($user_id){
 		if($committee_count > 0){
 			echo "<b>Total Committees: {$committee_count}</b>";
 		}
-}
 
+
+}
 	$sql = "SELECT occurrence.e_id AS e_id, occurrence.id AS id, occurrence.date AS date,
 			events.name AS name, events.worth AS worth, occurrence.type AS type,
 			recorded_attendance.attended AS attended
@@ -105,22 +89,24 @@ function list_attendance_stats($user_id){
 echo<<<END
 <h1>My Attendance</h1>
 
+
+
+
+
 END;
 		list_attendance_stats($user_id);
 		echo
-				"</div>
-				<div class='row'>
-				<p>
+				"<p>
 				<br/>
-				<div>
-				<table class='large-12 medium-12 small-12 column'>
+				<div style='margin: 0px auto; width: 100%; text-align: center;'>
+				<table cellpadding='0' cellspacing='0' class='hours_table'>
 				<tr class='hours_header'>
-					<td></td>
-					<td>Event</td>
-					<td>Date</td>
-					<td>Worth</td>
-					<td>Attended</td>
-					<td></td>
+				<td></td>
+				<td>Event</td>
+				<td>Date</td>
+				<td>Worth</td>
+				<td>Attended</td>
+				<td></td>
 				</tr>";
 			while($row = mysql_fetch_array($result)){
 				$e_id = $row['e_id'];
@@ -139,15 +125,15 @@ END;
 
 	echo"
 		<tr>
-			<td width='5%'></td>
-			<td width='33%'>$name</td>
-			<td width='30%'>$date</td>
-			<td width='12%'>$worth</td>
-			<td width='15%'>$attended</td>
-			<td width='5%'></td>
+		<td width='5%'></td>
+		<td width='25%'>$name</td>
+		<td width='25%'>$date</td>
+		<td width='20%'>$worth</td>
+		<td width='20%'>$attended</td>
+		<td width='5%'></td>
 		</tr>";
 	}
-	echo "</table></div></div><hr>";
+	echo "</table></div>";
 
 	$sql = "SELECT committee_attendance.committee_id AS comm_id,
 			committee_occurrence.position_id AS position_id,
@@ -159,13 +145,13 @@ END;
 			ORDER BY committee_occurrence.date ASC";
 	$result = mysql_query($sql);
 	if(mysql_num_rows($result)!=0){
-echo "		<div class='row'>
-				<table class='large-12 medium-12 small-12 column'>
+echo "		<div style='margin: 0px auto; width: 100%; text-align: center;'>
+				<table cellpadding='0' cellspacing='0' class='hours_table'>
 				<tr class='hours_header'>
-					<td></td>
-					<td><strong>Committee</strong></td>
-					<td><strong>Date</strong></td>
-					<td></td>
+				<td></td>
+				<td>Committee</td>
+				<td>Date</td>
+				<td></td>
 				</tr>";
 			while($row = mysql_fetch_array($result)){
 			$comm_id = $row['comm_id'];
@@ -176,16 +162,11 @@ echo "		<div class='row'>
 
 echo "
 				<tr>
-					<td width='5%'></td>
-					<td width='55%'>$position</td>
-					<td width='35%'>$date</td>
-					<td width='5%'></td>
+				<td width='5%'></td>
+				<td width='45%'>$position</td>
+				<td width='45%'>$date</td>
+				<td width='5%'></td>
 				</tr>";
 }
 echo("</table></div>");}}
-?>
-    <!-- Javascript method to include footer -->
-    <div id="footer"><?php include 'footer.php';?></div>
-    <!-- PHP method to include footer -->
-</body>
-</html>
+page_footer();

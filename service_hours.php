@@ -1,6 +1,23 @@
 <?php
+require_once ('session.php');
+?>
+<!doctype html>
+<html>
+<head>
+    <?php require 'head.php';?>
+</head>
+
+<body>
+    <!-- Javascript method to include navigation -->
+    <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
+    <!-- PHP method to include navigation -->
+
+    <!-- Javascript method to include header -->
+    <div id="header"><?php include 'header.php';?></div>
+    <!-- PHP method to include header -->
+
+<?php
 $result = '';
-require_once ('layout.php');
 require_once ('mysql_access.php');
 global $current_semester;
 global $previous_semester;
@@ -19,23 +36,16 @@ function process_form() {
 	$semester = $_POST['semester'];
 
 	$description = htmlspecialchars($description, ENT_QUOTES);
-
 	if ($month == NULL || $day == NULL || $event == NULL || $hours == NULL || $servicetype == NULL) {
 		$result = "Your didn't fill out the form completely.<br/>";
 	}
-
 	else if ($description == 'KCOM' || $description == 'Lancaster' || $description == 'CSI Friday' || $description == 'Ray Miller' || $description == 'Pop-Tab Collection' ||$description == 'Twin Pines' ||$description == 'Humane Society' ||$description == 'Adair Co. Library' ||$description == 'Recycling Center' ||$description == 'Bought Hours' ||$description == 'Camp' ||$description == 'Bake sale' ||$description == 'Large Service Project' ||$description == 'Other Service Project' ||$description == 'Non-APO Hours' || $description == 'NMCAA' || $description == 'Multicultural Affairs Center' || $description == "MAC" || $description == 'Highway Cleanup' || $description == 'SAA Babysitting') {
 		$result = "<div class='entry'>The description cannot be the same as the event. Please enter a valid description.<br/></div>";
 	}
 	else {
-		/*if($description == NULL || ""){
-			$description = "none";
-		}*/
 		$insert = "INSERT INTO apo.recorded_hours (user_id, event, month, day, year, date, description, hours, servicetype, fundraising, semester) values('$id', '$event', '$month','$day', '$year', '$date', '$description', '$hours', '$servicetype', '$fundraising', '$semester') ON DUPLICATE KEY UPDATE description='NEEDS NEW DESCRIPTION';";
 		$query2 = mysql_query($insert) or die(mysql_error());
-
 		$result = '1';
-
 			if($fundraising == 1){//also ads fundraising hours to another DB so we can see who the first 30 were.
 				$sql5 = "SELECT * FROM `first_30`";
 					$result5 = mysql_query($sql5);
@@ -144,7 +154,7 @@ function list_hours($hours_id) {
 
 		$fund = "";
 		if ($i['fundraising'] == 1) {
-			$fund = "<img src='includes/aux_images/fundraising_coin.jpeg' style='vertical-align: middle;' title='Fundraising!' alt='Fundraising!'/>";
+			$fund = "<img src='img/fundraising_coin.jpg' style='vertical-align: middle;' title='Fundraising!' alt='Fundraising!'/>";
 		}
 		echo "<tr $hours_line><td width='20%'>$i[event]</td>
 		<td width='15%'> $i[month] / $i[day] / $i[year] </td>
@@ -165,7 +175,7 @@ if (isset($_POST['action']) && $_POST['action'] == "add_hour") {
 	$result = process_form();
 	if ($result == 1)
 	{
-		header('Location: http://apo.truman.edu/service_hours.php' );
+		header('Location: ./service_hours.php' );
 	}
 
 }
@@ -186,13 +196,7 @@ page_header();
 
 ?>
 
-
-<link rel="stylesheet"
-   type="text/css"
-   media="print" href="http://apo.truman.edu/layout_files/print_styles.css" />
-
-
-<div class="content">
+<div class="row">
 
 
 <?php
@@ -213,190 +217,176 @@ $day_of_month = date('j');
 global $previous_semester;
 global $current_semester;
 global $next_semester;
-echo<<<END
+?>
 <h1>Service Hours</h1>
 <!--<h3>Check your hours from previous semesters <a href="http://apo.truman.edu/service_hours_history.php">here</a></h3>-->
-<h3><a href="http://apo.truman.edu/service_dashboard.php">Feb-25 to Feb-28 Sign-Up List</a></h3>
 
 </div>
+<div class="row">
+	<div class="row">
+	<table class="large-5 medium-6 small-12 column">
+	<tr>
+	<td>
+		<div class="large-8 medium-8 small-12 column">
+		<h2>Log Hours</h2>
+			<form action="service_hours.php" class="form" id="new_volunteer_time" method="post">
+				<p>
+					<label for="month">Date</label>
+						<select name="month">
+<?php echo <<<END
+							<option value="$month_no">$month_name</option>
+END; ?>
+							<option value="01">Jan</option>
+							<option value="02">Feb</option>
+							<option value="03">Mar</option>
+							<option value="04">Apr</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">Aug</option>
+							<option value="09">Sep</option>
+							<option value="10">Oct</option>
+							<option value="11">Nov</option>
+							<option value="12">Dec</option>
+						</select>
+						<select name="day">
+<?php echo <<<END
+							<option>$day_of_month</option>
+END; ?>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>,
+						<select name="year">
+							<option selected="selected" value="2014">2014</option>
+						</select>
+				</p>
+				<p>
+					<label for="volunteer_time_event">Event</label>
+				  		<select id="volunteer_time_event" name="event">
+				  			<option value="Bake Sale">Bake Sale</option>
+				  			<option value="Blood Drive">Blood Drive</option>
+				  			<option value="Bought Hours">Bought Hours</option>
+				  			<option value="Camp">Camp</option>
+				  			<option value="Crossing Baby Sitting">Crossing Baby Sitting</option>
+				  			<option value="CSI Friday">CSI Friday</option>
+				  			<option value="Highway Cleanup">Highway Cleanup</option>
+							<option value="Humane Society">Humane Society</option>
+							<option value="KCOM">KCOM</option>
+							<option value="Lancaster">Lancaster</option>
+							<option value="Multicultural Affairs Center">MAC</option>
+							<option value="PACT Center Cooking">PACT Center</option>
+							<option value="Pop-Tab">Pop-Tab Collection</option>
+							<option value="Purple Friday Prize Patrol">Purple Friday Prize Patrol</option>
+							<option value="SAA Babysitting">SAA Babysitting</option>
+							<option value="YMCA">YMCA</option>
+							<option value="Sections Service Project">Sections Service Project</option>
+							<option value="Large Service Project">Large Service Project</option>
+							<option value="Other Service Project">Other Service Project</option>
+							<option value="Non-APO Hours">Non-APO Hours</option>
+						</select>
+				</p>
+				<p>
+					<label for="hours">Hours</label>
+						<input name="hours" size="30" style="width: 30px;" type="text" />
+				</p>
+				<p>
+					<label for="servicetype">Service type</label>
+						<select name="servicetype">
+							<option value="Community">Community</option>
+							<option value="Chapter">Chapter</option>
+							<option value="Country">Country</option>
+							<option value="Campus">Campus</option></select>
+				</p>
+				<p>
+					<label for="fundraising">Fundraising</label>
+						<input name="fundraising" type="checkbox" value="1" />
+				</p>
+				<p>
+					<label for="description">Description</label>
+				  		<input name="description" size="30" type="text" />
+				</p>
+				<p>
+<?php echo <<<END
+					<label for="semester">Semester</label>
+				  		<select name="semester">
+				  			<!--<option>$previous_semester</option>-->
+				  			<option selected='selected'>$current_semester</option>
+				  			<!--<option>$next_semester</option>-->
 
-<div style="clear:both;"></div>
-
-
-<div id="service_bar">
-<table><tr><td rowspan='2' valign='top'>
-<div id="service_log">
-<h2>Log Hours</h2>
-<form action="service_hours.php" class="form" id="new_volunteer_time" method="post">
-<p>
-	<label for="month">Date</label>
-		<select name="month">
-			<option value="$month_no">$month_name</option>
-
-			<option value="01">Jan</option>
-			<option value="02">Feb</option>
-			<option value="03">Mar</option>
-			<option value="04">Apr</option>
-			<option value="05">May</option>
-			<option value="06">June</option>
-			<option value="07">July</option>
-			<option value="08">Aug</option>
-			<option value="09">Sep</option>
-			<option value="10">Oct</option>
-			<option value="11">Nov</option>
-			<option value="12">Dec</option>
-		</select>
-		<select name="day">
-			<option>$day_of_month</option>
-			<option value="01">1</option>
-			<option value="02">2</option>
-			<option value="03">3</option>
-			<option value="04">4</option>
-			<option value="05">5</option>
-			<option value="06">6</option>
-			<option value="07">7</option>
-			<option value="08">8</option>
-			<option value="09">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-			<option value="13">13</option>
-			<option value="14">14</option>
-			<option value="15">15</option>
-			<option value="16">16</option>
-			<option value="17">17</option>
-			<option value="18">18</option>
-			<option value="19">19</option>
-			<option value="20">20</option>
-			<option value="21">21</option>
-			<option value="22">22</option>
-			<option value="23">23</option>
-			<option value="24">24</option>
-			<option value="25">25</option>
-			<option value="26">26</option>
-			<option value="27">27</option>
-			<option value="28">28</option>
-			<option value="29">29</option>
-			<option value="30">30</option>
-			<option value="31">31</option>
-		</select>,
-		<select name="year">
-			<option selected="selected" value="2014">2014</option>
-		</select>
-</p>
-<p>
-	<label for="volunteer_time_event">Event</label>
-  		<select id="volunteer_time_event" name="event">
-  			<option value="YMCA">YMCA</option>
-			<option value="Ray Miller">Ray Miller</option>
-			<option value="Twin Pines">Twin Pines</option>
-			<option value="Humane Society">Humane Society</option>
-			<option value="Adair Co. Library">Adair Co. Library</option>
-			<option value="Salvation Army">Salvation Army</option>
-			<option value="Crossing Baby Sitting">Crossing Baby Sitting</option>
-			<option value="Bought Hours">Bought Hours</option>
-			<option value="Camp">Camp</option>
-			<option value="Bake Sale">Bake Sale</option>
-			<option value="Sections Service Project">Sections Service Project</option>
-			<option value="Other Service Project">Other Service Project</option>
-			<option value="Large Service Project">Large Service Project</option>
-			<option value="Non-APO Hours">Non-APO Hours</option>
-			<option value="Blood Drive">Blood Drive</option>
-			<option value="Pop-Tab">Pop-Tab Collection</option>
-			<option value="KCOM">KCOM</option>
-			<option value="Lancaster">Lancaster</option>
-			<option value="CSI Friday">CSI Friday</option>
-			<option value="NMCAA">NMCAA</option>
-			<option value="Multicultural Affairs Center">MAC</option>
-			<option value="Highway Cleanup">Highway Cleanup</option>
-			<option value="SAA Babysitting">SAA Babysitting</option>
-			<option value="KCDC">KCDC</option>
-			<option value="Cub Care">Cub Care</option>
-			<option value="PACT Center Cooking">PACT Center (Cooking)</option>
-			<option value="PACT Center Adv Cooking">PACT Center (Adv. Cooking)</option>
-			<option value="PACT Center Bowling">PACT Center (Bowling)</option>
-			<option value="Purple Friday Prize Patrol">Purple Friday Prize Patrol</option>
-		</select>
-</p>
-<p>
-	<label for="hours">Hours</label>
-		<input name="hours" size="30" style="width: 30px;" type="text" />
-</p>
-<p>
-	<label for="servicetype">Service type</label>
-		<select name="servicetype">
-			<option value="Community">Community</option>
-			<option value="Chapter">Chapter</option>
-			<option value="Country">Country</option>
-			<option value="Campus">Campus</option></select>
-</p>
-<p>
-	<label for="fundraising">Fundraising</label>
-		<input name="fundraising" type="checkbox" value="1" />
-</p>
-<p>
-	<label for="description">Description</label>
-  		<input name="description" size="30" type="text" />
-</p>
-<p>
-	<label for="semester">Semester</label>
-  		<select name="semester">
-  			<!--<option>$previous_semester</option>-->
-  			<option selected="selected">$current_semester</option>
-  			<!--<option>$next_semester</option>-->
-  			</select>
-</p>
-<p align="center">
-		<input type='hidden' name='action' value='add_hour'/>
-		<input type='submit' value='Log Hours' style='font-weight:bold;'/>
-
-</p>
-</form>
-</div>
-</td>
-
-<td>
-<div id="service_requirements">
-<h2>Service Policy</h2>
-
-Active: <b>25</b> hours of service.<br>
-
-<b>18</b> hours must be APO service hours.<br>
-
-<b>3</b> out of the 4 fields of service: Chapter, Campus, Community, Country.<br>
-
-<b>3</b> hours of fundraising.<br>
-
-Maximum of <b>5</b> bought hours<br>
-
-Associate: <b>12.5</b> hours of service <br>
-
-9 hours must be APO service hours
-</div>
-</td></tr>
-<tr><td>
-<div id="service_stats">
-<h2>Current Hours for $current_semester</h2>
+				  		</select>
 END;
-list_stats($_SESSION[sessionID], $current_semester);
-echo<<<END
-</div>
-</td></tr>
+?>
+				</p>
+				<p align="center">
+						<input type='hidden' name='action' value='add_hour'/>
+						<input type='submit' value='Log Hours' style='font-weight:bold;'/>
+				</p>
+			</form>
+		</div>
+	</td>
+</tr>
 </table>
+	<div class="large-7 medium-6 small-12 column">
+		<h2>Service Policy</h2>
+		Active: <b>25</b> hours of service.<br>
+		<b>18</b> hours must be APO service hours.<br>
+		<b>3</b> out of the 4 fields of service: Chapter, Campus, Community, Country.<br>
+		<b>3</b> hours of fundraising.<br>
+		Maximum of <b>5</b> bought hours<br>
+		Associate: <b>12.5</b> hours of service <br>
+		9 hours must be APO service hours
+		<hr>
+<?php echo <<<END
+	<h2>Current Hours for $current_semester</h2>
+END;
+?>
+<?php
+	list_stats($_SESSION['sessionID'], $current_semester);
+?>
+	</div>
+
 </div>
 
-<div style="clear:both;"></div>
-<div class="content">
-END;
+</div>
 
-list_hours($_SESSION[sessionID]);
-
+<div class="row">
+<?php
+list_hours($_SESSION['sessionID']);
 }
 ?>
 </div>
 
-<?php
-
-page_footer();
-
-?>
+    <!-- Javascript method to include footer -->
+    <div id="footer"><?php include 'footer.php';?></div>
+    <!-- PHP method to include footer -->
+</body>
+</html>

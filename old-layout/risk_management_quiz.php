@@ -1,60 +1,48 @@
 <?php
-require_once ('session.php');
+
+$result = '';
+require_once ('layout.php');
 require_once ('mysql_access.php');
-?>
-<!doctype html>
-<html>
-<head>
-    <?php require 'head.php';?>
-</head>
 
-<body>
-    <!-- Javascript method to include navigation -->
-    <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
-    <!-- PHP method to include navigation -->
-
-    <!-- Javascript method to include header -->
-    <div id="header"><?php include 'header.php';?></div>
-    <!-- PHP method to include header -->
-
-<?php
 function print_question($question) {
 
-    echo $question[0] . ". " . $question[1] . "<br/>";
-    $i = 2;
+	echo $question[0] . ". " . $question[1] . "<br/>";
+	$i = 2;
 
-    while ($i < count($question)) {
-        echo "<input type='radio' name='question[$question[0]]' value='$i'> $question[$i] <br/>";
-        $i = $i + 1;
-    }
-    echo "<br/>";
+	while ($i < count($question)) {
+		echo "<input type='radio' name='question[$question[0]]' value='$i'> $question[$i] <br/>";
+		$i = $i + 1;
+	}
+	echo "<br/>";
+
 }
 
 function score_quiz($right_answers, $answers) {
-    $score = 0;
-    $missed = array();
-    foreach ($answers as $number => $answer) {
-        if ($right_answers[$number] == $answer) {
-            $score = $score + 1;
-        } else {
-            $missed[] = "$number";
-        }
-    }
+	$score = 0;
+	$missed = array();
+	foreach ($answers as $number => $answer) {
+		if ($right_answers[$number] == $answer) {
+			$score = $score + 1;
+		} else {
+			$missed[] = "$number";
+		}
 
-    echo "Score: " . $score . "<br>";
+	}
 
-    if ($score >= 11) {
-        $user_id = $_SESSION['sessionID'];
-        $sql = "UPDATE `contact_information` SET `risk_management`=NOW() WHERE id='$user_id'";
-        $result = mysql_query($sql);
-        echo "<h1 style='color: purple'>You have passed the quiz!</h1>";
-    } else {
-        echo "You missed too many questions.  Please try again.  You were wrong on questions: ";
+	echo "Score: " . $score . "<br>";
 
-        foreach ($missed as $x => $y) {
-            echo "$y, ";
-        }
-    }
+	if ($score >= 11) {
+		$user_id = $_SESSION['sessionID'];
+		$sql = "UPDATE `contact_information` SET `risk_management`=NOW() WHERE id='$user_id'";
+		$result = mysql_query($sql);
+		echo "<h1 style='color: purple'>You have passed the quiz!</h1>";
+	} else {
+		echo "You missed too many questions.  Please try again.  You were wrong on questions: ";
+
+		foreach ($missed as $x => $y) {
+			echo "$y, ";
+		}
+	}
 }
 
 $quiz = array();
@@ -94,51 +82,47 @@ $right_answers[10] = 2;
 $right_answers[11] = 3;
 
 function passed_quiz() {
-    if (isset($_SESSION['sessionID'])) {
-        $user_id = $_SESSION['sessionID'];
-        $sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
-        $result = mysql_query($sql);
-        $row = mysql_fetch_array($result);
-        if ($row['risk_management'] != "0000-00-00") {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+	if (isset($_SESSION['sessionID'])) {
+		$user_id = $_SESSION['sessionID'];
+		$sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
+		$result = mysql_query($sql);
+		$row = mysql_fetch_array($result);
+		if ($row[risk_management] != "0000-00-00") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
 
 function print_quiz($quiz,$right_answers) {
-    echo "<p>You are required to pass a risk management quiz once a year.  To pass the quiz, you must answer all 11 questions correctly.  You can take the quiz as many times as you need.  If you want to read the Risk Management policy you can find it here: <a href='http://apo.truman.edu/Sergeant%20At%20Arms%20Info/APO%20Epsilon%20-%20Risk%20Mgmt.pdf'>Risk Management</a>.</p>";
-    echo "<form method='post'>";
-    foreach ($quiz as $quiz_item) {
-        print_question($quiz_item);
-    }
-    echo "<input type='submit' value='Submit'/></form>";
+	echo "<p>You are required to pass a risk management quiz once a year.  To pass the quiz, you must answer all 11 questions correctly.  You can take the quiz as many times as you need.  If you want to read the Risk Management policy you can find it here: <a href='http://apo.truman.edu/Sergeant%20At%20Arms%20Info/APO%20Epsilon%20-%20Risk%20Mgmt.pdf'>Risk Management</a>.</p>";
+	echo "<form method='post'>";
+	foreach ($quiz as $quiz_item) {
+		print_question($quiz_item);
+	}
+	echo "<input type='submit' value='Submit'/></form>";
 }
 
 page_header();
 if(!isset($_SESSION['sessionID'])){
-    die("please login to access this page");
+	die("please login to access this page");
 }else{
 echo "<div class='content'>";
 
 if (isset($_POST['question'])) {
-    score_quiz($right_answers, $_POST['question']);
+	score_quiz($right_answers, $_POST['question']);
 }
 
 passed_quiz();
 
 if (!passed_quiz()) {
-    print_quiz($quiz,$right_answers);
+	print_quiz($quiz,$right_answers);
 } else {
-    echo "Congratulations. You have passed the risk management quiz.";
+	echo "Congratulations. You have passed the risk management quiz.";
 }
+echo "</div>";
 }
+page_footer();
 ?>
-    </div>
-    <!-- Javascript method to include footer -->
-    <div id="footer"><?php include 'footer.php';?></div>
-    <!-- PHP method to include footer -->
-</body>
-</html>

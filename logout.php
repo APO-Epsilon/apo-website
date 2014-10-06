@@ -1,25 +1,18 @@
 <?php
-require_once ('layout.php');
-session_start();
+require_once ('session.php');
+require_once ('mysql_access.php');
 
-if(session_is_registered('sessionID')){ 
-	session_unset(); 
-	session_destroy(); 
-} 
-
+if($_SESSION['sessionID']){
+	unset($_SESSION['sessionID']);
+	session_destroy();
+}
 
 page_header();
 
-echo "<div class='content'>";
+echo "<div class='row'>";
 
-
-
-echo('<meta HTTP-EQUIV="REFRESH" content="0; url=http://apo.truman.edu">');
-
+echo('<meta HTTP-EQUIV="REFRESH" content="0; url=./index.php">');
 
 echo "</div>";
 
-page_footer();
-
 ?>
-

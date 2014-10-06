@@ -1,4 +1,5 @@
 <?php
+require_once ('mysql_access.php');
 function str_rand($length = 8, $seeds = 'alphanum')
 {
     // Possible seeds
@@ -30,22 +31,8 @@ function str_rand($length = 8, $seeds = 'alphanum')
     return $str;
 }
 
-require("class.phpmailer.php");
+require("./phpmailer/class.phpmailer.php");
 echo "Mail being prepared.";
-$mail = new PHPMailer();
-// connect to database
-
-$db = mysql_connect("mysql.truman.edu", "apo", "glueallE17");
-if (!$db) {
-	print "Error - Could not connect to mysql";
-    exit;
-}
-$er = mysql_select_db("apo");
-if (!$er) {
-    print "Error - Could not select database";
-    exit;
-}
-
 $mail = new PHPMailer();
 $mail->IsSMTP();                                      // set mailer to use SMTP
 $mail->Host = "mail.truman.edu";  					  // specify main server

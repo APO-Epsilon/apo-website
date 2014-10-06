@@ -1,27 +1,11 @@
 ﻿<?php
-require_once ('session.php');
+require_once ('layout.php');
 require_once ('mysql_access.php');
-?>
-<!doctype html>
-<html>
-<head>
-    <?php require 'head.php';?>
-</head>
-
-<body>
-    <!-- Javascript method to include navigation -->
-    <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
-    <!-- PHP method to include navigation -->
-
-    <!-- Javascript method to include header -->
-    <div id="header"><?php include 'header.php';?></div>
-    <!-- PHP method to include header -->
-
-<?php
+error_reporting(-1);
 //page_head();
 //echo"<body style=\"background-color:#EBEBEB\" OnLoad=\"document.loginform.username.focus();\">";
-//page_header();
-echo "<div class='row'>";
+page_header();
+echo "<div class='content'>";
 function print_login($error){
 	$error_message = "";
 	if ($error) {
@@ -30,7 +14,7 @@ function print_login($error){
 	if(isset($_GET['continue'])){
 		session_register('continue');
 		$_SESSION['continue'] = $_GET['continue'];}
-		$continue = isset($_SESSION['continue']) ? $_SESSION['continue'] : '';
+		$continue = isset($_SESSION['continue']);
 echo <<<END
 	<table>
 	<h1>Member Login</h1>
@@ -50,7 +34,7 @@ echo <<<END
 	</form>
 	</table>
 END;
-	echo(isset($_SESSION['continue']) ? $_SESSION['continue'] : '');
+	echo(isset($_SESSION['continue']));
 }
 function process_login(){
 	$username = addslashes($_POST["username"]);
@@ -120,13 +104,6 @@ function logout(){
 	}else {
 	}
 echo <<<END
-<h2><a href="./logout.php">Logout</a></h2>
-</div>
-END;
+echo "</div>";
+page_footer();
 ?>
-
-    <!-- Javascript method to include footer -->
-    <div id="footer"><?php include 'footer.php';?></div>
-    <!-- PHP method to include footer -->
-</body>
-</html>
