@@ -1,4 +1,5 @@
 <footer class="row">
+    <a href="./old-layout/index.php">Old Layout</a>
         <ul class="icons">
                     <li><a href="//www.twitter.com/apo_epsilon" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="//www.facebook.com/apo.epsilon" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
