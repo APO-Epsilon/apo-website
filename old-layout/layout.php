@@ -236,7 +236,6 @@ function page_footer() {
 echo <<<END
 
 <div id="footer">
-	<b><a href ="./testing/">Alternate Layout</a></b>
       <p>
         2014 &copy; Alpha Phi Omega Epsilon Chapter
         <a href="http://apo.org">APO.org</a>
