@@ -1,6 +1,7 @@
 ﻿<?php
 require_once ('layout.php');
 require_once ('mysql_access.php');
+error_reporting(-1);
 //page_head();
 //echo"<body style=\"background-color:#EBEBEB\" OnLoad=\"document.loginform.username.focus();\">";
 page_header();
@@ -8,12 +9,12 @@ echo "<div class='content'>";
 function print_login($error){
 	$error_message = "";
 	if ($error) {
-		$error_message = "<font color='red'>Your submitted the wrong username or password. Please try again or contact the webmaster.  If you forgot your password, go here: <a href='login_forgotpw.php'> Forgot Password</a></font><br/>";
+		$error_message = "<font color='red'>Your submitted the wrong username or password. Please try again or contact the webmaster.</font><br/>";
 	}
 	if(isset($_GET['continue'])){
 		session_register('continue');
 		$_SESSION['continue'] = $_GET['continue'];}
-		$continue = $_SESSION['continue'];
+		$continue = isset($_SESSION['continue']);
 echo <<<END
 	<table>
 	<h1>Member Login</h1>
@@ -33,7 +34,7 @@ echo <<<END
 	</form>
 	</table>
 END;
-	echo($_SESSION['continue']);
+	echo(isset($_SESSION['continue']));
 }
 function process_login(){
 	$username = addslashes($_POST["username"]);
@@ -46,38 +47,6 @@ function process_login(){
 		$_SESSION['sessionexec'] = '0';
 		$_SESSION['sessionID'] = 'Alumni';
 		echo "<p>You have succesfully logged in as Alumni.</p>";
-
-	}
-
-	}
-
-	}elseif ($username == 'advisor' AND $password == 'helpinghand') {
-		$_SESSION['sessionUsername'] = 'Advisor';
-		$_SESSION['sessionFirstname'] = 'Advisor';
-		$_SESSION['sessionLastname'] = 'Advisor';
-		$_SESSION['sessionexec'] = '2';
-		$_SESSION['sessionID'] = 'Advisor';
-		echo "<p>You have succesfully logged in as an Advisor.</p>";
-
-//	} elseif ($username == 'exechelper' AND $password == 'leadership') {
-//
-//		session_register('sessionUsername');
-//		session_register('sessionFirstname');
-//		session_register('sessionLastname');
-//		session_register('sessionexec');
-//		session_register('sessionID');
-//		$_SESSION['sessionUsername'] = 'exechelper';
-//		$_SESSION['sessionFirstname'] = 'exechelper';
-//		$_SESSION['sessionLastname'] = 'exechelper';
-//		$_SESSION['sessionexec'] = '1';
-//		$_SESSION['sessionID'] = 'exechelper';
-//		if ($_SESSION['sessionexec']==1){
-//			print_exec_logout();
-//		}
-//		else {
-//			print_logout();
-//		}
-
 	} else {
 			$select = "SELECT *
 			FROM contact_information
@@ -114,10 +83,8 @@ function process_login(){
 				AND `firstname` = '".$firstname."'
 				AND `username` = '".$username."'";
 		$result = mysql_query($sql);
-			while($row = mysql_fetch_array($result)){
-				$visited = $row['visited'];}
 
-			echo('<meta HTTP-EQUIV="REFRESH" content="0; url=./index.php">');//}
+			echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
 
 		}
 	}
@@ -136,7 +103,7 @@ function logout(){
 		print_login();
 	}else {
 	}
+echo <<<END
 echo "</div>";
 page_footer();
 ?>
-

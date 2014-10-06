@@ -23,7 +23,7 @@ page_header();
 <?php
 if (!isset($_SESSION['sessionID'])) {
 
-	echo '<div class="entry">You need to <a href="http://apo.truman.edu/login.php">login</a> before you can use this page.</div>';
+	echo '<div class="entry">You need to <a href="./login.php">login</a> before you can use this page.</div>';
 
 } else {
 
@@ -89,7 +89,7 @@ echo<<<END
 	$force
 
 	<p>Please make sure to update your Local Address and Littles each semester!</p>
-	<p>If you wish to change your password, please go <a href="http://apo.truman.edu/members_updatepw.php">here</a>.</p>
+	<p>If you wish to change your password, please go <a href="./login_updatepw.php">here</a>.</p>
 	<p>Please verify <b>ALL</b> fields</p>
 
 		<form method="POST">

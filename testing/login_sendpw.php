@@ -31,7 +31,7 @@ function str_rand($length = 8, $seeds = 'alphanum')
     return $str;
 }
 
-require("class.phpmailer.php");
+require("./phpmailer/class.phpmailer.php");
 echo "Mail being prepared.";
 $mail = new PHPMailer();
 $mail->IsSMTP();                                      // set mailer to use SMTP
