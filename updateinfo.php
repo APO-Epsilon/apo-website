@@ -1,5 +1,6 @@
 ﻿<?php
 require_once ('session.php');
+require_once ('mysql_access.php');
 ?>
 <!doctype html>
 <html>
@@ -14,10 +15,7 @@ require_once ('session.php');
 
     <!-- Javascript method to include header -->
     <div id="header"><?php include 'header.php';?></div>
- <?php
-require_once ('mysql_access.php');
-page_header();
-?>
+
 <div class="row">
 
 <?php
@@ -45,7 +43,7 @@ if (!isset($_SESSION['sessionID'])) {
 			echo $_SESSION[active_sem];
 
 		} else {
-			echo "There may have been an error.  Click <a href='http://apo.truman.edu/members_updateinfo.php'>here</a> to try again.";
+			echo "There may have been an error.  Click <a href='./updateinfo.php'>here</a> to try again.";
 			$_SESSION[active_sem] = $current_semester;
 			echo $_SESSION[active_sem];
 		}

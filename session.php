@@ -13,17 +13,18 @@ function page_header() {
     // Evil code to force memembers to update their information each new semester.
     // Seriously, evil.  You cannot do anything until you update.
     // -- Stephen Quinn
-  global $current_semester;
+ global $current_semester;
   if (isset($_SESSION['active_sem'])) {
     if ($_SESSION['active_sem'] != $current_semester) {
-      if (($_SERVER["REQUEST_URI"] != "/testing/updateinfo.php?forced=true") AND ($_SERVER["REQUEST_URI"] != "/testing/updateinfo.php")) {
+      if (($_SERVER["REQUEST_URI"] != "/updateinfo.php?forced=true") AND ($_SERVER["REQUEST_URI"] != "/updateinfo.php")) {
 
-          header( 'Location: /testing/updateinfo.php' ) ;
+          header( 'Location: ./updateinfo.php' ) ;
 
       }
     }
   }
 }
+
 function exec_links(){
 
  echo "<div class='entry'><a href='quizdate.php'>Risk Management Quiz Completion date.</a><br/><a href='pledgesummary.php'>Pledge Service Summary.</a><br/><a href='summary.php'>Chapter Service Summary.</a><br/><a href='execmail.php'>Exec e-mail list</a><br/><a href='exec_file_uploader.php'>Exec website file uploader</a><br/><a href='verifyhoursspring07.php'>Check Spring 2007 Service Hours</a><br/><a href='verifyhoursspring08.php'>Check Spring 2008 Service Hours</a><br/><a href='verifyhoursfall08.php'>Check Fall 2008 Service Hours</a></div>";
