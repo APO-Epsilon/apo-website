@@ -42,6 +42,7 @@
                     <li><a href="attendance_check.php">Check Attendance</a></li>
                     <li><a href="check_hours.php">Check Hours</a></li>
                     <li><a href="edit_exec.php">Edit Exec</a></li>
+                    <li><a href="member_statuses.php">Edit Members</a></li>
                 </ul>
         </li>
 	</ul>
