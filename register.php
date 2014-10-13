@@ -198,9 +198,10 @@ echo <<<END
 			<label for="regpass">Registration PW</label>
 				<input type="text" name="regpass" />
 
-			<input type="hidden" name="stage" value="process" />
-
-			 		<p align="center"><input type="submit" value="Register" /></p>
+			 		<p align="center">
+			 		<input type="hidden" name="stage" value="Process" />
+			 		<input type="submit" value="Register" />
+			 		</p>
 			</form>
 		</div>
 END;
@@ -264,7 +265,7 @@ function process_form() {
 	{
 	  echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
 	  print_form();
-	} else if ($regpass == 'SpringRush2014') {
+	} else if ($regpass == 'FallRush2014') {
 		$insert = "INSERT INTO `contact_information` (firstname,
 		lastname, username, password, homeaddress, citystatezip,
 		localaddress, email, phone, bmonth, bday, byear, schoolyear, major,
