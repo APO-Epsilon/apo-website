@@ -1,5 +1,6 @@
 <?php
 require_once ('session.php');
+require_once ('mysql_access.php');
 ?>
 <!doctype html>
 <html>
@@ -17,7 +18,6 @@ require_once ('session.php');
     <!-- PHP method to include header -->
     <?php
 $result = '';
-require_once ('mysql_access.php');
 
 function top_hours() {
 	//$sql = "SELECT id FROM contact_information WHERE status = 'Active' OR status = 'Pledge' OR status = 'Elected' OR status = 'Appointed'";
