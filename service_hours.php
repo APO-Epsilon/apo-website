@@ -368,6 +368,7 @@ END;
 		<hr>
 <?php echo <<<END
 	<h2>Current Hours for $current_semester</h2>
+	<a href="top_hours.php">Click here to see the Top Hours</a><br>
 END;
 ?>
 <?php
