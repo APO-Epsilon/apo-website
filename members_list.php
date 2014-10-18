@@ -28,7 +28,11 @@ if (!isset($_SESSION['sessionID'])) {
 ?>
 	<div class='large-12 medium-12 small-12 column'>
 		<h1>Member Information</h1>
-		<p>Here you can find a list of members in Epsilon (who have registered on the website).  If you wish to update your information displayed here, please go <a href="./updateinfo.php">here</a>.</p>
+		<p>Here you can find a list of members in Epsilon (who have registered on the website).  If you wish to update your information displayed here, please go <a href="./updateinfo.php">here</a>.
+		</p>
+		<h5>
+		<a href="http://familyecho.com/?p=GT11Y&c=gcv7hl4fx6&f=484622734175584762#view:GT11Y">Click here to view the family tree</a>.
+		</h5>
 	</div>
 </div>
 <div class="row">
