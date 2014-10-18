@@ -64,10 +64,14 @@ function process_login(){
 		$_SESSION['sessionID'] = 'Alumni';
 		echo "<p>You have succesfully logged in as Alumni.</p>";
 	} else {
+		$hash_select =mysql_query("SELECT password FROM contact_information WHERE username='$username'");
+		$hash_pass = mysql_result ($hash_select, 0);
+		if ( password_verify( $password, $hash_pass ) ) {
 			$select = "SELECT *
 			FROM contact_information
-			WHERE username='$username' AND password= '$password'";
-			$query = mysql_query($select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com");
+			WHERE username='$username'";
+		 }
+			$query = mysql_query($select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com. $hash_pass");
 			$r = mysql_fetch_array($query);
 			if (!$r) {
 				print_login(1);
@@ -86,12 +90,6 @@ function process_login(){
 		$_SESSION['sessionID'] = $id;
 		$_SESSION['active_sem'] = $active_sem;
 		$_SESSION['sessionStatus'] = $status;
-
-		//Psuedo webmaster User_id 378
-		if($id==378){
-			$_SESSION['sessionposition'] = "Webmaster";
-			$_SESSION['sessionexec'] = 1;
-		}
 
 
 		$sql = "SELECT * FROM `contact_information`

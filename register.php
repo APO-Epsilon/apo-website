@@ -235,20 +235,14 @@ function process_form() {
 //	$position = $_POST['position'];
 	$regpass = $_POST['regpass'];
 	global $active_semester;
-
-//	if ($status == "Appointed" || $status == "Elected") {
-//		$exec = 1;
-//	}
-//	else {
-//		$exec = 0;
-//	}
-
 	$exec = 0;
+
+	$hash = password_hash( $password, PASSWORD_DEFAULT );
 
 	$firstname = htmlspecialchars($firstname, ENT_QUOTES);
 	$lastname = htmlspecialchars($lastname, ENT_QUOTES);
 	$username = htmlspecialchars($username, ENT_QUOTES);
-	$password = htmlspecialchars($password, ENT_QUOTES);
+	$password = htmlspecialchars($hash, ENT_QUOTES);
 	$homeaddress = htmlspecialchars($homeaddress, ENT_QUOTES);
 	$citystatezip = htmlspecialchars($citystatezip, ENT_QUOTES);
 	$localaddress = htmlspecialchars($localaddress, ENT_QUOTES);

@@ -32,12 +32,12 @@ if (!isset($_SESSION['sessionID'])) {
 			// Update Information
 			$_POST = array_map('mysql_real_escape_string', $_POST);
 			$user_id = $_SESSION['sessionID'];
-
-		//	$sql = "UPDATE `contact_information` SET `new_password` = PASSWORD('$_POST[new_password_1]') WHERE `id` = '$user_id' AND `new_password` = PASSWORD('$_POST[old_password]') LIMIT 1";
-			$sql = "UPDATE `contact_information` SET `password` = '".$_POST['new_password_1']."' WHERE `id` = ".$user_id." LIMIT 1";
+            $password = $_POST['new_password_1'];
+            $hash = password_hash( $password, PASSWORD_DEFAULT );
+			$sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
 			$result = mysql_query($sql);
 			if (mysql_affected_rows() == 1) {
-				echo "Your password has been updated.";
+				echo "Your password has been updated. $hash";
 			} else {
 				echo "Your password was not changed.  Did you input the correct old password?  Click <a href='./login_updatepw.php'>here</a> to try again.";
 			}

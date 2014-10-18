@@ -53,6 +53,7 @@ if (!$r) {
 	$subject = "APO Epsilon Password Request";
 
 	$new_password = str_rand(15, 'alphanum');
+    $hash = password_hash( $new_password, PASSWORD_DEFAULT );
 
 	$emailToSend = $firstname . " " . $lastname . ",\n\n" .
 					"We have received your forgotten password request.  If you did not submit this request, please let the webmaster know as soon as possible so security measures can be taken.\n \n" .
@@ -72,7 +73,7 @@ if (!$r) {
 		echo "Mailer Error: " . $mail->ErrorInfo;
 		exit;
 	} else {
-		$sql = "UPDATE `contact_information` SET `password` = '$new_password' WHERE id = '$id'";
+		$sql = "UPDATE `contact_information` SET `password` = '$hash' WHERE id = '$id'";
 		$query = mysql_query($sql) or die("If you encounter problems, please contact the webmaster.");
 		echo "Message has been sent.";
 	}
