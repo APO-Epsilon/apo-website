@@ -112,15 +112,15 @@ if (isset($_GET['filter'])) {
 	$filter = $_GET['filter'];
 
 	if ($filter == 'Actives') {
-		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Active'";
+		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Active' ORDER BY `lastname`";
 	} elseif ($filter == 'Inactives') {
-		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Inactive'";
+		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Inactive' ORDER BY `lastname`";
 	} elseif ($filter == 'board') {
-		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Elected' OR `status` = 'Appointed'";
+		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Elected' OR `status` = 'Appointed' ORDER BY `lastname`";
 	} elseif ($filter == 'exec') {
-		$sql = "SELECT * FROM `contact_information` WHERE `exec` = '1'";
+		$sql = "SELECT * FROM `contact_information` WHERE `exec` = '1' ORDER BY `lastname`";
 	} elseif ($filter == 'pledge') {
-		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Pledge' OR `status` = 'Pledge Exec'";
+		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'Pledge' OR `status` = 'Pledge Exec' ORDER BY `lastname`";
 	} elseif ($filter == 'poor_standing') {
 		$sql = "SELECT * FROM `contact_information` WHERE `status` = 'poor_standing'";
 	}elseif ($filter == 'all') {
