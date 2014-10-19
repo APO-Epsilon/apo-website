@@ -1,5 +1,8 @@
 <?php
 require_once ('mysql_access.php');
+require_once ('session.php');
+require_once ('PasswordHash.php');
+
 function str_rand($length = 8, $seeds = 'alphanum')
 {
     // Possible seeds
