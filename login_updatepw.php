@@ -1,6 +1,7 @@
 <?php
 require_once ('session.php');
 require_once ('mysql_access.php');
+require("PasswordHash.php");
 ?>
 <!doctype html>
 <html>
@@ -33,7 +34,8 @@ if (!isset($_SESSION['sessionID'])) {
 			$_POST = array_map('mysql_real_escape_string', $_POST);
 			$user_id = $_SESSION['sessionID'];
             $password = $_POST['new_password_1'];
-            $hash = password_hash( $password, PASSWORD_DEFAULT );
+            $hasher = new PasswordHash(8, true);
+            $hash = $hasher->HashPassword($password);
 			$sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
 			$result = mysql_query($sql);
 			if (mysql_affected_rows() == 1) {

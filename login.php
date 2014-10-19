@@ -1,6 +1,7 @@
 ﻿<?php
 require_once ('session.php');
 require_once ('mysql_access.php');
+require_once ('PasswordHash.php');
 ?>
 <!doctype html>
 <html>
@@ -55,6 +56,7 @@ END;
 function process_login(){
 	$username = addslashes($_POST["username"]);
 	$password = addslashes($_POST["password"]);
+	$hasher = new PasswordHash(8, true);
 
 	if ($username == 'alumni' AND $password == 'forgetmenot') {
 		$_SESSION['sessionUsername'] = 'Alumni';
@@ -64,15 +66,49 @@ function process_login(){
 		$_SESSION['sessionID'] = 'Alumni';
 		echo "<p>You have succesfully logged in as Alumni.</p>";
 	} else {
-		$hash_select =mysql_query("SELECT password FROM contact_information WHERE username='$username'");
-		$hash_pass = mysql_result ($hash_select, 0);
-		if ( password_verify( $password, $hash_pass ) ) {
-			$select = "SELECT *
-			FROM contact_information
-			WHERE username='$username'";
-		 }
-			$query = mysql_query($select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com. $hash_pass");
+		//connect to database
+		$DB_HOST = 'mysql.truman.edu';
+		$DB_NAME = 'apo';
+		$DB_USER = 'apo';
+		$DB_PASS = 'glueallE17';
+		$DB_PORT = 3306;
+		$db = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, $DB_PORT);
+		if (mysqli_connect_errno())
+			fail('MySQL connect', mysqli_connect_error());
+		//validate operation code
+		$op = $_POST['logstate'];
+		if ($op !== 'new' && $op !== 'login'){
+			fail('Unknown request');}
+
+		if ($op === 'new') {
+		$hash = $hasher->HashPassword($password);
+		if (strlen($hash) < 20)
+			fail('Failed to hash new password');
+		unset($hasher);
+
+		$what = 'User created';
+}
+		else {
+			$hash = '*'; // In case the user is not found
+			($stmt = $db->prepare('select password from contact_information where username=?'));
+			$stmt->bind_param('s', $username);
+			$stmt->execute();
+			$stmt->bind_result($hash);
+			if (!$stmt->fetch() && $db->errno);
+
+			if ($hasher->CheckPassword($password, $hash)) {
+				$what = 'Authentication succeeded';
+				$select = "SELECT * FROM contact_information WHERE username='$username'";
+				$query = mysql_query($select) or die("Unable to get data.");
 			$r = mysql_fetch_array($query);
+			} else {
+				$what = 'Authentication failed';
+			}
+			unset($hasher);
+		}
+
+		echo "$what\n";
+
 			if (!$r) {
 				print_login(1);
 				exit();

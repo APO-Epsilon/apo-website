@@ -53,7 +53,8 @@ if (!$r) {
 	$subject = "APO Epsilon Password Request";
 
 	$new_password = str_rand(15, 'alphanum');
-    $hash = password_hash( $new_password, PASSWORD_DEFAULT );
+    $hasher = new PasswordHash(8, true);
+    $hash = $hasher->HashPassword($new_password);
 
 	$emailToSend = $firstname . " " . $lastname . ",\n\n" .
 					"We have received your forgotten password request.  If you did not submit this request, please let the webmaster know as soon as possible so security measures can be taken.\n \n" .
