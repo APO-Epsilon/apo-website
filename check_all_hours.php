@@ -23,7 +23,7 @@ function top_hours() {
 	//$sql = "SELECT id FROM contact_information WHERE status = 'Active' OR status = 'Pledge' OR status = 'Elected' OR status = 'Appointed'";
 	//$users = mysql_query($sql);
 
-	$sql = "SELECT id, firstname, lastname, status, SUM(hours) AS 'sum_hours', COUNT(DISTINCT servicetype) AS Num_Cs, SUM(hours * fundraising) AS 'fundraising' FROM  recorded_hours, contact_information WHERE contact_information.id = recorded_hours.user_id AND (status = 'Active' OR status = 'Pledge' OR status = 'Appointed' OR status = 'Elected' OR status = 'Associate') GROUP BY user_id ORDER BY lastname, firstname";
+	$sql = "SELECT id, firstname, lastname, status, IFNULL(rec_hours.sum_hours, 0) AS 'sum_hours', IFNULL(rec_hours.Num_Cs, 0) AS Num_Cs, IFNULL(rec_hours.fundraising, 0) AS 'fundraising' FROM  contact_information LEFT JOIN (SELECT user_id, SUM(hours) AS 'sum_hours', COUNT(DISTINCT servicetype) AS 'Num_Cs', SUM(hours*fundraising) AS 'fundraising' FROM recorded_hours GROUP BY user_id) rec_hours ON contact_information.id = rec_hours.user_id WHERE (status = 'Active' OR status = 'Pledge' OR status = 'Appointed' OR status = 'Elected' OR status = 'Associate') ORDER BY lastname, firstname";
 	$data = mysql_query($sql);
 
 	//$sql = "SELECT user_id, SUM(hours) AS 'sum_hours' FROM recorded_hours WHERE event = 'Non-APO Hours' GROUP BY user_id";
