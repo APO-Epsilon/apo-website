@@ -39,7 +39,7 @@ if (!isset($_SESSION['sessionID'])) {
 			$sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
 			$result = mysql_query($sql);
 			if (mysql_affected_rows() == 1) {
-				echo "Your password has been updated. $hash";
+				echo "Your password has been updated.";
 			} else {
 				echo "Your password was not changed.  Did you input the correct old password?  Click <a href='./login_updatepw.php'>here</a> to try again.";
 			}
