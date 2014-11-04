@@ -27,6 +27,7 @@ require_once ('session.php');
             <br>
             </p>
 
+            Test info
         </div>
     </div>
     <!-- Javascript method to include footer -->
