@@ -1,11 +1,11 @@
 <?php
 error_reporting(-1);
-$DBServer = 'mysql.truman.edu';
+$DBServer = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
 $DBUser   = 'apo';
-$DBPass   = 'glueallE17';
+$DBPass   = 'alphaphiomega';
 $DBName   = 'apo';
 // really bad way
-$db = mysql_connect("mysql.truman.edu", "apo", "glueallE17");
+$db = mysql_connect("mysql.truman.edu", "apo", "alphaphiomega");
 if (!$db) {
         print "Error - Could not connect to mysql";
         exit;
