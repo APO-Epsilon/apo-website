@@ -27,10 +27,10 @@ page_header();
 ?>
 
 <?php
-if ($_SESSION['sessionposition'] = "Webmaster" OR $_SESSION['sessionID'] = 426 OR $_SESSION['sessionID'] = 443) {
-		whoami();
+if ($_SESSION['sessionposition'] != "Webmaster" AND $_SESSION['sessionID'] != 426 AND $_SESSION['sessionID'] != 443) {
+	echo "<p>You need to be a member of the webmaster committee to see this section.</p>";
 	} else {
-	    echo "<p>You need to be a member of the webmaster committee to see this section.</p>";
+		whoami()
 	  }
 ?>
 
