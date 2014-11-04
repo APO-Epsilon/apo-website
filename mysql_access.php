@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com');
 define('DB_NAME', 'apo');
 define('DB_USER','apo');
 define('DB_PASSWORD','alphaphiomega');
