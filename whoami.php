@@ -17,13 +17,11 @@ require_once ('mysql_access.php');
     <div id="header"><?php include 'header.php';?></div>
     <!-- PHP method to include header -->
     <?php
-$result = '';
 
 function whoami() {
   echo "<p>Work in Progress.</p>";
 }
 
-page_header();
 ?>
 
 <?php
