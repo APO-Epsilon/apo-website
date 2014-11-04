@@ -67,10 +67,10 @@ function process_login(){
 		echo "<p>You have succesfully logged in as Alumni.</p>";
 	} else {
 		//connect to database
-		$DB_HOST = 'mysql.truman.edu';
+		$DB_HOST = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
 		$DB_NAME = 'apo';
 		$DB_USER = 'apo';
-		$DB_PASS = 'glueallE17';
+		$DB_PASS = 'alphaphiomega';
 		$DB_PORT = 3306;
 		$db = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, $DB_PORT);
 		if (mysqli_connect_errno())
