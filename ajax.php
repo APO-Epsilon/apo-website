@@ -25,9 +25,9 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 	 echo " Unanswered Question  : <span class='highlight'>". $unanswered."</span><br>";
 	 echo "</div>";
 	 if ($right_answer >= ($i-1)) {
-		$sql = "UPDATE `contact_information` SET `risk_management`=NOW() WHERE id='$user_id'";
+		$sql = "UPDATE `contact_information` SET `risk_management`=CURDATE() WHERE id='$user_id'";
 		$update = mysql_query($sql);
-		echo "<h2>You have passed the quiz! </h2> $update";
+		echo "<h2>You have passed the quiz! </h2> $update. user id = $user_id. sql = $sql.";
 	 }
 
 /*$limit=$_POST['question_num'];
