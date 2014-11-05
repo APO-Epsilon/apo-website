@@ -1,4 +1,5 @@
 <?php
+require_once ('session.php');
 require_once 'mysql_access.php';
 
 $response=mysql_query("SELECT id,question_name,answer FROM questions");
