@@ -18,7 +18,6 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 		       $wrong_answer++;
 		   }
 		   $i++;
-		   echo "$right_answer and $i. ";
 	 }
 	 echo "<div id='answer'>";
 	 echo " Right Answer  : <span class='highlight'>". $right_answer."</span><br>";
@@ -28,7 +27,7 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 	 if ($right_answer >= ($i-1)) {
 		$sql = "UPDATE `contact_information` SET `risk_management`=CURDATE() WHERE id='$user_id'";
 		$update = mysql_query($sql);
-		echo "<h2>You have passed the quiz! </h2> $update. user id = $user_id. sql = $sql.";
+		echo "<h2>You have passed the quiz! </h2>";
 	 }
 
 /*$limit=$_POST['question_num'];
