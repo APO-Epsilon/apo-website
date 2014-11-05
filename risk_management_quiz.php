@@ -39,7 +39,11 @@ if (passed_quiz()) {
 }?>
 
 <?php $response=mysql_query("SELECT * FROM questions");?>
-
+<?php
+if (!isset($_SESSION['sessionID'])) {
+    echo '<div class="entry">You need to login before you can use this page.</div>';
+} else {
+echo <<<END
 <br>
 <form method='post' id='quiz_form'>
     <?php while($result=mysql_fetch_array($response)){ ?>
@@ -66,6 +70,9 @@ if (passed_quiz()) {
 </form>
 <div id='result'>
 </div>
+END;
+}
+?>
 <script src="./js/watch.js"></script>
 <script src="./js/quiz.js"></script>
     <!-- Javascript method to include footer -->
