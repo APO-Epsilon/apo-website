@@ -32,14 +32,10 @@ require_once ('mysql_access.php');
         }
     }
 }
-if (!isset($_SESSION['sessionID'])) {
-
-        echo "<p>You need to login before you can see the rest of this section.</p>";
-}else{
-    if (passed_quiz()) {
-        echo "<h2>You have passed the quiz!</h2>";
-    } else {
-        echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
+if (passed_quiz()) {
+    echo "<h2>You have passed the quiz!</h2>";
+} else {
+    echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
 
 $response=mysql_query("SELECT * FROM questions");
 echo <<<END
@@ -70,7 +66,6 @@ echo <<<END
 <div id='result'>
 </div>
 END;
-}
 }?>
 <script src="./js/watch.js"></script>
 <script src="./js/quiz.js"></script>
