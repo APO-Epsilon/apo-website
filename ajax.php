@@ -6,6 +6,7 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 	 $right_answer=0;
 	 $wrong_answer=0;
 	 $unanswered=0;
+	 $user_id = $_SESSION['sessionID'];
 	 while($result=mysql_fetch_array($response)){
 	       if($result['answer']==$_POST["$i"]){
 		       $right_answer++;
@@ -20,23 +21,18 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 	 }
 	 echo "<div id='answer'>";
 	 echo " Right Answer  : <span class='highlight'>". $right_answer."</span><br>";
-
 	 echo " Wrong Answer  : <span class='highlight'>". $wrong_answer."</span><br>";
-
 	 echo " Unanswered Question  : <span class='highlight'>". $unanswered."</span><br>";
 	 echo "</div>";
 	 if ($right_answer >= ($i-1)) {
-	 	$user_id = $_SESSION['sessionID'];
 		$sql = "UPDATE `contact_information` SET `risk_management`=NOW() WHERE id='$user_id'";
-		$result = mysql_query($sql);
-		echo "<h2>You have passed the quiz!</h2>";
+		$update = mysql_query($sql);
+		echo "<h2>You have passed the quiz! </h2> $update";
 	 }
-
 
 /*$limit=$_POST['question_num'];
 //$limit1=$limit+1;
 $response=mysql_query("select * from questions");
-
 
 $data=array();
 $data1=array();
