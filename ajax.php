@@ -16,7 +16,7 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 		       $wrong_answer++;
 		   }
 		   $i++;
-		   echo "$right_answer and $i";
+		   echo "$right_answer and $i. ";
 	 }
 	 echo "<div id='answer'>";
 	 echo " Right Answer  : <span class='highlight'>". $right_answer."</span><br>";
@@ -25,7 +25,7 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 
 	 echo " Unanswered Question  : <span class='highlight'>". $unanswered."</span><br>";
 	 echo "</div>";
-	 if ($right_answer >= $i) {
+	 if ($right_answer >= ($i-1)) {
 	 	$user_id = $_SESSION['sessionID'];
 		$sql = "UPDATE `contact_information` SET `risk_management`=NOW() WHERE id='$user_id'";
 		$result = mysql_query($sql);
