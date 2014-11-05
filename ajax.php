@@ -16,6 +16,7 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 		       $wrong_answer++;
 		   }
 		   $i++;
+		   echo "$right_answer and $i";
 	 }
 	 echo "<div id='answer'>";
 	 echo " Right Answer  : <span class='highlight'>". $right_answer."</span><br>";
