@@ -301,6 +301,8 @@ if (isset($_POST['stage']) && ('process' == $_POST['stage'])) {
 	print_form();
 }
 
+echo "$_POST['stage']";
+
 echo "</div>";
 ?>
 
