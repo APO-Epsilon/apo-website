@@ -1,7 +1,7 @@
 ﻿<?php
 require_once ('session.php');
 require_once ('mysql_access.php');
-require("PasswordHash.php");
+require_once ("PasswordHash.php");
 ?>
 <!doctype html>
 <html>
@@ -294,7 +294,7 @@ END;
 //if not, process the form
 
 page_header();
-echo "$_POST['stage']";
+
 if (isset($_POST['stage']) && ('process' == $_POST['stage'])) {
    process_form();
 } else {

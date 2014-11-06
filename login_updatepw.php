@@ -1,7 +1,7 @@
 <?php
 require_once ('session.php');
 require_once ('mysql_access.php');
-require("PasswordHash.php");
+require_once ("PasswordHash.php");
 ?>
 <!doctype html>
 <html>
