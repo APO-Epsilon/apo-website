@@ -1,6 +1,7 @@
 ﻿<?php
 require_once ('session.php');
 require_once ('mysql_access.php');
+require("PasswordHash.php");
 ?>
 <!doctype html>
 <html>
@@ -237,7 +238,8 @@ function process_form() {
 	global $active_semester;
 	$exec = 0;
 
-	$hash = password_hash( $password, PASSWORD_DEFAULT );
+	$hasher = new PasswordHash(8, true);
+	$hash = $hasher->HashPassword($password);
 
 	$firstname = htmlspecialchars($firstname, ENT_QUOTES);
 	$lastname = htmlspecialchars($lastname, ENT_QUOTES);
@@ -292,7 +294,7 @@ END;
 //if not, process the form
 
 page_header();
-
+echo "$_POST['stage']";
 if (isset($_POST['stage']) && ('process' == $_POST['stage'])) {
    process_form();
 } else {
