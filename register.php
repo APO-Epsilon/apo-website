@@ -23,7 +23,7 @@ function print_form() {
 echo <<<END
 	<div class="row">
 		<div class="large-6 medium-6 small-12 columns"
-			<form method="POST">
+			<form action="$_SERVER[PHP_SELF]" method="POST">
 			<b>Personal</b><br>
 				<label for="first_name">First Name</label>
 				<input type="text" name="firstname"/>
