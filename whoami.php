@@ -16,18 +16,19 @@ require_once ('mysql_access.php');
     <!-- Javascript method to include header -->
     <div id="header"><?php include 'header.php';?></div>
     <!-- PHP method to include header -->
-
 <?php
-
 function whoami() {
   echo "<p>Work in Progress.</p>";
-
 }
-
-whoami();
-
 ?>
 
+<?php
+if ($_SESSION['sessionID'] != 426) {
+	echo "<p>You need to be a member of the webmaster committee to see this section.</p>";
+} else {
+	whoami();
+}
+?>
 
 </div>
     <!-- Javascript method to include footer -->
