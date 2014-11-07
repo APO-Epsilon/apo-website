@@ -20,7 +20,7 @@ require_once ('mysql_access.php');
 
 function whoami() {
   echo "<p>Work in Progress.</p>";
-  $id = 426
+  $id = '426'
   echo "<p>$id</p>";
 }
 whoami();
