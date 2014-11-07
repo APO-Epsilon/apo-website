@@ -16,11 +16,16 @@ require_once ('mysql_access.php');
     <!-- Javascript method to include header -->
     <div id="header"><?php include 'header.php';?></div>
     <!-- PHP method to include header -->
-    <?php
+
+<?php
+
 function whoami() {
   echo "<p>Work in Progress.</p>";
+
 }
+
 whoami();
+
 ?>
 
 
