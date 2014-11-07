@@ -42,7 +42,7 @@ require_once ("PasswordHash.php");
     $famflower = $_POST['famflower'];
     $bigbro = $_POST['bigbro'];
     $littlebro = $_POST['littlebro'];
-    $servicecontract = $_POST['servicecontract'];
+    //$servicecontract = $_POST['servicecontract'];
     $status = $_POST['status'];
 //  $position = $_POST['position'];
     $regpass = $_POST['regpass'];

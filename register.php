@@ -117,8 +117,8 @@ require_once ('mysql_access.php');
 				<label for="bigbro">Big Brothers</label>
 					<input type="text" name="bigbro"/>
 				<br>
-				<label for="lilbro">Little Brothers</label>
-					<input type="text" name="lilbro" value=""/>
+				<label for="littlebro">Little Brothers</label>
+					<input type="text" name="littlebro" value=""/>
 		</div>
 		<div class="large-6 medium-6 small-12 columns">
 			<b>School</b><br>
