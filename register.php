@@ -200,7 +200,7 @@ echo <<<END
 				<input type="text" name="regpass" />
 
 			 		<p align="center">
-			 		<input type="hidden" name="stage" value="Process" />
+			 		<input type="hidden" name="stage" value="process" />
 			 		<input type="submit" value="Register" />
 			 		</p>
 			</form>
