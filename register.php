@@ -18,7 +18,7 @@ require_once ('mysql_access.php');
     <!-- PHP method to include header -->
 
 	<div class="row">
-		<div class="large-10 medium-11 small-12 columns"
+		<div class="large-10 medium-11 small-12 columns">
 			<form action="register_process.php" method="POST">
 			<b>Personal</b><br>
 				<label for="first_name">First Name</label>
