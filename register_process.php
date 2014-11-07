@@ -71,7 +71,6 @@ require_once ("PasswordHash.php");
     if ($firstname == NULL || $lastname == NULL || $username == NULL || $password == NULL || $email == NULL  ||  $regpass == NULL )
     {
       echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
-      print_form();
     } else if ($regpass == 'FallRush2014') {
         $insert = "INSERT INTO `contact_information` (firstname,
         lastname, username, password, homeaddress, citystatezip,
