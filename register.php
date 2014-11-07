@@ -194,6 +194,7 @@ require_once ('mysql_access.php');
 			 		<input type="submit">
 			 		</p>
 			</form>
+    </div>
 </div>
 
     <!-- Javascript method to include footer -->
