@@ -21,7 +21,6 @@ require_once ('mysql_access.php');
 function whoami() {
   echo "<p>Work in Progress.</p>";
   $id = '426';
-  print_r($id);
 }
 whoami();
 ?>
