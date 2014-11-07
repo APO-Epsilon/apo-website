@@ -20,7 +20,7 @@ require_once ('mysql_access.php');
 
 function whoami() {
   echo "<p>Work in Progress.</p>";
-  $id = $_SESSION['SessionID'];
+  $id = 426
   echo "<p>$id</p>";
 }
 whoami();
