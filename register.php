@@ -18,7 +18,7 @@ require_once ('mysql_access.php');
     <!-- PHP method to include header -->
 
 	<div class="row">
-		<div class="large-6 medium-6 small-12 columns"
+		<div class="large-10 medium-11 small-12 columns"
 			<form action="register_process.php" method="POST">
 			<b>Personal</b><br>
 				<label for="first_name">First Name</label>
@@ -120,7 +120,6 @@ require_once ('mysql_access.php');
 				<label for="lilbro">Little Brothers</label>
 					<input type="text" name="lilbro" value="">
 		</div>
-		<div class="large-6 medium-6 small-12 columns">
 			<b>School</b><br>
 				<label name="major">Major</label>
 					<input type="text" name="major">
@@ -178,11 +177,7 @@ require_once ('mysql_access.php');
 				<label for="perm"></label>
 					<input type="text" name="citystatezip">
 				<br>
-		</div>
-	</div>
 	<br>
-	<div class="row">
-		<div class="large-12 medium-12 small-12 columns">
 			<b>Login</b><br>
 				<label for="username">Username*</label>
 					<input type="text" name="username" >
@@ -200,7 +195,6 @@ require_once ('mysql_access.php');
 			 		<input type="submit">
 			 		</p>
 			</form>
-		</div>
 </div>
 
     <!-- Javascript method to include footer -->
