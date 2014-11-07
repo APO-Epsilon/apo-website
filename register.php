@@ -18,14 +18,14 @@ require_once ('mysql_access.php');
     <!-- PHP method to include header -->
 
 	<div class="row">
-		<div class="large-10 medium-11 small-12 columns">
+		<div class="large-6 medium-6 small-12 columns">
 			<form action="register_process.php" method="POST">
 			<b>Personal</b><br>
 				<label for="first_name">First Name</label>
-				<input type="text" name="firstname">
+				<input type="text" name="firstname"/>
 			<br>
 				<label for="last_name">Last Name</label>
-				<input type="text" name="lastname" >
+				<input type="text" name="lastname" />
 			<br>
 				<label for="birthday">Birthday</label>
 					<select name="bmonth" id="bmonth">
@@ -75,7 +75,7 @@ require_once ('mysql_access.php');
 						<option>30</option>
 						<option>31</option>
 					</select>
-					<input name="byear" type="text" size="8" maxlength="4">
+					<input name="byear" type="text" size="8" maxlength="4"/>
 				<br>
 
 			<b>APO</b><br>
@@ -115,17 +115,19 @@ require_once ('mysql_access.php');
 					</select>
 				<br>
 				<label for="bigbro">Big Brothers</label>
-					<input type="text" name="bigbro">
+					<input type="text" name="bigbro"/>
 				<br>
 				<label for="lilbro">Little Brothers</label>
-					<input type="text" name="lilbro" value="">
+					<input type="text" name="lilbro" value=""/>
+		</div>
+		<div class="large-6 medium-6 small-12 columns">
 			<b>School</b><br>
 				<label name="major">Major</label>
-					<input type="text" name="major">
+					<input type="text" name="major"/>
 				<br>
 
 				<label for="minor">Minor</label>
-					<input type="text" name="minor">
+					<input type="text" name="minor"/>
 				<br>
 
 				<label for="gradmonth">Graduation Date</label>
@@ -158,43 +160,47 @@ require_once ('mysql_access.php');
 
 			<b>Contact</b><br>
 				<label for="email">Email</label>
-					<input type="text" name="email">
+					<input type="text" name="email"/>
 				<br>
 
 				<label for="phone">Phone</label>
-					<input type="text" name="phone">
+					<input type="text" name="phone"/>
 				<br>
 
 				<label for="local">Local Address</label>
-					<input type="text" name="localaddress">
+					<input type="text" name="localaddress"/>
 				<br>
 
 				<label for="perm">Permanent Address</label>
-					<input type="text" name="homeaddress">
+					<input type="text" name="homeaddress"/>
 				<br>
 
 				<label for="perm"></label>
-					<input type="text" name="citystatezip">
+					<input type="text" name="citystatezip"/>
 				<br>
+		</div>
+	</div>
 	<br>
+	<div class="row">
+		<div class="large-12 medium-12 small-12 columns">
 			<b>Login</b><br>
 				<label for="username">Username*</label>
-					<input type="text" name="username" >
+					<input type="text" name="username" />
 			<br>
 
 			<label for="password">Password</label>
-				<input type="password" name="password" >
+				<input type="password" name="password" />
 			<br>
 
 			<label for="regpass">Registration PW</label>
-				<input type="text" name="regpass" >
+				<input type="text" name="regpass" />
 
 			 		<p align="center">
-			 		<input type="hidden" name="stage" value="process" >
-			 		<input type="submit">
+			 		<input type="hidden" name="stage" value="process" />
+			 		<input type="submit" value="Register" />
 			 		</p>
 			</form>
-    </div>
+		</div>
 </div>
 
     <!-- Javascript method to include footer -->
