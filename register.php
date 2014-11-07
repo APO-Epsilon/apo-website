@@ -119,7 +119,6 @@ require_once ('mysql_access.php');
 				<br>
 				<label for="lilbro">Little Brothers</label>
 					<input type="text" name="lilbro" value="">
-		</div>
 			<b>School</b><br>
 				<label name="major">Major</label>
 					<input type="text" name="major">
