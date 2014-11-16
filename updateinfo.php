@@ -37,15 +37,15 @@ if (!isset($_SESSION['sessionID'])) {
 		//stupid code. causes error if nothing changed.
 		//if (mysql_affected_rows() == 1) {
 		//use this instead
-		if($result && $_POST[race] != "" && $_POST[gender] != 0){
+		if($result && $_POST['race'] != "" && $_POST['gender'] != 0){
 			echo "Your information has been updated.  Click <a href='./updateinfo.php'>here</a> to make more changes.";
-			$_SESSION[active_sem] = $current_semester;
-			echo $_SESSION[active_sem];
+			$_SESSION['active_sem'] = $current_semester;
+			echo $_SESSION['active_sem'];
 
 		} else {
 			echo "There may have been an error.  Click <a href='./updateinfo.php'>here</a> to try again.";
-			$_SESSION[active_sem] = $current_semester;
-			echo $_SESSION[active_sem];
+			$_SESSION['active_sem'] = $current_semester;
+			echo $_SESSION['active_sem'];
 		}
 	} else {
 
