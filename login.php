@@ -110,10 +110,6 @@ function process_login(){
 
 		if (!$r) {
 			print_login(1);
-			exit();
-		}
-		if (!$r) {
-			print_login(1);
 		} else {
 		extract($r);
 
