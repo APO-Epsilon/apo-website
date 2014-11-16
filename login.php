@@ -88,6 +88,7 @@ function process_login(){
 		$what = 'User created';
 		}
 		else {
+			$r = NULL;
 			$hash = '*'; // In case the user is not found
 			($stmt = $db->prepare('select password from contact_information where username=?'));
 			$stmt->bind_param('s', $username);
@@ -99,18 +100,19 @@ function process_login(){
 				$what = 'Authentication succeeded';
 				$select = "SELECT * FROM contact_information WHERE username='$username'";
 				$query = mysql_query($select) or die("Unable to get data.");
-			$r = mysql_fetch_array($query);
+				$r = mysql_fetch_array($query);
 			} else {
 				$what = 'Authentication failed.  Please try again.';
 			}
 			unset($hasher);
-			if (!$r) {
-			print_login(1);
-			} else {
-			extract($r);
 		}
 
 		echo "$what\n";
+
+		if (!$r) {
+			print_login(1);
+		} else {
+		extract($r);
 
 		$_SESSION['sessionUsername'] = $username;
 		$_SESSION['sessionFirstname'] = $firstname;
