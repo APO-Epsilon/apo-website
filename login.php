@@ -26,7 +26,7 @@ echo "<div class='row'>";
 function print_login(){
 	$error_message = "";
 	if (!isset($_GET['continue'])) {
-		$error_message = "<font color='red'>Your submitted the wrong username or password. Please try again or contact the webmaster.</font><br/>";
+		echo "$error_message";
 	}
 	if(isset($_GET['continue'])){
 		session_register('continue');
@@ -151,6 +151,7 @@ function logout(){
     	process_login();
 	}else if (!isset($_SESSION['sessionID'])){
 		print_login();
+		$error_message = "<font color='red'>Wrong username or password. Please try again or contact the webmaster.</font><br/>";
 	}else {
 	}
 echo <<<END
