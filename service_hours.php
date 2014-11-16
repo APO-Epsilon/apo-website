@@ -209,7 +209,7 @@ if (!isset($_SESSION['sessionID'])) {
 } else {
 
 echo $result;
-
+DateTimeZone::UTC;
 $month_no = date('n');
 $month_name = date('M');
 $day_of_month = date('j');
