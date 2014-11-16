@@ -23,9 +23,9 @@ require_once ('PasswordHash.php');
 //echo"<body style=\"background-color:#EBEBEB\" OnLoad=\"document.loginform.username.focus();\">";
 //page_header();
 echo "<div class='row'>";
-function print_login($error){
+function print_login(){
 	$error_message = "";
-	if ($error) {
+	if (!isset($_GET['continue'])) {
 		$error_message = "<font color='red'>Your submitted the wrong username or password. Please try again or contact the webmaster.</font><br/>";
 	}
 	if(isset($_GET['continue'])){
