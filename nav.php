@@ -25,7 +25,7 @@
 		<li>
 			<a href="?active" aria-haspopup="true"><span>Active</span></a>
             <ul>
-            		<li><a href="login.php">Login</a></li>
+            		<li><a href="login.php">Login/Logout</a></li>
                     <li><a href="attendance.php">Attendance</a></li>
                     <li><a href="https://docs.google.com/document/d/15-J7-iN9vKM0x3l0wS_EtOiuRgd-lAal-sa-UomSXBY">Bylaws</a></li>
                     <li><a href="calendar.php">Calendar</a></li>
