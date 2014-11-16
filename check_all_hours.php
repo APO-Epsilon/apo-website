@@ -18,8 +18,8 @@ require_once ('mysql_access.php');
 	}
 	table.hours{}
 	</style>
-</head>
 
+</head>
 <body>
     <!-- Javascript method to include navigation -->
     <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
@@ -129,3 +129,4 @@ if ($_SESSION['sessionexec'] != 1) {
     <div id="footer"><?php include 'footer.php';?></div>
     <!-- PHP method to include footer -->
 </body>
+</html>
