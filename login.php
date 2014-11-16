@@ -99,7 +99,7 @@ function process_login(){
 				$what = 'Authentication succeeded';
 				$select = "SELECT * FROM contact_information WHERE username='$username'";
 				$query = mysql_query($select) or die("Unable to get data.");
-				$r = mysql_fetch_array($query);
+			$r = mysql_fetch_array($query);
 			} else {
 				$what = 'Authentication failed.  Please try again.';
 			}
@@ -112,6 +112,9 @@ function process_login(){
 			print_login(1);
 			exit();
 		}
+		if (!$r) {
+			print_login(1);
+		} else {
 		extract($r);
 
 		$_SESSION['sessionUsername'] = $username;
