@@ -6,6 +6,18 @@ require_once ('mysql_access.php');
 <html>
 <head>
     <?php require 'head.php';?>
+    <style>
+	tr.row_1{
+	background: #CCC;
+	}
+	tr.header{
+	background: #BBB;
+	}
+	table.hours td{
+	padding: 5px 10px;
+	}
+	table.hours{}
+	</style>
 </head>
 
 <body>
@@ -99,18 +111,6 @@ END;
 
 page_header();
 ?>
-<style>
-	tr.row_1{
-	background: #CCC;
-	}
-	tr.header{
-	background: #BBB;
-	}
-	table.hours td{
-	padding: 5px 10px;
-	}
-	table.hours
-</style>
 
 <div class="row">
 
