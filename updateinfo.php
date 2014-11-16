@@ -38,7 +38,7 @@ if (!isset($_SESSION['sessionID'])) {
 		//if (mysql_affected_rows() == 1) {
 		//use this instead
 		if($result && $_POST['race'] != "" && $_POST['gender'] != 0){
-			echo "Your information has been updated.  Click <a href='./updateinfo.php'>here</a> to make more changes.";
+			echo "Your information has been updated.  Click <a href='./updateinfo.php'>here</a> to make more changes. ";
 			$_SESSION['active_sem'] = $current_semester;
 			echo $_SESSION['active_sem'];
 
