@@ -26,7 +26,6 @@ echo "<div class='row'>";
 function print_login(){
 	$error_message = "";
 	if (!isset($_GET['continue'])) {
-		echo "$error_message";
 	}
 	if(isset($_GET['continue'])){
 		session_register('continue');
@@ -100,22 +99,19 @@ function process_login(){
 				$what = 'Authentication succeeded';
 				$select = "SELECT * FROM contact_information WHERE username='$username'";
 				$query = mysql_query($select) or die("Unable to get data.");
-			$r = mysql_fetch_array($query);
+				$r = mysql_fetch_array($query);
 			} else {
-				$what = 'Authentication failed';
+				$what = 'Authentication failed.  Please try again.';
 			}
 			unset($hasher);
 		}
 
 		echo "$what\n";
 
-			if (!$r) {
-				print_login(1);
-				exit();
-			}
 		if (!$r) {
 			print_login(1);
-		} else {
+			exit();
+		}
 		extract($r);
 
 		$_SESSION['sessionUsername'] = $username;
@@ -151,7 +147,6 @@ function logout(){
     	process_login();
 	}else if (!isset($_SESSION['sessionID'])){
 		print_login();
-		$error_message = "<font color='red'>Wrong username or password. Please try again or contact the webmaster.</font><br/>";
 	}else {
 	}
 echo <<<END
