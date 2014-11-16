@@ -86,7 +86,7 @@ function process_login(){
 		unset($hasher);
 
 		$what = 'User created';
-}
+		}
 		else {
 			$hash = '*'; // In case the user is not found
 			($stmt = $db->prepare('select password from contact_information where username=?'));
@@ -104,14 +104,13 @@ function process_login(){
 				$what = 'Authentication failed.  Please try again.';
 			}
 			unset($hasher);
+			if (!$r) {
+			print_login(1);
+			} else {
+			extract($r);
 		}
 
 		echo "$what\n";
-
-		if (!$r) {
-			print_login(1);
-		} else {
-		extract($r);
 
 		$_SESSION['sessionUsername'] = $username;
 		$_SESSION['sessionFirstname'] = $firstname;
