@@ -5,6 +5,8 @@ Epsilon's chapter management website
 
 First things first: the README.md file is written in Markdown (that's the way github does it).  [Here is a guide](http://daringfireball.net/projects/markdown/basics) on what Markdown syntax looks like, in case you ever need to edit this README file.
 
+For more in depth info, check [the WIKI](https://github.com/APO-Epsilon/apo-website/wiki).
+
 ###Info for connecting to the server
 The server is hosted on an Amazon Linux EC2 Instance through the apo.epsilon.webmaster account.
 In the Important Files folder of the apo.epsilon.webmaster Google Drive, you shoudl find all the files you should need to connect through SSH to the server.
