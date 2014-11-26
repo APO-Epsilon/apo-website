@@ -70,8 +70,8 @@ function list_stats($hours_id, $semester) {
 	// Total Hours
 	$sql = "SELECT SUM('hours') AS `sum_hours` FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours. $db->error");
-echo "mysqli_fetch_array($results)";
-	while($i = mysqli_fetch_array($results)) {
+echo "mysqli_fetch_array($results, MYSQLI_ASSOC)";
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		$total_hours = round($i['sum_hours'], 2);
 		echo "<span>Total Hours:</span> $total_hours<br/>";
 	}
@@ -81,7 +81,7 @@ echo "mysqli_fetch_array($results)";
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `event` != 'Non-APO Hours'  AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		$apo_hours = round($i['sum_hours'], 2);
 		echo "<span>APO Hours:</span> $apo_hours<br/>";
 	}
@@ -91,7 +91,7 @@ echo "mysqli_fetch_array($results)";
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Chapter'  AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		echo "<span>Chapter Hours:</span> $i[sum_hours]<br/>";
 	}
 	$results->free();
@@ -101,7 +101,7 @@ echo "mysqli_fetch_array($results)";
 
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		echo "<span>Campus Hours:</span> $i[sum_hours]<br/>";
 	}
 	$results->free();
@@ -110,7 +110,7 @@ echo "mysqli_fetch_array($results)";
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Community'  AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		$community_hours = round($i['sum_hours'], 2);
 		echo "<span>Community Hours:</span> $community_hours<br/>";
 	}
@@ -120,7 +120,7 @@ echo "mysqli_fetch_array($results)";
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Country'  AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		echo "<span>Country Hours:</span> $i[sum_hours]<br/>";
 	}
 	$results->free();
@@ -129,7 +129,7 @@ echo "mysqli_fetch_array($results)";
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `fundraising` = '1'  AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		echo "<span>Fundraising Hours:</span> $i[sum_hours]<br/>";
 	}
 	$results->free();
@@ -139,7 +139,7 @@ echo "mysqli_fetch_array($results)";
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `event` = 'Bought Hours'  AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		echo "<span>Bought Hours:</span> $i[sum_hours]<br/>";
 	}
 	$results->free();
@@ -155,7 +155,7 @@ function list_hours($hours_id) {
 	<table cellpadding='0' cellspacing='0' class='hours_table'>
 	<tr class='hours_header'><td>Event</td><td>Date</td><td>Type</td><td>Hours</td><td>Description</td><td>Semester</td><td></td></tr>";
 	$inc = 1;
-	while ($i = mysqli_fetch_array($results)) {
+	while ($i = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
 		if (($inc % 2) == 1) {
 			$hours_line = "class='hours_row1'";
 		} else {
