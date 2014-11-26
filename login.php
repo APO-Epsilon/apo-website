@@ -1,6 +1,6 @@
 ﻿<?php
 require_once ('session.php');
-include_once ('mysql_access.php');
+require_once ('mysql_access.php');
 require_once ('PasswordHash.php');
 ?>
 <!doctype html>

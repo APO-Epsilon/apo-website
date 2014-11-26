@@ -9,13 +9,8 @@ $DBPass   = 'alphaphiomega';
 $DBName   = 'apo';
 
 // Object oriented way (good way)
-$db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
 
-// check connection
-if ($db->connect_error) {
-  trigger_error('Database connection failed: '  . $db->connect_error, E_USER_ERROR);
-}
-/*
+
 class rds_mysqli extends mysqli {
     public function __construct($DBServer, $DBUser, $DBPass, $DBName) {
         parent::__construct($DBServer, $DBUser, $DBPass, $DBName);
@@ -25,7 +20,14 @@ class rds_mysqli extends mysqli {
                     . mysqli_connect_error());
         }
     }
-}*/
+}
+$db = new rds_mysqli($DBServer, $DBUser, $DBPass, $DBName);
+
+// check connection
+if ($db->connect_error) {
+  trigger_error('Database connection failed: '  . $db->connect_error, E_USER_ERROR);
+}
+
 //example way of doing a more readable sql query
 /*
 $sql = <<<SQL
