@@ -89,6 +89,7 @@ function process_login(){
 
 			if ($hasher->CheckPassword($password, $hash)) {
 				$what = 'Authentication succeeded';
+				$stmt->close();
 				$select = "SELECT * FROM contact_information WHERE username=`$username`";
 				$query = $db->query($select) or die("Unable to get data. $db->error");
 				$r = $query->store_result();
