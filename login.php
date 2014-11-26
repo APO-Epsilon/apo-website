@@ -1,6 +1,5 @@
 ﻿<?php
 require_once ('session.php');
-require_once $_SERVER['DOCUMENT_ROOT'].'/mysql_access.php';
 require_once ('PasswordHash.php');
 ?>
 <!doctype html>
@@ -53,6 +52,7 @@ END;
 	echo(isset($_SESSION['continue']) ? $_SESSION['continue'] : '');
 }
 function process_login(){
+	require_once $_SERVER['DOCUMENT_ROOT'].'/mysql_access.php';
 	$username = addslashes($_POST["username"]);
 	$password = addslashes($_POST["password"]);
 	$hasher = new PasswordHash(8, true);
