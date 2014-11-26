@@ -39,11 +39,11 @@ if (passed_quiz()) {
     echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
 }?>
 
-<?php $response=mysql_query("SELECT * FROM questions");?>
+<?php $response=$db->query("SELECT * FROM questions");?>
 
 <br>
 <form method='post' id='quiz_form'>
-    <?php while($result=mysql_fetch_array($response)){ ?>
+    <?php while($result=mysqli_fetch_array($response)){ ?>
     <div id="question_<?php echo $result['id'];?>" class='questions'>
     <h3 id="question_<?php echo $result['id'];?>"><?php echo $result['id'].".".$result['question_name'];?></h3>
     <div class='align'>
