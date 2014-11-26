@@ -19,11 +19,12 @@ require_once ('mysql_access.php');
 <div class="row">
 
 <?php function passed_quiz() {
+    include ('mysql_access.php');
     if (isset($_SESSION['sessionID'])) {
         $user_id = $_SESSION['sessionID'];
         $sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
-        $result = mysql_query($sql);
-        $row = mysql_fetch_array($result);
+        $result = $db->query($sql);
+        $row = mysqli_fetch_array($result);
         if ($row['risk_management'] != "0000-00-00") {
             return true;
         }
