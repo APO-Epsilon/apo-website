@@ -65,15 +65,6 @@ function process_login(){
 		$_SESSION['sessionID'] = 'Alumni';
 		echo "<p>You have succesfully logged in as Alumni.</p>";
 	} else {
-		//connect to database
-		$DB_HOST = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
-		$DB_NAME = 'apo';
-		$DB_USER = 'apo';
-		$DB_PASS = 'alphaphiomega';
-		$DB_PORT = 3306;
-		$db = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, $DB_PORT);
-		if (mysqli_connect_errno())
-			fail('MySQL connect', mysqli_connect_error());
 		//validate operation code
 		$op = $_POST['logstate'];
 		if ($op !== 'new' && $op !== 'login'){
@@ -99,8 +90,8 @@ function process_login(){
 			if ($hasher->CheckPassword($password, $hash)) {
 				$what = 'Authentication succeeded';
 				$select = "SELECT * FROM contact_information WHERE username='$username'";
-				$query = mysql_query($select) or die("Unable to get data.");
-				$r = mysql_fetch_array($query);
+				$query = $db->query($select) or die("Unable to get data.");
+				$r = $query->fetch_assoc();
 			} else {
 				$what = 'Authentication failed.  Please try again.';
 			}
@@ -128,7 +119,7 @@ function process_login(){
 				WHERE `lastname` = '".$lastname."'
 				AND `firstname` = '".$firstname."'
 				AND `username` = '".$username."'";
-		$result = mysql_query($sql);
+		$result = $db->query($sql);
 
 			echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
 
