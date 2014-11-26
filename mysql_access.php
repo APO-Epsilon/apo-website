@@ -15,7 +15,17 @@ $db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
 if ($db->connect_error) {
   trigger_error('Database connection failed: '  . $db->connect_error, E_USER_ERROR);
 }
+/*
+class rds_mysqli extends mysqli {
+    public function __construct($DBServer, $DBUser, $DBPass, $DBName) {
+        parent::__construct($DBServer, $DBUser, $DBPass, $DBName);
 
+        if (mysqli_connect_error()) {
+            die('Connect Error (' . mysqli_connect_errno() . ') '
+                    . mysqli_connect_error());
+        }
+    }
+}*/
 //example way of doing a more readable sql query
 /*
 $sql = <<<SQL
