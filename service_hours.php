@@ -68,7 +68,7 @@ return $result;
 function list_stats($hours_id, $semester) {
 	include ('mysql_access.php');
 	// Total Hours
-	$sql = "SELECT SUM(hours) AS `sum_hours` FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `semester` = '$semester' LIMIT 1";
+	$sql = "SELECT SUM('hours') AS `sum_hours` FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
 
 	while($i = $db->fetch_array($results)) {
