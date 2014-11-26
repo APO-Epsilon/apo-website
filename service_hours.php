@@ -1,5 +1,7 @@
 <?php
 require_once ('session.php');
+require ('mysql_access.php');
+
 ?>
 <!doctype html>
 <html>
@@ -18,7 +20,6 @@ require_once ('session.php');
 
 <?php
 $result = '';
-require_once ('mysql_access.php');
 global $current_semester;
 global $previous_semester;
 function process_form() {
