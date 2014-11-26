@@ -1,8 +1,8 @@
 <?php
 function list_members($sql) {
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or exit("Error");
+	$result = mysql_query($sql) or exit("Error");
 	
-	while ($row = mysqli_fetch_array($result)) {
+	while ($row = mysql_fetch_array($result)) {
 		echo<<<END
 	<tr>
 		<td>

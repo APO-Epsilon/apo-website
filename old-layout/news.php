@@ -13,9 +13,9 @@ $sql = "SELECT ns.index, ns.who, ns.seen, n.index, n.message AS message, n.times
 		AND ns.who = ".$userID."
 		ORDER BY n.timestamp DESC
 		LIMIT 1";
-$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-if(mysqli_num_rows($result) != 0){
-	while($r = mysqli_fetch_array($result)){
+$result = mysql_query($sql);
+if(mysql_num_rows($result) != 0){
+	while($r = mysql_fetch_array($result)){
 		$message = $r['message'];
 		$timestamp = $r['timestamp'];
 	}
@@ -23,7 +23,7 @@ if(mysqli_num_rows($result) != 0){
 }
 
 $sql = "UPDATE news_seen AS ns SET ns.seen = 1 WHERE ns.who = ".$userID."";
-$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+$result = mysql_query($sql);
 if($result){
 	echo "";
 }else{

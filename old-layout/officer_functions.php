@@ -7,8 +7,8 @@ function get_exec_info($p) {
 		die("invalid page");
 	}else{
 		$sql = "SELECT * FROM positions WHERE `position_id` = $p LIMIT 1";
-		$query_result = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or exit("There was an error, if this persists, please contact the webmaster.");
-		$result = mysqli_fetch_array($query_result);
+		$query_result = mysql_query($sql) or exit("There was an error, if this persists, please contact the webmaster.");
+		$result = mysql_fetch_array($query_result);
 		return $result;
 	}
 }
@@ -19,9 +19,9 @@ function exec_title($result) {
 
 function execs_in_position($result) {
 	$sql = "SELECT `firstname`, `lastname` FROM `contact_information` WHERE `position` = '$result[position]'";
-	$query_result = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or exit("There was an error.");
+	$query_result = mysql_query($sql) or exit("There was an error.");
 
-	while ($row = mysqli_fetch_array($query_result)) {
+	while ($row = mysql_fetch_array($query_result)) {
 		echo "<h2>$row[firstname] $row[lastname]</h2>";
 		exec_email($result);
 	}
@@ -54,10 +54,10 @@ function last_upload($id) {
 			FROM  `upload` ,  `contact_information`
 			WHERE upload.upload_id = contact_information.id
 			ORDER BY  `date` DESC LIMIT 5";*/
-	$query = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die('The search failed.');
+	$query = mysql_query($sql) or die('The search failed.');
 
 	echo("<br/>Most recent Blue & Gold uploaded to the website<br/>");
-	while ($r = mysqli_fetch_array($query)) {
+	while ($r = mysql_fetch_array($query)) {
 		echo<<<END
 			<tr>
 			<!--<td>$r[folder] /</td>-->

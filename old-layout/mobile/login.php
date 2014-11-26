@@ -57,8 +57,8 @@ function process_login(){
 $select = "SELECT *
 			FROM contact_information
 			WHERE username='$username' AND password= '$password'";
-			$query = mysqli_query($GLOBALS["___mysqli_ston"], $select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com");
-			$r = mysqli_fetch_array($query);
+			$query = mysql_query($select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com");
+			$r = mysql_fetch_array($query);
 			if (!$r) {
 				print_login(1);
 				exit();
@@ -92,7 +92,7 @@ $select = "SELECT *
 		//the below code refreshed the page if the current user logs in.
 		//if(isset($_GET['continue'])){'<meta HTTP-EQUIV="REFRESH" content="0; url=http://apo.truman.edu/'.$continue.'">');}
 			$sql = "SELECT * FROM `contact_information` WHERE `lastname` = '".$lastname."' AND `firstname` = '".$firstname."' AND `username` = '".$username."'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 				
 			echo('<meta HTTP-EQUIV="REFRESH" content="0; url=http://apo.truman.edu/mobile.php">');
 			

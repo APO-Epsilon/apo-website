@@ -5,8 +5,8 @@ require_once ('officer_functions.php');
 global $current_semester;
 		$ids = $_SESSION['sessionID'];
 		$sql = "SELECT * FROM `apo`.`contact_information` WHERE id = '".$ids."'";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($row = mysqli_fetch_array($result)){
+			$result = mysql_query($sql);
+			while($row = mysql_fetch_array($result)){
   				$firstname = $row['firstname'];
   				$lastname = $row['lastname'];}
 page_header();?>
@@ -37,15 +37,15 @@ page_header();?>
 
 
 	$sql = "SELECT * FROM `first_30` WHERE hours >= 3 ORDER BY timestamp ASC";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			$num_rows = mysqli_num_rows($result);
-				while($row = mysqli_fetch_array($result)){
+		$result = mysql_query($sql);
+			$num_rows = mysql_num_rows($result);
+				while($row = mysql_fetch_array($result)){
 					$id[$a] = $row['id'];
 					$hours[$a] = $row['hours'];
 	$sql1 = "SELECT firstname, lastname FROM `contact_information` WHERE id = '".$id[$a]."'";
-		$result1 = mysqli_query($GLOBALS["___mysqli_ston"], $sql1);
+		$result1 = mysql_query($sql1);
 			$i = 0;
-			while($row1 = mysqli_fetch_array($result1)){
+			while($row1 = mysql_fetch_array($result1)){
 				$first = $row1['firstname'];
 				$last = $row1['lastname'];
 				echo($first.' '.$last.'<br />');

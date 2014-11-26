@@ -8,9 +8,9 @@ function newEvent(){
 	$eventName = $_POST['projectName'];
 	//insert the values
 	$sql = "INSERT INTO `service_events` (name) VALUES ('".$eventName."')";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
-		die("something went wrong".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)).((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)));
+		die("something went wrong".mysql_error().mysql_errno());
 	}else{
 		refresh();
 	}
@@ -38,9 +38,9 @@ function eventDetails(){
 			(event_id, DOW, start, end, length, max)
 			VALUES (".$event_id.", '".$DOW."',
 				'".$start."','".$end."',".$length.",".$max.")";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
-		die("something went wrong<br/>".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false))."<br/>".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false))."<p>".$sql);
+		die("something went wrong<br/>".mysql_error()."<br/>".mysql_errno()."<p>".$sql);
 	}else{
 		refresh();
 	}
@@ -53,9 +53,9 @@ function assignPL(){
 	$d_id = $_POST['event'];
 	//insert the values
 	$sql = "INSERT INTO `service_leaders` (`detail_id`, `user_id`) VALUES (".$d_id.",".$id.")";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
-		die("something went wrong<br/>".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false))."<br/>".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false))."<p>".$sql);
+		die("something went wrong<br/>".mysql_error()."<br/>".mysql_errno()."<p>".$sql);
 	}else{
 		refresh();
 	}
@@ -75,13 +75,13 @@ function displayProjectList(){
 			JOIN service_events AS e
 			ON d.event_id = e.P_Id
 			ORDER BY d.detail_id";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
 		die("error");
 	}else{
 		echo "<table border=0 class=\"displayListingTable\">";
 		echo "<tr class=\"displayListing\"><td>day</td><td>event</td><td>name</td><td>start</td><td>end</td><td></td></tr>";
-				while($r = mysqli_fetch_array($result)){
+				while($r = mysql_fetch_array($result)){
 					$user_id = $r['id'];
 					$detail_id = $r['detail_id'];
 					$firstname = $r['firstname'];
@@ -127,9 +127,9 @@ function removePL($detail_id, $user_id){
 	$sql = "DELETE FROM service_leaders
 			WHERE detail_id = $detail_id
 			AND user_id = $user_id LIMIT 1";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
-		die("something went wrong".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false))."<br/>");
+		die("something went wrong".mysql_error()."<br/>");
 	}else{
 		refresh();
 	}
@@ -139,9 +139,9 @@ function removeEvent($detail_id){
 
 	$sql = "DELETE FROM service_details
 			WHERE detail_id = $detail_id LIMIT 1";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
-		die("something went wrong".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false))."<br/>");
+		die("something went wrong".mysql_error()."<br/>");
 	}else{
 		refresh();
 	}
@@ -156,8 +156,8 @@ function modifyEvent($detail_id){
 			JOIN service_details AS d
 			ON e.P_Id = d.event_id
 			WHERE detail_id=$detail_id";
-	$query = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die("error".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-	while ($r = mysqli_fetch_array($query)) {
+	$query = mysql_query($sql) or die("error".mysql_error());
+	while ($r = mysql_fetch_array($query)) {
 				$detail_id = $r['detail_id'];
 				$day = $r['DOW'];
 				$DOW = date('w', strtotime($r['DOW']));
@@ -186,8 +186,8 @@ function modifyEvent2($P_Id){
 
 	
 	$sql = "SELECT * FROM service_events WHERE P_Id = $P_Id";
-	$query = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die("error".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)).$sql);
-	while ($r = mysqli_fetch_array($query)) {
+	$query = mysql_query($sql) or die("error".mysql_error().$sql);
+	while ($r = mysql_fetch_array($query)) {
 				$P_Id = $r['P_Id'];
 				$name = $r['name'];
 				$description = $r['description'];
@@ -213,7 +213,7 @@ function modifyEvent2($P_Id){
 
 function submitModifyEvent($start,$end,$max,$length,$detail_id){
 	$sql = "UPDATE service_details SET start='".$start."',end='".$end."',length=$length,max=$max WHERE detail_id = ".$detail_id;
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if($result){
 	refresh();
 	}
@@ -221,7 +221,7 @@ function submitModifyEvent($start,$end,$max,$length,$detail_id){
 
 function submitModifyEvent2($d, $l, $n, $P){
 	$sql = "UPDATE service_events SET description = '".$d."', location = '".$l."', notes = '".$n."' WHERE P_Id = ".$P."";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if($result){
 	refresh();
 	}

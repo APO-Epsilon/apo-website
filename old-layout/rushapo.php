@@ -5,7 +5,7 @@ require_once ('mysql_access.php');
 page_header();
 
 $searchquery = "SELECT `firstname`, `lastname`, `email` FROM apo.contact_information WHERE `position` = 'Rush Chairman' GROUP BY lastname, firstname ;";
-$search = mysqli_query($GLOBALS["___mysqli_ston"], $searchquery) or die("SEARCH FAILED");
+$search = mysql_query($searchquery) or die("SEARCH FAILED");
 
 if ($_SESSION['sessionexec'] == 17) {echo('<a href="//apo.truman.edu/rush_apo.php">edit this page</a>');}
 
@@ -19,7 +19,7 @@ echo<<<END
 <p>The Rush Chairs are in charge of organizing Rush Week each semester and helping potential pledges discover what APO is all about.  This semester's chairs are:
 <ul>
 END;
-while ($rname = mysqli_fetch_array($search)) {
+while ($rname = mysql_fetch_array($search)) {
 	extract($rname);
 	print "<li><b>$rname[firstname] $rname[lastname]</b>";
 	print " (<a href='mailto:$email'>$email</a>)</li>";

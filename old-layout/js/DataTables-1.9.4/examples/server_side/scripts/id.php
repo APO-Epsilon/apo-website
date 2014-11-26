@@ -42,12 +42,12 @@
 	/* 
 	 * MySQL connection
 	 */
-	if ( ! $gaSql['link'] = ($GLOBALS["___mysqli_ston"] = mysqli_connect( $gaSql['server'],  $gaSql['user'],  $gaSql['password']  )) )
+	if ( ! $gaSql['link'] = mysql_pconnect( $gaSql['server'], $gaSql['user'], $gaSql['password']  ) )
 	{
 		fatal_error( 'Could not open connection to server' );
 	}
 
-	if ( ! ((bool)mysqli_query( $gaSql['link'] , "USE $gaSql['db']")) )
+	if ( ! mysql_select_db( $gaSql['db'], $gaSql['link'] ) )
 	{
 		fatal_error( 'Could not select database ' );
 	}
@@ -59,8 +59,8 @@
 	$sLimit = "";
 	if ( isset( $_GET['iDisplayStart'] ) && $_GET['iDisplayLength'] != '-1' )
 	{
-		$sLimit = "LIMIT ".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iDisplayStart'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : "")).", ".
-			((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iDisplayLength'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+		$sLimit = "LIMIT ".mysql_real_escape_string( $_GET['iDisplayStart'] ).", ".
+			mysql_real_escape_string( $_GET['iDisplayLength'] );
 	}
 	
 	
@@ -76,7 +76,7 @@
 			if ( $_GET[ 'bSortable_'.intval($_GET['iSortCol_'.$i]) ] == "true" )
 			{
 				$sOrder .= $aColumns[ intval( $_GET['iSortCol_'.$i] ) ]."
-				 	".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSortDir_'.$i] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : "")) .", ";
+				 	".mysql_real_escape_string( $_GET['sSortDir_'.$i] ) .", ";
 			}
 		}
 		
@@ -102,7 +102,7 @@
 		{
 			if ( isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" )
 			{
-				$sWhere .= $aColumns[$i]." LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSearch'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%' OR ";
+				$sWhere .= $aColumns[$i]." LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' OR ";
 			}
 		}
 		$sWhere = substr_replace( $sWhere, "", -3 );
@@ -122,7 +122,7 @@
 			{
 				$sWhere .= " AND ";
 			}
-			$sWhere .= $aColumns[$i]." LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_GET['sSearch_'.$i]) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%' ";
+			$sWhere .= $aColumns[$i]." LIKE '%".mysql_real_escape_string($_GET['sSearch_'.$i])."%' ";
 		}
 	}
 	
@@ -138,14 +138,14 @@
 		$sOrder
 		$sLimit
 	";
-	$rResult = mysqli_query( $gaSql['link'] ,  $sQuery) or fatal_error( 'MySQL Error: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) );
+	$rResult = mysql_query( $sQuery, $gaSql['link'] ) or fatal_error( 'MySQL Error: ' . mysql_errno() );
 	
 	/* Data set length after filtering */
 	$sQuery = "
 		SELECT FOUND_ROWS()
 	";
-	$rResultFilterTotal = mysqli_query( $gaSql['link'] ,  $sQuery) or fatal_error( 'MySQL Error: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) );
-	$aResultFilterTotal = mysqli_fetch_array($rResultFilterTotal);
+	$rResultFilterTotal = mysql_query( $sQuery, $gaSql['link'] ) or fatal_error( 'MySQL Error: ' . mysql_errno() );
+	$aResultFilterTotal = mysql_fetch_array($rResultFilterTotal);
 	$iFilteredTotal = $aResultFilterTotal[0];
 	
 	/* Total data set length */
@@ -153,8 +153,8 @@
 		SELECT COUNT(".$sIndexColumn.")
 		FROM   $sTable
 	";
-	$rResultTotal = mysqli_query( $gaSql['link'] ,  $sQuery) or fatal_error( 'MySQL Error: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) );
-	$aResultTotal = mysqli_fetch_array($rResultTotal);
+	$rResultTotal = mysql_query( $sQuery, $gaSql['link'] ) or fatal_error( 'MySQL Error: ' . mysql_errno() );
+	$aResultTotal = mysql_fetch_array($rResultTotal);
 	$iTotal = $aResultTotal[0];
 	
 	
@@ -168,7 +168,7 @@
 		"aaData" => array()
 	);
 	
-	while ( $aRow = mysqli_fetch_array( $rResult ) )
+	while ( $aRow = mysql_fetch_array( $rResult ) )
 	{
 		$row = array();
 		

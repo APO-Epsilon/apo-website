@@ -71,9 +71,9 @@ if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
 				"VALUES ('$fileName', '$fileSize', '$fileType', '$upload_id', '$folder', '$date', '$content')";
 
 							
-				mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die("<h1>A MySQL error has occurred.<br /> Error: (" . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) . ") " . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . "</h1>"); 
+				mysql_query($sql) or die("<h1>A MySQL error has occurred.<br /> Error: (" . mysql_errno() . ") " . mysql_error() . "</h1>"); 
 				
-				$upload_id = ((is_null($___mysqli_res = mysqli_insert_id($GLOBALS["___mysqli_ston"]))) ? false : $___mysqli_res);
+				$upload_id = mysql_insert_id();
 				$sql = "UPDATE `apo.upload` SET `content` = '$content' WHERE id = $upload_id";
 				//print $sql;
 				$message = "<h3 style='color: green;'>File uploaded</h3>";

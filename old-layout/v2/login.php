@@ -104,8 +104,8 @@ function process_login(){
 			$select = "SELECT *
 			FROM contact_information
 			WHERE username='$username' AND password= '$password'";
-			$query = mysqli_query($GLOBALS["___mysqli_ston"], $select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com");
-			$r = mysqli_fetch_array($query);
+			$query = mysql_query($select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com");
+			$r = mysql_fetch_array($query);
 			if (!$r) {
 				print_login(1);
 				exit();
@@ -135,8 +135,8 @@ function process_login(){
 				WHERE `lastname` = '".$lastname."' 
 				AND `firstname` = '".$firstname."' 
 				AND `username` = '".$username."'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($row = mysqli_fetch_array($result)){ 
+		$result = mysql_query($sql);
+			while($row = mysql_fetch_array($result)){ 
 				$visited = $row['visited'];}
 				
 			echo('<meta HTTP-EQUIV="REFRESH" content="0; url=http://apo.truman.edu/">');//}

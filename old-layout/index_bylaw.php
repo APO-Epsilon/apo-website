@@ -3,8 +3,8 @@ require_once ('layout.php');
 require_once ('mysql_access.php');
 $id = $_SESSION['sessionID'];
 		$sql = "SELECT * FROM `apo`.`contact_information` WHERE id = '".$id."'";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($row = mysqli_fetch_array($result)){
+			$result = mysql_query($sql);
+			while($row = mysql_fetch_array($result)){
   				$firstname = $row['firstname'];
   				$lastname = $row['lastname'];}
   	/*	$sql1 = "SELECT * FROM `responses` WHERE user_id=".$id."";

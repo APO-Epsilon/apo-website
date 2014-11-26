@@ -8,14 +8,14 @@ function create_backup()
 {
 	$sql = "CREATE TABLE IF NOT EXISTS contact_information_temp 
 			SELECT * FROM contact_information";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 		if(!$result)
 		{
 			die("something went wrong on step 1");
 		
 		}else{
 			$sql = "DROP TABLE IF EXISTS contact_information_backup_temp";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			$result = mysql_query($sql);
 				if(!$result)
 				{
 					die("something went wrong on step 2");
@@ -23,7 +23,7 @@ function create_backup()
 				}else{
 					$sql = "RENAME TABLE contact_information_temp
 							TO contact_information_backup_temp";
-					$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+					$result = mysql_query($sql);
 						if(!$result)
 						{
 							die("something went wrong on step 3");

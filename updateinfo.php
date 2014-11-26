@@ -31,9 +31,9 @@ if (!isset($_SESSION['sessionID'])) {
 		$_POST = array_map('mysql_real_escape_string', $_POST);
 		$user_id = $_SESSION['sessionID'];
 		$sql = "UPDATE `contact_information` SET `firstname` = '$_POST[first_name]', `lastname` = '$_POST[last_name]', `homeaddress` = '$_POST[homeaddress]',  `citystatezip` = '$_POST[citystatezip]',  `localaddress` = '$_POST[local_address]',  `email` = '$_POST[email]',  `phone` = '$_POST[phone]',  `schoolyear` = '$_POST[school_year]',  `major` = '$_POST[major]',  `minor` = '$_POST[minor]',  `gradmonth` = '$_POST[grad_month]',  `gradyear` = '$_POST[grad_year]',  `pledgesem` = '$_POST[pledgesem]',  `pledgeyear` = '$_POST[pledge_year]',  `famflower` = '$_POST[family_flower]',  `bigbro` = '$_POST[bigbro]',  `littlebro` = '$_POST[littlebro]',  `status` = '$_POST[status]', `bday` = '$_POST[bday]',  `bmonth` = '$_POST[bmonth]', `byear` = '$_POST[byear]', `active_sem` = '$current_semester' , `hide_info` = 'F',`gender` = '$_POST[gender]', `race` = '$_POST[race]' WHERE id = '$user_id' LIMIT 1";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 		$sql2 = "UPDATE `contact_information` SET visited = '1' WHERE id = '$user_id' LIMIT 1";
-		$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+		$result2 = mysql_query($sql2);
 		//stupid code. causes error if nothing changed.
 		//if (mysql_affected_rows() == 1) {
 		//use this instead
@@ -51,9 +51,9 @@ if (!isset($_SESSION['sessionID'])) {
 
 		$user_id = $_SESSION['sessionID'];
 		$sql = "SELECT * FROM `contact_information` WHERE `id` = '$user_id' LIMIT 1";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 
-		$row = mysqli_fetch_array($result);
+		$row = mysql_fetch_array($result);
 
 		$b_day = mktime(0, 0, 0, $row['bmonth'], 1, 2000);
 		$month = date('F', $b_day);

@@ -12,8 +12,8 @@ require_once ('service_functions.php');
 global $current_semester;
 		$id = $_SESSION['sessionID'];
 		$sql = "SELECT * FROM `apo`.`contact_information` WHERE id = '".$id."'";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($row = mysqli_fetch_array($result)){
+			$result = mysql_query($sql);
+			while($row = mysql_fetch_array($result)){
   				$firstname = $row['firstname'];
   				$lastname = $row['lastname'];}
 page_header();

@@ -32,10 +32,10 @@
 	/* 
 	 * MySQL connection
 	 */
-	$gaSql['link'] =  ($GLOBALS["___mysqli_ston"] = mysqli_connect( $gaSql['server'],  $gaSql['user'],  $gaSql['password']  )) or
+	$gaSql['link'] =  mysql_pconnect( $gaSql['server'], $gaSql['user'], $gaSql['password']  ) or
 		die( 'Could not open connection to server' );
 	
-	((bool)mysqli_query( $gaSql['link'] , "USE $gaSql['db']")) or 
+	mysql_select_db( $gaSql['db'], $gaSql['link'] ) or 
 		die( 'Could not select database '. $gaSql['db'] );
 	
 	
@@ -45,8 +45,8 @@
 	$sLimit = "";
 	if ( isset( $_GET['iStart'] ) && isset( $_GET['iLength'] ) )
 	{
-		$sLimit = "LIMIT ".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iStart'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : "")).", ".
-			((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iLength'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+		$sLimit = "LIMIT ".mysql_real_escape_string( $_GET['iStart'] ).", ".
+			mysql_real_escape_string( $_GET['iLength'] );
 	}
 	else
 	{
@@ -64,14 +64,14 @@
 		ORDER BY name ASC
 		$sLimit
 	";
-	$rResult = mysqli_query( $gaSql['link'] ,  $sQuery) or die(((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+	$rResult = mysql_query( $sQuery, $gaSql['link'] ) or die(mysql_error());
 	
 	/*
 	 * Output
 	 */
 	$sOutput = '{';
 	$sOutput .= '"aaData": [ ';
-	while ( $aRow = mysqli_fetch_array( $rResult ) )
+	while ( $aRow = mysql_fetch_array( $rResult ) )
 	{
 		$sOutput .= "[";
 		for ( $i=0 ; $i<count($aColumns) ; $i++ )

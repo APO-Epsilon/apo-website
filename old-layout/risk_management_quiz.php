@@ -34,7 +34,7 @@ function score_quiz($right_answers, $answers) {
 	if ($score >= 11) {
 		$user_id = $_SESSION['sessionID'];
 		$sql = "UPDATE `contact_information` SET `risk_management`=NOW() WHERE id='$user_id'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 		echo "<h1 style='color: purple'>You have passed the quiz!</h1>";
 	} else {
 		echo "You missed too many questions.  Please try again.  You were wrong on questions: ";
@@ -85,8 +85,8 @@ function passed_quiz() {
 	if (isset($_SESSION['sessionID'])) {
 		$user_id = $_SESSION['sessionID'];
 		$sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		$row = mysqli_fetch_array($result);
+		$result = mysql_query($sql);
+		$row = mysql_fetch_array($result);
 		if ($row[risk_management] != "0000-00-00") {
 			return true;
 		}

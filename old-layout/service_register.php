@@ -54,8 +54,8 @@ function select_by_dow($dow, $user_id){//dow = day of week
 			ON service_occurrence.project_id = service_leaders.project_id
 			WHERE s.day = '".$dow."'
 	";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	if(mysqli_num_rows($result)!=0)
+	$result = mysql_query($sql);
+	if(mysql_num_rows($result)!=0)
 	{
 		echo("
 				<tr class='hours_header'>
@@ -68,7 +68,7 @@ function select_by_dow($dow, $user_id){//dow = day of week
 				<td class='day'></td>
 				<td class='day'></td>
 				</tr>");
-		while($row = mysqli_fetch_array($result))
+		while($row = mysql_fetch_array($result))
 		{
 			$name = $row['name'];
 			$date = $row['date'];

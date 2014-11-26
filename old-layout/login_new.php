@@ -93,8 +93,8 @@ function process_login(){
 		$select = "SELECT *
 		FROM `contact_information`
 		WHERE `username`='$username' AND `new_password`=PASSWORD('$password')";
-		$query = mysqli_query($GLOBALS["___mysqli_ston"], $select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com");
-		$r = mysqli_fetch_array($query);
+		$query = mysql_query($select) or die("If you encounter problems, please contact the webmaster: apo.epsilon.webmaster@gmail.com");
+		$r = mysql_fetch_array($query);
 		
 		if (!$r) {
 			print_login(1);
@@ -119,7 +119,7 @@ function process_login(){
 		echo "<p>You have logged in!</p>";
 		
 		$sql = "UPDATE `contact_information` SET `active_sem` = 'Fall2010' WHERE `id` = '$id'";
-		mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		mysql_query($sql);
 		//echo $sql;
 		}
 	}

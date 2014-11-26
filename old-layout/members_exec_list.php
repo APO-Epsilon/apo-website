@@ -10,9 +10,9 @@ if (!isset($_SESSION['sessionID'])) {
 } else {
 	echo('<h1>Executive Contact Information</h1>');
 	$selectm = 'SELECT `firstname`,`lastname`,`email`,`phone`, `position`, `status`, `bigbro`, `littlebro`, `pledgesem`, `pledgeyear` FROM `contact_information` WHERE `status` = "elected" OR `status` = "appointed" ORDER BY `lastname` ASC, `firstname` ASC';
-		$querym = mysqli_query($GLOBALS["___mysqli_ston"], $selectm) or die("If you encounter problems, please contact the webmaster.");
+		$querym = mysql_query($selectm) or die("If you encounter problems, please contact the webmaster.");
 	
-	while ($t = mysqli_fetch_array($querym)) {
+	while ($t = mysql_fetch_array($querym)) {
 		extract($t);
 		
 		echo<<<END

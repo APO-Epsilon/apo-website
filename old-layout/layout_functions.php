@@ -55,7 +55,7 @@ function page_header() {
 	//first person to log on on wednesday will lock sign-ups for all events up to 
 	//and including wednesday
 	$sql = "UPDATE service_occurrence SET active = 0 WHERE theDate <= NOW()";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 
 
 

@@ -16,14 +16,14 @@ function create_backup()
 	echo("<h6>");
 	$sql = "CREATE TABLE IF NOT EXISTS contact_information_temp 
 			SELECT * FROM contact_information";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 		if(!$result)
 		{
 			die("something went wrong on step 1, if you see this.. contact the webmaster");
 		
 		}else{
 			$sql = "DROP TABLE IF EXISTS contact_information_backup_temp";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			$result = mysql_query($sql);
 				if(!$result)
 				{
 					die("something went wrong on step 2, if you see this.. contact the webmaster");
@@ -31,7 +31,7 @@ function create_backup()
 				}else{
 					$sql = "RENAME TABLE contact_information_temp
 							TO contact_information_backup_temp";
-					$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+					$result = mysql_query($sql);
 						if(!$result)
 						{
 							die("something went wrong on step 3, if you see this.. contact the webmaster");
@@ -50,12 +50,12 @@ function log_backup(){
 	$date = date('Y-m-d');
 
 	$sql = "SELECT * FROM backup_log WHERE date = '".$date."'";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 
-	if(mysqli_num_rows($result)==0)
+	if(mysql_num_rows($result)==0)
 	{
 		$sql = "INSERT INTO backup_log (date) VALUES ('".$date."')";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 			if($result)
 			{
 				echo(".");

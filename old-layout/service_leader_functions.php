@@ -12,7 +12,7 @@ function processNew(){
 	
 	$sql = "INSERT INTO service_attendance (detail_id, user_id, processed, occurrence_id, length, drive) 
 			VALUES ('".$d."','".$id."','0','".$o."',".$hours.",'0')";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 }
 
 function displayView($i){
@@ -27,8 +27,8 @@ function displayView($i){
 			JOIN service_events AS e
 			ON e.P_id = d.event_id
 			WHERE a.detail_id = $i AND a.occurrence_id = ".$_GET['o'];
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	while($r = mysqli_fetch_array($result)){
+	$result = mysql_query($sql);
+	while($r = mysql_fetch_array($result)){
 			$name = $r['name'];
 			$DOW = $r['DOW'];		
 	}
@@ -40,7 +40,7 @@ function displayView($i){
 			JOIN service_attendance AS a
 			ON c.id = a.user_id
 			WHERE a.detail_id = $i AND a.occurrence_id = ".$_GET['o'];
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
 		echo ("could not retrieve");
 	}else{
@@ -48,10 +48,10 @@ function displayView($i){
 			$name = $r['name'];
 			$DOW = $r['DOW'];
 		}*/
-		if(mysqli_num_rows($result)!=0){
+		if(mysql_num_rows($result)!=0){
 			echo "<table border=0 class=\"displayListingTable\">";
 			echo "<tr class=\"displayListing\"><td>Info</td><td>Seats</td></tr>";
-			while($r = mysqli_fetch_array($result)){
+			while($r = mysql_fetch_array($result)){
 				$fn = $r['firstname'];
 				$ln = $r['lastname'];
 				$phone = $r['phone'];
@@ -84,9 +84,9 @@ function process_log(){
 		$allz = $all[$i];
 		$sql = "UPDATE `service_attendance` SET processed = 1, length = $hoursz
 				WHERE occurrence_id = $occurrence AND user_id = $allz";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 			if(!$result){
-					echo("<br/>".$occurrence." <br/>    ".$hoursz."  <br/>    ".$allz."    <br/> ".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)).$sql);
+					echo("<br/>".$occurrence." <br/>    ".$hoursz."  <br/>    ".$allz."    <br/> ".mysql_error().$sql);
 					//echo("contact the webmaster");
 			}
 	}
@@ -94,7 +94,7 @@ function process_log(){
 	$last = $sizeALL-1;
 		$sql = "INSERT INTO service_attendance (detail_id, user_id, processed, occurrence_id, length) 
 						VALUES ('".$detail_id."','".$all[$last]."','1','".$occurrence."',".$hours[$last].")";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 
 
 	if($size>0){
@@ -105,11 +105,11 @@ function process_log(){
 			$sql = "UPDATE `service_attendance` SET processed = -1 
 					WHERE occurrence_id = $occurrence AND user_id = $exclude";
 					//-1 = NOT IN ATTENDANCE
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			$result = mysql_query($sql);
 			if($result){
 				refresh();
 			}else{
-				echo("<p>".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)).$sql);
+				echo("<p>".mysql_error().$sql);
 			}
 		}
 	}
@@ -127,13 +127,13 @@ echo "
 			JOIN service_details AS d
 			ON a.detail_id = d.detail_id
 			WHERE a.occurrence_id = $o AND a.processed != 2 AND a.processed != 1";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
 		echo ("could not retrieve");
 	}else{
 		echo "<table>";
 		echo "<tr class=\"displayListing\"><td>absent</td><td>first</td><td>last</td><td>hours</td></tr>";
-		while($r = mysqli_fetch_array($result)){
+		while($r = mysql_fetch_array($result)){
 			$fn = $r['firstname'];
 			$ln = $r['lastname'];
 			$phone = $r['phone'];
@@ -154,8 +154,8 @@ echo "
 			JOIN contact_information AS c
 			ON l.user_id = c.id
 			WHERE o.occurrence_id = $o";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	while($r = mysqli_fetch_array($result)){
+	$result = mysql_query($sql);
+	while($r = mysql_fetch_array($result)){
 				$fn = $r['firstname'];
 				$ln = $r['lastname'];
 				$id = $r['id'];
@@ -185,8 +185,8 @@ echo "<table>";
 		<select name='user_id'>
 FORM;
 	$sql = "SELECT `id`, `firstname`, `lastname` FROM `contact_information` ORDER BY `lastname`";
-	$query = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die("Error: line 24");
-	while ($r = mysqli_fetch_array($query)) {
+	$query = mysql_query($sql) or die("Error: line 24");
+	while ($r = mysql_fetch_array($query)) {
 		echo "<option value='$r[id]'>$r[lastname], $r[firstname]</option>";
 	}
 	echo "</select>";
@@ -206,13 +206,13 @@ FORM;
 			JOIN service_attendance AS a
 			ON c.id = a.user_id
 			WHERE a.occurrence_id = $o AND a.processed = 2";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	if(mysqli_num_rows($result)!=0){
+	$result = mysql_query($sql);
+	if(mysql_num_rows($result)!=0){
 	echo "<p><h2>Approved</h2>";
 	if(!$result){
 		echo ("could not retrieve");
 	}else{
-		while($r = mysqli_fetch_array($result)){
+		while($r = mysql_fetch_array($result)){
 			$fna = $r['firstname'];
 			$lna = $r['lastname'];
 			echo $fna." ".$lna."<br/>";	
@@ -244,12 +244,12 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		ON c.id = l.user_id
 		WHERE o.active = $i AND l.user_id = $id 
 		ORDER BY o.theDate ASC"; 
-$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+$result = mysql_query($sql);
 	if(!$result){
 		die("error");
 	}else{
 		echo "<h2>".$message[$i]."</h2><p>";
-		while($r = mysqli_fetch_array($result)){
+		while($r = mysql_fetch_array($result)){
 			$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
@@ -265,8 +265,8 @@ $result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 			$occurrence_id = $r['occurrence_id'];
 
 			$sql = "SELECT COUNT(*) AS count FROM service_attendance WHERE detail_id = $detail_id AND occurrence_id = $occurrence_id";
-			$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($r = mysqli_fetch_array($result2)){
+			$result2 = mysql_query($sql);
+			while($r = mysql_fetch_array($result2)){
 				$count = $r['count'];
 			}
 		

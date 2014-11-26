@@ -30,8 +30,8 @@ function list_attendance_stats($user_id){
 			WHERE recorded_attendance.user_id = ".$user_id."
 			AND events.name = 'Active Meeting'
 			ORDER BY occurrence.id ASC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);	
-		while($row = mysqli_fetch_array($result)){
+	$result = mysql_query($sql);	
+		while($row = mysql_fetch_array($result)){
 			$name = $row['name'];
 			$sum_worth = $row['sum_worth'];
 			$worth = $row['worth'];
@@ -43,8 +43,8 @@ function list_attendance_stats($user_id){
 			WHERE recorded_attendance.user_id = ".$user_id." AND events.name = 'Active Meeting'
 			AND recorded_attendance.attended = 0
 			ORDER BY occurrence.id ASC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);	
-		while($row = mysqli_fetch_array($result)){
+	$result = mysql_query($sql);	
+		while($row = mysql_fetch_array($result)){
 			$num_missed = $row['num_missed'];
 		}
 		echo "
@@ -61,7 +61,7 @@ function list_attendance_stats($user_id){
 			LEFT JOIN recorded_attendance ON occurrence.id = recorded_attendance.id
 			WHERE recorded_attendance.user_id = '".$user_id."'
 			ORDER BY occurrence.date, occurrence.id ASC";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 		if($result){
 		}
 		list_attendance_stats($user_id);
@@ -75,7 +75,7 @@ function list_attendance_stats($user_id){
 				<td><b>Attended</b></td>
 				<td></td>
 				</tr>";
-			while($row = mysqli_fetch_array($result)){
+			while($row = mysql_fetch_array($result)){
 				$e_id = $row['e_id'];
 				$event_id = $row['id'];
 				$date = $row['date'];
@@ -110,8 +110,8 @@ function list_attendance_stats($user_id){
 			LEFT JOIN positions ON committee_occurrence.position_id = positions.position_id
 			WHERE committee_attendance.id = ".$user_id."
 			ORDER BY committee_occurrence.date ASC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	if(mysqli_num_rows($result)!=0){
+	$result = mysql_query($sql);
+	if(mysql_num_rows($result)!=0){
 echo "		<li><p><table cellpadding='0' cellspacing='0' class='hours_table'>
 				<tr class='hours_header'><strong>Committee Attendance</strong><p>
 				<td></td>
@@ -120,7 +120,7 @@ echo "		<li><p><table cellpadding='0' cellspacing='0' class='hours_table'>
 				<td><b>Date</b></td>
 				<td></td>
 				</tr>";
-			while($row = mysqli_fetch_array($result)){
+			while($row = mysql_fetch_array($result)){
 			$comm_id = $row['comm_id'];
 			$position_id = $row['position_id'];
 			$position = $row['position'];

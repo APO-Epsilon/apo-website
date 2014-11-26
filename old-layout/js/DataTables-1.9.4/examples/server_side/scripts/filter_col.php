@@ -15,12 +15,12 @@
 	/* 
 	 * MySQL connection
 	 */
-	if ( ! $gaSql['link'] = ($GLOBALS["___mysqli_ston"] = mysqli_connect( $gaSql['server'],  $gaSql['user'],  $gaSql['password']  )) )
+	if ( ! $gaSql['link'] = mysql_pconnect( $gaSql['server'], $gaSql['user'], $gaSql['password']  ) )
 	{
 		fatal_error( 'Could not open connection to server' );
 	}
 
-	if ( ! ((bool)mysqli_query( $gaSql['link'] , "USE $gaSql['db']")) )
+	if ( ! mysql_select_db( $gaSql['db'], $gaSql['link'] ) )
 	{
 		fatal_error( 'Could not select database ' );
 	}
@@ -31,18 +31,18 @@
 	$sLimit = "";
 	if ( isset( $_GET['iDisplayStart'] ) && $_GET['iDisplayLength'] != '-1' )
 	{
-		$sLimit = "LIMIT ".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iDisplayStart'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : "")).", ".
-			((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iDisplayLength'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+		$sLimit = "LIMIT ".mysql_real_escape_string( $_GET['iDisplayStart'] ).", ".
+			mysql_real_escape_string( $_GET['iDisplayLength'] );
 	}
 	
 	/* Ordering */
 	if ( isset( $_GET['iSortCol_0'] ) )
 	{
 		$sOrder = "ORDER BY  ";
-		for ( $i=0 ; $i<((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iSortingCols'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : "")) ; $i++ )
+		for ( $i=0 ; $i<mysql_real_escape_string( $_GET['iSortingCols'] ) ; $i++ )
 		{
-			$sOrder .= fnColumnToField(((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['iSortCol_'.$i] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : "")))."
-			 	".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSortDir_'.$i] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : "")) .", ";
+			$sOrder .= fnColumnToField(mysql_real_escape_string( $_GET['iSortCol_'.$i] ))."
+			 	".mysql_real_escape_string( $_GET['sSortDir_'.$i] ) .", ";
 		}
 		$sOrder = substr_replace( $sOrder, "", -2 );
 	}
@@ -54,11 +54,11 @@
 	$sWhere = "";
 	if ( $_GET['sSearch'] != "" )
 	{
-		$sWhere = "WHERE ( engine LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSearch'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%' OR ".
-		                "browser LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSearch'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%' OR ".
-		                "platform LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSearch'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%' OR ".
-		                "version LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSearch'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%' OR ".
-		                "grade LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSearch'] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%' )";
+		$sWhere = "WHERE ( engine LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' OR ".
+		                "browser LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' OR ".
+		                "platform LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' OR ".
+		                "version LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' OR ".
+		                "grade LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' )";
 	}
 	
 	for ( $i=0 ; $i<$_GET['iColumns'] ; $i++ )
@@ -73,7 +73,7 @@
 			{
 				$sWhere .= "WHERE ";
 			}
-			$sWhere .= fnColumnToField($i) ." LIKE '%".((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $_GET['sSearch_'.$i] ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""))."%'";
+			$sWhere .= fnColumnToField($i) ." LIKE '%".mysql_real_escape_string( $_GET['sSearch_'.$i] )."%'";
 		}
 	}
 	
@@ -84,21 +84,21 @@
 		$sOrder
 		$sLimit
 	";
-	$rResult = mysqli_query( $gaSql['link'] ,  $sQuery) or fatal_error( 'MySQL Error: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) );
+	$rResult = mysql_query( $sQuery, $gaSql['link'] ) or fatal_error( 'MySQL Error: ' . mysql_errno() );
 	
 	$sQuery = "
 		SELECT FOUND_ROWS()
 	";
-	$rResultFilterTotal = mysqli_query( $gaSql['link'] ,  $sQuery) or fatal_error( 'MySQL Error: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) );
-	$aResultFilterTotal = mysqli_fetch_array($rResultFilterTotal);
+	$rResultFilterTotal = mysql_query( $sQuery, $gaSql['link'] ) or fatal_error( 'MySQL Error: ' . mysql_errno() );
+	$aResultFilterTotal = mysql_fetch_array($rResultFilterTotal);
 	$iFilteredTotal = $aResultFilterTotal[0];
 	
 	$sQuery = "
 		SELECT COUNT(id)
 		FROM   ajax
 	";
-	$rResultTotal = mysqli_query( $gaSql['link'] ,  $sQuery) or fatal_error( 'MySQL Error: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) );
-	$aResultTotal = mysqli_fetch_array($rResultTotal);
+	$rResultTotal = mysql_query( $sQuery, $gaSql['link'] ) or fatal_error( 'MySQL Error: ' . mysql_errno() );
+	$aResultTotal = mysql_fetch_array($rResultTotal);
 	$iTotal = $aResultTotal[0];
 	
 	$sOutput = '{';
@@ -106,7 +106,7 @@
 	$sOutput .= '"iTotalRecords": '.$iTotal.', ';
 	$sOutput .= '"iTotalDisplayRecords": '.$iFilteredTotal.', ';
 	$sOutput .= '"aaData": [ ';
-	while ( $aRow = mysqli_fetch_array( $rResult ) )
+	while ( $aRow = mysql_fetch_array( $rResult ) )
 	{
 		$sOutput .= "[";
 		$sOutput .= '"'.str_replace('"', '\"', $aRow['engine']).'",';

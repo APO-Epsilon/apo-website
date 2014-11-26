@@ -22,8 +22,8 @@ $sql = "SELECT committee_attendance.committee_id AS comm_id,
 		ORDER BY date ASC
 		LIMIT 20";
 
-$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	while($row = mysqli_fetch_array($result)){
+$result = mysql_query($sql);
+	while($row = mysql_fetch_array($result)){
 		$position = $row['position'];
 		$date = $row['date'];
 		$user_ids = $row['user_ids'];

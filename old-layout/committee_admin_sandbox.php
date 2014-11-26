@@ -20,7 +20,7 @@ function remove_member()
 		$position_id = $_GET['p'];
 		$sql = "DELETE FROM committee_members 
 				WHERE id = ".$id." AND position = ".$position_id."";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 }	
 function display_init($user_id){
 
@@ -32,8 +32,8 @@ function display_init($user_id){
 			JOIN positions AS p
 			ON contact_information.position=p.position
 			WHERE contact_information.id='".$user_id."'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		while($row = mysqli_fetch_array($result)){
+		$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result)){
 			$firstname = $row['firstname'];
 			$lastname = $row['lastname'];
 			$id = $row['id'];
@@ -79,10 +79,10 @@ echo
     <hr/>
 END;
 	$sql = "SELECT date FROM committee_occurrence WHERE position_id = ".$position_id." ORDER BY date DESC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		if(mysqli_num_rows($result)!=0){
+	$result = mysql_query($sql);
+		if(mysql_num_rows($result)!=0){
 			echo("Your committees are as follows:<br/>");
-			while($row = mysqli_fetch_array($result)){
+			while($row = mysql_fetch_array($result)){
 				echo($row['date']."<br/>");
 			}
 		}
@@ -115,8 +115,8 @@ function display_new_committee($position){
 			JOIN positions AS p
 			ON contact_information.position=p.position
 			WHERE contact_information.id='".$user_id."'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		while($row = mysqli_fetch_array($result)){
+		$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result)){
 			$firstname = $row['firstname'];
 			$lastname = $row['lastname'];
 			$id = $row['id'];
@@ -186,7 +186,7 @@ function process_new($user_id, $position){//success.
 			SET comm_day = '".$day."', comm_location = '".$location."',
 			comm_time = '".$time."', comm_active = 1
 			WHERE position = '".$position."'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 		if($result){
 			echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apo.truman.edu/committee_admin.php\">");
 		}
@@ -195,7 +195,7 @@ function process_new($user_id, $position){//success.
 function schedule($position_id){
 
 	$sql = "SELECT date FROM committee_occurrence WHERE position_id = ".$position_id." ORDER BY date DESC";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 echo
 <<<END
 	When is the committee?<br/>
@@ -209,12 +209,12 @@ echo
     </form>
 END;
 
-	if(mysqli_num_rows($result)>0){
+	if(mysql_num_rows($result)>0){
 	echo("
 	<fieldset>
 		<legend>committees</legend>
 		<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">");	
-			while($row = mysqli_fetch_array($result)){
+			while($row = mysql_fetch_array($result)){
 				echo("<input type=\"radio\" name=\"committee_date\" value=\"".$row['date']."\">&nbsp;".$row['date']."<br/>");
 			}
 	echo("
@@ -233,15 +233,15 @@ function set_committee($user_id){
 			JOIN contact_information
 			ON positions.position=contact_information.position
 			WHERE contact_information.id=".$user_id."";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		while($row = mysqli_fetch_array($result)){
+		$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result)){
 			$position_id = $row['position_id'];
 		}
 		
 	$sql = "INSERT INTO committee_occurrence
 			(position_id, date)
 			VALUES ('".$position_id."', '".$_POST['date']."')";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysql_query($sql);
 			if($result){
 				echo("a committee was successfully created for: {$_POST['date']}.");
 			}else{
@@ -255,8 +255,8 @@ function record_init($user_id){
 	$position_id = $_POST['position_id'];
 	
 	$sql = "SELECT position AS position FROM positions WHERE position_id = $position_id";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		while($row = mysqli_fetch_array($result))
+	$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result))
 		{
 			echo("recording attendance for the {$row['position']} committee on: {$date}<br/>");
 		}
@@ -269,9 +269,9 @@ function record_init($user_id){
 			WHERE committee_members.position='".$position_id."'
 			ORDER BY lastname, firstname ASC
 			";
-	$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result=mysql_query($sql);
 		
-	$num_rows = mysqli_num_rows($result);
+	$num_rows = mysql_num_rows($result);
 		if($num_rows == 0)
 		{
 			echo("no one is assigned to your committee, please select individuals from below");
@@ -280,7 +280,7 @@ function record_init($user_id){
 		for ($i=0;$i<$num_rows;$i++)
 		{
 			$ids;
-			$row = mysqli_fetch_assoc($result);
+			$row = mysql_fetch_assoc($result);
 			$ids[$i] = $row['id'];	
 		}
 echo
@@ -294,8 +294,8 @@ END;
 		foreach($ids as $index => $value)
 		{
 			$sql = "SELECT firstname, lastname FROM `apo`.`contact_information` WHERE id = $value";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-				while($row = mysqli_fetch_array($result))
+			$result = mysql_query($sql);
+				while($row = mysql_fetch_array($result))
 				{
 					$firstname = $row['firstname'];
 					$lastname = $row['lastname'];
@@ -320,21 +320,21 @@ END;
 			AND contact_information.status != 'Advisor'
 			OR (committee_members.position != ".$position_id." AND committee_members.id IS NOT NULL)
 			ORDER BY lastname, firstname ASC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 		
-	$num_rows = mysqli_num_rows($result);
+	$num_rows = mysql_num_rows($result);
 		for ($i=0;$i<$num_rows;$i++)
 		{
 			$ids;
-			$row = mysqli_fetch_assoc($result);
+			$row = mysql_fetch_assoc($result);
 			$ids[$i] = $row['id'];	
 		}
 		
 		foreach($ids as $index => $value)
 		{
 			$sql = "SELECT firstname, lastname FROM `apo`.`contact_information` WHERE id = $value";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-				while($row = mysqli_fetch_array($result))
+			$result = mysql_query($sql);
+				while($row = mysql_fetch_array($result))
 				{
 					$firstname = $row['firstname'];
 					$lastname = $row['lastname'];
@@ -347,8 +347,8 @@ END;
 		//get the committee id and pass in form
 		$sql = "SELECT committee_id FROM committee_occurrence
 				WHERE date = '".$date."'";
-		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($row = mysqli_fetch_array($result)){
+		$result = mysql_query($sql);
+			while($row = mysql_fetch_array($result)){
 				$committee_id = $row['committee_id'];
 			}
 echo	
@@ -371,7 +371,7 @@ function record(){
 		$sql = "INSERT INTO committee_attendance
 				(committee_id, id, attended) VALUES
 				('".$committee_id."', '".$attendance."', 1)";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			$result = mysql_query($sql);
 			if($result){
 			}else{
 			//echo(mysql_error());
@@ -379,7 +379,7 @@ function record(){
 		$sql = "INSERT INTO committee_members
 				(position, id) VALUES
 				('".$position_id."','".$attendance."')";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			$result = mysql_query($sql);
 			if($result){
 			}else{
 			//echo(mysql_error());

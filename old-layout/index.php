@@ -4,8 +4,8 @@ require_once ('mysql_access.php');
 $id = $_SESSION['sessionID'];
 
 		$sql = "SELECT * FROM `apo`.`contact_information` WHERE id = '".$id."'";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($row = mysqli_fetch_array($result)){
+			$result = mysql_query($sql);
+			while($row = mysql_fetch_array($result)){
   				$firstname = $row['firstname'];
   				$lastname = $row['lastname'];
   				}
@@ -13,8 +13,8 @@ page_header();
 $sql = "SELECT * FROM `news_seen` WHERE who = ".$id." AND seen = 0";
 
 $sql = "SELECT active_sem FROM `apo`.`contact_information` WHERE id = '".$id."'";
-$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-while($row = mysqli_fetch_array($result)){
+$result = mysql_query($sql);
+while($row = mysql_fetch_array($result)){
 	global $current_semester;
 	if($row['active_sem'] != $current_semester){
 		header( 'Location: http://apo.truman.edu/members_updateinfo.php?forced=true' ) ;
@@ -32,7 +32,7 @@ if(mysql_num_rows(mysql_query($sql))>0){
 }
 */
 $sql = "SELECT risk_management FROM contact_information WHERE id = ".$id." AND risk_management = '0000-00-00'";
-if((mysqli_num_rows(mysqli_query($GLOBALS["___mysqli_ston"], $sql))==1)&&($_SESSION['sessionStatus'] != 'Pledge')){
+if((mysql_num_rows(mysql_query($sql))==1)&&($_SESSION['sessionStatus'] != 'Pledge')){
 	echo "&nbsp;you have not taken your risk management quiz, <a href=\"http://apo.truman.edu/risk_management_quiz.php\">take it now</a><br/>";
 }
 ?>

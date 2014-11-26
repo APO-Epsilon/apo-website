@@ -37,8 +37,8 @@ if (!isset($_SESSION['sessionID'])) {
             $hasher = new PasswordHash(8, true);
             $hash = $hasher->HashPassword($password);
 			$sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			if (mysqli_affected_rows($GLOBALS["___mysqli_ston"]) == 1) {
+			$result = mysql_query($sql);
+			if (mysql_affected_rows() == 1) {
 				echo "Your password has been updated.";
 			} else {
 				echo "Your password was not changed.  Did you input the correct old password?  Click <a href='./login_updatepw.php'>here</a> to try again.";

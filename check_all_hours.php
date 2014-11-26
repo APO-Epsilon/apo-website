@@ -35,7 +35,7 @@ function top_hours() {
 	//$users = mysql_query($sql);
 
 	$sql = "SELECT id, firstname, lastname, status, IFNULL(rec_hours.sum_hours, 0) AS 'sum_hours', IFNULL(rec_hours.Num_Cs, 0) AS Num_Cs, IFNULL(rec_hours.fundraising, 0) AS 'fundraising', IFNULL(outside_hours.sum_hours, 0) AS 'out_hours' FROM  contact_information LEFT JOIN (SELECT user_id, SUM(hours) AS 'sum_hours', COUNT(DISTINCT servicetype) AS 'Num_Cs', SUM(hours*fundraising) AS 'fundraising' FROM recorded_hours GROUP BY user_id) rec_hours LEFT JOIN (SELECT user_id, SUM(hours) AS 'sum_hours' FROM recorded_hours WHERE event = 'Non-APO Hours' GROUP BY user_id) outside_hours ON rec_hours.user_id = outside_hours.user_id ON contact_information.id = rec_hours.user_id WHERE (status = 'Active' OR status = 'Pledge' OR status = 'Appointed' OR status = 'Elected' OR status = 'Associate') ORDER BY lastname, firstname;";
-	$data = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$data = mysql_query($sql);
 
 	//$sql = "SELECT user_id, SUM(hours) AS 'sum_hours' FROM recorded_hours WHERE event = 'Non-APO Hours' GROUP BY user_id";
 	//$nonapo = mysql_query($sql);
@@ -53,7 +53,7 @@ function top_hours() {
 END;
 
 	$i = 1;
-	while($row = mysqli_fetch_array($data)) {
+	while($row = mysql_fetch_array($data)) {
 		if ($row['status'] == 'Associate') {
 			$Num_Cs_required = 2;
 			$fundraising_required = 1.5;

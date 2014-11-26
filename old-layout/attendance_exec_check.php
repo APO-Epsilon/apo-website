@@ -14,8 +14,8 @@ function list_attendance_stats($user_id){
 			WHERE recorded_attendance.user_id = ".$user_id."
 			AND events.name = 'Active Meeting'
 			ORDER BY occurrence.id ASC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		while($row = mysqli_fetch_array($result)){
+	$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result)){
 			$name = $row['name'];
 			$sum_worth = $row['sum_worth'];
 			$worth = $row['worth'];
@@ -27,8 +27,8 @@ function list_attendance_stats($user_id){
 			WHERE recorded_attendance.user_id = ".$user_id." AND events.name = 'Active Meeting'
 			AND recorded_attendance.attended = 0
 			ORDER BY occurrence.id ASC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-		while($row = mysqli_fetch_array($result)){
+	$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result)){
 			$num_missed = $row['num_missed'];
 		}
 		echo "
@@ -47,12 +47,12 @@ function attendance_check($user_id){
 			LEFT JOIN recorded_attendance ON occurrence.id = recorded_attendance.id
 			WHERE recorded_attendance.user_id = '".$user_id."'
 			ORDER BY occurrence.id ASC";
-		$results = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$results = mysql_query($sql);
 		if($results){
 		$sql = "SELECT firstname AS fn, lastname AS ln FROM `contact_information`
 				WHERE id = '".$user_id."'";
-			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-			while($row = mysqli_fetch_array($result)){
+			$result = mysql_query($sql);
+			while($row = mysql_fetch_array($result)){
 				$firstname = $row['fn'];
 				$lastname = $row['ln'];
 			}
@@ -79,7 +79,7 @@ END;
 				<td>Attended</td>
 				<td></td>
 				</tr>";
-			while($row = mysqli_fetch_array($results)){
+			while($row = mysql_fetch_array($results)){
 				$e_id = $row['e_id'];
 				$event_id = $row['id'];
 				$date = $row['date'];
@@ -113,8 +113,8 @@ END;
 			LEFT JOIN positions ON committee_occurrence.position_id = positions.position_id
 			WHERE committee_attendance.id = ".$user_id."
 			ORDER BY committee_occurrence.date DESC";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	if(mysqli_num_rows($result)!=0){
+	$result = mysql_query($sql);
+	if(mysql_num_rows($result)!=0){
 
 
 echo "		<div style='margin: 0px auto; width: 100%; text-align: center;'>
@@ -125,7 +125,7 @@ echo "		<div style='margin: 0px auto; width: 100%; text-align: center;'>
 				<td>Date</td>
 				<td></td>
 				</tr>";
-			while($row = mysqli_fetch_array($result)){
+			while($row = mysql_fetch_array($result)){
 			$comm_id = $row['comm_id'];
 			$position_id = $row['position_id'];
 			$position = $row['position'];
@@ -149,7 +149,7 @@ if($pos_id != 1 && $pos_id != 9 && $pos_id != 20){echo("you do not have permissi
 
 //$sql = "SELECT `id`,`firstname`, `lastname` FROM `contact_information` WHERE `active_sem` = '$current_semester' ORDER BY `firstname`";
 $sql = "SELECT `id`,`firstname`, `lastname` FROM `contact_information` WHERE 1 ORDER BY `firstname`";
-$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+$result = mysql_query($sql);
 echo<<<END
 <h1>Attendance Check</h1>
 <p>This page is for viewing attendance records for members.</p>
@@ -158,7 +158,7 @@ echo<<<END
 <label for="user_id">Members</label>
 	<select name="user_id">
 END;
-	while($row = mysqli_fetch_array($result)) {
+	while($row = mysql_fetch_array($result)) {
 		echo "<option value='$row[id]'>$row[firstname] $row[lastname]</option>";
 	}
 echo<<<END

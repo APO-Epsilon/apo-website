@@ -38,17 +38,17 @@ function _processForm(){
 	$today = date("Y-m-d H:i:s"); 
 
 	$sql = "UPDATE _posts SET post_status = 'draft' WHERE post_parent = $post_parent";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
-		die(((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)).$sql);
+		die(mysql_error().$sql);
 	}
 
 	$sql = "INSERT INTO _posts (post_content, post_title, post_excerpt, post_parent, menu_order, post_status, post_modified) 
 			VALUES ('".$content."', '".$title."','".$excerpt."',".$post_parent.",".$menu_order.",'".$_POST['status']."','".$today."')";
 
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	if(!$result){
-		die(((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)).$sql);
+		die(mysql_error().$sql);
 	}else{
 		echo('<meta HTTP-EQUIV="REFRESH" content="0; url=http://apo.truman.edu/">');
 	}
@@ -58,8 +58,8 @@ function _processForm(){
 function getPost($order){
 
 	$sql = "SELECT * FROM `_posts` WHERE menu_order = $order ORDER BY ID";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	while($r = mysqli_fetch_array($result)){
+	$result = mysql_query($sql);
+	while($r = mysql_fetch_array($result)){
 		$post_content = $r['post_content'];
 		$post_title = $r['post_title'];
 		$post_excerpt = $r['post_excerpt'];

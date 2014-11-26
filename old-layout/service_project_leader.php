@@ -19,11 +19,11 @@ if ($_SESSION['sessionexec'] == 0) {
 			JOIN service_events
 			ON service_leaders.service_event=service_events.name
 			WHERE service_leaders.user_id = ".$user_id."";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
-	if(mysqli_num_rows($result)!=0){
+	$result = mysql_query($sql);
+	if(mysql_num_rows($result)!=0){
 		echo("You are the project leader for the following...<p>");
 	}
-		while($row = mysqli_fetch_array($result)){
+		while($row = mysql_fetch_array($result)){
 			$name = $row['name'];
 			$max = $row['max'];
 			$day = $row['day'];

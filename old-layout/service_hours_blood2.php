@@ -6,10 +6,10 @@ require_once ('mysql_access.php');
 function top_hours() {
 	global $current_semester;
 	$sql = "SELECT contact_information.firstname, contact_information.lastname, SUM( hours ) AS  `sum_hours` FROM  `recorded_hours` ,  `contact_information` WHERE contact_information.id = recorded_hours.user_id AND `semester` = '$current_semester' GROUP BY (`user_id`) ORDER BY  `sum_hours` DESC LIMIT 10";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	
 	$i = 1;
-	while($row = mysqli_fetch_array($result)) {
+	while($row = mysql_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";
@@ -43,21 +43,21 @@ END;
 function Pledge_hours() {
 	global $current_semester;
 	$sql = "SELECT SUM(`hours`) AS sum_hours, contact_information.status FROM `recorded_hours`, `contact_information` WHERE recorded_hours.user_id = contact_information.id AND `semester` = '$current_semester' AND `event` = 'Blood Drive' AND `status` = 'Pledge' AND `month` >=10 GROUP BY contact_information.status";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	$result = mysql_query($sql);
 	
 	
 	$sql2 = "SELECT `status`, COUNT(`lastname`) AS 'members' FROM `contact_information` GROUP BY `status`";
-	$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+	$result2 = mysql_query($sql2);
 
 	
 	$fam_flower_array = array();
-	while ($row = mysqli_fetch_array($result2)) {
+	while ($row = mysql_fetch_array($result2)) {
 		$fam_flower_array[$row[famflower]] = $row['members'];
 	}
 	
 	echo "<table cellpadding=0 cellspacing=0 class='hours'><tr class='header'><td><b>Pledge Hours</b></td><td><b>Hours</b></td><td><b>HPM*</b></tr>";
 	$i = 1;
-	while($row = mysqli_fetch_array($result)) {
+	while($row = mysql_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";
@@ -73,13 +73,13 @@ function Pledge_hours() {
 	echo "<p><i>*HPM: Hours Per Member</i></p>";
 	
 	$sql21 = "SELECT SUM(`hours`) AS sum_hours2 FROM `recorded_hours`, `contact_information` WHERE recorded_hours.user_id = contact_information.id AND `event` = 'Blood Drive' AND `status` != 'Pledge' AND `status` != 'Early Alum' AND `month` >=10";
-	$result21 = mysqli_query($GLOBALS["___mysqli_ston"], $sql21);
+	$result21 = mysql_query($sql21);
 	
 	$number_actives = 130;
 	
 	echo "<table cellpadding=0 cellspacing=0 class='hours'><tr class='header'><td><b>Active Hours</b></td><td><b>Hours</b></td><td><b>HPM*</b></tr>";
 	$i = 1;
-	while($row = mysqli_fetch_array($result21)) {
+	while($row = mysql_fetch_array($result21)) {
 		$row_num2 = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";

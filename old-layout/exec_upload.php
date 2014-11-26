@@ -63,9 +63,9 @@ if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
 				"VALUES ('$fileName', '$fileSize', '$fileType', '$upload_id', '$folder', '$date', '$content')";
 
 							
-				mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die("<h1>A MySQL error has occurred.<br /> Error: (" . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_errno($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_errno()) ? $___mysqli_res : false)) . ") " . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . "</h1>"); 
+				mysql_query($sql) or die("<h1>A MySQL error has occurred.<br /> Error: (" . mysql_errno() . ") " . mysql_error() . "</h1>"); 
 				
-				$upload_id = ((is_null($___mysqli_res = mysqli_insert_id($GLOBALS["___mysqli_ston"]))) ? false : $___mysqli_res);
+				$upload_id = mysql_insert_id();
 				$sql = "UPDATE `apo.upload` SET `content` = '$content' WHERE id = $upload_id";
 				print $sql;
 				$message = "<p><b>File uploaded</b></p>";
@@ -83,7 +83,7 @@ page_header();
 if (isset($_GET['action']) && ($_SESSION['sessionexec'] == 1)) {
 	$upload_id = $_GET[id];
 	$sql = "DELETE FROM `upload` WHERE upload.id = '$upload_id'";
-	mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	mysql_query($sql);
 }
 
 ?>
@@ -154,10 +154,10 @@ if (isset($_GET['action']) && ($_SESSION['sessionexec'] == 1)) {
 
 	$sql = "SELECT upload.id,  `name` ,  `upload_id` ,  `folder` ,  `date` ,  `size` , contact_information.firstname, contact_information.lastname FROM  `upload` ,  `contact_information`  WHERE upload.upload_id = contact_information.id ORDER BY  `date` DESC";
 	//echo $sql;
-	$query = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die('The search failed.');
+	$query = mysql_query($sql) or die('The search failed.');
 	
 	echo "<tr><td><b>Folder</b></td><td><b>File Name</b></td><td><b>Date</b></td><td><b>Size</b></td><td><b>Uploader</b></td><td></td></tr>";
-	while ($r = mysqli_fetch_array($query)) {
+	while ($r = mysql_fetch_array($query)) {
 		echo<<<END
 			<tr>
 			<td>$r[folder] /</td>

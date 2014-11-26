@@ -13,8 +13,8 @@ echo<<<END
 <h2>Vice President of Pledging</h2>
 END;
 	$selectm = 'SELECT `firstname`,`lastname`,`email`,`phone`, `position`, `status`, `bigbro`, `littlebro`, `pledgesem`, `pledgeyear` FROM `contact_information` WHERE `position` = "VP of Pledging" ORDER BY `lastname` ASC, `firstname` ASC';
-		$querym = mysqli_query($GLOBALS["___mysqli_ston"], $selectm) or die("If you encounter problems, please contact the webmaster.");
-	while ($t = mysqli_fetch_array($querym)) {		
+		$querym = mysql_query($selectm) or die("If you encounter problems, please contact the webmaster.");
+	while ($t = mysql_fetch_array($querym)) {		
 echo<<<END
 <div class="contact">
 <h3>$t[firstname] $t[lastname]</h3>
@@ -28,8 +28,8 @@ echo<<<END
 <h2>Pledge Trainers</h2>
 END;
 	$selectm = 'SELECT `firstname`,`lastname`,`email`,`phone`, `position`, `status`, `bigbro`, `littlebro`, `pledgesem`, `pledgeyear` FROM `contact_information` WHERE `position` = "Pledge Trainer" or `position` = "Pledging" ORDER BY `lastname` ASC, `firstname` ASC';
-		$querym = mysqli_query($GLOBALS["___mysqli_ston"], $selectm) or die("If you encounter problems, please contact the webmaster.");
-			while ($t = mysqli_fetch_array($querym)) {		
+		$querym = mysql_query($selectm) or die("If you encounter problems, please contact the webmaster.");
+			while ($t = mysql_fetch_array($querym)) {		
 echo<<<END
 <div class="contact">
 <h3>$t[firstname] $t[lastname]</h3>
@@ -41,9 +41,9 @@ END;
 	}	
 	echo "<h2>Pledge Class of Fall 2010</h2>";
 	$selectm = 'SELECT `firstname`,`lastname`,`email`,`phone`, `position`, `status`, `bigbro`, `littlebro`, `pledgesem`, `pledgeyear` FROM `contact_information` WHERE `status` = "Pledge" ORDER BY `lastname` ASC, `firstname` ASC';
-		$querym = mysqli_query($GLOBALS["___mysqli_ston"], $selectm) or die("If you encounter problems, please contact the webmaster.");
+		$querym = mysql_query($selectm) or die("If you encounter problems, please contact the webmaster.");
 			echo "<table><tr><td><b>Name</b></td><td><b>Email</b></td><td><b>Phone</b></td></tr>";
-				while ($t = mysqli_fetch_array($querym)) {
+				while ($t = mysql_fetch_array($querym)) {
 echo<<<END
 <tr>
 	<td><b>$t[firstname] $t[lastname]</b></td>

@@ -18,7 +18,7 @@ function add_new_event() {
 	}
 	else {
 		$insert = "INSERT INTO apo.events_list (event, description, semester) VALUES('$event','$description','$current_semester')";
-		$query = mysqli_query($GLOBALS["___mysqli_ston"], $insert) or die ("If you encounter problems, please contact the webmaster.");
+		$query = mysql_query($insert) or die ("If you encounter problems, please contact the webmaster.");
 		$result = '1';
 		echo("You have added an event and the webmaster will be notified shortly.");
 		}
@@ -35,7 +35,7 @@ function process_form() {
 	$description = htmlspecialchars($description, ENT_QUOTES);
 
 		$insert = "INSERT INTO apo.recorded_events (user_id, event, description, semester) values('$id', '$event', '$description', '$semester');";
-		$query2 = mysqli_query($GLOBALS["___mysqli_ston"], $insert) or die("If you encounter problems, please contact the webmaster.");
+		$query2 = mysql_query($insert) or die("If you encounter problems, please contact the webmaster.");
 		$result = '1';
 				
 END;	
@@ -46,13 +46,13 @@ return $result;
 
 function list_events($id) {	// modify this function to list the events that have been completed. 
 	$sql = "SELECT * FROM `recorded_events` WHERE `user_id` = $id";
-	$results = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die("Something went wrong, please contact the webmaster");
+	$results = mysql_query($sql) or die("Something went wrong, please contact the webmaster");
 	
 	echo "<div style='margin: 0px auto; width: 100%; text-align: center;'>
 	<table cellpadding='0' cellspacing='0' class='hours_table'>
 	<tr class='hours_header'><td>Event</td><td>Description</td><td>Semester</td><td></td></tr>";
 	$inc = 1;
-	while ($i = mysqli_fetch_array($results)) {
+	while ($i = mysql_fetch_array($results)) {
 		if (($inc % 2) == 1) {
 			$hours_line = "class='hours_row1'";
 		} else {
@@ -81,7 +81,7 @@ if (isset($_POST['action']) && $_POST['action'] == "log_event") {
 }
 function delete_hour($id, $user_id) {
 	$sql = "DELETE FROM `recorded_events` WHERE `index` = '$id' AND `user_id` = '$user_id' LIMIT 1";
-	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or exit("There was an error, contact Webmaster");
+	$result = mysql_query($sql) or exit("There was an error, contact Webmaster");
 }
 
 if (isset($_GET['delete'])) {
