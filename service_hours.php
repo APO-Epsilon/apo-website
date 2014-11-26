@@ -75,6 +75,7 @@ echo "$results->fetch_array()";
 		$total_hours = round($i['sum_hours'], 2);
 		echo "<span>Total Hours:</span> $total_hours<br/>";
 	}
+	$results->free();
 
 	// APO Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `event` != 'Non-APO Hours'  AND `semester` = '$semester' LIMIT 1";
@@ -84,6 +85,7 @@ echo "$results->fetch_array()";
 		$apo_hours = round($i['sum_hours'], 2);
 		echo "<span>APO Hours:</span> $apo_hours<br/>";
 	}
+	$results->free();
 
 	// Chapter Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Chapter'  AND `semester` = '$semester' LIMIT 1";
@@ -92,6 +94,7 @@ echo "$results->fetch_array()";
 	while($i = $results->fetch_array()) {
 		echo "<span>Chapter Hours:</span> $i[sum_hours]<br/>";
 	}
+	$results->free();
 
 	// Campus Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Campus'  AND `semester` = '$semester' LIMIT 1";
@@ -101,6 +104,7 @@ echo "$results->fetch_array()";
 	while($i = $results->fetch_array()) {
 		echo "<span>Campus Hours:</span> $i[sum_hours]<br/>";
 	}
+	$results->free();
 
 	// Community Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Community'  AND `semester` = '$semester' LIMIT 1";
@@ -110,6 +114,7 @@ echo "$results->fetch_array()";
 		$community_hours = round($i['sum_hours'], 2);
 		echo "<span>Community Hours:</span> $community_hours<br/>";
 	}
+	$results->free();
 
 	// Country Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Country'  AND `semester` = '$semester' LIMIT 1";
@@ -118,6 +123,7 @@ echo "$results->fetch_array()";
 	while($i = $results->fetch_array()) {
 		echo "<span>Country Hours:</span> $i[sum_hours]<br/>";
 	}
+	$results->free();
 
 	// Fundraising Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `fundraising` = '1'  AND `semester` = '$semester' LIMIT 1";
@@ -126,6 +132,7 @@ echo "$results->fetch_array()";
 	while($i = $results->fetch_array()) {
 		echo "<span>Fundraising Hours:</span> $i[sum_hours]<br/>";
 	}
+	$results->free();
 
 
 	// Bought Hours
@@ -135,6 +142,7 @@ echo "$results->fetch_array()";
 	while($i = $results->fetch_array()) {
 		echo "<span>Bought Hours:</span> $i[sum_hours]<br/>";
 	}
+	$results->free();
 }
 
 
