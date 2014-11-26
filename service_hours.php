@@ -1,5 +1,5 @@
 <?php
-require_once ('session.php');
+include ('session.php');
 include ('mysql_access.php');
 ?>
 <!doctype html>
@@ -66,6 +66,7 @@ END;
 return $result;
 }
 function list_stats($hours_id, $semester) {
+	include ('session.php');
 	include ('mysql_access.php');
 	// Total Hours
 	$sql = "SELECT SUM('hours') AS `sum_hours` FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `semester` = '$semester' LIMIT 1";
@@ -140,6 +141,7 @@ function list_stats($hours_id, $semester) {
 
 function list_hours($hours_id) {
 	include ('mysql_access.php');
+	include ('session.php');
 	$sql = "SELECT * FROM `recorded_hours` WHERE 'user_id' = '$hours_id' ORDER BY `year` DESC, `month` DESC, `day` DESC";
 	$results = $db->query($sql) or die("Error - Contact Webmaster");
 
