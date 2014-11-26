@@ -196,8 +196,6 @@ if (isset($_GET['delete'])) {
 	delete_hour($hour_id, $user_id);
 }
 
-page_header();
-
 ?>
 
 <div class="row">
