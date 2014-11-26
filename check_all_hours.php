@@ -30,15 +30,16 @@ require_once ('mysql_access.php');
     <?php
 $result = '';
 
-function top_hours() {
+function check_hours() {
+	include ('mysql_access.php');
 	//$sql = "SELECT id FROM contact_information WHERE status = 'Active' OR status = 'Pledge' OR status = 'Elected' OR status = 'Appointed'";
-	//$users = mysql_query($sql);
+	//$users = $db->query($sql);
 
 	$sql = "SELECT id, firstname, lastname, status, IFNULL(rec_hours.sum_hours, 0) AS 'sum_hours', IFNULL(rec_hours.Num_Cs, 0) AS Num_Cs, IFNULL(rec_hours.fundraising, 0) AS 'fundraising', IFNULL(outside_hours.sum_hours, 0) AS 'out_hours' FROM  contact_information LEFT JOIN (SELECT user_id, SUM(hours) AS 'sum_hours', COUNT(DISTINCT servicetype) AS 'Num_Cs', SUM(hours*fundraising) AS 'fundraising' FROM recorded_hours GROUP BY user_id) rec_hours LEFT JOIN (SELECT user_id, SUM(hours) AS 'sum_hours' FROM recorded_hours WHERE event = 'Non-APO Hours' GROUP BY user_id) outside_hours ON rec_hours.user_id = outside_hours.user_id ON contact_information.id = rec_hours.user_id WHERE (status = 'Active' OR status = 'Pledge' OR status = 'Appointed' OR status = 'Elected' OR status = 'Associate') ORDER BY lastname, firstname;";
-	$data = mysql_query($sql);
+	$data = $db->query($sql);
 
 	//$sql = "SELECT user_id, SUM(hours) AS 'sum_hours' FROM recorded_hours WHERE event = 'Non-APO Hours' GROUP BY user_id";
-	//$nonapo = mysql_query($sql);
+	//$nonapo = $db->query($sql);
 
 	echo<<<END
 	<div class="row">
@@ -53,7 +54,7 @@ function top_hours() {
 END;
 
 	$i = 1;
-	while($row = mysql_fetch_array($data)) {
+	while($row = mysqli_fetch_array($data)) {
 		if ($row['status'] == 'Associate') {
 			$Num_Cs_required = 2;
 			$fundraising_required = 1.5;
@@ -118,7 +119,7 @@ if ($_SESSION['sessionexec'] != 1) {
 		echo "<p>You need to be a member of exec to see this section.</p>";
 	} else {
 		echo "<h1>Service Check</h1>";
-	top_hours();
+	check_hours();
 
 	}
 ?>
