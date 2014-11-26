@@ -41,7 +41,7 @@ if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessio
 		$pos = $_GET['position'];
 
 		$sql = "SELECT `position`, `position_status` FROM `positions` WHERE `position_id` = '$pos_id' LIMIT 1";
-		$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
+		$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 1");
 
 
 		while($pos = mysqli_fetch_array($query)){
@@ -85,7 +85,7 @@ if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessio
 
 
 	$sql = "SELECT * FROM `contact_information` WHERE `exec` = 1 ORDER BY `position`";
-	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
+	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 2");
 
 
 	echo "<h1>Executive Board</h1>";
@@ -111,7 +111,7 @@ END;
 	echo "</select>";
 
 	$sql = "SELECT * FROM `positions`";
-	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
+	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 3");
 
 
 	echo "<select name='pos_id'>";
@@ -124,7 +124,7 @@ END;
 
 
 		$sql = "SELECT * FROM `contact_information` WHERE `position` = 'Pledge Trainer' ORDER BY `lastname`";
-	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
+	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 4");
 
 
 	echo "<h1>Pledge Trainers</h1>";
@@ -151,7 +151,7 @@ END;
 
 
 	$sql = "SELECT * FROM `positions`";
-	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
+	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 5");
 
 
 	echo "<h1>Positions</h1>";
