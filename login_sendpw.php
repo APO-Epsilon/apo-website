@@ -5,6 +5,7 @@ require_once ('PasswordHash.php');
 
 function str_rand($length = 8, $seeds = 'alphanum')
 {
+    include ('mysql_access.php');
     // Possible seeds
     $seedings['alpha'] = 'abcdefghijklmnopqrstuvwqyz';
     $seedings['numeric'] = '0123456789';
@@ -44,8 +45,8 @@ $mail->FromName = "Alpha Phi Omega Epsilon";
 $select = "SELECT id, firstname, lastname, username
 		FROM contact_information
 		WHERE email='$email';";
-$query = mysql_query($select) or die("If you encounter problems, please contact the webmaster.");
-$r = mysql_fetch_array($query);
+$query = $db->query($select) or die("If you encounter problems, please contact the webmaster.");
+$r = mysqli_fetch_array($query);
 if (!$r) {
 	echo 'Error: Email does not exist in our database.';
 } else {
@@ -78,7 +79,7 @@ if (!$r) {
 		exit;
 	} else {
 		$sql = "UPDATE `contact_information` SET `password` = '$hash' WHERE id = '$id'";
-		$query = mysql_query($sql) or die("If you encounter problems, please contact the webmaster.");
+		$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
 		echo "Message has been sent.";
 	}
 }
