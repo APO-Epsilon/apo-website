@@ -6,11 +6,6 @@ require_once ('mysql_access.php');
 <html>
 <head>
     <?php require 'head.php';?>
-    <style>
-    #position {
-    	width: 15%;
-    }
-    </style>
 </head>
 
 <body>
@@ -61,7 +56,7 @@ function list_members_status_form($sql, $positions_options) {
 			</select>
 
 		</td>
-		<td id="position">
+		<td>
 			<select name="member[$row[id]][position]">
 				<option>$row[position]</option>
 				<option></option>
