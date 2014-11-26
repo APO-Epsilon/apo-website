@@ -93,7 +93,7 @@ function process_user($member, $user_id) {
 
 }
 
-function remove_user($member, $user_id) {
+function remove_user() {
 	include ('mysql_access.php');
 	$sql = "DELETE FROM `apo`.`contact_information` WHERE `contact_information`.`status` = 'REMOVE'";
 	$result = $db->query($sql);
