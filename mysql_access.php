@@ -3,10 +3,10 @@
 // http://codular.com/php-mysqli
 // http://www.pontikis.net/blog/how-to-use-php-improved-mysqli-extension-and-why-you-should
 error_reporting(-1);
-$GLOBALS['$DBServer'] = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
-$GLOBALS['$DBUser']   = 'apo';
-$GLOBALS['$DBPass']   = 'alphaphiomega';
-$GLOBALS['$DBName']   = 'apo';
+global $DBServer = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
+global $DBUser   = 'apo';
+global $DBPass   = 'alphaphiomega';
+global $DBName   = 'apo';
 
 // Object oriented way (good way)
 
@@ -21,7 +21,7 @@ $GLOBALS['$DBName']   = 'apo';
         }
     }
 }*/
-$GLOBALS['$db'] = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
+global $db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
 
 // check connection
 if ($db->connect_error) {
