@@ -1,5 +1,7 @@
 ﻿<?php
 require_once ('session.php');
+include_once ('mysql_access.php');
+require_once ('PasswordHash.php');
 ?>
 <!doctype html>
 <html>
@@ -17,8 +19,6 @@ require_once ('session.php');
     <!-- PHP method to include header -->
 
 <?php
-include_once ('mysql_access.php');
-require_once ('PasswordHash.php');
 //page_head();
 //echo"<body style=\"background-color:#EBEBEB\" OnLoad=\"document.loginform.username.focus();\">";
 //page_header();
