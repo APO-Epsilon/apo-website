@@ -69,70 +69,70 @@ function list_stats($hours_id, $semester) {
 	include ('mysql_access.php');
 	// Total Hours
 	$sql = "SELECT SUM('hours') AS `sum_hours` FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `semester` = '$semester' LIMIT 1";
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours. $db->error");
-echo "mysqli_fetch_array($results)";
-	while($i = mysqli_fetch_array($results)) {
+	$results = $db->query($sql) or die("Error Calculating Hours. $db->error");
+echo "$results->fetch_array()";
+	while($i = $results->fetch_array()) {
 		$total_hours = round($i['sum_hours'], 2);
 		echo "<span>Total Hours:</span> $total_hours<br/>";
 	}
 
 	// APO Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `event` != 'Non-APO Hours'  AND `semester` = '$semester' LIMIT 1";
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours");
+	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = $results->fetch_array()) {
 		$apo_hours = round($i['sum_hours'], 2);
 		echo "<span>APO Hours:</span> $apo_hours<br/>";
 	}
 
 	// Chapter Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Chapter'  AND `semester` = '$semester' LIMIT 1";
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours");
+	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = $results->fetch_array()) {
 		echo "<span>Chapter Hours:</span> $i[sum_hours]<br/>";
 	}
 
 	// Campus Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Campus'  AND `semester` = '$semester' LIMIT 1";
 
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours");
+	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = $results->fetch_array()) {
 		echo "<span>Campus Hours:</span> $i[sum_hours]<br/>";
 	}
 
 	// Community Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Community'  AND `semester` = '$semester' LIMIT 1";
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours");
+	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = $results->fetch_array()) {
 		$community_hours = round($i['sum_hours'], 2);
 		echo "<span>Community Hours:</span> $community_hours<br/>";
 	}
 
 	// Country Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `servicetype` = 'Country'  AND `semester` = '$semester' LIMIT 1";
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours");
+	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = $results->fetch_array()) {
 		echo "<span>Country Hours:</span> $i[sum_hours]<br/>";
 	}
 
 	// Fundraising Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `fundraising` = '1'  AND `semester` = '$semester' LIMIT 1";
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours");
+	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = $results->fetch_array()) {
 		echo "<span>Fundraising Hours:</span> $i[sum_hours]<br/>";
 	}
 
 
 	// Bought Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `event` = 'Bought Hours'  AND `semester` = '$semester' LIMIT 1";
-	$results = mysqli_query($db, $sql) or die("Error Calculating Hours");
+	$results = $db->query($sql) or die("Error Calculating Hours");
 
-	while($i = mysqli_fetch_array($results)) {
+	while($i = $results->fetch_array()) {
 		echo "<span>Bought Hours:</span> $i[sum_hours]<br/>";
 	}
 }
@@ -141,13 +141,13 @@ echo "mysqli_fetch_array($results)";
 function list_hours($hours_id) {
 	include ('mysql_access.php');
 	$sql = "SELECT * FROM `recorded_hours` WHERE 'user_id' = '$hours_id' ORDER BY `year` DESC, `month` DESC, `day` DESC";
-	$results = mysqli_query($db, $sql) or die("Error - Contact Webmaster");
+	$results = $db->query($sql) or die("Error - Contact Webmaster");
 
 	echo "<div style='margin: 0px auto; width: 100%; text-align: center;'>
 	<table cellpadding='0' cellspacing='0' class='hours_table'>
 	<tr class='hours_header'><td>Event</td><td>Date</td><td>Type</td><td>Hours</td><td>Description</td><td>Semester</td><td></td></tr>";
 	$inc = 1;
-	while ($i = mysqli_fetch_array($results)) {
+	while ($i = $results->fetch_array()) {
 		if (($inc % 2) == 1) {
 			$hours_line = "class='hours_row1'";
 		} else {
@@ -184,7 +184,7 @@ if (isset($_POST['action']) && $_POST['action'] == "add_hour") {
 
 function delete_hour($hour_id, $user_id) {
 	$sql = "DELETE FROM `recorded_hours` WHERE `index` = '$hour_id' AND 'user_id' = '$user_id' LIMIT 1";
-	$result = mysqli_query($db, $sql) or exit("There was an error, contact Webmaster");
+	$result = $db->query($sql) or exit("There was an error, contact Webmaster");
 }
 
 if (isset($_GET['delete'])) {
