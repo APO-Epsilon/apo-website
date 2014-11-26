@@ -7,16 +7,15 @@ require_once ('mysql_access.php');
 <head>
     <?php require 'head.php';?>
     <style>
-	tr.row_1{
+	.row_1{
 	background: #CCC;
 	}
-	tr.header{
+	.header{
 	background: #BBB;
 	}
-	table.hours td{
+	.hours td{
 	padding: 5px 10px;
 	}
-	table.hours{}
 	</style>
 
 </head>
