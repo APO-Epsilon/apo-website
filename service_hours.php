@@ -44,7 +44,7 @@ function process_form() {
 	}
 	else {
 		$insert = "INSERT INTO apo.recorded_hours (user_id, event, month, day, year, date, description, hours, servicetype, fundraising, semester) values('$id', '$event', '$month','$day', '$year', '$date', '$description', '$hours', '$servicetype', '$fundraising', '$semester') ON DUPLICATE KEY UPDATE description='NEEDS NEW DESCRIPTION';";
-		$query2 = $db->query($insert) or die($db->error;
+		$query2 = $db->query($insert) or die($db->error);
 		$result = '1';
 			if($fundraising == 1){//also ads fundraising hours to another DB so we can see who the first 30 were.
 				$sql5 = "SELECT * FROM `first_30`";
