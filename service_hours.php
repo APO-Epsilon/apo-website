@@ -1,7 +1,6 @@
 <?php
 require_once ('session.php');
-require ('mysql_access.php');
-
+include ('mysql_access.php');
 ?>
 <!doctype html>
 <html>
@@ -67,6 +66,7 @@ END;
 return $result;
 }
 function list_stats($hours_id, $semester) {
+	include ('mysql_access.php');
 	// Total Hours
 	$sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE `user_id` = $hours_id AND `semester` = '$semester' LIMIT 1";
 	$results = $db->query($sql) or die("Error Calculating Hours");
