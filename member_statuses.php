@@ -56,7 +56,7 @@ function list_members_status_form($sql, $positions_options) {
 			</select>
 
 		</td>
-		<td>
+		<td style="width: 20%">
 			<select name="member[$row[id]][position]">
 				<option>$row[position]</option>
 				<option></option>
