@@ -14,8 +14,8 @@ class Member{
 		$sql = "SELECT userID, firstname, lastname 
 				FROM contact_information 
 				WHERE username = $username";
-		$query_str = mysql_query($sql);
-		$result = mysql_fetch_array($query_str);
+		$query_str = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$result = mysqli_fetch_array($query_str);
 		$this->userId;
 		$this->firstname = $result['firstname'];
 		$this->lastname = $result['lastname'];

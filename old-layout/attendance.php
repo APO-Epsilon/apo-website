@@ -10,9 +10,9 @@ if (!isset($_SESSION['sessionID'])) {
 }else{
 
 	$sql = "SELECT status AS status FROM contact_information WHERE id = '".$_SESSION['sessionID']."'";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 			if($result){
-				while($row = mysql_fetch_array($result)){
+				while($row = mysqli_fetch_array($result)){
 					$sessionStatus = $row['status'];
 				}
 			}
@@ -31,8 +31,8 @@ function list_attendance_stats($user_id){
 			WHERE recorded_attendance.user_id = ".$user_id."
 			AND events.name = 'Active Meeting'
 			ORDER BY occurrence.id ASC";
-	$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 			$name = $row['name'];
 			$sum_worth = $row['sum_worth'];
 			$worth = $row['worth'];
@@ -44,8 +44,8 @@ function list_attendance_stats($user_id){
 			WHERE recorded_attendance.user_id = ".$user_id." AND events.name = 'Active Meeting'
 			AND recorded_attendance.attended = 0
 			ORDER BY occurrence.id ASC";
-	$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 			$num_missed = $row['num_missed'];
 		}
 
@@ -55,14 +55,14 @@ function list_attendance_stats($user_id){
 			LEFT JOIN recorded_attendance ON occurrence.id = recorded_attendance.id
 			WHERE recorded_attendance.user_id = ".$user_id." AND recorded_attendance.attended = 0
 			ORDER BY occurrence.id ASC";
-	$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 			$num_missed_total = $row['num_missed'];
 		}
 
 	$sql = "SELECT COUNT(id) AS committee_count FROM committee_attendance WHERE id = ".$user_id." AND attended = 1";
-	$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 			$committee_count = $row['committee_count'];
 		}
 		echo "
@@ -83,7 +83,7 @@ function list_attendance_stats($user_id){
 			LEFT JOIN recorded_attendance ON occurrence.id = recorded_attendance.id
 			WHERE recorded_attendance.user_id = '".$user_id."'
 			ORDER BY occurrence.date DESC";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 		if($result){
 		}
 echo<<<END
@@ -108,7 +108,7 @@ END;
 				<td>Attended</td>
 				<td></td>
 				</tr>";
-			while($row = mysql_fetch_array($result)){
+			while($row = mysqli_fetch_array($result)){
 				$e_id = $row['e_id'];
 				$event_id = $row['id'];
 				$date = $row['date'];
@@ -143,8 +143,8 @@ END;
 			LEFT JOIN positions ON committee_occurrence.position_id = positions.position_id
 			WHERE committee_attendance.id = ".$user_id."
 			ORDER BY committee_occurrence.date ASC";
-	$result = mysql_query($sql);
-	if(mysql_num_rows($result)!=0){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	if(mysqli_num_rows($result)!=0){
 echo "		<div style='margin: 0px auto; width: 100%; text-align: center;'>
 				<table cellpadding='0' cellspacing='0' class='hours_table'>
 				<tr class='hours_header'>
@@ -153,7 +153,7 @@ echo "		<div style='margin: 0px auto; width: 100%; text-align: center;'>
 				<td>Date</td>
 				<td></td>
 				</tr>";
-			while($row = mysql_fetch_array($result)){
+			while($row = mysqli_fetch_array($result)){
 			$comm_id = $row['comm_id'];
 			$position_id = $row['position_id'];
 			$position = $row['position'];

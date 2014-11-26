@@ -8,7 +8,7 @@ function top_hours() {
 	//$users = mysql_query($sql);
 	
 	$sql = "SELECT id, firstname, lastname, status, SUM(hours) AS 'sum_hours', COUNT(DISTINCT servicetype) AS Num_Cs, SUM(hours * fundraising) AS 'fundraising' FROM  recorded_hours, contact_information WHERE contact_information.id = recorded_hours.user_id AND (status = 'Active' OR status = 'Pledge' OR status = 'Appointed' OR status = 'Elected' OR status = 'Associate') GROUP BY user_id ORDER BY lastname, firstname";
-	$data = mysql_query($sql);
+	$data = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	
 	//$sql = "SELECT user_id, SUM(hours) AS 'sum_hours' FROM recorded_hours WHERE event = 'Non-APO Hours' GROUP BY user_id";
 	//$nonapo = mysql_query($sql);
@@ -31,7 +31,7 @@ function top_hours() {
 END;
 	
 	$i = 1;
-	while($row = mysql_fetch_array($data)) {
+	while($row = mysqli_fetch_array($data)) {
 		if ($row['status'] == 'Associate') {
 			$Num_Cs_required = 2;
 			$fundraising_required = 1.5;

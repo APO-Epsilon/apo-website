@@ -7,11 +7,11 @@ function list_hours() {
 	global $current_semester;
 	$sql = "SELECT firstname, lastname, SUM( recorded_hours.hours ) AS  `sum_hours`, email FROM  `contact_information`, `recorded_hours` WHERE recorded_hours.user_id = contact_information.id AND recorded_hours.semester = '$current_semester' GROUP BY contact_information.id ORDER BY  `sum_hours` DESC";
 	//echo $sql;
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	
 	echo "<table cellpadding=0 cellspacing=0 class='hours'><tr class='header'><td><b>Name</b></td><td><b>Hours</b></td><td><b>Email</b></td></tr>";
 	$i = 1;
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";
@@ -29,11 +29,11 @@ function list_fund_hours() {
 	global $current_semester;
 	$sql = "SELECT firstname, lastname, SUM( recorded_hours.hours ) AS `sum_hours`, email FROM `contact_information` , `recorded_hours` WHERE recorded_hours.user_id = contact_information.id AND recorded_hours.semester = '$current_semester' AND recorded_hours.fundraising = '1' GROUP BY contact_information.id ORDER BY `sum_hours` DESC";
 	//echo $sql;
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	
 	echo "<table cellpadding=0 cellspacing=0 class='hours'><tr class='header'><td><b>Name</b></td><td><b>Hours</b></td><td><b>Email</b></td></tr>";
 	$i = 1;
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";

@@ -20,9 +20,9 @@ require_once ('mysql_access.php');
 page_header();
 
 function list_members_status_form($sql, $positions_options) {
-	$result = mysql_query($sql) or exit("Error");
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or exit("Error");
 
-	while ($row = mysql_fetch_array($result)) {
+	while ($row = mysqli_fetch_array($result)) {
 		if ($row['exec'] == 1 ) {
 			$is_exec = "CHECKED";
 			$is_not_exec = "";
@@ -72,10 +72,10 @@ END;
 
 function get_positions() {
 	$sql = "SELECT `position` FROM `positions`";
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 	$positions_options = "";
-	while ($row = mysql_fetch_array($result)) {
+	while ($row = mysqli_fetch_array($result)) {
 		$positions_options = $positions_options . "<option>$row[position]</option>";
 	}
 	return $positions_options;
@@ -86,7 +86,7 @@ function process_user($member, $user_id) {
 
 	$sql = "UPDATE `contact_information` SET `status` = '$member[status]', `position` = '$member[position]', `exec` = '$member[exec_access]' WHERE `id` = '$user_id' LIMIT 1";
 	//echo $sql . "<br/>";
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 }
 

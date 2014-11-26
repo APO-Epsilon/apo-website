@@ -17,7 +17,7 @@ function process_new()
 	$sql = "INSERT INTO `apo`.`events`
 			(name, worth) VALUES ('".$name."',
 			'".$worth."')";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 			if(!$result)
 				{
 					echo("An error occurred, please contact the webmaster");
@@ -45,15 +45,15 @@ echo
     </form>
 END;
 		$sql = "SELECT * FROM `apo`.`events`";
-		$result = mysql_query($sql);
-		$num_rows = mysql_num_rows($result);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$num_rows = mysqli_num_rows($result);
 echo
 <<<END
 		<fieldset>
 			<legend>Events already added:</legend>
 			<p>These is/are $num_rows event(s) already added to the database</p>
 END;
-			while($row = mysql_fetch_array($result)){
+			while($row = mysqli_fetch_array($result)){
 				echo($row['name']."<br/>");
 			}
 		echo("</fieldset>");
@@ -62,7 +62,7 @@ END;
 function display_add_form($active_semester){
 
 	$sql = "SELECT * FROM `apo`.`events`";
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 		if($result){
 
     		echo ("<form action='".$_SERVER['PHP_SELF']."' method='post'>");
@@ -74,7 +74,7 @@ function display_add_form($active_semester){
                 	<select name="name">
                     	<option value="NULL">Select one...</option>
 <?php
-						while($row = mysql_fetch_array($result)){
+						while($row = mysqli_fetch_array($result)){
 							echo ("<option value=\"".$row['name']."\">".$row['name']."</option>");
 						}
 ?>
@@ -152,7 +152,7 @@ function display_add_form($active_semester){
        		</fieldset>
     	</form>
 <?php
-}else{echo("bad sql".mysql_error());}
+}else{echo("bad sql".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));}
 }
 
 function process_add(){//A.K.A. FUNCTION BITCH()
@@ -180,26 +180,26 @@ function process_add(){//A.K.A. FUNCTION BITCH()
 	$sql = "INSERT INTO `apo`.`occurrence` (e_id, date, type)
 			VALUES ((SELECT e_id FROM `apo`.`events` WHERE name = '".$name."'), '".$date."','".$type."')";
 
-	$result= mysql_query($sql);
+	$result= mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 		if($result){
 			echo("successful<br/>");
 			echo("An event was added for: ".$date);
 		}else{
-			die("error".mysql_error());
+			die("error".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
 		}
 
 	//now create the entries for each individual
 	//we have to select the e_id of the event we just created & also
 	//iterate over every individual from the contact_information table..
 	$sql = "SELECT e_id FROM `apo`.`events` WHERE name = '".$name."' LIMIT 1";
-		$result = mysql_query($sql);
-		while ($row = mysql_fetch_assoc($result)) {
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while ($row = mysqli_fetch_assoc($result)) {
 			$e_id = $row['e_id'];
 		}
 	$sql = "SELECT MAX(id) AS id FROM `apo`.`occurrence` WHERE e_id = '".$e_id."'";
-		$result = mysql_query($sql);
-		while ($row = mysql_fetch_assoc($result)) {
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while ($row = mysqli_fetch_assoc($result)) {
 			$id = $row['id'];
 		}
 
@@ -452,18 +452,18 @@ function process_add(){//A.K.A. FUNCTION BITCH()
 
 
 	$sql = "SELECT id FROM `apo`.`contact_information` WHERE $WHERE_ALL AND $WHERE";
-		$result = mysql_query($sql);
-		$num_rows = mysql_num_rows($result);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$num_rows = mysqli_num_rows($result);
 		for ($i=0;$i<$num_rows;$i++){
 			$ids;
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$ids[$i] = $row['id'];
 		}
 		foreach($ids as $index => $value){
 		//creates a row for each individual for the assigned event.
 			$sql = "INSERT INTO `apo`.`recorded_attendance` (id,user_id)
 					VALUES ('".$id."','".$value."')";
-				$result=mysql_query($sql);
+				$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 		}
 }
 
@@ -487,8 +487,8 @@ END;
 			JOIN occurrence
 			ON events.e_id=occurrence.e_id
 			ORDER BY occurrence.date DESC";
-		$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 					$event = $row['name'];
 					$date = $row['date'];
 					$id = $row['id'];
@@ -512,8 +512,8 @@ function display_log_form(){
 			ON events.e_id=occurrence.e_id
 			WHERE occurrence.id = '".$id."'
 			ORDER BY occurrence.date";
-		$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 					$event = $row['name'];
 					$date = $row['date'];
 		}
@@ -769,12 +769,12 @@ END;
 (lastname = 'Young' AND firstname = 'Lauren') OR
 (lastname = 'Zimmerman' AND firstname = 'Victoria'))
 			ORDER BY lastname, firstname DESC";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
-		$num_rows = mysql_num_rows($result);
+		$num_rows = mysqli_num_rows($result);
 		for ($i=0;$i<$num_rows;$i++){
 			$ids;
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$type = $row['type'];
 			if($type == 'Exec'){
 				$status = $row['status'];
@@ -791,8 +791,8 @@ END;
 		//Pound it into the ground
 			//begin checkbox interjection.
 			$sql = "SELECT firstname, lastname FROM `apo`.`contact_information` WHERE id = $value";
-				$result = mysql_query($sql);
-				while($row = mysql_fetch_array($result)){
+				$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+				while($row = mysqli_fetch_array($result)){
 				// begin band aid
 							$firstname = $row['firstname'];
 							$lastname = $row['lastname'];
@@ -832,10 +832,10 @@ function process_log(){
 		$sql = "UPDATE `recorded_attendance` SET attended = 1
 				WHERE attended = 0 AND user_id = '".$attendance."'
 				AND id = '".$id."'";
-			$result = mysql_query($sql);
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 			if($result){
 			}else{
-			echo(mysql_error());
+			echo(((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
 			}
 	}
 }
@@ -856,8 +856,8 @@ END;
 			ON events.e_id=occurrence.e_id
 			WHERE semester != 'Spring 2013'
 			ORDER BY occurrence.date DESC";
-		$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 					$event = $row['name'];
 					$date = $row['date'];
 					$id = $row['id'];
@@ -883,8 +883,8 @@ function show_attendance(){
 			ON events.e_id=occurrence.e_id
 			WHERE occurrence.id = '".$id."'
 			ORDER BY occurrence.date";
-		$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 					$event = $row['name'];
 					$date = $row['date'];
 		}
@@ -909,12 +909,12 @@ END;
 			AND recorded_attendance.id = $id
 			AND recorded_attendance.attended = 1
 			ORDER BY lastname, firstname DESC";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
-		$num_rows = mysql_num_rows($result);
+		$num_rows = mysqli_num_rows($result);
 		for ($i=0;$i<$num_rows;$i++){
 			$ids;
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$ids[$i] = $row['id'];
 		}
 
@@ -923,8 +923,8 @@ END;
 		//Pound it into the ground
 			//begin checkbox interjection.
 			$sql = "SELECT firstname, lastname FROM `apo`.`contact_information` WHERE id = $value";
-				$result = mysql_query($sql);
-				while($row = mysql_fetch_array($result)){
+				$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+				while($row = mysqli_fetch_array($result)){
 					$firstname = $row['firstname'];
 					$lastname = $row['lastname'];
 				}

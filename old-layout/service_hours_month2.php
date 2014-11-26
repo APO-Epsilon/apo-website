@@ -5,11 +5,11 @@ require_once ('mysql_access.php');
 
 function top_hours() {
 	$sql = "SELECT firstname, lastname, SUM( recorded_hours.hours ) AS  `sum_hours` FROM  `contact_information`, `recorded_hours` WHERE recorded_hours.user_id = contact_information.id GROUP BY contact_information.id ORDER BY  contact_information.lastname ASC";
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	
 	echo "<table cellpadding=0 cellspacing=0 class='hours'><tr class='header'><td><b>Name</b></td><td><b>Hours</b></td></tr>";
 	$i = 1;
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";
@@ -24,21 +24,21 @@ function top_hours() {
 
 function family_hours() {
 	$sql = "SELECT SUM(`hours`) AS sum_hours, contact_information.famflower FROM `recorded_hours`, `contact_information` WHERE recorded_hours.user_id = contact_information.id GROUP BY contact_information.famflower";
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	
 	
 	$sql2 = "SELECT `famflower`, COUNT(`lastname`) as 'members' FROM `contact_information` GROUP BY `famflower`";
-	$result2 = mysql_query($sql2);
+	$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
 
 	
 	$fam_flower_array = array();
-	while ($row = mysql_fetch_array($result2)) {
+	while ($row = mysqli_fetch_array($result2)) {
 		$fam_flower_array[$row[famflower]] = $row['members'];
 	}
 	
 	echo "<table cellpadding=0 cellspacing=0 class='hours'><tr class='header'><td><b>Family Hours</b></td><td><b>Hours</b></td><td><b>HPM*</b></tr>";
 	$i = 1;
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";
@@ -84,11 +84,11 @@ if (!isset($_SESSION['sessionID'])) {
 		echo "<h2>Most hours logged for month of $date_title2</h2>";
 			
 			
-		$result2 = mysql_query($sql2);
+		$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
 			
 		echo "<table><tr><td><b>Name</b></td><td><b>Hours</b></td></tr>";
 			
-		while($row2 = mysql_fetch_array($result2)) { 
+		while($row2 = mysqli_fetch_array($result2)) { 
 			echo "<tr><td>$row2[firstname] $row2[lastname]</td><td>$row2[sum_hours]</td></tr>";
 		}
 			
@@ -104,11 +104,11 @@ if (!isset($_SESSION['sessionID'])) {
 		echo "<h2>Most hours logged for month of $date_title</h2>";
 			
 			
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 			
 		echo "<table><tr><td><b>Name</b></td><td><b>Hours</b></td></tr>";
 			
-		while($row = mysql_fetch_array($result)) { 
+		while($row = mysqli_fetch_array($result)) { 
 			echo "<tr><td>$row[firstname] $row[lastname]</td><td>$row[sum_hours]</td></tr>";
 		}
 			
@@ -125,11 +125,11 @@ if (!isset($_SESSION['sessionID'])) {
 			//echo "<h2>Most hours logged for month of $date_title1</h2>";
 			
 			
-			$result1 = mysql_query($sql1);
+			$result1 = mysqli_query($GLOBALS["___mysqli_ston"], $sql1);
 			
 			//echo "<table><tr><td><b>Name</b></td><td><b>Hours</b></td></tr>";
 			
-			while($row1 = mysql_fetch_array($result1)) { 
+			while($row1 = mysqli_fetch_array($result1)) { 
 				//echo "<tr><td>$row1[firstname] $row1[lastname]</td><td>$row1[sum_hours]</td></tr>";
 			}
 		}

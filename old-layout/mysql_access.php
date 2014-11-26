@@ -5,13 +5,13 @@ $DBUser   = 'apo';
 $DBPass   = 'alphaphiomega';
 $DBName   = 'apo';
 // really bad way
-$db = mysql_connect("apo.cxav86kuligx.us-west-2.rds.amazonaws.com", "apo", "alphaphiomega");
+$db = ($GLOBALS["___mysqli_ston"] = mysqli_connect("apo.cxav86kuligx.us-west-2.rds.amazonaws.com",  "apo",  "alphaphiomega"));
 if (!$db) {
         print "Error - Could not connect to mysql";
         exit;
 }
 
-$er = mysql_select_db("apo");
+$er = ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE apo"));
 if (!$er) {
         print "Error - Could not select database";
         exit;

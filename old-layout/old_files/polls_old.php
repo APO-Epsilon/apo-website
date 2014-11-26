@@ -12,8 +12,8 @@ require_once ('service_functions.php');
 global $current_semester;
 		$id = $_SESSION['sessionID'];
 		$sql = "SELECT * FROM `apo`.`contact_information` WHERE id = '".$id."'";
-			$result = mysql_query($sql);
-			while($row = mysql_fetch_array($result)){
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			while($row = mysqli_fetch_array($result)){
   				$firstname = $row['firstname'];
   				$lastname = $row['lastname'];}
 page_header();
@@ -37,24 +37,24 @@ if (!isset($_SESSION['sessionID'])) {
 		if(!isset($poll)){
 		echo('<div id="week_service_events"><h3>Available Polls</h3>');
 		$sql4 = "SELECT user_id FROM `poll_completion`";
-			$result4 = mysql_query($sql4);
+			$result4 = mysqli_query($GLOBALS["___mysqli_ston"], $sql4);
 				if($result4){
-					while($row4 = mysql_fetch_array($result4)){
+					while($row4 = mysqli_fetch_array($result4)){
 						$user_id = $row4['user_id'];}
 					if($user_id == $id){
 						echo('No polls remain');}}
 		$sql = "SELECT id, name, creator, date_start, date_end FROM `polls` LIMIT 1";
-			$result = mysql_query($sql);
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 				if(!$result){echo('issue');}
-					while($row = mysql_fetch_array($result)){
+					while($row = mysqli_fetch_array($result)){
 						$poll_creator = $row['creator'];
 						$poll_id = $row['id'];
 						$poll_start = $row['date_start'];
 						$poll_end = $row['date_end'];
 						$poll_name = $row['name'];}
 		$sql2 = "SELECT firstname, lastname FROM `contact_information` WHERE user_id = '".$poll_creator."'";
-			$result2 = mysql_query($sql2);
-				while($row2 = mysql_fetch_array($result2)){
+			$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+				while($row2 = mysqli_fetch_array($result2)){
 						$firstname = $row2['firstname'];
 						$lastname = $row2['lastname'];
 				}
@@ -64,23 +64,23 @@ if (!isset($_SESSION['sessionID'])) {
 			
 		$question_id_pre = $_GET['question_id_pre'];
 		$sql = "SELECT id, name, creator, date_start, date_end FROM `polls` LIMIT 1";
-			$result = mysql_query($sql);
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 				if(!$result){echo('issue');}
-					while($row = mysql_fetch_array($result)){
+					while($row = mysqli_fetch_array($result)){
 						$poll_creator = $row['creator'];
 						$poll_id = $row['id'];
 						$poll_start = $row['date_start'];
 						$poll_end = $row['date_end'];
 						$poll_name = $row['name'];}
 		$sql2 = "SELECT firstname, lastname FROM `contact_information` WHERE user_id = '".$poll_creator."'";
-			$result2 = mysql_query($sql2);
-				while($row2 = mysql_fetch_array($result2)){
+			$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+				while($row2 = mysqli_fetch_array($result2)){
 						$firstname = $row2['firstname'];
 						$lastname = $row2['lastname'];}
 		$sql3 = "SELECT * FROM `question` WHERE question_id = ".$question_id_pre."";
-			$result3 = mysql_query($sql3);
+			$result3 = mysqli_query($GLOBALS["___mysqli_ston"], $sql3);
 				if(!$result3){echo('fail');}
-				while($row3 = mysql_fetch_array($result3)){
+				while($row3 = mysqli_fetch_array($result3)){
 						$question = $row3['question'];
 						$question_id = $row3['question_id'];}
 		echo('<div id="week_service_events"><h3>'.$poll_name.'</h3>');

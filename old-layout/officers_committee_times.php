@@ -22,8 +22,8 @@ $sql = "SELECT position, position_order, comm_day,
 	 	FROM positions 
 	 	WHERE comm_active = 1 
 	 	ORDER BY position_order";
-$result = mysql_query($sql);
-while($row = mysql_fetch_array($result)){
+$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+while($row = mysqli_fetch_array($result)){
 	$position = $row['position'];
 	$comm_time = $row['comm_time'];
 	$comm_location = $row['comm_location'];
@@ -35,8 +35,8 @@ $sql1 = "SELECT o.date AS date
 		ON p.position_id = o.position_id
 		WHERE p.position = '".$position."'
 		ORDER BY date";
-$result1 = mysql_query($sql1);
-while($row1 = mysql_fetch_array($result1)){
+$result1 = mysqli_query($GLOBALS["___mysqli_ston"], $sql1);
+while($row1 = mysqli_fetch_array($result1)){
 	$next_committee = $row1['date'];
 }
 	$todays_date = date("Y-m-d");

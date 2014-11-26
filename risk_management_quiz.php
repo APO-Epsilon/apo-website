@@ -22,8 +22,8 @@ require_once ('mysql_access.php');
     if (isset($_SESSION['sessionID'])) {
         $user_id = $_SESSION['sessionID'];
         $sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
-        $result = mysql_query($sql);
-        $row = mysql_fetch_array($result);
+        $result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+        $row = mysqli_fetch_array($result);
         if ($row['risk_management'] != "0000-00-00") {
             return true;
         }
@@ -38,11 +38,11 @@ if (passed_quiz()) {
     echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
 }?>
 
-<?php $response=mysql_query("SELECT * FROM questions");?>
+<?php $response=mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM questions");?>
 
 <br>
 <form method='post' id='quiz_form'>
-    <?php while($result=mysql_fetch_array($response)){ ?>
+    <?php while($result=mysqli_fetch_array($response)){ ?>
     <div id="question_<?php echo $result['id'];?>" class='questions'>
     <h3 id="question_<?php echo $result['id'];?>"><?php echo $result['id'].".".$result['question_name'];?></h3>
     <div class='align'>

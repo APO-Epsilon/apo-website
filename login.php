@@ -99,8 +99,8 @@ function process_login(){
 			if ($hasher->CheckPassword($password, $hash)) {
 				$what = 'Authentication succeeded';
 				$select = "SELECT * FROM contact_information WHERE username='$username'";
-				$query = mysql_query($select) or die("Unable to get data.");
-				$r = mysql_fetch_array($query);
+				$query = mysqli_query($GLOBALS["___mysqli_ston"], $select) or die("Unable to get data.");
+				$r = mysqli_fetch_array($query);
 			} else {
 				$what = 'Authentication failed.  Please try again.';
 			}
@@ -128,7 +128,7 @@ function process_login(){
 				WHERE `lastname` = '".$lastname."'
 				AND `firstname` = '".$firstname."'
 				AND `username` = '".$username."'";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 			echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
 

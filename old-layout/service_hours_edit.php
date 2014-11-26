@@ -29,7 +29,7 @@ function process_form() {
 	}
 	else {
 		$insert = "insert into apo.recorded_hours (user_id, event, month, day, year, date, description, hours, servicetype, fundraising, semester) values('$id', '$event', '$month','$day', '$year', '$date', '$description', '$hours', '$servicetype', '$fundraising', '$semester');";
-		$query2 = mysql_query($insert) or die("If you encounter problems, please contact the webmaster.");
+		$query2 = mysqli_query($GLOBALS["___mysqli_ston"], $insert) or die("If you encounter problems, please contact the webmaster.");
 		$result = '1';
 	}
 return $result;
@@ -37,9 +37,9 @@ return $result;
 
 function hours_form($user_id, $hours_id) {
 	$sql = "SELECT * FROM `recorded_hours` WHERE `user_id` = $user_id AND `index` = $hours_id LIMIT 1";
-	$result = mysql_query($sql) or die("Error Getting Hour Data");
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql) or die("Error Getting Hour Data");
 	
-	while($i = mysql_fetch_array($results)) { 
+	while($i = mysqli_fetch_array($results)) { 
 		echo<<<END
 		<div id="service_bar">
 <table><tr><td rowspan='2' valign='top'>

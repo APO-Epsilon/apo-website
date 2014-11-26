@@ -2,11 +2,11 @@
 function list_notes() {
 	$sql = "SELECT `position_id`, `position`, `last_update` FROM `positions`";
 	
-	if ($result = mysql_query($sql)) {
+	if ($result = mysqli_query($GLOBALS["___mysqli_ston"], $sql)) {
 	
 	echo "<table>";
 	
-	while ($row = mysql_fetch_array($result)) {
+	while ($row = mysqli_fetch_array($result)) {
 		echo "<tr><td><a href='exec_notes.php?action=edit&note_id=$row[position_id]'>$row[position]</a></td><td>$row[last_update]</td></tr>";
 	}
 	echo "</table>";
@@ -20,9 +20,9 @@ function edit_note() {
 	$note_id = $_GET[note_id];
 	
 	$sql = "SELECT * FROM `positions` WHERE `position_id` = '$note_id' LIMIT 1";
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	
-	$note = mysql_fetch_array($result);
+	$note = mysqli_fetch_array($result);
 	
 	echo <<<END
 		<div><h2>$note[position]</h2>
@@ -68,7 +68,7 @@ function make_update() {
 	$_POST = array_map('mysql_real_escape_string', $_POST); 
 
 	$sql = "UPDATE `positions` SET `note_public` = '$_POST[public_note]', `note_private` = '$_POST[private_note]', `last_update` = CURDATE() WHERE `position_id` = '$_POST[note_id]' LIMIT 1";
-	mysql_query($sql) or exit($sql . 'Update Failed.  Contact Webmaster'); 
+	mysqli_query($GLOBALS["___mysqli_ston"], $sql) or exit($sql . 'Update Failed.  Contact Webmaster'); 
 	echo "Notes updated";
 }
 
@@ -82,13 +82,13 @@ echo "<div class='content'>";
 $position = $_SESSION['sessionposition'];
 
 if ($_SESSION['sessionexec'] == 1) {
-	$db = mysql_connect("mysql.truman.edu", "apo", "glueallE17"); 
+	$db = ($GLOBALS["___mysqli_ston"] = mysqli_connect("mysql.truman.edu",  "apo",  "glueallE17")); 
 	
 	if (!$db) { 
     	print "Error - Could not connect to mysql"; 
     	exit; 
 	} 
-	$er = mysql_select_db("apo"); 
+	$er = ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE apo")); 
 	if (!$er) { 
     	print "Error - Could not select database"; 
     	exit; 

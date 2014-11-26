@@ -13,9 +13,9 @@ function print_all_pledges(){
 			WHERE status = 'Pledge'
 			AND id >= 717
 			ORDER by lastname, firstname ASC";
-	$result = mysql_query($sql);
-	print("<strong>Total number of registered Pledges: ".mysql_num_rows($result)."<br/></strong>");
-		while($row = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	print("<strong>Total number of registered Pledges: ".mysqli_num_rows($result)."<br/></strong>");
+		while($row = mysqli_fetch_array($result)){
 			echo($row['lastname'].", ".$row['firstname']."<br/>");
 		}
 }
@@ -91,9 +91,9 @@ function process_form() {
 		(firstname, lastname, username, password, email, status, exec, active_sem) 
 		VALUES('$firstname','$lastname','$username', '$password', '$email', '$status', '$exec', '$current_semester')";
 
-	$result = mysql_query($insert);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $insert);
 	if (!$result) {
-    	die('Invalid query: ' . mysql_error());
+    	die('Invalid query: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
 	}
 echo <<<END
 		<strong>Thank you for registering with APO-Epsilon, $firstname $lastname <br/>

@@ -27,18 +27,18 @@ page_header();
 
     $selection = "SELECT `password` FROM `contact_information`";
 
-    $query = mysql_query($selection) or die("If you encounter problems, please contact the webmaster.");
+    $query = mysqli_query($GLOBALS["___mysqli_ston"], $selection) or die("If you encounter problems, please contact the webmaster.");
 
-    $num_rows  = mysql_num_rows($query);
+    $num_rows  = mysqli_num_rows($query);
 
-        while ($row = mysql_fetch_array($query)) {
+        while ($row = mysqli_fetch_array($query)) {
             if (!$row) break;
             $user_id = $_SESSION['sessionID'];
             $password = $row['password'];
             $hasher = new PasswordHash(8, true);
             $hash = $hasher->HashPassword($password);
             //this will change ALL PASSWORDS
-            $insert = mysql_query("UPDATE `contact_information` SET `password` = '".$hash."'");
+            $insert = mysqli_query($GLOBALS["___mysqli_ston"], "UPDATE `contact_information` SET `password` = '".$hash."'");
 
 echo<<<END
 <div class="large-12 medium-12 small-12 column panel">

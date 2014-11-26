@@ -20,8 +20,8 @@ if(isset($_POST['submit'])){
 	$period = $semester_of_query.$year_adj.'Hours';	
 	
 	$sql = "SELECT SUM(hours) FROM `".$period."` WHERE user_id = ".$id."";
-		$result = mysql_query($sql);
-			while($row = mysql_fetch_array($result)){
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			while($row = mysqli_fetch_array($result)){
 				$hours = $row['SUM(hours)'];}
 	
 	}

@@ -8,8 +8,8 @@ require_once ('mysql_access.php');
 			ON events.e_id=occurrence.e_id
 			WHERE occurrence.id = '".$id."'
 			ORDER BY occurrence.date";
-		$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 					$event = $row['name'];
 					$date = $row['date'];
 		}
@@ -27,18 +27,18 @@ require_once ('mysql_access.php');
 			AND recorded_attendance.id = $id
 			AND recorded_attendance.attended = 1
 			ORDER BY lastname, firstname DESC";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 		
-		$num_rows = mysql_num_rows($result);
+		$num_rows = mysqli_num_rows($result);
 		for ($i=0;$i<$num_rows;$i++){
 			$ids;
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$ids[$i] = $row['id'];	
 		}
 		foreach($ids as $index => $value){
 			$sql = "SELECT firstname, lastname FROM `apo`.`contact_information` WHERE id = $value";
-				$result = mysql_query($sql);
-				while($row = mysql_fetch_array($result)){
+				$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+				while($row = mysqli_fetch_array($result)){
 					$firstname = $row['firstname'];
 					$lastname = $row['lastname'];
 				}

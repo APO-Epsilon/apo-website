@@ -98,10 +98,10 @@ END;
 	
 	$selectm = "SELECT `firstname`,`bmonth`,`bday`,`byear`,`lastname`,`localaddress`,`email`,`phone`, `major`, `minor`,`famflower`, `status`,`position`, `bigbro`, `littlebro`, `pledgesem`, `pledgeyear` FROM `contact_information` WHERE $where 1=1 ORDER BY `lastname` ASC, `firstname` ASC";
 	
-	$querym = mysql_query($selectm) or die("If you encounter problems, please contact the webmaster.");
+	$querym = mysqli_query($GLOBALS["___mysqli_ston"], $selectm) or die("If you encounter problems, please contact the webmaster.");
 	
 	
-	while ($t = mysql_fetch_array($querym)) {
+	while ($t = mysqli_fetch_array($querym)) {
 		if ($t[status] == "Old Couple") {
 			$t[status] = "Pledge";
 		}

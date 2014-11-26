@@ -16,7 +16,7 @@ function process_new()
 	$sql = "INSERT INTO `apo`.`events` 
 			(name, worth, type) VALUES ('".$name."',
 			'".$worth."','".$type."')";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 			if(!$result)
 				{
 					echo("An error occurred, please contact the webmaster");
@@ -53,7 +53,7 @@ END;
 function display_add_form($active_semester){
 
 	$sql = "SELECT * FROM `apo`.`events`";
-	$result = mysql_query($sql);
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 		if($result){
 
     		echo ("<form action='".$_SERVER['PHP_SELF']."' method='post'>"); 
@@ -65,7 +65,7 @@ function display_add_form($active_semester){
                 	<select name="name">
                     	<option>Select one...</option>
 <?php
-						while($row = mysql_fetch_array($result)){
+						while($row = mysqli_fetch_array($result)){
 							echo ("<option value=\"".$row['name']."\">".$row['name']."</option>");
 						}
 ?>
@@ -129,7 +129,7 @@ function display_add_form($active_semester){
        		</fieldset>
     	</form>
 <?php
-}else{echo("bad sql".mysql_error());}
+}else{echo("bad sql".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));}
 }
 
 function process_add(){//A.K.A. FUNCTION BITCH()
@@ -148,26 +148,26 @@ function process_add(){//A.K.A. FUNCTION BITCH()
 	$sql = "INSERT INTO `apo`.`occurrence` (e_id, date) 
 			VALUES ((SELECT e_id FROM `apo`.`events` WHERE name = '".$name."'), '".$date."')";
 			
-	$result= mysql_query($sql);
+	$result= mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 				
 		if($result){
 			echo("successful");
 			echo($date);
 		}else{
-			die("error".mysql_error());
+			die("error".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
 		}
 		
 	//now create the entries for each individual
 	//we have to select the e_id of the event we just created & also
 	//iterate over every individual from the contact_information table..
 	$sql = "SELECT e_id FROM `apo`.`events` WHERE name = '".$name."' LIMIT 1";
-		$result = mysql_query($sql);
-		while ($row = mysql_fetch_assoc($result)) {	
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while ($row = mysqli_fetch_assoc($result)) {	
 			$id = $row['e_id'];
 		}
 	$sql = "SELECT id FROM `apo`.`occurrence` WHERE e_id = '".$id."'";
-		$result = mysql_query($sql);
-		while ($row = mysql_fetch_assoc($result)) {	
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while ($row = mysqli_fetch_assoc($result)) {	
 			$id = $row['id'];
 		}
 	//$e_id accesible here
@@ -180,18 +180,18 @@ function process_add(){//A.K.A. FUNCTION BITCH()
 	//event for actives.
 	$sql = "SELECT id FROM `apo`.`contact_information` WHERE status != 'Alumni' 
 			AND status != 'Inactive' AND status != 'Advisor'";
-		$result = mysql_query($sql);
-		$num_rows = mysql_num_rows($result);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		$num_rows = mysqli_num_rows($result);
 		for ($i=0;$i<$num_rows;$i++){
 			$ids;
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$ids[$i] = $row['id'];			
 		}
 		foreach($ids as $index => $value){
 		//Pound you into the ground over and over until I figure you out.
 			$sql = "INSERT INTO `apo`.`recorded_attendance` (id,user_id)
 					VALUES ('".$id."','".$value."')";
-				$result=mysql_query($sql);
+				$result=mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 				if($result){
 					//echo("");
 				}
@@ -219,8 +219,8 @@ END;
 			JOIN occurrence
 			ON events.e_id=occurrence.e_id
 			ORDER BY occurrence.date";
-		$result = mysql_query($sql);
-		while($row = mysql_fetch_array($result)){
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+		while($row = mysqli_fetch_array($result)){
 					$event = $row['name'];
 					$date = $row['date'];
 					$id = $row['id'];
@@ -233,12 +233,12 @@ END;
 	$sql = "SELECT firstname, lastname, id FROM `apo`.`contact_information`
 			WHERE status != 'Alumni' AND status != 'Inactive' AND status != 'Advisor'
 			ORDER BY lastname, firstname DESC";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 		
-		$num_rows = mysql_num_rows($result);
+		$num_rows = mysqli_num_rows($result);
 		for ($i=0;$i<$num_rows;$i++){
 			$ids;
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$ids[$i] = $row['id'];	
 		}
 		
@@ -247,8 +247,8 @@ END;
 		//Pound it into the ground
 			//begin checkbox interjection.
 			$sql = "SELECT firstname, lastname FROM `apo`.`contact_information` WHERE id = $value";
-				$result = mysql_query($sql);
-				while($row = mysql_fetch_array($result)){
+				$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+				while($row = mysqli_fetch_array($result)){
 					$firstname = $row['firstname'];
 					$lastname = $row['lastname'];
 				}
@@ -289,7 +289,7 @@ function process_log(){
 		$sql = "UPDATE `recorded_attendance` SET attended = 1 
 				WHERE attended = 0 AND user_id = '".$attendance."'
 				AND id = '".$id."'";
-			$result = mysql_query($sql);
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	}
 }
 //only Logan McCamon, Seth Raithel, and Andrew Wilson can see this page. 

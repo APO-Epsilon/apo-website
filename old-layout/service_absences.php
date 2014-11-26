@@ -11,11 +11,11 @@ $sql = "SELECT c.lastname, c.firstname, COUNT(*) AS total_absences
 		WHERE s.processed = -1
 		GROUP BY c.id
 		ORDER BY c.lastname, c.firstname";
-$result = mysql_query($sql);
+$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 	if(!$result){
 		echo ("could not retrieve");
 	}else{
-		while($r = mysql_fetch_array($result)){
+		while($r = mysqli_fetch_array($result)){
 			$fn = $r['firstname'];
 			$ln = $r['lastname'];
 			$absences = $r['total_absences'];

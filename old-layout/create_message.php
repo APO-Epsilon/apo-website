@@ -9,29 +9,29 @@ function process_new(){
 $sql = "INSERT INTO news
 		(message, who)
 		VALUES ('".$note."','".$who."')";
-$result = mysql_query($sql);
+$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 
 $sql = "SELECT `index`
 		FROM  `news` 
 		ORDER BY  `news`.`index` DESC
 		LIMIT 1";
-$result = mysql_query($sql);
-while($r = mysql_fetch_array($result)){
+$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+while($r = mysqli_fetch_array($result)){
 	$index = $r['index'];
 }
 
 $sql2 = "SELECT id, lastname FROM contact_information
 		WHERE status = '".$who."'";
-$result2 = mysql_query($sql2);
-while($v = mysql_fetch_array($result2)){
+$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+while($v = mysqli_fetch_array($result2)){
 	//echo $v['id']." : ".$v['lastname']."<br/>";
 	$sql1 = "INSERT INTO news_seen
 			(`index`, `who`)
 			VALUES (".$index.",".$v['id'].")";
-	$result1 = mysql_query($sql1);
+	$result1 = mysqli_query($GLOBALS["___mysqli_ston"], $sql1);
 	if(!$result1){
-		echo "<br/>".$index.":".$v['id'].":".mysql_error();
+		echo "<br/>".$index.":".$v['id'].":".((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false));
 		// echo("something went wrong");
 	}
 }
@@ -52,8 +52,8 @@ if(isset($_POST['note'])){
 			FROM contact_information 
 			WHERE status IS NOT NULL 
 			AND status != ''";
-	$result = mysql_query($sql);
-	while($r = mysql_fetch_array($result)){
+	$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+	while($r = mysqli_fetch_array($result)){
 		$d = $r['p_distinct'];
 		$distinct_positions[] .= $d;
 	}

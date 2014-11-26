@@ -12,8 +12,8 @@ require_once ('service_functions.php');
 global $current_semester;
 		$id = $_SESSION['sessionID'];
 		$sql = "SELECT * FROM `apo`.`contact_information` WHERE id = '".$id."'";
-			$result = mysql_query($sql);
-			while($row = mysql_fetch_array($result)){
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			while($row = mysqli_fetch_array($result)){
   				$firstname = $row['firstname'];
   				$lastname = $row['lastname'];}	
 $referer = $_SERVER["HTTP_REFERER"];
@@ -33,7 +33,7 @@ echo($question_id);
 //to the main polls.php and display thank you
 
 	$sql = "SELECT question WHERE question_id == ".$question_id."";
-		$result = mysql_query($sql);
+		$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 
 
 

@@ -15,21 +15,21 @@ require_once ('service_functions.php');
 global $current_semester;
 		$id = $_SESSION['sessionID'];
 		$sql = "SELECT * FROM `apo`.`contact_information` WHERE id = '".$id."'";
-			$result = mysql_query($sql);
-			while($row = mysql_fetch_array($result)){
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			while($row = mysqli_fetch_array($result)){
   				$firstname = $row['firstname'];
   				$lastname = $row['lastname'];}	
   if(isset($_POST["submit"])){
   		$value = $_POST['answer'];
   			$pol_id = $_GET['poll'];
   				$sql = "SELECT COUNT(user_id) AS 'count' FROM `apo`.`responses` WHERE `user_id` = ".$id."";
-  					$result = mysql_query($sql);
-  					while($row = mysql_fetch_array($result)){
+  					$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+  					while($row = mysqli_fetch_array($result)){
   						$count = $row['count'];
   							if($count == 0){
 			 			$sql1 = "INSERT INTO `apo`.`responses` (id, user_id, response) VALUES (".$pol_id.", ".$id.", '".$value."')";
-							$result1 = mysql_query($sql1);
-							$num_changed = mysql_affected_rows();
+							$result1 = mysqli_query($GLOBALS["___mysqli_ston"], $sql1);
+							$num_changed = mysqli_affected_rows($GLOBALS["___mysqli_ston"]);
 							}
 							}}
 page_header();
@@ -93,31 +93,31 @@ function addField(area,field,limit) {
 				//	echo($explanation.$name.$id);
 				//	INSERT INTO `polls` (explanation, name, creator) VALUES ('', 'title', 378);
 					$sql1 = "INSERT INTO `polls` (explanation, name, creator) VALUES ('".$explanation."', '".$title."', ".$id.")";
-						$result1 = mysql_query($sql1);
+						$result1 = mysqli_query($GLOBALS["___mysqli_ston"], $sql1);
 							if(!$result1){echo('make sure you aren\'t using any illegal characters');}
 					$sql2 = "SELECT id FROM `polls` WHERE explanation = '".$explanation."' AND creator = ".$id."";
-						$result2 = mysql_query($sql2);
-							while($row12 = mysql_fetch_array($result2)){
+						$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+							while($row12 = mysqli_fetch_array($result2)){
 								$new_poll_id = $row12['id'];}
 					for($n = 1; $n <= $num_of_questions; $n++){
 					$sql3 = "INSERT INTO `question` (pol_id, question) VALUES (".$new_poll_id.", '".$_POST['neutral_[$n]']."')";
-						$result3 = mysql_query($sql3);}
+						$result3 = mysqli_query($GLOBALS["___mysqli_ston"], $sql3);}
 				//	echo($n);
 			}
 			if(!isset($poll)){
 				echo('<div id="week_service_events"><h3>Available Polls</h3>');
 		$sql = "SELECT id, name, creator FROM `polls`";
-			$result = mysql_query($sql);
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 				if(!$result){echo('issue');}
-					while($row = mysql_fetch_array($result)){
+					while($row = mysqli_fetch_array($result)){
 						$poll_creator[$a] = $row['creator'];
 						$poll_id[$a] = $row['id'];
 						$poll_start[$a] = $row['date_start'];
 						$poll_end[$a] = $row['date_end'];
 						$poll_name[$a] = $row['name'];
 		$sql2 = "SELECT firstname, lastname FROM `contact_information` WHERE user_id = '".$poll_creator[$a]."'";
-			$result2 = mysql_query($sql2);
-				while($row2 = mysql_fetch_array($result2)){
+			$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+				while($row2 = mysqli_fetch_array($result2)){
 						$firstname = $row2['firstname'];
 						$lastname = $row2['lastname'];
 				}
@@ -126,10 +126,10 @@ function addField(area,field,limit) {
 			
 			echo('<hr /><h3>Your Polls</h3>');
 			$sql = "SELECT * FROM `polls` WHERE creator = ".$id."";
-				$result = mysql_query($sql);
-				$num_rows = mysql_num_rows($result);
+				$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+				$num_rows = mysqli_num_rows($result);
 				if($num_rows == 0){echo('You have no polls');}else{
-					while($my_polls = mysql_fetch_array($result)){
+					while($my_polls = mysqli_fetch_array($result)){
 						$my_poll_name[$a] = $my_polls['name'];
 						$my_polls_id[$a] = $my_polls['id'];		
 					echo('<a href="http://apo.truman.edu/polls.php?poll='.$my_polls_id[$a].'&check=yes">'.$my_poll_name[$a].'</a><br />');}
@@ -142,20 +142,20 @@ function addField(area,field,limit) {
 			if ($_SESSION['sessionexec'] == 1 || $id == 270) {
 			$poll_id = $_GET['poll'];
 			$sql = "SELECT * FROM `polls` WHERE creator = ".$id." AND id = ".$poll_id."";
-				$result = mysql_query($sql);
-					while($check_poll = mysql_fetch_array($result)){
+				$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+					while($check_poll = mysqli_fetch_array($result)){
 						$check_polls[$v] = $check_poll['id'];
 						//echo($check_polls[$v].'<br />');//gets us the id of the poll so we can get all of the question data
 			$sql1 = "SELECT * FROM `question` WHERE pol_id = ".$check_polls[$v]."";
-				$result1 = mysql_query($sql1);
+				$result1 = mysqli_query($GLOBALS["___mysqli_ston"], $sql1);
 					if(!$result1){echo('1 fail');}
-					while($question_data = mysql_fetch_array($result1)){
+					while($question_data = mysqli_fetch_array($result1)){
 						$the_question[$b] = $question_data['question'];
 						//echo($the_question[$b].'<br />');
 			$sql2 = "SELECT COUNT(*) FROM `responses` WHERE id = ".$poll_id." AND response = '".$the_question[$b]."'";
-				$result2 = mysql_query($sql2);	
+				$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);	
 				if(!$result2){echo('2 fail');}
-					while($the_count = mysql_fetch_array($result2)){
+					while($the_count = mysqli_fetch_array($result2)){
 						$the_official_count[$n] = $the_count['COUNT(*)'];
 						echo($the_official_count[$n].' :: '.$the_question[$b].'<br />');}
 						}echo('<a href="http://apo.truman.edu/polls.php">go back</a>');}}}
@@ -186,16 +186,16 @@ function addField(area,field,limit) {
 			
 		
 		$sql = "SELECT id, name, explanation, creator FROM `polls` WHERE `id` = ".$poll."";
-			$result = mysql_query($sql);
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
 				if(!$result){echo('issue');}
-					while($row = mysql_fetch_array($result)){
+					while($row = mysqli_fetch_array($result)){
 						$poll_creator = $row['creator'];
 						$poll_id = $row['id'];
 						$poll_name = $row['name'];
 						$poll_details = $row['explanation'];}
 		$sql2 = "SELECT firstname, lastname FROM `contact_information` WHERE user_id = '".$poll_creator."'";
-			$result2 = mysql_query($sql2);
-				while($row2 = mysql_fetch_array($result2)){
+			$result2 = mysqli_query($GLOBALS["___mysqli_ston"], $sql2);
+				while($row2 = mysqli_fetch_array($result2)){
 						$firstname = $row2['firstname'];
 						$lastname = $row2['lastname'];}
 		echo('<div id="week_service_events"><h3>'.$poll_name.'</h3>');
@@ -207,8 +207,8 @@ function addField(area,field,limit) {
 		<table border="0" width="360">
 			<?php //for($b = 1; $b <= $num_questions; $b++){
 				$sql = "SELECT question FROM `question` WHERE `pol_id` = ".$poll_id."";
-					$result = mysql_query($sql);
-						while($row9 = mysql_fetch_array($result)){
+					$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+						while($row9 = mysqli_fetch_array($result)){
 							$value[$c] = $row9['question']; 
 						
 			?>

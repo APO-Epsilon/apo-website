@@ -87,9 +87,9 @@ require_once ("PasswordHash.php");
         $query2 = mysql_query($insert) or die('<br><div class="entry"><strong>Your username is already taken.  Please try again.</strong></div>');
 */
 
-$result = mysql_query($insert);
+$result = mysqli_query($GLOBALS["___mysqli_ston"], $insert);
 if (!$result) {
-    die('Invalid query: ' . mysql_error());
+    die('Invalid query: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
 }
 echo <<<END
         <div class="entry"><strong>Thank you for registering with APO-Epsilon!!!</strong></div>

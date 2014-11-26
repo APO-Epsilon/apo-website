@@ -21,8 +21,8 @@ if (!isset($_SESSION['sessionID'])) {
 	
 		//	$sql = "UPDATE `contact_information` SET `new_password` = PASSWORD('$_POST[new_password_1]') WHERE `id` = '$user_id' AND `new_password` = PASSWORD('$_POST[old_password]') LIMIT 1";
 			$sql = "UPDATE `contact_information` SET `password` = '".$_POST[new_password_1]."' WHERE `id` = ".$user_id." LIMIT 1";
-			$result = mysql_query($sql);
-			if (mysql_affected_rows() == 1) {
+			$result = mysqli_query($GLOBALS["___mysqli_ston"], $sql);
+			if (mysqli_affected_rows($GLOBALS["___mysqli_ston"]) == 1) {
 				echo "Your password has been updated.";
 			} else {
 				echo "Your password was not changed.  Did you input the correct old password?  Click <a href='http://apo.truman.edu/members_updatepw.php'>here</a> to try again.";
