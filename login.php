@@ -91,7 +91,7 @@ function process_login(){
 				$what = 'Authentication succeeded';
 				$select = "SELECT * FROM contact_information WHERE username=`$username`";
 				$query = $db->query($select) or die("Unable to get data. $db->error");
-				$r = $query;
+				$r = $query->fetch_assoc();
 			} else {
 				$what = 'Authentication failed.  Please try again.';
 			}
