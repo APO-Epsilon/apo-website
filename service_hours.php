@@ -372,7 +372,7 @@ END;
 ?>
 <?php
 	list_stats($_SESSION['sessionID'], $current_semester);
-	echo "$_SESSION['sessionID']";
+	echo "<p>$_SESSION['sessionID']</p>";
 ?>
 	</div>
 
