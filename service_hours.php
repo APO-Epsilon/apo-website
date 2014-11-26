@@ -67,6 +67,7 @@ return $result;
 }
 function list_stats($hours_id, $semester) {
 	include ('mysql_access.php');
+	echo "$hours_id";
 	// Total Hours
 	$sql = "SELECT SUM('hours') AS `sum_hours` FROM `recorded_hours` WHERE 'user_id' = '$hours_id' AND `semester` = '$semester' LIMIT 1";
 	$results = mysqli_query($db, $sql) or die("Error Calculating Hours. $db->error");
@@ -372,7 +373,6 @@ END;
 ?>
 <?php
 	list_stats($_SESSION['sessionID'], $current_semester);
-	echo "<p>$_SESSION['sessionID']</p>";
 ?>
 	</div>
 
