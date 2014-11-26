@@ -11,7 +11,7 @@ $DBName   = 'apo';
 // Object oriented way (good way)
 
 
-class rds_mysqli extends mysqli {
+/*class rds_mysqli extends mysqli {
     public function __construct($DBServer, $DBUser, $DBPass, $DBName) {
         parent::__construct($DBServer, $DBUser, $DBPass, $DBName);
 
@@ -20,8 +20,8 @@ class rds_mysqli extends mysqli {
                     . mysqli_connect_error());
         }
     }
-}
-$db = new rds_mysqli($DBServer, $DBUser, $DBPass, $DBName);
+}*/
+$db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
 
 // check connection
 if ($db->connect_error) {
