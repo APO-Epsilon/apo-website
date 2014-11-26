@@ -2,13 +2,13 @@
 require_once ('session.php');
 require_once 'mysql_access.php';
 
-$response=mysql_query("SELECT id,question_name,answer FROM questions");
+$response=$db->query("SELECT id,question_name,answer FROM questions");
 	 $i=1;
 	 $right_answer=0;
 	 $wrong_answer=0;
 	 $unanswered=0;
 	 $user_id = $_SESSION['sessionID'];
-	 while($result=mysql_fetch_array($response)){
+	 while($result=mysqli_fetch_array($response)){
 	       if($result['answer']==$_POST["$i"]){
 		       $right_answer++;
 		   }else if($_POST["$i"]==5){
@@ -26,7 +26,7 @@ $response=mysql_query("SELECT id,question_name,answer FROM questions");
 	 echo "</div>";
 	 if ($right_answer >= ($i-1)) {
 		$sql = "UPDATE `contact_information` SET `risk_management`=CURDATE() WHERE id='$user_id'";
-		$update = mysql_query($sql);
+		$update = $db->query($sql);
 		echo "<h2>You have passed the quiz! </h2>";
 	 }
 
