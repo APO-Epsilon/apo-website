@@ -139,6 +139,7 @@ function list_stats($hours_id, $semester) {
 
 
 function list_hours($hours_id) {
+	include ('mysql_access.php');
 	$sql = "SELECT * FROM `recorded_hours` WHERE 'user_id' = '$hours_id' ORDER BY `year` DESC, `month` DESC, `day` DESC";
 	$results = $db->query($sql) or die("Error - Contact Webmaster");
 
