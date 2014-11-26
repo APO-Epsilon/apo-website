@@ -57,7 +57,7 @@ function process_login(){
 	$password = addslashes($_POST["password"]);
 	$hasher = new PasswordHash(8, true);
 
-	if ($username == 'alumni' AND $password == 'forgetmenot') {
+	if ($username == `alumni` AND $password == `forgetmenot`) {
 		$_SESSION['sessionUsername'] = 'Alumni';
 		$_SESSION['sessionFirstname'] = 'Brother';
 		$_SESSION['sessionLastname'] = 'Alumni';
@@ -89,7 +89,7 @@ function process_login(){
 
 			if ($hasher->CheckPassword($password, $hash)) {
 				$what = 'Authentication succeeded';
-				$select = "SELECT * FROM contact_information WHERE username='$username'";
+				$select = "SELECT * FROM contact_information WHERE username=`$username`";
 				$query = $db->query($select) or die("Unable to get data.");
 				$r = $query->fetch_assoc();
 			} else {
