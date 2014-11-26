@@ -52,7 +52,7 @@ echo <<<END
 END;
 	echo(isset($_SESSION['continue']) ? $_SESSION['continue'] : '');
 }
-function process_login(){
+function process_login($db){
 	$username = addslashes($_POST["username"]);
 	$password = addslashes($_POST["password"]);
 	$hasher = new PasswordHash(8, true);
