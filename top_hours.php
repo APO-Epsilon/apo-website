@@ -21,12 +21,13 @@ $result = '';
 require_once ('mysql_access.php');
 
 function top_hours() {
+	include ('mysql_access.php');
 	global $current_semester;
 	$sql = "SELECT contact_information.firstname, contact_information.lastname, SUM( hours ) AS  `sum_hours` FROM  `recorded_hours` ,  `contact_information` WHERE contact_information.id = recorded_hours.user_id AND `semester` = '$current_semester' GROUP BY (`user_id`) ORDER BY  `sum_hours` DESC LIMIT 10";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 
 	$i = 1;
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";
@@ -58,23 +59,24 @@ END;
 }
 
 function family_hours() {
+	include ('mysql_access.php');
 	global $current_semester;
 	$sql = "SELECT SUM(`hours`) AS sum_hours, contact_information.famflower FROM `recorded_hours`, `contact_information` WHERE recorded_hours.user_id = contact_information.id AND `semester` = '$current_semester' GROUP BY contact_information.famflower";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 
 
 	$sql2 = "SELECT `famflower`, COUNT(`lastname`) as 'members' FROM `contact_information` GROUP BY `famflower`";
-	$result2 = mysql_query($sql2);
+	$result2 = $db->query($sql2);
 
 
 	$fam_flower_array = array();
-	while ($row = mysql_fetch_array($result2)) {
+	while ($row = mysqli_fetch_array($result2)) {
 		$fam_flower_array[$row['famflower']] = $row['members'];
 	}
 
 	echo "<table cellpadding=0 cellspacing=0 class='hours'><tr class='header'><td><b>Family Hours</b></td><td><b>Hours</b></td><td><b>HPM*</b></tr>";
 	$i = 1;
-	while($row = mysql_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		$row_num = "";
 		if ( ($i % 2) == 0) {
 			$row_num = "class='row_1'";
