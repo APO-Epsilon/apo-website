@@ -87,9 +87,15 @@ function get_positions() {
 
 function process_user($member, $user_id) {
 	include ('mysql_access.php');
-
 	$sql = "UPDATE `contact_information` SET `status` = '$member[status]', `position` = '$member[position]', `exec` = '$member[exec_access]' WHERE `id` = '$user_id' LIMIT 1";
 	//echo $sql . "<br/>";
+	$result = $db->query($sql);
+
+}
+
+function remove_user($member, $user_id) {
+	include ('mysql_access.php');
+	$sql = "DELETE FROM `apo`.`contact_information` WHERE `contact_information`.`status` = 'REMOVE'";
 	$result = $db->query($sql);
 
 }
@@ -97,6 +103,7 @@ function process_user($member, $user_id) {
 function process_input() {
 	foreach ($_POST['member'] as $member_id => $member) {
 		process_user($member, $member_id);
+		remove_user();
 	}
 }
 
