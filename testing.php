@@ -18,10 +18,7 @@ require_once ('mysql_access.php');
     <!-- PHP method to include header -->
 <?php
 function whoami() {
-  echo <<<END
-<p>Your session information is:</p>
-<p>Exec: $_SESSION['sessionID']</p>
-END;
+	echo "<p>$_SESSION['sessionID']</p>";
 }
 ?>
 
