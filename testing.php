@@ -19,8 +19,7 @@ require_once ('mysql_access.php');
 <?php
 function whoami() {
   echo <<<END
-  <p>Your session information is:</p>
-  <p>Exec: $_SESSION['sessionexec]</p>
+a
 END;
 }
 ?>
