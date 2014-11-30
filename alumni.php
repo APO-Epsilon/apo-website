@@ -22,7 +22,7 @@ include ('mysql_access.php');
 ?>
     <div class='large-12 medium-12 small-12 column'>
         <h1>Member Information</h1>
-        <p>Here you can find a list of alumni from Epsilon (who have registered on the website).
+        <p>Here you can find a list of alumni from Epsilon (who were registered on the website).
         </p>
         <h5>
         <a href="http://familyecho.com/?p=GT11Y&c=gcv7hl4fx6&f=484622734175584762#view:GT11Y">Click here to view the family tree</a>.
