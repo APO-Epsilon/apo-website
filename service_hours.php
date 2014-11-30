@@ -22,6 +22,7 @@ $result = '';
 global $current_semester;
 global $previous_semester;
 function process_form() {
+	include ('mysql_access.php');
 	$id = $_SESSION['sessionID'];
 	$event = $_POST['event'];
 	$month = $_POST['month'];
