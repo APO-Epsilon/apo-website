@@ -191,6 +191,7 @@ if (isset($_POST['action']) && $_POST['action'] == "add_hour") {
 }
 
 function delete_hour($hour_id, $user_id) {
+	include ('mysql_access.php');
 	$sql = "DELETE FROM `recorded_hours` WHERE `index` = '$hour_id' AND `user_id` = '$user_id' LIMIT 1";
 	$result = $db->query($sql) or exit("There was an error, contact Webmaster");
 }
