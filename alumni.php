@@ -84,7 +84,7 @@ if (!isset($_SESSION['sessionID'])) {
 
         //echo $where;
     } else {
-        $where = '(`status` = "Active" OR `status` = "Elected" OR `status` = "Appointed" OR `status` = "Early Alumni" OR `status` = "Pledge Trainer" OR `status` = "Associate" OR `status` = "Family Head" OR `status` = "Pledge" OR `status` = "Pledge Exec" OR `status` = "Old Couple") AND ';
+        $where = '(`status` = "Early Alumni" OR `status` = "Alumni") AND ';
     }
 
     $where = "$where `hide_info` = 'F' AND ";
