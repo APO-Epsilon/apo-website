@@ -19,9 +19,6 @@ require_once ('session.php');
 <div class="row">
 <?php
 include ('mysql_access.php');
-if (!isset($_SESSION['sessionID'])) {
-    echo '<div class="entry">You need to login before you can use this page.</div>';
-} else {
 ?>
     <div class='large-12 medium-12 small-12 column'>
         <h1>Member Information</h1>
@@ -174,7 +171,6 @@ echo<<<END
 <br>
 END;
     }
-}
 ?>
 
 </div>
