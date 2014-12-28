@@ -25,8 +25,8 @@ module.exports = function(grunt) {
     },
     sass: {
       options: {
-        //sourceComments: 'map',
-        outputStyle: 'expanded',
+        sourceComments: 'map',
+        outputStyle: 'compressed',
         includePaths: ['bower_components/foundation/scss'],
         includePaths: require('node-bourbon').includePaths,
         includePaths: require('node-neat').includePaths,
