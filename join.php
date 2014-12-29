@@ -18,12 +18,22 @@ require_once ('session.php');
 
 <h3>Rush Chairs</h3>
     <p>The Rush Chairs are in charge of organizing Rush Week each semester and helping potential pledges discover what APO is all about.  This semester's chairs are:
-    <ul>
-        <li><b>Brenna Jenisch</b> (<a href='mailto:bkj5877@truman.edu'>bkj5877@truman.edu</a>)</li>
-        <li><b>Matthew LaPointe</b> (<a href='mailto:mpl3156@truman.edu'>mpl3156@truman.edu</a>)</li>
-        <li><b>Abby Rettke</b> (<a href='mailto:alr7762@truman.edu'>alr7762@truman.edu</a>)</li>
-        <li><b>Daniel Romine</b> (<a href='mailto:djr3387@truman.edu'>djr3387@truman.edu</a>)</li>
-    </ul>
+<?php
+require_once('mysql_access.php');
+
+$searchquery = "SELECT `firstname`, `lastname`, `email` FROM apo.contact_information WHERE `position` = 'Rush Chairman' GROUP BY lastname, firstname ;";
+$search = mysql_query($searchquery) or die("SEARCH FAILED");
+
+echo "<ul>";
+
+while ($rname = mysql_fetch_array($search)) {
+extract($rname);
+print "<li><b>$rname[firstname] $rname[lastname]</b>";
+print " (<a href='mailto:$email'>$email</a>)</li>";
+}
+
+echo "</ul>";
+?>
     Don't be afraid to email one to ask some questions about joining APO.
     </p>
 
