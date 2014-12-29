@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '../css/screen.css': 'main.scss',
+          '../css/screen.css': 'main.sass',
           '../css/foundation.css': 'foundation.scss'
         }
       }
