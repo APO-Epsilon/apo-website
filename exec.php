@@ -106,8 +106,7 @@ require_once ('session.php');
                 </p>
             <hr>
             <h1>  Webmaster  </h1>
-                <p> Dale Race <br>
-                Austin Stuart <br>
+                <p> Nick Eaton <br>
                 <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com</a>
                 </p>
             <hr>
