@@ -26,7 +26,7 @@ $search = mysqli_query($db, $searchquery) or die("SEARCH FAILED");
 
 echo "<ul>";
 
-while ($rname = mysql_fetch_array($search)) {
+while ($rname = mysqli_fetch_array($search)) {
 extract($rname);
 print "<li><b>$rname[firstname] $rname[lastname]</b>";
 print " (<a href='mailto:$email'>$email</a>)</li>";
