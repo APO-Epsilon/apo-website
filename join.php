@@ -22,7 +22,7 @@ require_once ('session.php');
 require_once('mysql_access.php');
 
 $searchquery = "SELECT `firstname`, `lastname`, `email` FROM apo.contact_information WHERE `position` = 'Rush Chairman' GROUP BY lastname, firstname ;";
-$search = mysqli_query($searchquery) or die("SEARCH FAILED");
+$search = mysqli_query($db, $searchquery) or die("SEARCH FAILED");
 
 echo "<ul>";
 
