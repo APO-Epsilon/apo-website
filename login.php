@@ -44,7 +44,6 @@ echo <<<END
 			</tr>
 			<tr>
 			<td><input type="submit" value="Login"/></td>
-            <td><h3><a href="./logout.php">Logout</a></h3></td>
 			</tr>
 			<input type="hidden" name="logstate" value="login"/>
 	</form>
@@ -141,6 +140,7 @@ function logout(){
 	}else if (!isset($_SESSION['sessionID'])){
 		print_login();
 	}else {
+		echo "<h3><a href="./logout.php">Logout</a></h3>";
 	}
 echo <<<END
 </div>
