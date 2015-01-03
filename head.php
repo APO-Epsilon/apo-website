@@ -10,3 +10,4 @@
     <script src="js/vendor/modernizr.js"></script>
     <script src="js/loadpages.js"></script>
     <script src="js/doubleTapToGo.js"></script>
+    <script src="js/parallax.js"></script>
