@@ -124,9 +124,9 @@ echo<<<END
 			<div class='large-6 medium-6 small-12 column'>
 				<b>Personal</b>
 					<label for="first_name">First Name</label>
-						<input type="text" name="first_name" value="$row[firstname]"/>
+						<input type="text" name="first_name" value="$row[firstname]" placeholder="First name" required="" autocomplete="name"/>
 					<label for="last_name">Last Name</label>
-						<input type="text" name="last_name" value="$row[lastname]"/>
+						<input type="text" name="last_name" value="$row[lastname]" placeholder="Last name" required="" autocomplete="name"/>
 				<label for="birthday">Birthday</label>
 					<select name="bmonth" id="bmonth">
 						<option value="$row[bmonth]">$month</option>
@@ -181,21 +181,29 @@ echo<<<END
 				<br>
 				<b>Contact</b><br>
 					<label for="email">Email</label>
-						<input type="text" name="email" value="$row[email]"/>
+						<input type="text" name="email" value="$row[email]" placeholder="name@example.com" required="" autocomplete="email"/>
 					<label for="phone">Phone</label>
-						<input type="text" name="phone" value="$row[phone]"/>
+						<input type="text" name="phone" value="$row[phone]" placeholder="+1-555-555-1234" required="" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" autocomplete="tel"/>
 					<label for="local">Local Address</label>
-						<input type="text" name="local_address" value="$row[localaddress]"/>
+						<input type="text" name="local_address" value="$row[localaddress]" pattern="[a-zA-Z\d\s\-\,\#\.\+]+" placeholder="123 Any Street" autocomplete="Local street-address"/>
 					<label for="perm">Permanent Address</label>
-						<input type="text" name="homeaddress" value="$row[homeaddress]"/>
+						<input type="text" name="homeaddress" value="$row[homeaddress]" pattern="[a-zA-Z\d\s\-\,\#\.\+]+" placeholder="123 Any Street" autocomplete="Permanent street-address"/>
 					<label for="perm"></label>
-						<input type="text" name="citystatezip" value="$row[citystatezip]"/>
+						<input type="text" name="citystatezip" value="$row[citystatezip]" placeholder="Kirksville, MO 63501"/>
 					<!--
 					<b>Hide Contact Info</b><br>
 					Yes<input type="radio" name="hide_info" value="T" $selectedT/><br>
 					No<input type="radio" name="hide_info" value="F" $selectedF/>
 					<br>
 					-->
+				<b>Organizations</b><br>
+					<lable for="organizations">Organizations</label>
+					<select multiple name="organizations" id="organizations">
+					  <option value="volvo">Volvo</option>
+					  <option value="saab">Saab</option>
+					  <option value="opel">Opel</option>
+					  <option value="audi">Audi</option>
+					</select>
 			</div>
 
 			<div class='large-6 medium-6 small-12 column'>
@@ -262,10 +270,10 @@ echo<<<END
 						</select>
 
 					<label for="bigbro">Big Brothers</label>
-					<textarea name="bigbro">$row[bigbro]</textarea>
+					<textarea name="bigbro" placeholder="First Last, First Last, etc">$row[bigbro]</textarea>
 
 					<label for="lilbro">Little Brothers</label>
-					<textarea name="littlebro">$row[littlebro]</textarea>
+					<textarea name="littlebro" placeholder="First Last, First Last, etc">$row[littlebro]</textarea>
 
 					<b>School</b><br>
 						<label name="major">Major</label>
