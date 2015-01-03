@@ -19,7 +19,7 @@ require_once ('mysql_access.php');
 	</style>
 
 </head>
-<body>
+<body class="slide" data-type="background" data-speed="5">
     <!-- Javascript method to include navigation -->
     <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
     <!-- PHP method to include navigation -->

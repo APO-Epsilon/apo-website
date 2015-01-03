@@ -7,7 +7,7 @@ require_once ('session.php');
     <?php require 'head.php';?>
 </head>
 
-<body>
+<body class="slide" data-type="background" data-speed="5">
     <div id="nav"></div>
     <div id="header"></div>
 
