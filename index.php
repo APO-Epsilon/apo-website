@@ -16,7 +16,7 @@ require_once ('session.php');
     <div id="header"><?php include 'header.php';?></div>
     <!-- PHP method to include header -->
 
-<div class="row" data-type="background" data-speed="10">
+<div class="row">
         <div class="large-10 medium-9 small-12 column large-centered medium-centered">
             <h2>Alpha Phi Omega</h2>
             <h3>Epsilon Chapter</h3>
