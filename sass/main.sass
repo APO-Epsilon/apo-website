@@ -1,21 +1,35 @@
 @import 'bourbon'
 @import 'neat'
-@import "font-awesome.min.css"
+@import 'parallax.sass'
+@import "../css/font-awesome.min.css"
 
 body
-  background-color: rgba(238, 238, 238, 0.96)
   font-family: 'FontAwesome', sans-serif
   color: #555
+ 
+.row
+  background-color: rgba(238, 238, 238, 0.94)
+  border-radius: 5px
+  transform: translateZ(0)
 
 // Header
 
-header
-  height: 25em
+.slide
+  //top: 0
+  //right: 0
+  //bottom: 0
+  //left: 0
+  //min-height: 100%
   background-image: url(../img/header-background.jpg)
-  background-position: top center
-  background-size: cover
+  //background-position: 50% 50% 
+  background-size: auto
   background-attachment: fixed
   background-repeat: no-repeat
+  //perspective: 1px
+  //transform: translateZ(-1) scale(1.2)
+
+header
+  height: 20em
   width: 100%
   margin: 0
 
