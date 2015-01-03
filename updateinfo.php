@@ -28,10 +28,7 @@ if (!isset($_SESSION['sessionID'])) {
 
 	if (isset($_POST['update'])) {
 		// Update Information
-		$_POST = array_walk($_POST, function(&$string) use ($db) {
-			  $string = mysqli_real_escape_string($db, $string);
-			});
-		//$_POST = array_map('mysql_real_escape_string', $_POST);
+		$_POST = array_map('mysql_real_escape_string', $_POST);
 		$user_id = $_SESSION['sessionID'];
 		/*$sql = "UPDATE `contact_information` SET `firstname` = '$_POST[first_name]', `lastname` = '$_POST[last_name]', `homeaddress` = '$_POST[homeaddress]',  `citystatezip` = '$_POST[citystatezip]',  `localaddress` = '$_POST[local_address]',  `email` = '$_POST[email]',  `phone` = '$_POST[phone]',  `schoolyear` = '$_POST[school_year]',  `major` = '$_POST[major]',  `minor` = '$_POST[minor]',  `gradmonth` = '$_POST[grad_month]',  `gradyear` = '$_POST[grad_year]',  `pledgesem` = '$_POST[pledgesem]',  `pledgeyear` = '$_POST[pledge_year]',  `famflower` = '$_POST[family_flower]',  `bigbro` = '$_POST[bigbro]',  `littlebro` = '$_POST[littlebro]',  `status` = '$_POST[status]', `bday` = '$_POST[bday]',  `bmonth` = '$_POST[bmonth]', `byear` = '$_POST[byear]', `active_sem` = '$current_semester' , `hide_info` = 'F',`gender` = '$_POST[gender]', `race` = '$_POST[race]' WHERE id = '$user_id' LIMIT 1";*/
 $sql = <<<SQL
