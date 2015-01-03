@@ -43,7 +43,8 @@ echo <<<END
 			<td width="40%">Password:</td><td width="60%"><input type="password" name="password"/></td>
 			</tr>
 			<tr>
-			<td float="right"><input type="submit" value="Login"/></td>
+			<td><input type="submit" value="Login"/></td>]
+            <td><h3><a href="./logout.php">Logout</a></h3></td>
 			</tr>
 			<input type="hidden" name="logstate" value="login"/>
 	</form>
@@ -142,7 +143,6 @@ function logout(){
 	}else {
 	}
 echo <<<END
-<h2><a href="./logout.php">Logout</a></h2>
 </div>
 END;
 ?>
