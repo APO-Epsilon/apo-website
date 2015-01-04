@@ -1,0 +1,583 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"margin-",
+				"margin-right"
+			],
+			[
+				"rgb",
+				"rgba()"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"mysqli_fetch",
+				"mysqli_fetch_array"
+			],
+			[
+				"DB",
+				"DBServer"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"Pass",
+				"PasswordHash"
+			],
+			[
+				"Password",
+				"PasswordCompat"
+			],
+			[
+				"mysql_num",
+				"mysql_num_rows"
+			],
+			[
+				"hash",
+				"hash_pass"
+			],
+			[
+				"new_p",
+				"new_password_1"
+			],
+			[
+				"contact",
+				"contact_information"
+			],
+			[
+				"erro",
+				"error_reporting"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"con",
+				"continue"
+			],
+			[
+				"block",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 287.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"BracketHighlighter: Select Bracket Content"
+			],
+			[
+				"brack",
+				"BracketHighlighter: Match Brackets (ignore threshold)"
+			],
+			[
+				"lint",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"instlal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation/scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation/scss/foundation"
+	],
+	"file_history":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/updateinfo.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/redbarn/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/session.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/old-layout/service_exec_check.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/modernizr/test/js/setup.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/old-layout/js/DataTables-1.9.4/examples/advanced_init/html_sort.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/old-layout/history_template.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/head.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/old-layout/test.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/main.sass",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/Gruntfile.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation/scss/foundation/_settings.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/testing.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/css/foundation.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/node_modules/grunt-sass/package.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/node_modules/node-bourbon/package.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/.gitignore",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/sass/style.sass",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/css/bootstrap.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/css/screen.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/page.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/header.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/selfpromo/sass/main.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/sass/Gruntfile.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/style.sass",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/style.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/selfpromo/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/selfpromo/css/screen.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/functions.wp-styles.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/class-wp-theme.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/css/editor.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/default-constants.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/formatting.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/load.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/functions.wp-scripts.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/header.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/plugins/fullby-functionality-plugin/functionality-plugin.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/sharrre.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/sidebar-primary.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/sidebar-secondary.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/sidebar-widget-bar.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/sidebar-woocommerce.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/single.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/woocommerce.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/functions/class-tgm-plugin-activation.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-settings.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-blog-header.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-load.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/default-filters.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-includes/general-template.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/css/bootstrap.min.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium/css/bootstrap.css",
+		"/Users/dalerace/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-content/themes/fullby-premium-child/css/bootstrap-theme.css",
+		"/Users/dalerace/Desktop/dist/css/bootstrap.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/wordpress/wp-config.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-content/themes/fullby-premium-child/style.css",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-content/themes/fullby-premium/functions.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-content/themes/fullby-premium-child/functions.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-includes/theme.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-settings.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-admin/themes.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-config.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/manualupdate.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/post2.php",
+		"/Users/dalerace/hashcat/wordpress.txt",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-config-sample.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-content/themes/originmag/style.css",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-content/themes/index.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/fcf438b1-5c65-4768-aeef-8f648f6ec0d9/var/tmn2www/wp-content/themes/wp-bold110/style.css",
+		"/Users/dalerace/.ssh/config",
+		"/Users/dalerace/.ssh/id_rsa",
+		"/Users/dalerace/.ssh/id_rsa.pub",
+		"/Users/dalerace/Desktop/final.html",
+		"/Volumes/Dale Race/crackin/blog info",
+		"/Users/dalerace/Desktop/ADOBE/Mac OS X Crack/amtlib.framework CC 2014/amtlib.framework/Versions/A/_CodeSignature/CodeResources",
+		"/Applications/Adobe Acrobat XI Pro/Adobe Acrobat Pro.app/Contents/Frameworks/amtlib.framework/Versions/A/amtlib",
+		"/Users/dalerace/Desktop/ADOBE/Mac OS X Crack/amtlib.framework CC 2014/amtlib.framework/Versions/A/amtlib",
+		"/Applications/Adobe Acrobat XI Pro/Adobe Acrobat Pro.app/Contents/Frameworks/amtlib.framework/Versions/A/_CodeSignature/CodeResources",
+		"/Applications/Adobe Acrobat XI Pro/Adobe Acrobat Pro.app/Contents/Frameworks/amtlib.framework/Versions/A/Resources/Info.plist",
+		"/Users/dalerace/Desktop/ADOBE/Mac OS X Crack/amtlib.framework CC 2014/amtlib.framework/Versions/A/Resources/Info.plist",
+		"/Users/dalerace/Desktop/ADOBE/Mac OS X Crack/amtlib.framework CC 2014/amtlib.framework/amtlib",
+		"/Users/dalerace/Desktop/ADOBE/Mac OS X Crack/amtlib.framework CC 2014/amtlib.framework/Resources/Info.plist",
+		"/Users/dalerace/Desktop/chem notes:",
+		"/Library/Application Support/Adobe/Acrobat 11 AMT/AMT/application.xml",
+		"/Library/Application Support/Adobe/Acrobat 11 AMT/AMT/en_US/AMT.zdct",
+		"/Library/Application Support/Adobe/Acrobat 11 AMT/AMT/application.sif",
+		"/Library/Application Support/Adobe/Acrobat 11 AMT/AMT/AAM/AdobeID/ZS/en_US/stringtable.xml",
+		"/Library/Application Support/Adobe/Acrobat 11 AMT/AMT/SLConfig.xml",
+		"/Applications/XAMPP/xamppfiles/htdocs/redbarn/css/style.css",
+		"/Users/dalerace/Desktop/Moranville - Diels-Alder.xps",
+		"/Users/dalerace/Desktop/Web Contract.md",
+		"/Applications/XAMPP/xamppfiles/htdocs/redbarn/old-layout/exhibitor-application.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/redbarn/old-layout/css/screen.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/redbarn/old-layout/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/member_statuses.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/mysql_access.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/hashing.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/logout.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/register.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/register_process.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/join.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login_updatepw.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login_sendpw.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/check_all_hours.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/check_hours.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/top_hours.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/edit_exec.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/service_hours.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/members_list.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/ajax.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/risk_management_quiz.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/index.php",
+		"/Users/dalerace/racedale.github.io/source/rss.xml",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/ajax.php",
+		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/register.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/advisors.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/attendance.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/js/watch.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/js/quiz.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 108.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			":hover",
+			"#eac00e",
+			"eac00e",
+			":hover",
+			"200",
+			"17",
+			"font-color",
+			"$jet",
+			"#222",
+			"h1",
+			"34",
+			"32",
+			"29",
+			"28",
+			"35",
+			"30",
+			"40",
+			"45",
+			"50",
+			"30",
+			"70",
+			"45",
+			"35",
+			"15",
+			"100",
+			"200",
+			"225",
+			"238",
+			"$string",
+			"string",
+			"link",
+			"mysql",
+			"dropdown-menu",
+			"10",
+			"lighten",
+			"dropdown",
+			"a {",
+			"40PX",
+			"collapse",
+			"#",
+			"overlay",
+			"cover",
+			"section-cover",
+			".section.feature",
+			"section-feature",
+			"overlay",
+			"navbar-nav",
+			"collapse",
+			"collapsed",
+			"wp_head",
+			"css",
+			"style",
+			"css",
+			"bootstrap",
+			"navbar-collapse",
+			"navbar-toggle",
+			"collapse",
+			"customizer",
+			"fullby_customizer_css",
+			"wp_head",
+			"fullby_customizer_css",
+			"wp_head",
+			"navbar",
+			"navbar-inverse",
+			"navbar-collapse",
+			"initial",
+			"stylesheet",
+			"bootstrap",
+			"navbar-collapse",
+			"navbar-inverse",
+			"-fixed-top",
+			".navbar",
+			"navbar-inverse",
+			"navbar",
+			"navbar-top",
+			"navbar",
+			"navbar-fixed-top",
+			"navbar-fixed",
+			"na",
+			"navbar-fixed-top",
+			"$header_height",
+			"header_height",
+			"theme_mod",
+			"include",
+			"theme_mod",
+			"style",
+			"child",
+			"theme",
+			"fs_method",
+			"direct",
+			"0px",
+			"text-indent",
+			"We",
+			" us ",
+			"us",
+			"Us",
+			"us",
+			"customer name",
+			"we",
+			"text-shado",
+			"news-right",
+			"    								<ul class=\"social\">\n                                        <a href=\"#\"><img src=\"images/wo.png\" alt=\"\" /></a>\n                                    </ul>",
+			"service-grid-left",
+			"service-grid",
+			"h4",
+			"social",
+			"footer-social",
+			"2px",
+			"footer",
+			"input",
+			"transition",
+			"3px",
+			"banner-matt",
+			"wmusliderwrap",
+			"wmusl",
+			"contact-our",
+			"our",
+			"our-con",
+			"100",
+			"200",
+			"grid-contact",
+			"contact-grid",
+			"grid",
+			"col-",
+			"col-\\",
+			"legend",
+			"contact",
+			"input"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			">",
+			"./",
+			"$db",
+			"$password",
+			"$username",
+			"$con",
+			"$er",
+			"strleng",
+			"substra",
+			"strleng",
+			"id=\"content\" class=\"inner\"",
+			"class=\"content inner\"",
+			"member_statuses.php",
+			".footer",
+			".bottom",
+			"c11",
+			"Red Barn",
+			"./",
+			"mysqli_",
+			"<br>",
+			"head",
+			"<br>",
+			"check_hours.php",
+			"edit_exec.php",
+			"meta",
+			"width",
+			"\"",
+			"#3AC5F0",
+			"#0F313C",
+			"%;}",
+			"./images/logo.png",
+			".",
+			"Dale Race",
+			"<br>",
+			".nav",
+			"images",
+			"data-fancybox-group=\"gallery1\"",
+			"class=\"content inner\"",
+			"class=\"content\"",
+			".content",
+			"class=\"content inner\"",
+			"class=\"content\"",
+			".content",
+			"Dale Race Designs",
+			"Gray Duck Labs",
+			"racedale.com"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "apo.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 187.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
