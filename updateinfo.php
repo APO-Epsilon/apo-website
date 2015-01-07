@@ -119,7 +119,7 @@ SQL;
 
 	$inc = 1;
 	while ($i = mysqli_fetch_array($query_orgs)) {
-		echo "<option id="$i['id']">$i['name']</option>";
+		echo "<option id="$i[id]">$i[name]</option>";
 		$inc = $inc + 1;
 	}
 }
