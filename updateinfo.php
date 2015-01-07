@@ -56,7 +56,8 @@ $sql = <<<SQL
         `active_sem` = '$current_semester',
         `hide_info` = 'F',
         `gender` = '$_POST[gender]',
-        `race` = '$_POST[race]'
+        `race` = '$_POST[race]',
+        `organizations` = '$_POST[organizations]'
     WHERE id = '$user_id' LIMIT 1
 SQL;
 		$result = $db->query($sql);
@@ -215,10 +216,9 @@ echo<<<END
 					<br>
 					-->
 
-
 				<b>Organizations</b><br>
 					<lable for="organizations">Organizations</label>
-					<select multiple name="organizations" id="organizations">
+					<select name="organizations" id="organizations">
 END;
 						list_orgs();
 echo<<<END
