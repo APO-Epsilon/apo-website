@@ -116,11 +116,11 @@ $select_orgs = <<<SQL
 SQL;
 
 	$query_orgs = $db->query($select_orgs) or die("There was a problem querying the organizations. Contact the webmaster.");
-	echo "$query_orgs";
-	$inc = 1;
-	while ($i = mysqli_fetch_array($query_orgs)) {
-		//echo "<option id="$i[id]">$i[name]</option>";
-		$inc = $inc + 1;
+
+	$i = 1;
+	while ($orgs = mysqli_fetch_array($query_orgs)) {
+		echo "<option id='$orgs[id]''>$orgs[name]</option>";
+		$i = $i + 1;
 	}
 }
 //Force update
