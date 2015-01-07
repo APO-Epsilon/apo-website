@@ -156,11 +156,6 @@ function list_hours($hours_id) {
 	<tr class='hours_header'><td>Event</td><td>Date</td><td>Type</td><td>Hours</td><td>Description</td><td>Semester</td><td></td></tr>";
 	$inc = 1;
 	while ($i = mysqli_fetch_array($results)) {
-		if (($inc % 2) == 1) {
-			$hours_line = "class='hours_row1'";
-		} else {
-			$hours_line = "class='hours_row2'";
-		}
 
 		$fund = "";
 		if ($i['fundraising'] == 1) {
