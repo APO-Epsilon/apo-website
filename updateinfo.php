@@ -219,7 +219,7 @@ echo<<<END
 				<b>Organizations</b><br>
 					<lable for="organizations">Organizations</label>
 					<select multiple name="organizations" id="organizations">
-						list_orgs();
+						<?php list_orgs(); ?>
 					</select>
 			</div>
 
