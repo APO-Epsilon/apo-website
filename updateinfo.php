@@ -105,7 +105,7 @@ SQL;
 			$genderF = "";
 		}
 //List organizations
-function list_orgs(){}
+function list_orgs(){
 	include ('mysql_access.php');
 
 $select_orgs = <<<SQL
