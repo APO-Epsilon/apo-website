@@ -30,7 +30,6 @@ if (!isset($_SESSION['sessionID'])) {
 		// Update Information
 		$_POST = array_map('mysql_real_escape_string', $_POST);
 		$user_id = $_SESSION['sessionID'];
-		/*$sql = "UPDATE `contact_information` SET `firstname` = '$_POST[first_name]', `lastname` = '$_POST[last_name]', `homeaddress` = '$_POST[homeaddress]',  `citystatezip` = '$_POST[citystatezip]',  `localaddress` = '$_POST[local_address]',  `email` = '$_POST[email]',  `phone` = '$_POST[phone]',  `schoolyear` = '$_POST[school_year]',  `major` = '$_POST[major]',  `minor` = '$_POST[minor]',  `gradmonth` = '$_POST[grad_month]',  `gradyear` = '$_POST[grad_year]',  `pledgesem` = '$_POST[pledgesem]',  `pledgeyear` = '$_POST[pledge_year]',  `famflower` = '$_POST[family_flower]',  `bigbro` = '$_POST[bigbro]',  `littlebro` = '$_POST[littlebro]',  `status` = '$_POST[status]', `bday` = '$_POST[bday]',  `bmonth` = '$_POST[bmonth]', `byear` = '$_POST[byear]', `active_sem` = '$current_semester' , `hide_info` = 'F',`gender` = '$_POST[gender]', `race` = '$_POST[race]' WHERE id = '$user_id' LIMIT 1";*/
 $sql = <<<SQL
     UPDATE `contact_information`
     SET `firstname` = '$_POST[first_name]',
@@ -105,7 +104,26 @@ SQL;
 			$genderM = "";
 			$genderF = "";
 		}
+//List organizations
+function list_orgs(){}
+	include ('mysql_access.php');
 
+$select_orgs = <<<SQL
+	SELECT `name`, `id`
+	FROM `organizations`
+	ORDER BY `name`
+	ASC
+SQL;
+
+	$query_orgs = $db->query($select_orgs) or die("There was a problem querying the organizations. Contact the webmaster.");
+
+	$inc = 1;
+	while ($i = mysqli_fetch_array($query_orgs)) {
+		echo "<option id="$i['id']">$i['name']</option>";
+		$inc = $inc + 1;
+	}
+}
+//Force update
 	$force = "";
 	if (isset($_GET['forced']) == "true") {
 		$force = "<div style='margin: 50px; padding: 10px; background: #F08080; '><h1 style='color:red;'>Please update your information for this semester.</h1> Do you have any new <b>Littles</b>, different <b>status</b>, have a new <b>local address</b>, or change your <b>major</b> recently?  You will not be able to access the site until you have clicked 'Update' below.  If you have problems, contact the webmaster!</div>";
@@ -196,13 +214,12 @@ echo<<<END
 					No<input type="radio" name="hide_info" value="F" $selectedF/>
 					<br>
 					-->
+
+
 				<b>Organizations</b><br>
 					<lable for="organizations">Organizations</label>
 					<select multiple name="organizations" id="organizations">
-					  <option value="volvo">Volvo</option>
-					  <option value="saab">Saab</option>
-					  <option value="opel">Opel</option>
-					  <option value="audi">Audi</option>
+						<?php list_orgs(); ?>
 					</select>
 			</div>
 
