@@ -219,7 +219,9 @@ echo<<<END
 				<b>Organizations</b><br>
 					<lable for="organizations">Organizations</label>
 					<select multiple name="organizations" id="organizations">
-						<?php list_orgs(); ?>
+END;
+						list_orgs();
+echo<<<END
 					</select>
 			</div>
 
