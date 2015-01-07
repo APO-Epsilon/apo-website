@@ -217,7 +217,7 @@ echo<<<END
 					-->
 
 				<b>Organizations</b><br>
-					<lable for="organizations">Organizations</label>
+					<lable for="organizations">Outside of APO</label>
 					<select name="organizations" id="organizations">
 END;
 						list_orgs();
