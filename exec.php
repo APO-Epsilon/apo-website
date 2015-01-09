@@ -18,41 +18,41 @@ require_once ('session.php');
                 </p>
             <hr>
             <h1> VP of Large Service  </h1>
-                <p> Kelsey Mengwasser <br>
+                <p> Shelby Miller <br>
                 <a href="mailto:apo.epsilon.largeservice@gmail.com">apo.epsilon.largeservice@gmail.com</a></p>
             <hr>
             <h1> VP of Regular Service </h1>
-                <p> Paige Hamilton <br>
+                <p> Alii Kickham <br>
                 <a href="mailto:apo.epsilon.regularservice@gmail.com">apo.epsilon.regularservice@gmail.com</a>
                 </p>
             <hr>
             <h1>  VP of Membership </h1>
-                <p> Austin Kerns <br>
+                <p> Trista Sullivan <br>
                 <a href="mailto:apo.epsilon.membership@gmail.com">apo.epsilon.membership@gmail.com</a>
                 </p>
             <hr>
             <h1>  VP of Pledging  </h1>
-                <p> Kelley Keim <br>
+                <p> David Roach <br>
                 <a href="mailto:apo.epsilon.pledging@gmail.com">apo.epsilon.pledging@gmail.com</a>
                 </p>
             <hr>
             <h1>  Sergeant at Arms  </h1>
-                <p>Riley Williams <br>
+                <p> Morgan Milligan <br>
                 <a href="mailto:apo.epsilon.sergeant@gmail.com">apo.epsilon.sergeant@gmail.com</a>
                 </p>
             <hr>
             <h1>  Public Relations  </h1>
-                <p> Trista Sullivan <br>
+                <p> Danny McAndrew <br>
                 <a href="mailto:apo.epsilon.pr@gmail.com">apo.epsilon.pr@gmail.com</a>
                 </p>
             <hr>
             <h1>  Recording Secretary  </h1>
-                <p> Rose Hatting <br>
+                <p> Kathryn Spicer <br>
                 <a href="mailto:apo.epsilon.recsec@gmail.com">apo.epsilon.recsec@gmail.com</a>
                 </p>
             <hr>
             <h1>  Treasurer  </h1>
-                <p> Katie Schmitz <br>
+                <p> Brett Walker <br>
                 <a href="mailto:apo.epsilon.treasurer@gmail.com">apo.epsilon.treasurer@gmail.com</a>
                 </p>
             <hr>
@@ -62,23 +62,22 @@ require_once ('session.php');
                 </p>
             <hr>
             <h1>  Brotherhood  </h1>
-                 <p> Shelby miller
+                 <p> Adrian Wheeler <br>
                  <a href="mailto:apo.epsilon.broho@gmail.com">apo.epsilon.broho@gmail.com</a>
                  </p>
              <hr>
             <h1>  Alumni Secretary  </h1>
-                <p> Matthew LaPointe <br>
+                <p> Sammie Strange <br>
                 <a href="mailto:apo.epsilon.alumni@gmail.com">apo.epsilon.alumni@gmail.com</a>
                 </p>
             <hr>
             <h1>  Chaplain  </h1>
-                <p> Emese Mattingly <br>
+                <p> Anna Demoor <br>
                 <a href="mailto:apo.epsilon.chaplain@gmail.com">apo.epsilon.chaplain@gmail.com</a>
                 </p>
             <hr>
             <h1>  Historian  </h1>
-                <p> Heidi Glickert <br>
-                Katie Kerkemeyer <br>
+                <p> Emma Westin <br>
                 <a href="mailto:apo.epsilon.historian@gmail.com">apo.epsilon.historian@gmail.com</a>
                 </p>
             <hr>
@@ -86,22 +85,20 @@ require_once ('session.php');
 
         <div class="large-6 medium-9 small-12 columns">
             <h1>  Fundraising  </h1>
-                <p> Ashley Banze <br>
-                Rebecca Atchley <br>
-                Jessica Wooldridge <br>
+                <p> Austin Kerns <br>
+                    Madde Moran  <br>
+                    Emily Bermel <br>
                 <a href="mailto:apo.epsilon.fundraising@gmail.com">apo.epsilon.fundraising@gmail.com</a>
                 </p>
             <hr>
             <h1>  Formal  </h1>
-                <p>Taylor Demien <br>
+                <p> Taylor Demien <br>
                 Katie Winterowd <br>
                 <a href="mailto:apo.epsilon.formal@gmail.com">apo.epsilon.formal@gmail.com</a>
                 </p>
             <hr>
             <h1>  Inter-Chapter Relations  </h1>
-                <p> Valerie Frerichs <br>
-                David Roach <br>
-                Danika Rodriguez <br>
+                <p> Ronnie Wingbermuehle <br>
                 <a href="mailto:apo.epsilon.icr@gmail.com">apo.epsilon.icr@gmail.com</a>
                 </p>
             <hr>
@@ -120,32 +117,33 @@ require_once ('session.php');
                 <p> Callie Templeton <br>
                 Jordyn Williams <br>
                 Molly Turner <br>
-                Libby Revelle <br>
+                Ashley Banze <br>
                 Jamie Haenni <br>
                 <a href="mailto:apo.epsilon.philanthropy@gmail.com">apo.epsilon.philanthropy@gmail.com</a>
                 </p>
             <hr>
             <h1>  Communications Secretary  </h1>
-                <p> Lucy Bowe <br>
+                <p> Andrew Keyes <br>
                 <a href="mailto:apo.epsilon.comsec@gmail.com">apo.epsilon.comsec@gmail.com</a>
                 </p>
             <hr>
-            <h1>  Homecoming  </h1>
-                <p> Alyssa Talkington <br>
-                Emma Westin <br>
+          <!-- <h1>  Homecoming  </h1>
+               <p> Alyssa Talkington <br>
+                 Emma Westin <br>
                 <a href="mailto:apo.epsilon.homecoming@gmail.com">apo.epsilon.homecoming@gmail.com</a>
                 </p>
+                -->
             <hr>
             <h1>  Advisor Liaison  </h1>
-                <p> Rosalie Swingle <br>
+                <p> Andi Watkins Davis <br>
                 <a href="mailto:apo.epsilon.advisorliasion@gmail.com">apo.epsilon.advisorliasion@gmail.com</a>
                 </p>
             <hr>
             <h1>  Rush  </h1>
-                <p>Connor Madden <br>
-                Rachel Rigsby <br>
-                Trent Hoover <br>
-                Mario Castellanos <br>
+                <p> Katie Marie Kerkemeyer <br>
+                Bill Townsend <br>
+                Julia Nguyen <br>
+                Emese Mattingly <br>
                 <a href="mailto:apo.epsilon.rushchair@gmail.com">apo.epsilon.rushchair@gmail.com</a>
                 <br>
                 </p>
