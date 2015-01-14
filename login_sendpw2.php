@@ -57,6 +57,7 @@ if (!$r) {
 	$subject = "APO Epsilon Password Request";
 
 	$new_password = str_rand(15, 'alphanum');
+	echo $new_password;
     $hasher = new PasswordHash(8, true);
     $hash = $hasher->HashPassword($new_password);
 
@@ -73,15 +74,10 @@ if (!$r) {
 	$mail->Subject = $subject;
 	$mail->Body    = $emailToSend;
 
-	if(!$mail->Send()) {
-		echo "Message could not be sent. <p>";
-		echo "Mailer Error: " . $mail->ErrorInfo;
-		exit;
-	} else {
-		$sql = "UPDATE `contact_information` SET `password` = '$hash' WHERE id = '$id'";
-		$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
-		echo "Message has been sent.";
-	}
+
+	$sql = "UPDATE `contact_information` SET `password` = '$hash' WHERE id = '$id'";
+	$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
+	echo "Message has been sent.";
 }
 
 ?>
