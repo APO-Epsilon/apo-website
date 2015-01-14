@@ -150,14 +150,18 @@
 	[
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation/scss",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation/scss/foundation"
 	],
 	"file_history":
 	[
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/updateinfo.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/main.sass",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/top_hours.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/service_hours.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/members_list.php",
+		"/Users/dalerace/Desktop/organizations.csv",
 		"/Applications/XAMPP/xamppfiles/htdocs/redbarn/index.html",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/session.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/old-layout/service_exec_check.php",
@@ -166,10 +170,8 @@
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/old-layout/history_template.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/head.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/old-layout/test.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/main.sass",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/Gruntfile.js",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/bower_components/foundation/scss/foundation/_settings.scss",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/testing.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/css/foundation.css",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/node_modules/grunt-sass/package.json",
@@ -271,10 +273,7 @@
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login_sendpw.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/check_all_hours.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/check_hours.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/top_hours.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/edit_exec.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/service_hours.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/members_list.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/ajax.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/risk_management_quiz.php",
 		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/index.php",
@@ -283,8 +282,7 @@
 		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/register.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/advisors.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/attendance.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/js/watch.js",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/js/quiz.js"
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/js/watch.js"
 	],
 	"find":
 	{
@@ -302,6 +300,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"form",
+			"inc",
+			"$i",
+			"i",
+			"$i",
+			"$row",
+			"<p class=\"purple-p\">",
+			"<div>",
+			"div",
+			"<ul>\n                        <li><b>Student Contact: </b>Matthew Karner</li>\n                        <li><b>Student Email: </b>mjk4684@truman.edu</li>\n                        <li><b>Advisor Contact: </b>Kara Jo Humphrey</li>\n                        <li><b>Advisor Email: </b>karah@truman.edu</li>\n                        <li><b>Website: </b>http://apo.truman.edu</li>\n                        <li><b>Organization Description: </b>A national co-ed service fraternity focusing on the three cardinal principles of leadership, friendship, and service. </li>\n                    </ul>",
+			"ul",
+			"div",
+			"<div>",
+			"<div></div>",
+			"<div>*</div>",
+			"<div>..</div>",
+			"<div>\n                    <ul>\n                        <li><b>Student Contact: </b>Gennie Avellino</li>\n                        <li><b>Student Email: </b>gra8275@truman.edu</li>\n                        <li><b>Advisor Contact: </b>Marilyn Yaquinto</li>\n                        <li><b>Advisor Email: </b>marilynyaq@yahoo.com</li>\n                        <li><b>Website: </b>http://adprclub.truman.edu</li>\n                        <li><b>Organization Description: </b>A student organization involved in the community that provides hands-on experience and professional insight into the fields of public relations, promotions, advertising, marketing, and communication with real world clients.</li>\n                    </ul>\n                </div>",
+			"</option>\n",
+			"</option>",
+			"</option> ",
+			"</option>",
 			":hover",
 			"#eac00e",
 			"eac00e",
@@ -408,35 +427,16 @@
 			"service-grid",
 			"h4",
 			"social",
-			"footer-social",
-			"2px",
-			"footer",
-			"input",
-			"transition",
-			"3px",
-			"banner-matt",
-			"wmusliderwrap",
-			"wmusl",
-			"contact-our",
-			"our",
-			"our-con",
-			"100",
-			"200",
-			"grid-contact",
-			"contact-grid",
-			"grid",
-			"col-",
-			"col-\\",
-			"legend",
-			"contact",
-			"input"
+			"footer-social"
 		],
-		"highlight": false,
+		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"<div>\n                    <ul>\n                        <li><b>Student Contact: </b>Gennie Avellino</li>\n                        <li><b>Student Email: </b>gra8275@truman.edu</li>\n                        <li><b>Advisor Contact: </b>Marilyn Yaquinto</li>\n                        <li><b>Advisor Email: </b>marilynyaq@yahoo.com</li>\n                        <li><b>Website: </b>http://adprclub.truman.edu</li>\n                        <li><b>Organization Description: </b>A student organization involved in the community that provides hands-on experience and professional insight into the fields of public relations, promotions, advertising, marketing, and communication with real world clients.</li>\n                    </ul>\n                </div>",
+			"</option>",
 			">",
 			"./",
 			"$db",
@@ -500,7 +500,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -536,7 +536,7 @@
 	"project": "apo.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

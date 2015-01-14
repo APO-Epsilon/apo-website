@@ -39,7 +39,13 @@ require("./phpmailer/class.phpmailer.php");
 echo "Mail being prepared.";
 $mail = new PHPMailer();
 $mail->IsSMTP();                                      // set mailer to use SMTP
-$mail->Host = "mail.truman.edu";  					  // specify main server
+$mail->SMTPDebug = 2;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = "tls";
+$mail->Host = "smtp.gmail.com";  					  // specify main server
+$mail->Port = 587;
+$mail->Username = "apo.epsilon.webmaster@gmail.com";
+$mail->Password = "alphaphiomega";
 $email = $_GET['email'];
 $mail->FromName = "Alpha Phi Omega Epsilon";
 $select = "SELECT id, firstname, lastname, username
