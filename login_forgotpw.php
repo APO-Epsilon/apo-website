@@ -23,7 +23,7 @@ require_once ('mysql_access.php');
         If you don't receive an email, that means you either typed the email wrong, or registered with a different email address.  If you need help, Please contact the webmaster.
         </p>
 
-        <form method="GET" action="login_sendpw2.php" >
+        <form method="GET" action="login_sendpw.php" >
             <p>
             <label>E-mail</label><input type="text" size="30" name="email" id="email" value="" />
         	<br>
