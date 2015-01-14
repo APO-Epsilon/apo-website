@@ -39,7 +39,7 @@ require("./phpmailer/class.phpmailer.php");
 echo "Mail being prepared.";
 $mail = new PHPMailer();
 $mail->IsSMTP();                                      // set mailer to use SMTP
-$mail->SMTPDebug = 2;
+//$mail->SMTPDebug = 1;  //Only use if you need to debug
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = "tls";
 $mail->Host = "smtp.gmail.com";  					  // specify main server
