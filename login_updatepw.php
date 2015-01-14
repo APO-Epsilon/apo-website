@@ -1,6 +1,5 @@
 <?php
 require_once ('session.php');
-require_once ('mysql_access.php');
 require_once ("PasswordHash.php");
 ?>
 <!doctype html>
@@ -21,6 +20,7 @@ require_once ("PasswordHash.php");
 <div class="row">
 
 <?php
+require_once ('mysql_access.php');
 if (!isset($_SESSION['sessionID'])) {
 
 	echo '<div class="entry">You need to login before you can use this page.</div>';
@@ -38,7 +38,7 @@ if (!isset($_SESSION['sessionID'])) {
             $hash = $hasher->HashPassword($password);
 			$sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
 			$result = $db->query($sql);
-			if (mysqli_affected_rows() == 1) {
+			if (mysqli_affected_rows($db) == 1) {
 				echo "Your password has been updated.";
 			} else {
 				echo "Your password was not changed.  Did you input the correct old password?  Click <a href='./login_updatepw.php'>here</a> to try again.";
