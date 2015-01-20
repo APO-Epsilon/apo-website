@@ -5,9 +5,9 @@ ini_set('display_errors', true);
 // Yeah, these are kind of important.  A lot of random pages use them.
 // So don't mess with them.  Make sure as you update the semesters you keep them
 // the same,  that is don't switch previous_semester to "Fall10" if it was "Fall 2010"
-$previous_semester = 'Spring 2014';
-$current_semester = 'Fall 2014';
-$next_semester = 'Spring 2015';
+$previous_semester = 'Fall 2014';
+$current_semester = 'Spring 2015';
+$next_semester = 'Fall 2015';
 function page_header() {
 
     // Evil code to force memembers to update their information each new semester.
