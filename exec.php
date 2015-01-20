@@ -140,7 +140,7 @@ require_once ('session.php');
                 </p>
             <hr>
             <h1>  Rush  </h1>
-                <p> Katie Marie Kerkemeyer <br>
+                <p> Katie Kerkemeyer <br>
                 Bill Townsend <br>
                 Julia Nguyen <br>
                 Emese Mattingly <br>
