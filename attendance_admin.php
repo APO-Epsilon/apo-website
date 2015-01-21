@@ -961,8 +961,9 @@ END;
 }
 
 //only President, Rec Sec, and Webmaster can access this page
-$position = $_SESSION['sessionposition'];
-if($position != "Webmaster" && $position != "President"){echo("you do not have permission to view this page.");
+if(isset($_SESSION['sessionposition']) != true){echo("You do not have permission to view this page.");
+}else{
+if($position != "Webmaster" && $position != "President"){echo("You do not have permission to view this page.");
 }else{
 ?>
 <a href="http://apo.truman.edu/attendance_admin.php">reset</a>
@@ -1009,6 +1010,7 @@ echo
     </form>
 
 END;
+}
 }
 }
 ?>
