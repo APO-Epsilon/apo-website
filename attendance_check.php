@@ -158,8 +158,7 @@ echo "
 echo("</table></div>");}
 }
 
-if(isset($_SESSION['sessionposition'])){$position = $_SESSION['sessionposition'];}
-if($position != "Webmaster" && $position != "President"){echo("you do not have permission to view this page.");
+if($_SESSION['sessionposition'] != "Webmaster" && $_SESSION['sessionposition'] != "President"){echo("you do not have permission to view this page.");
 }else{
 
 //$sql = "SELECT `id`,`firstname`, `lastname` FROM `contact_information` WHERE `active_sem` = '$current_semester' ORDER BY `firstname`";
