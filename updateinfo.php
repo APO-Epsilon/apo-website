@@ -135,6 +135,7 @@ echo<<<END
 	$force
 
 	<p>Please make sure to update your Local Address and Littles each semester!</p>
+	<p>If you wish to change your status, the form can be found <a href="https://drive.google.com/a/truman.edu/folderview?id=0B_qnfQK1uoMVUmVpSkxySVdXaTQ&usp=gmail&tid=0B20vgwvNF9r4WnY5cDRyTE83c28" >here</p>
 	<p>If you wish to change your password, please go <a href="./login_updatepw.php">here</a>.</p>
 	<p>Please verify <b>ALL</b> fields</p>
 
