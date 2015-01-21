@@ -158,6 +158,8 @@ echo "
 echo("</table></div>");}
 }
 
+if(isset($_SESSION['sessionposition']) != true){echo("You do not have permission to view this page.");
+}else{
 if($_SESSION['sessionposition'] != "Webmaster" && $_SESSION['sessionposition'] != "President"){echo("you do not have permission to view this page.");
 }else{
 
@@ -188,8 +190,7 @@ END;
 if (isset($_POST['list']) && ('process' == $_POST['list'])) {
    attendance_check($_POST['user_id']);
 }
-
-
+}
 }
 ?>
     <!-- Javascript method to include footer -->
