@@ -22,7 +22,7 @@ require_once ('session.php');
                 <a href="mailto:apo.epsilon.largeservice@gmail.com">apo.epsilon.largeservice@gmail.com</a></p>
             <hr>
             <h1> VP of Regular Service </h1>
-                <p> Alii Kickham <br>
+                <p> Allie Finnegan <br>
                 <a href="mailto:apo.epsilon.regularservice@gmail.com">apo.epsilon.regularservice@gmail.com</a>
                 </p>
             <hr>
