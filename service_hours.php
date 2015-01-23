@@ -307,7 +307,7 @@ END; ?>
 							<option value="Lancaster">Lancaster</option>
 							<option value="Multicultural Affairs Center">MAC</option>
                             <option value="NMCAA (Head Start)">NMCAA (Head Start)</option>
-							<option value="Life Ability Center">PACT Center</option>
+							<option value="Life Ability Center">Life Ability Center</option>
 							<option value="Pop-Tab">Pop-Tab Collection</option>
 							<option value="Purple Friday Prize Patrol">Purple Friday Prize Patrol</option>
 							<option value="SAA Babysitting">SAA Babysitting</option>
