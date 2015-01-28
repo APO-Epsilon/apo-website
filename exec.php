@@ -67,8 +67,8 @@ require_once ('session.php');
                  </p>
              <hr>
             <h1>  Alumni Secretary  </h1>
-                <p> Sammie Strange <br>
-                <a href="mailto:apo.epsilon.alumni@gmail.com">apo.epsilon.alumni@gmail.com</a>
+                <p> Sammi Strange <br>
+                <a href="mailto:apoepsilonalumni@gmail.com">apo.epsilon.alumni@gmail.com</a>
                 </p>
             <hr>
             <h1>  Chaplain  </h1>
