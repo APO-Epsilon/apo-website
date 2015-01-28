@@ -16,9 +16,9 @@ $sql = "SELECT active_sem FROM `apo`.`contact_information` WHERE id = '".$id."'"
 $result = mysql_query($sql);
 while($row = mysql_fetch_array($result)){
 	global $current_semester;
-	if($row['active_sem'] != $current_semester){
-		header( 'Location: http://apo.truman.edu/members_updateinfo.php?forced=true' ) ;
-	}
+	//if($row['active_sem'] != $current_semester){
+	//	header( 'Location: http://apo.truman.edu/members_updateinfo.php?forced=true' ) ;
+	//}
 }
 /*
 if(mysql_num_rows(mysql_query($sql))>0){
