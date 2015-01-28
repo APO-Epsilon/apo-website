@@ -37,7 +37,7 @@ echo "</ul>";
     Don't be afraid to email one to ask some questions about joining APO.
     </p>
 
-<p>Rush for Fall 2014 begins in September!</p>
+<p>Rush for Spring 2015 begins in January!</p>
 
 <h3>Requirements for Rushees</h3>
     <p>Each individual seeking to join APO must complete the following Rush events:<br/>
