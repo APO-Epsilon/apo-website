@@ -378,7 +378,7 @@ require_once ('session.php');
     </ul>
 <b>2016</b>
     <ul>
-        <li>Epsilon Chapter Hosts Regional Confrence.</li>
+        <li>Epsilon Chapter hosts Regional Confrence.</li>
     </ul>
 
         </div>
