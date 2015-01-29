@@ -17,7 +17,7 @@ require_once ('session.php');
 
 <b>1925</b>
     <ul>
-        <li>On December 16, Lydia Marie Campbell establishes the Alpha chapter of Alpha Phi Omega at Lafayette College in Easton, PA.</li>
+        <li>On December 16, Frank Reed Horton establishes the Alpha chapter of Alpha Phi Omega at Lafayette College in Easton, PA.</li>
     </ul>
 
 <b>1927</b>
