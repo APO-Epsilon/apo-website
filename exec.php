@@ -27,7 +27,7 @@ require_once ('session.php');
                 </p>
             <hr>
             <h1>  VP of Membership </h1>
-                <p> Trista Sullivan <br>
+                <p> Austin Kerns <br>
                 <a href="mailto:apo.epsilon.membership@gmail.com">apo.epsilon.membership@gmail.com</a>
                 </p>
             <hr>
