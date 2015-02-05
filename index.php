@@ -36,8 +36,8 @@ require_once ('session.php');
             <br>
             </p>
         </div>
-        <!--<div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" style="float: right">
-        </div>-->
+        <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" style="float:left">
+        </div>
     </div>
 
     <!-- Javascript method to include footer -->
