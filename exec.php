@@ -136,7 +136,7 @@ require_once ('session.php');
             <hr>
             <h1>  Advisor Liaison  </h1>
                 <p> Andi Watkins Davis <br>
-                <a href="mailto:apo.epsilon.advisorliasion@gmail.com">apo.epsilon.advisorliasion@gmail.com</a>
+                <a href="mailto:apo.epsilon.advisorliaison@gmail.com">apo.epsilon.advisorliaison@gmail.com</a>
                 </p>
             <hr>
             <h1>  Rush  </h1>
