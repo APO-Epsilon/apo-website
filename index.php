@@ -37,10 +37,10 @@ require_once ('session.php');
             </p>
         </div>
     </div>
-<div class="row">
+<!--<div class="row">
     <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false">
     </div>
-</div>
+</div>-->
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
     <!-- PHP method to include footer -->
