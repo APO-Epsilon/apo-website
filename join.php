@@ -78,15 +78,15 @@ echo "</ul>";
     <p><b>Is it hard to gain admission into APO?</b><br />
     No. APO is not exclusive in its recruitment process, so anyone with the desire to serve is encouraged to join.  As long as you complete the rush requirements (usually three service events and three fellowship events), you will be invited to join the organization.</p>
        </div>
-           <p><b>
-     <blockquote><blockquote>This electronic document is intended for public viewing and is solely for personal reference. It should not be considered an authoritative source nor an official publication of Alpha Phi Omega. Inquiries regarding Alpha Phi Omega and its official publications may be directed to: 
+           <p><b><i>
+     a b 2 3 ;<blockquote><blockquote>This electronic document is intended for public viewing and is solely for personal reference. It should not be considered an authoritative source nor an official publication of Alpha Phi Omega. Inquiries regarding Alpha Phi Omega and its official publications may be directed to: 
 
     Alpha Phi Omega
     14901 E. 42nd Street
     Independence, MO 64055
 
     Alpha Phi Omega is a copyrighted, registered trademark in the USA.
-    All rights reserved.</p></b><br /></blockquote></blockquote>
+    All rights reserved.</p></b><br /></blockquote></blockquote></i>
     </div>
     
     <div id="footer"></div>
