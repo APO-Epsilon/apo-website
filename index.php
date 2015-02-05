@@ -16,6 +16,15 @@ require_once ('session.php');
     <div id="header"><?php include 'header.php';?></div>
     <!-- PHP method to include header -->
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="row">
         <div class="large-10 medium-9 small-12 column large-centered medium-centered">
             <h2>Alpha Phi Omega</h2>
@@ -27,6 +36,8 @@ require_once ('session.php');
             <br>
             </p>
         </div>
+    </div>
+<div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false">
     </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
