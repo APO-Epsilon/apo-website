@@ -26,7 +26,7 @@ require_once ('session.php');
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="row">
-        <div class="large-8 medium-12 small-12 columns">
+        <div class="large-8 medium-6 small-12 columns">
             <h2>Alpha Phi Omega</h2>
             <h3>Epsilon Chapter</h3>
             <br>
@@ -36,7 +36,7 @@ require_once ('session.php');
             <br>
             </p>
         </div>
-        <div class="large-4 medium-12 small-12 columns">
+        <div class="large-4 medium-6 small-12 columns">
             <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false">
             </div>
         </div>
