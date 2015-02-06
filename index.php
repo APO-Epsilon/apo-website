@@ -26,7 +26,7 @@ require_once ('session.php');
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="row">
-        <div class="large-10 medium-9 small-12 column large-centered medium-centered">
+        <div class="large-10 medium-9 small-12 one columns large-centered medium-centered">
             <h2>Alpha Phi Omega</h2>
             <h3>Epsilon Chapter</h3>
             <br>
