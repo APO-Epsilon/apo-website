@@ -26,7 +26,7 @@ require_once ('session.php');
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="row">
-        <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" style="float:left">
+        <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" style="float:right">
         </div>
         <div class="large-10 medium-9 small-12 column large-centered medium-centered">
             <h2>Alpha Phi Omega</h2>
