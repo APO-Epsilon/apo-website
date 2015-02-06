@@ -36,7 +36,7 @@ require_once ('session.php');
             <br>
             </p>
         </div>
-        <div class="column">
+        <div class="large-10 medium-9 small-12 column large-centered medium-centered">
             <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false">
             </div>
         </div>
