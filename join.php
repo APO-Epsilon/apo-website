@@ -79,7 +79,7 @@ echo "</ul>";
     No. APO is not exclusive in its recruitment process, so anyone with the desire to serve is encouraged to join.  As long as you complete the rush requirements (usually three service events and three fellowship events), you will be invited to join the organization.</p>
        </div>
            <p><b><i>
-    &#xA9 &#xA9 &#xA9 <blockquote><blockquote><blockquote>This electronic document is intended for public viewing and is solely for personal reference. It should not be considered an authoritative source nor an official publication of Alpha Phi Omega. Inquiries regarding Alpha Phi Omega and its official publications may be directed to: 
+  <div style="text-indent: 1em;"> <blockquote><blockquote><blockquote>This electronic document is intended for public viewing and is solely for personal reference. It should not be considered an authoritative source nor an official publication of Alpha Phi Omega. Inquiries regarding Alpha Phi Omega and its official publications may be directed to: 
 
     Alpha Phi Omega
     14901 E. 42nd Street
@@ -87,7 +87,7 @@ echo "</ul>";
 
     Alpha Phi Omega is a copyrighted, registered trademark in the USA.
     All rights reserved.</p></b><br /></blockquote></blockquote></blockquote></i>
-    </div>
+    </div></div>
     
     <div id="footer"></div>
 </body>
