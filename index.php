@@ -26,8 +26,6 @@ require_once ('session.php');
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="row">
-        <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" style="float:right">
-        </div>
         <div class="large-10 medium-9 small-12 column large-centered medium-centered">
             <h2>Alpha Phi Omega</h2>
             <h3>Epsilon Chapter</h3>
@@ -37,6 +35,10 @@ require_once ('session.php');
             Today Epsilon is one of the strongest organizations on the Truman State University campus. It is also the largest non-honor group on Trumans campus, with over 200 members. Epsilons service program now includes the Red Cross Blood Drives, Camp Silver Meadows, YMCA, Ray Miller, and Twin Pines Retirement Community. Epsilon also hosts a philanthropy event every fall and St. Baldricks in the spring! Through friendship and service, Epsilon is poised to lead the Kirksville and Truman communities into the twenty-first century.
             <br>
             </p>
+        </div>
+        <div class="column">
+            <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false">
+            </div>
         </div>
     </div>
 
