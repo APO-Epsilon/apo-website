@@ -138,6 +138,10 @@ require_once ('session.php');
                 <p> Andi Watkins Davis <br>
                 <a href="mailto:apo.epsilon.advisorliaison@gmail.com">apo.epsilon.advisorliaison@gmail.com</a>
                 </p>
+                <h1> Confrence Fundraising </h1>
+                <p> Annali  Cler <br> Joe Paglisotti<br>
+                <a href="mailto:apo.epsilon.conferencefund@gmail.com">apo.epsilon.conferencefund@gmail.com</a>
+                </p>
             <hr>
             <h1>  Rush  </h1>
                 <p> Katie Kerkemeyer <br>
