@@ -13,7 +13,7 @@ require_once ('session.php');
     <div class="row">
         <div class="large-6 medium-9 small-12 columns">
             <h1>  President  </h1>
-                <p> Paige Hamilton <br>
+                <p> Obama <br>
                 <a href="mailto:apo.epsilon.president@gmail.com">apo.epsilon.president@gmail.com</a>
                 </p>
             <hr>
