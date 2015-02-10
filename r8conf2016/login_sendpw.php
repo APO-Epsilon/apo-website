@@ -49,7 +49,7 @@ $mail->Password = "alphaphiomega";
 $email = $_GET['email'];
 $mail->FromName = "Alpha Phi Omega Epsilon";
 $select = "SELECT id, firstname, lastname, username
-		FROM contact_information
+		FROM conf_contact_information
 		WHERE email='$email';";
 $query = $db->query($select) or die("If you encounter problems, please contact the webmaster.");
 $r = mysqli_fetch_array($query);
@@ -60,7 +60,7 @@ if (!$r) {
 	extract($r);
 	$mail->AddAddress("$email", "$firstname $lastname");
 
-	$subject = "APO Epsilon Password Request";
+	$subject = "APO Epsilon Region VIII Conference Password Request";
 
 	$new_password = str_rand(15, 'alphanum');
     $hasher = new PasswordHash(8, true);
