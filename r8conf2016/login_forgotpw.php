@@ -20,7 +20,7 @@ require_once ('mysql_access.php');
     <div class="row">
         <p>
         Please enter the email address you used when you signed up, and we will send your password to you immediately. <br><br>
-        If you don't receive an email, that means you either typed the email wrong, or registered with a different email address.  If you need help, please contact the webmaster at <a href="apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com</a>.
+        If you don't receive an email, that means you either typed the email wrong, or registered with a different email address.  If you need help, please contact the webmaster at <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com</a>.
         </p>
 
         <form method="GET" action="login_sendpw.php" >
