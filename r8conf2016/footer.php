@@ -8,6 +8,8 @@
         <p>2015 &copy; Alpha Phi Omega - Epsilon Chapter
         <br>
        Issues? Please contact the <a href="mailto:apo.epsilon.webmaster@gmail.com?subject=Website Issue">Webmaster</a>
+       <br><br>
+       Is your chapter interested in using our full website? It's free and easy. See how <a href="../aboutsite.php">here</a>
        </p>
 </footer>
 <script>
