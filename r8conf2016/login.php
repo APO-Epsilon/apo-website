@@ -32,8 +32,7 @@ function print_login(){
 		$continue = isset($_SESSION['continue']) ? $_SESSION['continue'] : '';
 echo <<<END
 	<table>
-	<h1>Member Login</h1>
-	<p>$error_message Please log in if you belong to Epsilon and have an account.  If you do not have an account, please contact the webmaster for the registration password and <a color="#FFFF00" href='register.php'>sign up</a>.  If you forgot your password, go here: <a href='login_forgotpw.php'> Forgot Password</a>
+	<h1>Conference Registration Login</h1>
 	</p>
 			<form name="loginform" method="post" action="$_SERVER[PHP_SELF]">
 			<tr>
@@ -48,6 +47,12 @@ echo <<<END
 			<input type="hidden" name="logstate" value="login"/>
 	</form>
 	</table>
+        <div class="large-2 medium-2 small-6 columns">
+            <a href="register.php" class="button expand">Register</a>
+        </div>
+        <div class="large-2 medium-2 small-6 columns end">
+            <a href="login_forgotpw.php" class="button expand">Forgot Password?</a>
+        </div>
 END;
 	echo(isset($_SESSION['continue']) ? $_SESSION['continue'] : '');
 }
