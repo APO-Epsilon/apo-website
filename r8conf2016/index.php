@@ -28,7 +28,7 @@ require_once ('session.php');
         <div class="large-2 medium-2 small-6 columns">
             <a href="register.php" class="button">Register</a>
         </div>
-        <div class="large-2 medium-2 small-6 columns">
+        <div class="large-2 medium-2 small-6 columns end">
             <a href="login.php" class="button">Login</a>
         </div>
     </div>
