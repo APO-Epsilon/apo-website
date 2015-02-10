@@ -18,7 +18,7 @@ require_once ('session.php');
 
 <div class="row">
         <div class="large-10 medium-9 small-12 column large-centered medium-centered">
-            <p>
+            <p> Trying to fix things
              </p>
         </div>
     </div>
