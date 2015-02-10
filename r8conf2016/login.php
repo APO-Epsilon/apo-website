@@ -36,7 +36,7 @@ echo <<<END
 	</p>
 			<form name="loginform" method="post" action="$_SERVER[PHP_SELF]">
 			<tr>
-			<td width="40%">Username:</td><td width="60%"><input type="text" name="username"/></td>
+			<td width="40%">Email:</td><td width="60%"><input type="text" name="username"/></td>
 			</tr>
 			<tr>
 			<td width="40%">Password:</td><td width="60%"><input type="password" name="password"/></td>
