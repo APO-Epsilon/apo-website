@@ -62,82 +62,67 @@ function process_login(){
 	$password = addslashes($_POST["password"]);
 	$hasher = new PasswordHash(8, true);
 
-	if ($username == `alumni` AND $password == `forgetmenot`) {
-		$_SESSION['sessionUsername'] = 'Alumni';
-		$_SESSION['sessionFirstname'] = 'Brother';
-		$_SESSION['sessionLastname'] = 'Alumni';
-		$_SESSION['sessionexec'] = '0';
-		$_SESSION['sessionID'] = 'Alumni';
-		echo "<p>You have succesfully logged in as Alumni.</p>";
-	} else {
-		//validate operation code
-		$op = $_POST['logstate'];
-		if ($op !== 'new' && $op !== 'login'){
-			fail('Unknown request');}
+	//validate operation code
+	$op = $_POST['logstate'];
+	if ($op !== 'new' && $op !== 'login'){
+		fail('Unknown request');}
 
-		if ($op === 'new') {
-		$hash = $hasher->HashPassword($password);
-		if (strlen($hash) < 20)
-			fail('Failed to hash new password');
-		unset($hasher);
+	if ($op === 'new') {
+	$hash = $hasher->HashPassword($password);
+	if (strlen($hash) < 20)
+		fail('Failed to hash new password');
+	unset($hasher);
 
-		$what = 'User created';
-		}
-		else {
-			$r = NULL;
-			$hash = '*'; // In case the user is not found
-			($stmt = $db->prepare('select password from contact_information where username=?'));
-			$stmt->bind_param('s', $username);
-			$stmt->execute();
-			$stmt->bind_result($hash);
-			if (!$stmt->fetch() && $db->errno);
+	$what = 'User created';
+	}
+	else {
+		$r = NULL;
+		$hash = '*'; // In case the user is not found
+		($stmt = $db->prepare('select password from contact_information where username=?'));
+		$stmt->bind_param('s', $username);
+		$stmt->execute();
+		$stmt->bind_result($hash);
+		if (!$stmt->fetch() && $db->errno);
 
-			if ($hasher->CheckPassword($password, $hash)) {
-				$what = 'Authentication succeeded';
-				$stmt->close();
-				$select = "SELECT * FROM contact_information WHERE username='$username'";
-				$query = $db->query($select) or die("Unable to get data. $db->error");
-				$r = $query->fetch_assoc();
-			} else {
-				$what = 'Authentication failed.  Please try again.';
-			}
-			unset($hasher);
-		}
-
-		echo "$what\n";
-
-		if (!$r) {
-			print_login(1);
+		if ($hasher->CheckPassword($password, $hash)) {
+			$what = 'Authentication succeeded';
+			$stmt->close();
+			$select = "SELECT * FROM conf_contact_information WHERE username='$username'";
+			$query = $db->query($select) or die("Unable to get data. $db->error");
+			$r = $query->fetch_assoc();
 		} else {
-		extract($r);
-
-		$_SESSION['sessionUsername'] = $username;
-		$_SESSION['sessionFirstname'] = $firstname;
-		$_SESSION['sessionLastname'] = $lastname;
-		$_SESSION['sessionposition'] = $position;
-		$_SESSION['sessionexec'] = $exec;
-		$_SESSION['sessionID'] = $id;
-		$_SESSION['active_sem'] = $active_sem;
-		$_SESSION['sessionStatus'] = $status;
-
-
-		$sql = "SELECT * FROM `contact_information`
-				WHERE `lastname` = '".$lastname."'
-				AND `firstname` = '".$firstname."'
-				AND `username` = '".$username."'";
-		$result = $db->query($sql);
-
-			echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
-
+			$what = 'Authentication failed.  Please try again.';
 		}
+		unset($hasher);
+	}
+
+	echo "$what\n";
+
+	if (!$r) {
+		print_login(1);
+	} else {
+	extract($r);
+
+	$_SESSION['sessionUsername'] = $username;
+	$_SESSION['sessionFirstname'] = $firstname;
+	$_SESSION['sessionLastname'] = $lastname;
+	$_SESSION['sessionID'] = $id;
+
+
+	$sql = "SELECT * FROM `conf_contact_information`
+			WHERE `lastname` = '".$lastname."'
+			AND `firstname` = '".$firstname."'
+			AND `username` = '".$username."'";
+	$result = $db->query($sql);
+
+		echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
+
 	}
 }
 function logout(){
       	unset($_SESSION['sessionUsername']);
       	unset($_SESSION['sessionFirstname']);
 		unset($_SESSION['sessionLastname']);
-		unset($_SESSION['sessionposition']);
-		unset($_SESSION['sessionexec']);
 		unset($_SESSION['sessionID']);
 }
 	if (!isset($_SESSION['sessionID']) && isset($_POST['logstate']) && ($_POST['logstate'] == 'login')) {
