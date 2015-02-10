@@ -18,16 +18,17 @@ require_once ('session.php');
 
 
 <div class="row">
-        <div class="large-8 medium-6 small-12 columns">
+        <div class="small-12 columns">
             <h2>APO Region 8 Conference </h2>
             <h3>Date of Conference Here</h3>
             <br>
             <p>Nice little blurb about the conference here</p>
+            <br><br>
         </div>
-        <div class="small-6 columns">
+        <div class="large-2 medium-2 small-6 columns">
             <a href="register.php" class="button">Register</a>
         </div>
-        <div class="small-6 columns">
+        <div class="large-2 medium-2 small-6 columns">
             <a href="login.php" class="button">Login</a>
         </div>
     </div>
