@@ -5,7 +5,7 @@
                     <li><a href="https://github.com/racedale/apo-website" class="icon circle fa-github"><span class="label">Github</span></a></li>
                 </ul>
 
-        <p>2014 &copy; Alpha Phi Omega - Epsilon Chapter
+        <p>2015 &copy; Alpha Phi Omega - Epsilon Chapter
         <br>
        Issues? Please contact the <a href="mailto:apo.epsilon.webmaster@gmail.com?subject=Website Issue">Webmaster</a>
        </p>
