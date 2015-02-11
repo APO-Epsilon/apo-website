@@ -18,7 +18,7 @@ require_once ('session.php');
 
 
 <div class="row">
-        <div class="large-8 medium-8  small-12 large-centered medium-centered small-centered columns">
+        <div class="large-8 medium-8 small-12 columns">
             <h2>APO Region VIII Conference </h2>
             <h3>January 15, 2016 - January 17, 2016</h3>
             <br>
