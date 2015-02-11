@@ -199,8 +199,8 @@ echo<<<END
 					<br>
 					-->
 				<b>Status appling for</b><br>
-					<lable for="status">status</label>
 					<select name="status" id="status">
+						<option>$row[status]</option>
 						<option>Associate</option>
 						<option>Inactive</option>
 						<option>Self-Suspention</option>
@@ -210,66 +210,8 @@ echo<<<END
 					</select>
 			</div>
 			<div class='large-6 medium-6 small-12 column'>
-				<b>Nationals Reporting</b>
-				<br>
-					<label for="gender">Gender<br></label>
-					Male<input type="radio" name="gender" value="2" $genderM/>
-					Female<input type="radio" name="gender" value="1" $genderF/>
-				<br>
-				<label for="race">Race/Ethnicity</label>
-				<select name="race" id="race">
-					<option value="$row[race]">$row[race]</option>
-				    <option value="White/Caucasian">White/Caucasian</option>
-				    <option value="Hispanic">Hispanic</option>
-				    <option value="American Indian or Alaskan Native">American Indian or Alaskan Native</option>
-					<option value="Asian">Asian</option>
-					<option value="Black or African-American">Black or African-American</option>
-					<option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
-					<option value="Mixed Race">Mixed Race</option>
-				    <option value="Prefer not to say">Prefer not to say</option>
-				</select>
-				<br>
-				<b>APO</b>
-				<br>
-					<label for="pledgesem">Pledge Semester</label>
-						<select name="pledgesem">
-							<option value="$row[pledgesem]">$row[pledgesem]</option>
-							<option value="Fall">Fall</option>
-							<option value="Spring">Spring</option>
-						</select>
-						<select name="pledge_year">
-							<option value="$row[pledgeyear]">$row[pledgeyear]</option>
-							<option value="2015">2015</option>
-							<option value="2014">2014</option>
-							<option value="2013">2013</option>
-							<option value="2012">2012</option>
-							<option value="2011">2011</option>
-							<option value="2010">2010</option>
-						</select>
-					<label for="family_flower">Flower</label>
-						<select name="family_flower">
-							<option>$row[famflower]</option>
-							<option value="Pink Carnation">Pink Carnation</option>
-							<option value="Red Carnation">Red Carnation</option>
-							<option value="Red Rose">Red Rose</option>
-							<option value="White Carnation">White Carnation</option>
-							<option value="White Rose">White Rose</option>
-							<option value="Yellow Rose">Yellow Rose</option>
-						</select>
-					<label for="status">Status</label>
-						<select name="status">
-							<option>$row[status]</option>
-							<option value="Active">Active</option>
-							<option value="Associate">Associate</option>
-							<option value="Pledge">Pledge</option>
-							<option value="Alumni">Alumni</option>
-							<option value="Early Alum">Early Alum</option>
-							<option value="Exec">Executive</option>
-							<option value="Advisor">Advisor</option>
-							<option value="Inactive">Inactive</option>
-						</select>
-					<label for="bigbro">Big Brothers</label>
-					<textarea name="bigbro" placeholder="First Last, First Last, etc">$row[bigbro]</textarea>
+					<label for="previousstatus">Previous Status Changes (status and semester)</label>
+					<input type= "text" name="previousstatus">
 					<label for="lilbro">Little Brothers</label>
 					<textarea name="littlebro" placeholder="First Last, First Last, etc">$row[littlebro]</textarea>
 					<b>School</b><br>
