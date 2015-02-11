@@ -36,7 +36,7 @@ if (!isset($_SESSION['sessionID'])) {
             $password = $_POST['new_password_1'];
             $hasher = new PasswordHash(8, true);
             $hash = $hasher->HashPassword($password);
-			$sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
+			$sql = "UPDATE `conf_contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
 			$result = $db->query($sql);
 			if (mysqli_affected_rows($db) == 1) {
 				echo "Your password has been updated.";
