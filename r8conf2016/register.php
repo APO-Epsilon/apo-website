@@ -23,22 +23,28 @@ require_once ('mysql_access.php');
 			<form action="register_process.php" method="POST">
 				<label for="first_name">First Name</label>
 				<input type="text" name="firstname"/>
+		</div>
 			<br>
+		<div class="large-6 medium-6 small-12 columns">
 				<label for="last_name">Last Name</label>
 				<input type="text" name="lastname" />
+		</div>
 			<br>
-				<label for="username">Email*</label>
+		<div class="large-6 medium-6 small-12 columns">
+				<label for="username">Email</label>
 				<input type="text" name="username" />
+		</div>
 			<br>
+		<div class="large-6 medium-6 small-12 columns">
 				<label for="password">Password</label>
 				<input type="password" name="password" />
+		</div>
 			<br>
 				<p align="center">
 			 	<input type="hidden" name="stage" value="process" />
 			 	<input type="submit" value="Register" />
 			 	</p>
 			</form>
-		</div>
 	</div>
 	<br>
 
