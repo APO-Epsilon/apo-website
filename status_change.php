@@ -119,11 +119,9 @@ SQL;
 		$force = "<div style='margin: 50px; padding: 10px; background: #F08080; '><h1 style='color:red;'>Please update your information for this semester.</h1> Do you have any new <b>Littles</b>, different <b>status</b>, have a new <b>local address</b>, or change your <b>major</b> recently?  You will not be able to access the site until you have clicked 'Update' below.  If you have problems, contact the webmaster!</div>";
 	}
 echo<<<END
-	<h1>Update Information</h1>
+	<h1>Status Change</h1>
 	$force
-	<p>Please make sure to update your Local Address and Littles each semester!</p>
-	<p>If you wish to change your status, the form can be found <a href="https://docs.google.com/a/truman.edu/file/d/0B_qnfQK1uoMVZGhKbGxsLUtMRW8/edit">here</a></p>
-	<p>If you wish to change your password, please go <a href="./login_updatepw.php">here</a>.</p>
+	<p>Please fill out the form to change your status.</p>
 	<p>Please verify <b>ALL</b> fields</p>
 		<form method="POST">
 			<div class='row'>
@@ -133,22 +131,6 @@ echo<<<END
 						<input type="text" name="first_name" value="$row[firstname]" placeholder="First name" required="" autocomplete="name"/>
 					<label for="last_name">Last Name</label>
 						<input type="text" name="last_name" value="$row[lastname]" placeholder="Last name" required="" autocomplete="name"/>
-				<label for="birthday">Birthday</label>
-					<select name="bmonth" id="bmonth">
-						<option value="$row[bmonth]">$month</option>
-						<option value="01">January</option>
-						<option value="02">February</option>
-						<option value="03">March</option>
-						<option value="04">April</option>
-						<option value="05">May</option>
-						<option value="06">June</option>
-						<option value="07">July</option>
-						<option value="08">August</option>
-						<option value="09">September</option>
-						<option value="10">October</option>
-						<option value="11">November</option>
-						<option value="12">December</option>
-					</select>
 					<select name="bday" id="bday">
 					    <option>$row[bday]</option>
 						<option>01</option>
