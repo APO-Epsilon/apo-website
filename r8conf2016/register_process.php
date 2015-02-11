@@ -36,7 +36,7 @@ require_once ("PasswordHash.php");
     if ($firstname == NULL || $lastname == NULL || $username == NULL || $password == NULL)
     {
       echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
-    } else if ($regpass == 'SpringRush2015') {
+    } else {
         $insert = "INSERT INTO `conf_contact_information` (firstname,
         lastname, username, password) VALUES('$firstname','$lastname',
         '$username', '$password')";
@@ -45,7 +45,8 @@ require_once ("PasswordHash.php");
 
         $query2 = $db->query($insert) or die('<br><div class="entry"><strong>Your username is already taken.  Please try again.</strong></div>');
 */
-
+    }
+    
 $result = $db->query($insert);
 if (!$result) {
     die('Invalid query: ' . mysqli_error());
