@@ -20,38 +20,26 @@ require_once ('mysql_access.php');
 	<div class="row">
 		<div class="large-6 medium-6 small-12 columns">
 			<form action="register_process.php" method="POST">
-			<b>Personal</b><br>
 				<label for="first_name">First Name</label>
 				<input type="text" name="firstname"/>
 			<br>
 				<label for="last_name">Last Name</label>
 				<input type="text" name="lastname" />
 			<br>
-				
-				<label for="phone">Phone</label>
-					<input type="text" name="phone"/>
-				<br>
+				<label for="username">Email*</label>
+				<input type="text" name="username" />
+			<br>
+				<label for="password">Password</label>
+				<input type="password" name="password" />
+			<br>
+				<p align="center">
+			 	<input type="hidden" name="stage" value="process" />
+			 	<input type="submit" value="Register" />
+			 	</p>
+			</form>
 		</div>
 	</div>
 	<br>
-	<div class="row">
-		<div class="large-12 medium-12 small-12 columns">
-			<b>Login</b><br>
-				<label for="username">Email*</label>
-					<input type="text" name="username" />
-			<br>
-
-			<label for="password">Password</label>
-				<input type="password" name="password" />
-			<br>
-
-			 		<p align="center">
-			 		<input type="hidden" name="stage" value="process" />
-			 		<input type="submit" value="Register" />
-			 		</p>
-			</form>
-		</div>
-</div>
 
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
