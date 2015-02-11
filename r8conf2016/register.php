@@ -19,6 +19,7 @@ require_once ('mysql_access.php');
 
 	<div class="row">
 		<div class="large-6 medium-6 small-12 columns">
+			<h2>Register for the Conference</h2>
 			<form action="register_process.php" method="POST">
 				<label for="first_name">First Name</label>
 				<input type="text" name="firstname"/>
