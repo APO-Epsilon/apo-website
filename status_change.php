@@ -46,9 +46,9 @@ $sql = <<<SQL
         `bigbro` = '$_POST[bigbro]',
         `littlebro` = '$_POST[littlebro]',
         `status` = '$_POST[status]',
-        `bday` = '$_POST[bday]',
-        `bmonth` = '$_POST[bmonth]',
-        `byear` = '$_POST[byear]',
+        `change_day` = '$_POST[change_day]',
+        `change_month` = '$_POST[change_month]',
+        `change_year` = '$_POST[change_year]',
         `active_sem` = '$current_semester',
         `hide_info` = 'F',
         `gender` = '$_POST[gender]',
@@ -131,6 +131,54 @@ echo<<<END
 						<input type="text" name="first_name" value="$row[firstname]" placeholder="First name" required="" autocomplete="name"/>
 					<label for="last_name">Last Name</label>
 						<input type="text" name="last_name" value="$row[lastname]" placeholder="Last name" required="" autocomplete="name"/>
+						<select name="change_month" id="change_month">
+						<option value="01">January</option>
+						<option value="02">February</option>
+						<option value="03">March</option>
+						<option value="04">April</option>
+						<option value="05">May</option>
+						<option value="06">June</option>
+						<option value="07">July</option>
+						<option value="08">August</option>
+						<option value="09">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					</select>
+					<select name="change_day" id="change_day">
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+					<input name="change_year" type="text" style="width: 50px;" maxlength="4"/>
 				<br>
 				<b>Contact</b><br>
 					<label for="email">Email</label>
