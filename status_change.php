@@ -131,6 +131,7 @@ echo<<<END
 						<input type="text" name="first_name" value="$row[firstname]" placeholder="First name" required="" autocomplete="name"/>
 					<label for="last_name">Last Name</label>
 						<input type="text" name="last_name" value="$row[lastname]" placeholder="Last name" required="" autocomplete="name"/>
+					<label for="change_day">Todays Date</label>
 						<select name="change_month" id="change_month">
 						<option value="01">January</option>
 						<option value="02">February</option>
