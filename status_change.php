@@ -198,12 +198,15 @@ echo<<<END
 					No<input type="radio" name="hide_info" value="F" $selectedF/>
 					<br>
 					-->
-				<b>Organizations</b><br>
-					<lable for="organizations">Outside of APO</label>
-					<select name="organizations" id="organizations">
-END;
-						list_orgs();
-echo<<<END
+				<b>Status appling for</b><br>
+					<lable for="status">status</label>
+					<select name="status" id="status">
+						<option>Associate</option>
+						<option>Inactive</option>
+						<option>Self-Suspention</option>
+						<option>Senior Membership</option>
+						<option>Early Alum</option>
+						<option>Active</option>
 					</select>
 			</div>
 			<div class='large-6 medium-6 small-12 column'>
