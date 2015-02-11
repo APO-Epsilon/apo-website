@@ -48,7 +48,7 @@ require_once ("PasswordHash.php");
     
 $result = $db->query($insert);
 if (!$result) {
-    die('Invalid query: ' . mysqli_error());
+    die('There has an been error with your registration. This may be because the email address you supplied is already in use, or there may be other technical problems. If the error persists, please contact the webmaster at <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com.</a>' . mysqli_error());
 }
 echo <<<END
         <div class="entry"><strong>Thank you for registering for the 2016 APO Region VIII Conference</strong></div>
