@@ -45,7 +45,6 @@ require_once ("PasswordHash.php");
 
         $query2 = $db->query($insert) or die('<br><div class="entry"><strong>Your username is already taken.  Please try again.</strong></div>');
 */
-    }
     
 $result = $db->query($insert);
 if (!$result) {
