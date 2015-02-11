@@ -27,10 +27,10 @@ require_once ('session.php');
                 <p>Nice little blurb about the conference here</p>
                 <br><br>
             </div>
-            <div class="large-2 medium-2 small-6 columns">
+            <div class="large-4 medium-4 small-6 columns">
                 <a href="register.php" class="button expand">Register</a>
             </div>
-            <div class="large-2 medium-2 small-6 columns end">
+            <div class="large-4 medium-4 small-6 columns end">
                 <a href="login.php" class="button expand">Login</a>
             </div>
         </div>
