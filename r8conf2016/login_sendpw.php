@@ -50,7 +50,7 @@ $email = $_GET['email'];
 $mail->FromName = "Alpha Phi Omega Epsilon";
 $select = "SELECT id, firstname, lastname, username
 		FROM conf_contact_information
-		WHERE email='$email';";
+		WHERE username='$email';";
 $query = $db->query($select) or die("If you encounter problems, please contact the webmaster.");
 $r = mysqli_fetch_array($query);
 if (!$r) {
@@ -71,7 +71,6 @@ if (!$r) {
 					"To ensure the privacy of your password, it has been stored in an encrypted form and cannot be decrypted.  Therefore, your password has been set to a random value, displayed below.  When you login, please update your password.  This new password only becomes active if you use it.\n \n" .
 
 					"Here is the information you have requested: \n \n" .
-					"Username: " . $username . "\n" .
 					"Password: " . $new_password . "\n \n" .
 					"Please let us know if you have any further problems. \n" .
 					"APO Webmaster";
@@ -84,7 +83,7 @@ if (!$r) {
 		echo "Mailer Error: " . $mail->ErrorInfo;
 		exit;
 	} else {
-		$sql = "UPDATE `contact_information` SET `password` = '$hash' WHERE id = '$id'";
+		$sql = "UPDATE `conf_contact_information` SET `password` = '$hash' WHERE id = '$id'";
 		$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster.");
 		echo "Message has been sent.";
 	}
