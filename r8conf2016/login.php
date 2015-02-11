@@ -31,22 +31,21 @@ function print_login(){
 		$_SESSION['continue'] = $_GET['continue'];}
 		$continue = isset($_SESSION['continue']) ? $_SESSION['continue'] : '';
 echo <<<END
-	<table>
 	<h1>Conference Registration Login</h1>
-	</p>
-			<form name="loginform" method="post" action="$_SERVER[PHP_SELF]">
-			<tr>
-			<td width="40%">Email:</td><td width="60%"><input type="text" name="username"/></td>
-			</tr>
-			<tr>
-			<td width="40%">Password:</td><td width="60%"><input type="password" name="password"/></td>
-			</tr>
-			<tr>
-			<td><input type="submit" value="Login"/></td>
-			</tr>
-			<input type="hidden" name="logstate" value="login"/>
-	</form>
-	</table>
+		<form name="loginform" method="post" action="$_SERVER[PHP_SELF]">
+			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+				<label for="username">Email: </label>
+				<input type="text" name="username"/>
+			</div><br>
+			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+				<label for="password">Password: </label>
+				<input type="password" name="password"/>
+			</div><br>
+			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+				<input type="submit" value="Login"/>
+				<input type="hidden" name="logstate" value="login"/>
+			</div><br>
+		</form>
         <div class="large-3 medium-3 small-6 columns">
             <a href="register.php" class="button expand">Register</a>
         </div>
