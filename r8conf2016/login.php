@@ -46,12 +46,10 @@ echo <<<END
 				<input type="hidden" name="logstate" value="login"/>
 			</div><br>
 		</form>
-		<div class="large-3 medium-3 small-12 columns">
-		</div>
-        <div class="large-3 medium-3 small-6 columns">
+        <div class="large-3 medium-3 small-6 large-centered medium-centered columns">
             <a href="register.php" class="button expand">Register</a>
         </div>
-        <div class="large-3 medium-3 small-6 columns end">
+        <div class="large-3 medium-3 small-6 large-centered medium-centered columns end">
             <a href="login_forgotpw.php" class="button expand">Forgot Password?</a>
         </div>
 END;
