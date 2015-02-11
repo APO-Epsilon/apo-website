@@ -30,8 +30,7 @@ function print_login(){
 		session_register('continue');
 		$_SESSION['continue'] = $_GET['continue'];}
 		$continue = isset($_SESSION['continue']) ? $_SESSION['continue'] : '';
-echo <<<END
-	<h1>Conference Registration Login</h1>
+	<h1>Conference Registration Login</h1><br>
 		<form name="loginform" method="post" action="$_SERVER[PHP_SELF]">
 			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
 				<label for="username">Email: </label>
@@ -46,13 +45,14 @@ echo <<<END
 				<input type="hidden" name="logstate" value="login"/>
 			</div><br>
 		</form>
+		<div class="large-3 medium-3 small-12 columns">
+		</div>
         <div class="large-3 medium-3 small-6 columns">
             <a href="register.php" class="button expand">Register</a>
         </div>
         <div class="large-3 medium-3 small-6 columns end">
             <a href="login_forgotpw.php" class="button expand">Forgot Password?</a>
         </div>
-END;
 	echo(isset($_SESSION['continue']) ? $_SESSION['continue'] : '');
 }
 function process_login(){
