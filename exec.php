@@ -152,17 +152,6 @@ require_once ('session.php');
                 <br>
                 </p>
         </div>
-        <div>
-                 <div class="large-6 medium-9 small-12 columns">
-          <h1>  Philanthropy  </h1>
-                <p> Callie Templeton <br>
-                Jordyn Williams <br>
-                Molly Turner <br>
-                Ashley Banze <br>
-                Jamie Haenni <br>
-                <a href="mailto:apo.epsilon.philanthropy@gmail.com">apo.epsilon.philanthropy@gmail.com</a>
-                </p>
-                </div>
     </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
