@@ -11,7 +11,7 @@ require_once ('session.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
-        <div class="large-6 medium-9 small-12 columns">
+        <div class="large-4 medium-7 small-9 columns">
             <h1>  President  </h1>
                 <p> Paige Hamilton <br>
                 <a href="mailto:apo.epsilon.president@gmail.com">apo.epsilon.president@gmail.com</a>
@@ -83,7 +83,7 @@ require_once ('session.php');
             <hr>
         </div>
 
-        <div class="large-6 medium-9 small-12 columns">
+        <div class="large-4 medium-7 small-9 columns">
             <h1>  Fundraising  </h1>
                 <p> Austin Kerns <br>
                     Madde Moran  <br>
@@ -151,7 +151,9 @@ require_once ('session.php');
                 <a href="mailto:apo.epsilon.rushchair@gmail.com">apo.epsilon.rushchair@gmail.com</a>
                 <br>
                 </p>
-         <div class="large-6 medium-9 small-12 columns">
+        </div>
+        <div>
+                 <div class="large-6 medium-9 small-12 columns">
           <h1>  Philanthropy  </h1>
                 <p> Callie Templeton <br>
                 Jordyn Williams <br>
@@ -160,7 +162,7 @@ require_once ('session.php');
                 Jamie Haenni <br>
                 <a href="mailto:apo.epsilon.philanthropy@gmail.com">apo.epsilon.philanthropy@gmail.com</a>
                 </p>
-        </div>
+                </div>
     </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
