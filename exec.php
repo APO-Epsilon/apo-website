@@ -11,7 +11,7 @@ require_once ('session.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
-        <div class="large-4 medium-7 small-9 columns">
+        <div class="large-6 medium-9 small-12 columns">
             <h1>  President  </h1>
                 <p> Paige Hamilton <br>
                 <a href="mailto:apo.epsilon.president@gmail.com">apo.epsilon.president@gmail.com</a>
@@ -83,7 +83,7 @@ require_once ('session.php');
             <hr>
         </div>
 
-        <div class="large-4 medium-7 small-9 columns">
+        <div class="large-6 medium-9 small-12 columns">
             <h1>  Fundraising  </h1>
                 <p> Austin Kerns <br>
                     Madde Moran  <br>
