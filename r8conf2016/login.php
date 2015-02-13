@@ -77,7 +77,7 @@ function process_login(){
 	else {
 		$r = NULL;
 		$hash = '*'; // In case the user is not found
-		($stmt = $db->prepare('select password from contact_information where username=?'));
+		($stmt = $db->prepare('select password from conf_contact_information where username=?'));
 		$stmt->bind_param('s', $username);
 		$stmt->execute();
 		$stmt->bind_result($hash);
