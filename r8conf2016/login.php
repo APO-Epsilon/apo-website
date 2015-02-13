@@ -42,7 +42,7 @@ echo <<<END
 				<input type="password" name="password"/>
 			</div><br>
 			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
-				<input type="submit" value="Login"/>
+				<input type="submit" class="expand button" value="Login"/>
 				<input type="hidden" name="logstate" value="login"/>
 			</div><br>
 		</form>
