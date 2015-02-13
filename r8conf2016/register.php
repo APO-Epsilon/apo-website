@@ -55,7 +55,7 @@ END;
 } else {
 echo <<<END
 		<div class="small-12 columns">
-			<p>Hi ,<br>It appears that you're already registered for the conference. If you'd like to register another attendee, please click the "Logout" button below and then return to this page.</p>
+			<p>Hi $_SESSION['sessionConfFirstName'],<br>It appears that you're already registered for the conference. If you'd like to register another attendee, please click the "Logout" button below and then return to this page.</p>
 		</div>
 		<div class="small-12 columns">
 			<a href="login.php" class="button expand">Logout</a>
