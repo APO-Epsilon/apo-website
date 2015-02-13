@@ -18,6 +18,10 @@ require_once ('mysql_access.php');
     <!-- PHP method to include header -->
 
 	<div class="row">
+
+<?php
+if (!isset($_SESSION['sessionConfID'])) {
+echo <<<END
 		<div class="small-12 columns">
 			<h2>Register for the Conference</h2>
 		</div>
@@ -47,6 +51,18 @@ require_once ('mysql_access.php');
 			 	<input type="submit" class="button expand" value="Register" />
 	 	</div>
 			</form>
+END;
+} else {
+echo <<<END
+		<div class="small-12 columns">
+			<p>Hi $_SESSION['sessionConfFirstName'],<br>It appears that you're already registered for the conference. If you'd like to register another attendee, please click the "Logout" button below and then return to this page.</p>
+		</div>
+		<div class="small-12 columns">
+			<a href="login.php" class="button expand">Logout</a>
+		</div>
+END;
+}
+
 	</div>
 	<br>
 
