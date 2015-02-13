@@ -44,7 +44,7 @@ echo <<<END
 			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
 				<input type="submit" class="expand button" value="Login"/>
 				<input type="hidden" name="logstate" value="login"/>
-			</div><br>
+			</div>
 		</form>
 			<div class="large-3 medium-3 small-6 large-offset-3 medium-offset-3 columns">
 				<a href="register.php" class="button expand">Register</a>
