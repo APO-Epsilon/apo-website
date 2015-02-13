@@ -62,7 +62,7 @@ echo <<<END
 		</div>
 END;
 }
-
+?>
 	</div>
 	<br>
 
