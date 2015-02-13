@@ -2,8 +2,8 @@
 require_once ('session.php');
 require_once ('mysql_access.php');
 
-if($_SESSION['sessionID']){
-	unset($_SESSION['sessionID']);
+if($_SESSION['sessionConfID']){
+	unset($_SESSION['sessionConfID']);
 	session_destroy();
 }
 
