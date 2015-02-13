@@ -129,7 +129,7 @@ function logout(){
 	}else if (!isset($_SESSION['sessionConfID'])){
 		print_login();
 	}else {
-		echo "<h3><a href='./logout.php'>Logout</a></h3>";
+		echo "<h3><a href='./logout.php' class='button expand'>Logout</a></h3>";
 	}
 echo <<<END
 </div>
