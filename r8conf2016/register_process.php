@@ -53,8 +53,8 @@ if (!$result) {
 echo <<<END
         <div class="small-12 columns">
             <h2>Success!</h2>
-            <p>Thank you for registering for the 2016 APO Region VIII Conference</p><br>
-            <p>Now let's give that new login a try. Click the "Login" button below to go to the login page</p>
+            <p>Thank you for registering for the 2016 APO Region VIII Conference.</p>
+            <p>Now let's give that new login a try. Click the "Login" button below to go to the login page.</p><br>
         </div>
         <div class="large-3 medium-3 small-12 large-centered medium-centered columns">
             <a href="login.php" class="button expand">Login</a>
