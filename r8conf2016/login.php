@@ -114,7 +114,7 @@ function process_login(){
 			AND `username` = '".$username."'";
 	$result = $db->query($sql);
 
-		echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
+		echo "<meta http-equiv='refresh' content='0;url=\"schedule.php\"'>";
 
 	}
 }
