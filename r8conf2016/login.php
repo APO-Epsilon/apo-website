@@ -119,10 +119,10 @@ function process_login(){
 	}
 }
 function logout(){
-      	unset($_SESSION['sessionConfUsername']);
-      	unset($_SESSION['sessionConfFirstname']);
-		unset($_SESSION['sessionConfLastname']);
-		unset($_SESSION['sessionConfID']);
+	unset($_SESSION['sessionConfUsername']);
+	unset($_SESSION['sessionConfFirstname']);
+	unset($_SESSION['sessionConfLastname']);
+	unset($_SESSION['sessionConfID']);
 }
 	if (!isset($_SESSION['sessionConfID']) && isset($_POST['logstate']) && ($_POST['logstate'] == 'login')) {
     	process_login();
