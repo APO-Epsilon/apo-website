@@ -44,7 +44,7 @@ require_once ('mysql_access.php');
 			<br>
 				<p align="center">
 			 	<input type="hidden" name="stage" value="process" />
-			 	<input type="submit" value="Register" />
+			 	<input type="submit" class="button expand" value="Register" />
 			 	</p>
 			</form>
 	</div>
