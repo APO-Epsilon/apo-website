@@ -46,16 +46,12 @@ echo <<<END
 				<input type="hidden" name="logstate" value="login"/>
 			</div><br>
 		</form>
-	<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
-		<div class="row>
 			<div class="small-6 columns">
 				<a href="register.php" class="button expand">Register</a>
 			</div>
 			<div class="small-6 columns">
 				<a href="login_forgotpw.php" class="button expand">Forgot Password?</a>
 			</div>
-		</div>
-	</div>
 END;
 	echo(isset($_SESSION['continue']) ? $_SESSION['continue'] : '');
 }
