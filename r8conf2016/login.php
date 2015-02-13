@@ -102,10 +102,10 @@ function process_login(){
 	} else {
 	extract($r);
 
-	$_SESSION['sessionUsername'] = $username;
-	$_SESSION['sessionFirstname'] = $firstname;
-	$_SESSION['sessionLastname'] = $lastname;
-	$_SESSION['sessionID'] = $id;
+	$_SESSION['sessionConfUsername'] = $username;
+	$_SESSION['sessionConfFirstname'] = $firstname;
+	$_SESSION['sessionConfLastname'] = $lastname;
+	$_SESSION['sessionConfID'] = $id;
 
 
 	$sql = "SELECT * FROM `conf_contact_information`
@@ -119,17 +119,17 @@ function process_login(){
 	}
 }
 function logout(){
-      	unset($_SESSION['sessionUsername']);
-      	unset($_SESSION['sessionFirstname']);
-		unset($_SESSION['sessionLastname']);
-		unset($_SESSION['sessionID']);
+      	unset($_SESSION['sessionConfUsername']);
+      	unset($_SESSION['sessionConfFirstname']);
+		unset($_SESSION['sessionConfLastname']);
+		unset($_SESSION['sessionConfID']);
 }
-	if (!isset($_SESSION['sessionID']) && isset($_POST['logstate']) && ($_POST['logstate'] == 'login')) {
+	if (!isset($_SESSION['sessionConfID']) && isset($_POST['logstate']) && ($_POST['logstate'] == 'login')) {
     	process_login();
-	}else if (!isset($_SESSION['sessionID'])){
+	}else if (!isset($_SESSION['sessionConfID'])){
 		print_login();
 	}else {
-		echo "<h3><a href='./logout.php'>Logout</a></h3>";
+		echo "<h3><a href='./logout.php' class="button expand">Logout</a></h3>";
 	}
 echo <<<END
 </div>
