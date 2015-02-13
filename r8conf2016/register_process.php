@@ -51,7 +51,14 @@ if (!$result) {
     die('There has an been error with your registration. This may be because the email address you supplied is already in use, or there may be other technical problems. If the error persists, please contact the webmaster at <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com.</a>' . mysqli_error());
 }
 echo <<<END
-        <div class="entry"><strong>Thank you for registering for the 2016 APO Region VIII Conference</strong></div>
+        <div class="small-12 columns">
+            <h2>Success!</h2>
+            <p>Thank you for registering for the 2016 APO Region VIII Conference</p><br>
+            <p>Now let's give that new login a try. Click the "Login" button below to go to the login page</p>
+        </div>
+        <div class="large-3 medium-3 small-12 large-centered medium-centered columns">
+            <a href="login.php" class="button expand">Login</a>
+        </div>
 END;
     }
 ?>
