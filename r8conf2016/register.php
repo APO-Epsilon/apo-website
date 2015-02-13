@@ -42,10 +42,10 @@ require_once ('mysql_access.php');
 				<input type="password" name="password" />
 		</div>
 			<br>
-				<p align="center">
+		<div class="large-6 medium-6 small-12 large-offset-3 medium-offset-3 columns">
 			 	<input type="hidden" name="stage" value="process" />
 			 	<input type="submit" class="button expand" value="Register" />
-			 	</p>
+	 	</div>
 			</form>
 	</div>
 	<br>
