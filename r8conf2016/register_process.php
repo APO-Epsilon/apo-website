@@ -71,8 +71,11 @@ $emailToSend = "Name:" . $firstname . " " . $lastname .
 echo "3";
 $mail->Subject = $subject;
 $mail->Body    = $emailToSend;
-$mail->Send()
-
+if(!$mail->Send()) {
+		exit;
+	} else {
+        ;
+	}
 echo <<<END
         <div class="small-12 columns">
             <h2>Success!</h2>
