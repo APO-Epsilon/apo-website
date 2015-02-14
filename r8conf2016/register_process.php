@@ -60,7 +60,6 @@ $mail->Host = "smtp.gmail.com";  					  // specify main server
 $mail->Port = 587;
 $mail->Username = "apo.epsilon.webmaster@gmail.com";
 $mail->Password = "alphaphiomega";
-$email = $_GET['email'];
 $mail->FromName = "Alpha Phi Omega Epsilon";
 $mail->AddAddress("apo.epsilon.conferencechair@gmail.com", "APO Epsilon Conference Chair");
 $subject = $firstname . " " . $lastname . "has registered for the APO Epsilon Region VIII Conference";
