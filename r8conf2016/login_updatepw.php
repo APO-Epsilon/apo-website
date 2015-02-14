@@ -21,7 +21,7 @@ require_once ("PasswordHash.php");
 
 <?php
 require_once ('mysql_access.php');
-if (!isset($_SESSION['sessionID'])) {
+if (!isset($_SESSION['sessionConfID'])) {
 
 	echo '<div class="entry">You need to login before you can use this page.</div>';
 
@@ -32,7 +32,7 @@ if (!isset($_SESSION['sessionID'])) {
 		if ($_POST['new_password_1'] == $_POST['new_password_2']) {
 			// Update Information
 			$_POST = array_map('mysql_real_escape_string', $_POST);
-			$user_id = $_SESSION['sessionID'];
+			$user_id = $_SESSION['sessionConfID'];
             $password = $_POST['new_password_1'];
             $hasher = new PasswordHash(8, true);
             $hash = $hasher->HashPassword($password);
