@@ -58,14 +58,16 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = "tls";
 $mail->Host = "smtp.gmail.com";  					  // specify main server
 $mail->Port = 587;
+echo "1";
 $mail->Username = "apo.epsilon.webmaster@gmail.com";
 $mail->Password = "alphaphiomega";
 $mail->FromName = "Alpha Phi Omega Epsilon";
+echo "2";
 $mail->AddAddress("apo.epsilon.conferencechair@gmail.com", "APO Epsilon Conference Chair");
 $subject = $firstname . " " . $lastname . "has registered for the APO Epsilon Region VIII Conference";
 $emailToSend = "Name:" . $firstname . " " . $lastname . 
     "Additional Information submitted will go here.";
-
+echo "3";
 $mail->Subject = $subject;
 $mail->Body    = $emailToSend;
 $mail->Send()
