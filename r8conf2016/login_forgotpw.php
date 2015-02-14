@@ -28,7 +28,7 @@ require_once ('mysql_access.php');
                 <label>E-mail</label><input type="text" size="30" name="email" id="email" value="" />
         	</div>
         	<div class="medium-3 small-12 medium-centered columns">
-                <input type="submit" value="Send"/>
+                <input type="submit" class="button expand" value="Send"/>
             </div>
         </form>
     </div>
