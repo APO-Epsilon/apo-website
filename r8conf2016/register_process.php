@@ -62,7 +62,7 @@ $mail->Username = "apo.epsilon.webmaster@gmail.com";
 $mail->Password = "alphaphiomega";
 $mail->FromName = "Alpha Phi Omega Epsilon";
 $mail->AddAddress("apo.epsilon.conferencechair@gmail.com", "APO Epsilon Conference Chair");
-$resultcount = $db->query("SELECT COUNT(*) FROM conf_contact_information;");
+$resultcount = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM conf_contact_information;"));
 $subject = "(" . $resultcount . ") " . $firstname . " " . $lastname . " has registered for the APO Epsilon Region VIII Conference";
 $emailToSend = "Name: " . $firstname . " " . $lastname . "\n" . 
     "Additional Information submitted will go here.";
