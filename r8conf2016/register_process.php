@@ -50,6 +50,27 @@ $result = $db->query($insert);
 if (!$result) {
     die('There has an been error with your registration. This may be because the email address you supplied is already in use, or there may be other technical problems. If the error persists, please contact the webmaster at <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com.</a>' . mysqli_error());
 }
+require("./phpmailer/class.phpmailer.php");
+$mail = new PHPMailer();
+$mail->IsSMTP();                                      // set mailer to use SMTP
+//$mail->SMTPDebug = 1;  //Only use if you need to debug
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = "tls";
+$mail->Host = "smtp.gmail.com";  					  // specify main server
+$mail->Port = 587;
+$mail->Username = "apo.epsilon.webmaster@gmail.com";
+$mail->Password = "alphaphiomega";
+$email = $_GET['email'];
+$mail->FromName = "Alpha Phi Omega Epsilon";
+$mail->AddAddress("apo.epsilon.conferencechair@gmail.com", "APO Epsilon Conference Chair");
+$subject = $firstname . " " . $lastname . "has registered for the APO Epsilon Region VIII Conference";
+$emailToSend = "Name:" . $firstname . " " . $lastname . 
+    "Additional Information submitted will go here.";
+
+$mail->Subject = $subject;
+$mail->Body    = $emailToSend;
+$mail->Send()
+
 echo <<<END
         <div class="small-12 columns">
             <h2>Success!</h2>
