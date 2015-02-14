@@ -24,11 +24,12 @@ require_once ('mysql_access.php');
         </p>
 
         <form method="GET" action="login_sendpw.php" >
-            <p>
-            <label>E-mail</label><input type="text" size="30" name="email" id="email" value="" />
-        	<br>
-            <input type="submit" value="Send"/>
-            </p>
+            <div class="small-12 columns">
+                <label>E-mail</label><input type="text" size="30" name="email" id="email" value="" />
+        	</div>
+        	<div class="medium-3 small-12 medium-centered columns">
+                <input type="submit" value="Send"/>
+            </div>
         </form>
     </div>
 
