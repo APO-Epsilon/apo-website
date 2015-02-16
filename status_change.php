@@ -132,21 +132,6 @@ echo<<<END
 					<label for="last_name">Last Name</label>
 						<input type="text" name="last_name" value="$row[lastname]" placeholder="Last name" required="" autocomplete="name"/>
 				<br>
-				<b>Contact</b><br>
-					<label for="email">Email</label>
-						<input type="text" name="email" value="$row[email]" placeholder="name@example.com" required="" autocomplete="email"/>
-					<label for="phone">Phone</label>
-						<input type="text" name="phone" value="$row[phone]" placeholder="+1-555-555-1234" required="" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" autocomplete="tel"/>
-					<label for="local">Address</label>
-						<input type="text" name="local_address" value="$row[localaddress]" pattern="[a-zA-Z\d\s\-\,\#\.\+]+" placeholder="123 Any Street" autocomplete="Local street-address"/>
-					<label for="perm"></label>
-						<input type="text" name="citystatezip" value="$row[citystatezip]" placeholder="Kirksville, MO 63501"/>
-					<!--
-					<b>Hide Contact Info</b><br>
-					Yes<input type="radio" name="hide_info" value="T" $selectedT/><br>
-					No<input type="radio" name="hide_info" value="F" $selectedF/>
-					<br>
-					-->
 				<b>Status appling for</b><br>
 					<select name="status" id="status">
 						<option>$row[status]</option>
@@ -159,6 +144,19 @@ echo<<<END
 					</select>
 			</div>
 			<div class='large-6 medium-6 small-12 column'>
+				<b>Contact</b><br>
+					<label for="email">Email</label>
+						<input type="text" name="email" value="$row[email]" placeholder="name@example.com" required="" autocomplete="email"/>
+					<label for="phone">Phone</label>
+						<input type="text" name="phone" value="$row[phone]" placeholder="+1-555-555-1234" required="" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" autocomplete="tel"/>
+					<label for="local">Address</label>
+						<input type="text" name="local_address" value="$row[localaddress]" pattern="[a-zA-Z\d\s\-\,\#\.\+]+" placeholder="123 Any Street" autocomplete="Local street-address"/>
+					<!--
+					<b>Hide Contact Info</b><br>
+					Yes<input type="radio" name="hide_info" value="T" $selectedT/><br>
+					No<input type="radio" name="hide_info" value="F" $selectedF/>
+					<br>
+					-->
 					<label for="previousstatus">Previous Status Changes (status and semester)</label>
 						<input type= "text" name="previousstatus">
 					<label for="suggestions">Suggestions for APO improvement</label>
