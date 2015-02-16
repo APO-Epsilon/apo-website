@@ -47,12 +47,12 @@ END;
 }
 
 function setvars() {
-	$_SESSION['sessionUsername'] = $_POST['Username']
-	$_SESSION['sessionFirstname'] = $_POST['Firstname']
-	$_SESSION['sessionLastname'] = $_POST['Lastname']
-	$_SESSION['sessionID'] = $_POST['ID']
-	$_SESSION['sessionexec'] = $_POST['exec']
-	$_SESSION['sessionposition'] = $_POST['position']
+	$_SESSION['sessionUsername'] = $_POST['Username'];
+	$_SESSION['sessionFirstname'] = $_POST['Firstname'];
+	$_SESSION['sessionLastname'] = $_POST['Lastname'];
+	$_SESSION['sessionID'] = $_POST['ID'];
+	$_SESSION['sessionexec'] = $_POST['exec'];
+	$_SESSION['sessionposition'] = $_POST['position'];
 }
 if ($_SESSION['sessionID'] == 426) {				//list users ids for webmaster committee here to allow access - current: 426-Justin
 	if (isset($_POST['ID'])){
