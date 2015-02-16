@@ -10,7 +10,6 @@ require_once ('session.php');
 <body class="slide" data-type="background" data-speed="5">
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
-    <div class="row">
         <div class="large-6 medium-9 small-12 columns">
            future service sign up!
     </div>
