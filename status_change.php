@@ -131,65 +131,14 @@ echo<<<END
 						<input type="text" name="first_name" value="$row[firstname]" placeholder="First name" required="" autocomplete="name"/>
 					<label for="last_name">Last Name</label>
 						<input type="text" name="last_name" value="$row[lastname]" placeholder="Last name" required="" autocomplete="name"/>
-					<label for="change_day">Todays Date</label>
-						<select name="change_month" id="change_month">
-						<option value="01">January</option>
-						<option value="02">February</option>
-						<option value="03">March</option>
-						<option value="04">April</option>
-						<option value="05">May</option>
-						<option value="06">June</option>
-						<option value="07">July</option>
-						<option value="08">August</option>
-						<option value="09">September</option>
-						<option value="10">October</option>
-						<option value="11">November</option>
-						<option value="12">December</option>
-					</select>
-					<select name="change_day" id="change_day">
-						<option>01</option>
-						<option>02</option>
-						<option>03</option>
-						<option>04</option>
-						<option>05</option>
-						<option>06</option>
-						<option>07</option>
-						<option>08</option>
-						<option>09</option>
-						<option>10</option>
-						<option>11</option>
-						<option>12</option>
-						<option>13</option>
-						<option>14</option>
-						<option>15</option>
-						<option>16</option>
-						<option>17</option>
-						<option>18</option>
-						<option>19</option>
-						<option>20</option>
-						<option>21</option>
-						<option>22</option>
-						<option>23</option>
-						<option>24</option>
-						<option>25</option>
-						<option>26</option>
-						<option>27</option>
-						<option>28</option>
-						<option>29</option>
-						<option>30</option>
-						<option>31</option>
-					</select>
-					<input name="change_year" type="text" style="width: 50px;" maxlength="4"/>
 				<br>
 				<b>Contact</b><br>
 					<label for="email">Email</label>
 						<input type="text" name="email" value="$row[email]" placeholder="name@example.com" required="" autocomplete="email"/>
 					<label for="phone">Phone</label>
 						<input type="text" name="phone" value="$row[phone]" placeholder="+1-555-555-1234" required="" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" autocomplete="tel"/>
-					<label for="local">Local Address</label>
+					<label for="local">Address</label>
 						<input type="text" name="local_address" value="$row[localaddress]" pattern="[a-zA-Z\d\s\-\,\#\.\+]+" placeholder="123 Any Street" autocomplete="Local street-address"/>
-					<label for="perm">Permanent Address</label>
-						<input type="text" name="homeaddress" value="$row[homeaddress]" pattern="[a-zA-Z\d\s\-\,\#\.\+]+" placeholder="123 Any Street" autocomplete="Permanent street-address"/>
 					<label for="perm"></label>
 						<input type="text" name="citystatezip" value="$row[citystatezip]" placeholder="Kirksville, MO 63501"/>
 					<!--
@@ -219,9 +168,9 @@ echo<<<END
 			</div>
 			<div class='row'>
 			<br>
-			<input type="hidden" name="update" value="1"/>
+			<input type="hidden" name="Change Status" value="1"/>
 			<p align='center'>
-				<input type="submit" value="Update" style="font-size: 50px;"/>
+				<input type="Change Status" value="Update" style="font-size: 50px;"/>
 			</div>
 		</form>
 END;
