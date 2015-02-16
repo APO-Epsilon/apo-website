@@ -168,9 +168,9 @@ echo<<<END
 			</div>
 			<div class='row'>
 			<br>
-			<input type="hidden" name="Change Status" value="1"/>
+			<input type="hidden" name="update" value="1"/>
 			<p align='center'>
-				<input type="Change Status" value="Update" style="font-size: 50px;"/>
+				<input type="submit" value="Update" style="font-size: 50px;"/>
 			</div>
 		</form>
 END;
