@@ -211,40 +211,11 @@ echo<<<END
 			</div>
 			<div class='large-6 medium-6 small-12 column'>
 					<label for="previousstatus">Previous Status Changes (status and semester)</label>
-					<input type= "text" name="previousstatus">
-					<label for="lilbro">Little Brothers</label>
-					<textarea name="littlebro" placeholder="First Last, First Last, etc">$row[littlebro]</textarea>
-					<b>School</b><br>
-						<label name="major">Major</label>
-							<input type="text" name="major" value="$row[major]"/>
-						<label for="minor">Minor</label>
-							<input type="text" name="minor" value="$row[minor]"/>
-						<label for="grad_month">Graduation Date</label>
-							<select name="grad_month">
-								<option>$row[gradmonth]</option>
-								<option value="May">May</option>
-								<option value="August">August</option>
-								<option value="December">December</option>
-							</select>
-							<select name="grad_year">
-								<option>$row[gradyear]</option>
-								<option value="2014">2014</option>
-								<option value="2015">2015</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
-								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-							</select>
-						<label for="school_year">Year</label>
-							<select name="school_year">
-								<option>$row[schoolyear]</option>
-								<option>Freshman</option>
-								<option>Sophomore</option>
-								<option>Junior</option>
-								<option>Senior</option>
-								<option>Alumni</option>
-								<option>Other</option>
-							</select>
+						<input type= "text" name="previousstatus">
+					<label for="suggestions">Suggestions for APO improvement</label>
+						<input type= "text" name="suggestion">
+					<label for="why">Why do you wish to change your status?</label>
+						<input type="text" name="why">
 			</div>
 			<div class='row'>
 			<br>
