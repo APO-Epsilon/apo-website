@@ -18,16 +18,49 @@ require_once ('session.php');
 <div class="row">
 
 <?php
-function whoami() {
-	echo "<p>Session ID", $_SESSION['sessionID'], "</p>";
-	echo "<p>Exec: ", $_SESSION['sessionexec'], "</p>";
-	echo "<p>Position: ", $_SESSION['sessionposition'], "</p>";
+function varsform() {
+echo <<<END
+	<div class="small-12 small-centered columns">
+		<form name="sessionvarsform" method="post" action="$_SERVER[PHP_SELF]">
+		<label for="ID">ID</label><input type="text" name="ID" value={$_SESSION['sessionID']}/>
+	</div>
+	<div class="small-12 small-centered columns">
+		<label for="Username">Username</label><input type="text" name="Username" value={$_SESSION['sessionUsername']}/>
+	</div>
+	<div class="small-12 small-centered columns">
+		<label for="Firstname">Firstname</label><input type="text" name="Firstname" value={$_SESSION['sessionFirstname']}/>
+	</div>
+	<div class="small-12 small-centered columns">
+		<label for="Lastname">Lastname</label><input type="text" name="Lastname" value={$_SESSION['sessionLastname']}/>
+	</div>
+	<div class="small-12 small-centered columns">
+		<label for="exec">exec</label><input type="text" name="exec" value={$_SESSION['sessionexec']}/>
+	</div>
+	<div class="small-12 small-centered columns">
+		<label for="position">position</label><input type="text" name="position" value={$_SESSION['sessionposition']}/>
+	</div>
+	<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+		<input type="submit" class="button expand" value="Submit"/>
+	</div>
+	</form>
+END;
 }
 
-if ($_SESSION['sessionID'] != 426) {
-	echo "<p>You need to be a member of the webmaster committee to see this section.</p>";
+function setvars() {
+	$_SESSION['sessionUsername'] = $_POST['Username']
+	$_SESSION['sessionFirstname'] = $_POST['Firstname']
+	$_SESSION['sessionLastname'] = $_POST['Lastname']
+	$_SESSION['sessionID'] = $_POST['ID']
+	$_SESSION['sessionexec'] = $_POST['exec']
+	$_SESSION['sessionposition'] = $_POST['position']
+}
+if ($_SESSION['sessionID'] = 426) {				//list users ids for webmaster committee here to allow access - current: 426-Justin
+	if (isset($_POST['ID'])){
+		setvars();
+	}
+	varsform();
 } else {
-	whoami();
+	echo "<p>You need to be a member of the webmaster committee to see this section.</p>";
 }
 ?>
 
