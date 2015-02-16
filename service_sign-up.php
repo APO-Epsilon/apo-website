@@ -1,6 +1,7 @@
 <?php
 include ('session.php');
 include ('mysql_access.php');
+require_once ('session.php');
 ?>
 <!doctype html>
 <html>
@@ -10,4 +11,6 @@ include ('mysql_access.php');
 <p>
 future service on the website.
 </p>
+
+<div id="footer"><?php include 'footer.php';?></div>
 </html>
