@@ -159,6 +159,8 @@ echo<<<END
 					-->
 			</div>
 			<div class='row'>
+			<br>
+			<br>
 				<b>Other Info</b><br>
 					<label for="previousstatus">Previous Status Changes (status and semester)</label>
 						<input type= "text" name="previousstatus">
