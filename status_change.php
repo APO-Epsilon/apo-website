@@ -159,15 +159,17 @@ echo<<<END
 					-->
 			</div>
 			<div class='row'>
-				<label for="previousstatus">Previous Status Changes (status and semester)</label>
-					<input type= "text" name="previousstatus">
-				<label for="suggestions">Suggestions for APO improvement</label>
-					<input type= "text" name="suggestion">
-				<label for="why">Why do you wish to change your status?</label>
-					<input type="text" name="why">
-				<input type="hidden" name="update" value="1"/>
-				<p align='center'>
-					<input type="submit" value="Update" style="font-size: 50px;"/>
+				<b>Other Info</b><br>
+					<label for="previousstatus">Previous Status Changes (status and semester)</label>
+						<input type= "text" name="previousstatus">
+					<label for="suggestions">Suggestions for APO improvement</label>
+						<input type= "text" name="suggestion">
+					<label for="why">Why do you wish to change your status?</label>
+						<input type="text" name="why">
+					<input type="hidden" name="update" value="1"/>
+					<p align='center'>
+						<input type="submit" value="Update" style="font-size: 50px;"/>
+					<br>	
 			</div>
 		</form>
 END;
