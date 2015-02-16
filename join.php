@@ -42,7 +42,7 @@ echo "</ul>";
 <h3>Requirements for Rushees</h3>
     <p>Each individual seeking to join APO must complete the following Rush events:<br/>
         <ul>
-            <li>1 Informational meeting (September September 7 and 8 at 6pm and 8pm in SUB 3203)</li>
+            <li>1 Informational meeting (September 7 and 8 at 6pm and 8pm in SUB 3203)</li>
             <li>RA Dinner attendance</li>
             <li>3 Fellowship events</li>
             <li>3 Service events</li>
