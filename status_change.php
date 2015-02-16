@@ -157,15 +157,15 @@ echo<<<END
 					No<input type="radio" name="hide_info" value="F" $selectedF/>
 					<br>
 					-->
-					<label for="previousstatus">Previous Status Changes (status and semester)</label>
+			</div>
+			<div class='row'>
+			<br>
+			<label for="previousstatus">Previous Status Changes (status and semester)</label>
 						<input type= "text" name="previousstatus">
 					<label for="suggestions">Suggestions for APO improvement</label>
 						<input type= "text" name="suggestion">
 					<label for="why">Why do you wish to change your status?</label>
 						<input type="text" name="why">
-			</div>
-			<div class='row'>
-			<br>
 			<input type="hidden" name="update" value="1"/>
 			<p align='center'>
 				<input type="submit" value="Update" style="font-size: 50px;"/>
