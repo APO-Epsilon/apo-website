@@ -54,7 +54,7 @@ function setvars() {
 	$_SESSION['sessionexec'] = $_POST['exec'];
 	$_SESSION['sessionposition'] = $_POST['position'];
 }
-if ($_SESSION['sessionID'] == 426 || $_SESSION['sessionID'] == 443) {				//list users ids for webmaster committee here to allow access - current: 426-Justin
+if ($_SESSION['sessionID'] == 426 || $_SESSION['sessionID'] == 443 || $_SESSION['sessionID'] == 739) {				//list users ids for webmaster committee here to allow access - current: 426-Justin 443-Kevin 739-Austin
 	if (isset($_POST['ID'])){
 		setvars();
 	}
