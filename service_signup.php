@@ -15,7 +15,8 @@ require_once ('mysql_access.php');
         <div class="large-6 medium-9 small-12 columns">
            future service sign up!
            <div class="row">
-           $id = $_SESSION['sessionID'];
+<?php
+$id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
 if($position != "Webmaster" && $position != "VP of Regular Service"){
 	//echo("this page is under construction. Please notify the webmaster of any issues");
@@ -287,7 +288,7 @@ if(isset($_GET['d'])){
 
 }
 echo("</div>");
-
+?>
     </div>
     <div id="footer"><?php include 'footer.php';?></div>
 </body>
