@@ -278,7 +278,7 @@ echo <<<END
 	<div class="row">
 		<div class="small-12 columns">
 			<h1>Service Signup</h1>
-			<h2>Online sign-ups have been disabled.</h2>
+			<!--<h2>Online sign-ups have been disabled.</h2>-->
 		</div>
 END;
 
