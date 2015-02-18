@@ -12,7 +12,7 @@ require_once ('mysql_access.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
-        <div class="large-6 medium-9 small-12 columns">
+        <div class="small-12 columns">
 <?php
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
