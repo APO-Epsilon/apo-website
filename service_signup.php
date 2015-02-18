@@ -281,6 +281,7 @@ if(isset($_GET['d'])){
 		$sql = "UPDATE service_attendance SET drive = $driveNum WHERE occurrence_id = $occ AND user_id = $id";
 		$result = $db->query($sql);
 	}
+	echo "1";
 	displayListing();
 }
 
