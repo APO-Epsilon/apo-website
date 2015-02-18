@@ -99,7 +99,7 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		ORDER BY o.theDate, o.start";
 $resultO = mysql_query($sql);
 	if(!$resultO){
-		die("error");
+		die("error 0");
 	}else{
 		$v = 1;
 		while($r = mysql_fetch_array($resultO)){
