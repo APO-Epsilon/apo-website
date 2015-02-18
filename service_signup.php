@@ -79,6 +79,7 @@ function option($occurrence_id){
 			}
 			
 function displayListing(){
+include('mysql_access.php');
 $id = $_SESSION['sessionID'];
 echo "<table border=0 class=\"displayListingTable2\">";
 echo "<tr class=\"displayListing2\"><td>event name</td><td>date</td><td></td><td>start</td><td>end</td><td>current</td><td>limit</td><td>hours</td><td></td></tr>";
@@ -207,7 +208,6 @@ $resultO = $db->query($sql);
 				echo "$phone";
 			}
 			echo "</tr>";
-			echo "1";
 			echo "<tr><td>Volunteers: </td><td>";
 			$sqlUserData = "SELECT s.*, c.firstname, c.lastname FROM service_attendance AS s JOIN contact_information AS c ON c.id = s.user_id WHERE occurrence_id = $occurrence_id ORDER BY c.firstname, c.lastname";
 			$resultUserData = $db->query($sqlUserData);
