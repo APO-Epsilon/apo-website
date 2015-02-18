@@ -97,12 +97,12 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		ON c.id = l.user_id
 		WHERE o.active = 1 
 		ORDER BY o.theDate, o.start";
-$resultO = mysql_query($sql);
+$resultO = mysqli_query($sql);
 	if(!$resultO){
 		die("error 0");
 	}else{
 		$v = 1;
-		while($r = mysql_fetch_array($resultO)){
+		while($r = mysqli_fetch_array($resultO)){
 			$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
