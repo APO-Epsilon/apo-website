@@ -63,6 +63,7 @@ function remove($detail){
 }
 
 function option($occurrence_id){
+				include('mysql_access.php');
 				$return = "";
 					$sql = "SELECT drive FROM service_attendance WHERE occurrence_id = $occurrence_id AND user_id = $id";
 					$result = $db->query($sql);
