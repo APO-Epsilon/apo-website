@@ -32,14 +32,14 @@ function register($detail,$occurrence){
 	$id = $_SESSION['sessionID'];
 	
 	$sql = "SELECT length FROM service_details WHERE detail_id = $detail";
-	$result = mysql_query($sql);
-	while($r = mysql_fetch_array($result)){
+	$result = mysqli_query($sql);
+	while($r = mysqli_fetch_array($result)){
 		$length = $r['length'];
 	}
 
 	$sql = "INSERT INTO service_attendance (detail_id, user_id, occurrence_id, length) 
 			VALUES ($detail,$id,$occurrence,'$length')";
-	$result = mysql_query($sql);
+	$result = mysqli_query($sql);
 	if(!$result){
 		echo("something went wrong".mysql_error()."<br/>".$sql."<br/>Perhaps someone else signed up for the event.");
 	}else{
@@ -51,9 +51,9 @@ function remove($detail){
 	$id = $_SESSION['sessionID'];
 
 	$sql = "DELETE FROM service_attendance WHERE detail_id = $detail AND user_id =  $id AND processed = 0";
-	$result = mysql_query($sql);
+	$result = mysqli_query($sql);
 	if(!$result){
-		echo(mysql_error());
+		echo(mysqli_error());
 	}else{
 		refresh();
 	}
@@ -63,8 +63,8 @@ function remove($detail){
 function option($occurrence_id){
 				$return = "";
 					$sql = "SELECT drive FROM service_attendance WHERE occurrence_id = $occurrence_id AND user_id = $id";
-					$result = mysql_query($sql);
-					while($p = mysql_fetch_array($result)){
+					$result = mysqli_query($sql);
+					while($p = mysqli_fetch_array($result)){
 						$driveCount = $p['drive'];
 					}
 					for($u = 0; $u <= 6; $u++){
@@ -120,14 +120,14 @@ $resultO = mysqli_query($sql);
 			$theDate = date('M-d', strtotime($theDate));	
 
 			$sql = "SELECT COUNT(*) AS count FROM service_attendance WHERE detail_id = $detail_id AND occurrence_id = $occurrence_id";
-			$result2 = mysql_query($sql);
-			while($r = mysql_fetch_array($result2)){
+			$result2 = mysqli_query($sql);
+			while($r = mysqli_fetch_array($result2)){
 				$count = $r['count'];
 			}
 
 			$sql = "SELECT COUNT(*) AS count FROM service_attendance WHERE detail_id = $detail_id AND user_id = $id AND occurrence_id = $occurrence_id";
-			$result2 = mysql_query($sql);
-			while($r2 = mysql_fetch_array($result2)){
+			$result2 = mysqli_query($sql);
+			while($r2 = mysqli_fetch_array($result2)){
 				$num_rows = $r2['count'];
 			}
 			
@@ -165,8 +165,8 @@ $resultO = mysqli_query($sql);
 			$drive = "";
 			
 			$sql = "SELECT drive FROM service_attendance WHERE occurrence_id = $occurrence_id AND user_id = $id";
-					$result = mysql_query($sql);
-					while($v = mysql_fetch_array($result)){
+					$result = mysqli_query($sql);
+					while($v = mysqli_fetch_array($result)){
 						$driveCount = $v['drive'];
 			}
 			$optionC = "";	
@@ -190,8 +190,8 @@ $resultO = mysqli_query($sql);
 			echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			echo "<tr><td>Project Leader: </td><td>";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
-			$resultPLData = mysql_query($sqlPLData);
-			while($row = mysql_fetch_array($resultPLData)){
+			$resultPLData = mysqli_query($sqlPLData);
+			while($row = mysqli_fetch_array($resultPLData)){
 				$fname = $row['firstname'];
 				$lname = $row['lastname'];
 				$phone = $row['phone'];
@@ -199,8 +199,8 @@ $resultO = mysqli_query($sql);
 			}
 			echo "</td><td></td><td>";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
-			$resultPLData = mysql_query($sqlPLData);
-			while($row = mysql_fetch_array($resultPLData)){
+			$resultPLData = mysqli_query($sqlPLData);
+			while($row = mysqli_fetch_array($resultPLData)){
 				$fname = $row['firstname'];
 				$lname = $row['lastname'];
 				$phone = $row['phone'];
@@ -209,8 +209,8 @@ $resultO = mysqli_query($sql);
 			echo "</tr>";
 			echo "<tr><td>Volunteers: </td><td>";
 			$sqlUserData = "SELECT s.*, c.firstname, c.lastname FROM service_attendance AS s JOIN contact_information AS c ON c.id = s.user_id WHERE occurrence_id = $occurrence_id ORDER BY c.firstname, c.lastname";
-			$resultUserData = mysql_query($sqlUserData);
-			while($rw = mysql_fetch_array($resultUserData)){
+			$resultUserData = mysqli_query($sqlUserData);
+			while($rw = mysqli_fetch_array($resultUserData)){
 				$fn = $rw['firstname'];
 				$ln = $rw['lastname'];
 				$dr = $rw['drive'];
@@ -221,8 +221,8 @@ $resultO = mysqli_query($sql);
 			
 			echo "<td></td><td>";
 			$sqlUserData = "SELECT s.*, c.firstname, c.lastname, phone FROM service_attendance AS s JOIN contact_information AS c ON c.id = s.user_id WHERE occurrence_id = $occurrence_id ORDER BY c.firstname, c.lastname";
-			$resultUserData = mysql_query($sqlUserData);
-			while($rw = mysql_fetch_array($resultUserData)){
+			$resultUserData = mysqli_query($sqlUserData);
+			while($rw = mysqli_fetch_array($resultUserData)){
 				$fn = $rw['firstname'];
 				$ln = $rw['lastname'];
 				$dr = $rw['drive'];
@@ -248,13 +248,13 @@ JOIN service_occurrence AS o
 ON o.detail_id = d.detail_id
 WHERE a.processed = 0 AND a.occurrence_id = o.occurrence_id AND a.user_id = $id AND NOW() > o.theDate
 ORDER BY a.occurrence_id ASC";
-$result = mysql_query($sql);
+$result = mysqli_query($sql);
 
-if(mysql_num_rows($result)!=0){
+if(mysqli_num_rows($result)!=0){
 echo "<hr /><h2>Pending Events</h2>";
 echo "<table border=0 class=\"displayListingTable\">";
 echo "<tr class=\"displayListing\"><td>date</td><td></td><td>name</td><td>hours</td></tr>";
-while($r = mysql_fetch_array($result)){
+while($r = mysqli_fetch_array($result)){
 			$event_id = $r['event_id'];
 			$DOW = $r['DOW'];
 			$start = $r['start'];
@@ -269,7 +269,7 @@ echo "</table>";
 }
 }
 echo "<h1>Service Sign-Ups</h1>";
-echo "<h2>Online sign-ups have been disabled.</h2>";
+//echo "<h2>Online sign-ups have been disabled.</h2>";
 if(isset($_GET['d'])){
 	register($_GET['d'],$_GET['o']);
 }elseif(isset($_GET['r'])){
@@ -279,7 +279,7 @@ if(isset($_GET['d'])){
 		$occ = $_POST['occ'];
 		$driveNum = $_POST['driveCount'];
 		$sql = "UPDATE service_attendance SET drive = $driveNum WHERE occurrence_id = $occ AND user_id = $id";
-		$result = mysql_query($sql);
+		$result = mysqli_query($sql);
 	}
 	displayListing();
 }
