@@ -98,6 +98,11 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		WHERE o.active = 1 
 		ORDER BY o.theDate, o.start";
 $resultO = $db->query($sql);
+if($db){
+	echo "yes";
+}else
+	echo "no";
+}
 	if(!$resultO){
 		die("error 0");
 	}else{
