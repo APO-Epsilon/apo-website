@@ -134,11 +134,11 @@ $resultO = $db->query($sql);
 			if(($count < $max)||($num_rows == 1)||($max==-1)){
 				if($num_rows == 0){
 					$m = 1;
-					//$message = "<a href=\"http://apo.truman.edu/service_dashboard.php?d=$detail_id&o=$occurrence_id\">sign-up</a>";
-					$message = "";
+					$message = "<a href=\"http://apoepsilon.org/service_signup.php?d=$detail_id&o=$occurrence_id\">sign-up</a>";
+					//$message = "";
 				}else{
 					$m = 2;
-					//$message = "<a href=\"http://apo.truman.edu/service_dashboard.php?r=$detail_id&o=$occurrence_id\">remove</a>";	
+					$message = "<a href=\"http://apoepsilon.org/service_signup.php?r=$detail_id&o=$occurrence_id\">remove</a>";	
 					$message;
 				}
 			}else{
