@@ -13,7 +13,7 @@ if (!isset($_SESSION['sessionID'])) {
 }else{
 
 function refresh(){
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apo.truman.edu/service_dashboard.php\">");
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/old-layout/service_dashboard.php\">");
 }
 
 
