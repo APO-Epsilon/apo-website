@@ -138,11 +138,11 @@ $resultO = $db->query($sql);
 			if(($count < $max)||($num_rows == 1)||($max==-1)){
 				if($num_rows == 0){
 					$m = 1;
-					$message = "<a href=\"http://www.apoepsilon.org/service_signup.php?d=$detail_id&o=$occurrence_id\">sign-up</a>";
+					$message = "<a href=\"http://www.apoepsilon.org/service_signup.php?d=$detail_id&o=$occurrence_id\" class=\"button expand\">Sign up</a>";
 					//$message = "";
 				}else{
 					$m = 2;
-					$message = "<a href=\"http://www.apoepsilon.org/service_signup.php?r=$detail_id&o=$occurrence_id\">remove</a>";	
+					$message = "<a href=\"http://www.apoepsilon.org/service_signup.php?r=$detail_id&o=$occurrence_id\" class=\"button expand\">Remove</a>";	
 					//$message;
 				}
 			}else{
