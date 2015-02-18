@@ -11,8 +11,7 @@ require_once ('mysql_access.php');
 <body class="slide" data-type="background" data-speed="5">
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
-    <div class="row">
-        <div class="small-12 columns">
+
 <?php
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
@@ -86,6 +85,8 @@ include('mysql_access.php');
 $id = $_SESSION['sessionID'];
 echo "<table border=0 class=\"displayListingTable2\">";
 echo "<tr class=\"displayListing2\"><td>event name</td><td>date</td><td></td><td>start</td><td>end</td><td>current</td><td>limit</td><td>hours</td><td></td></tr>";
+//new frontend attempt here
+
 $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		o.start, o.end, o.length, o.max, e.P_Id,
 		e.name, l.user_id, o.theDate, o.occurrence_id,
@@ -272,8 +273,15 @@ while($r = mysqli_fetch_array($result)){
 echo "</table>";
 }
 }
-echo "<h1>Service Sign-Ups</h1>";
-//echo "<h2>Online sign-ups have been disabled.</h2>";
+
+echo <<<END
+	<div class="row">
+		<div class="small-12 columns">
+			<h1>Service Signup</h1>
+			<h2>Online sign-ups have been disabled.</h2>
+		</div>
+END;
+
 if(isset($_GET['d'])){
 	register($_GET['d'],$_GET['o']);
 }elseif(isset($_GET['r'])){
