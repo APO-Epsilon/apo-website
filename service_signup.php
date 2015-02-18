@@ -29,6 +29,7 @@ function refresh(){
 
 
 function register($detail,$occurrence){
+	include('mysql_access.php');
 	$id = $_SESSION['sessionID'];
 	
 	$sql = "SELECT length FROM service_details WHERE detail_id = $detail";
@@ -48,6 +49,7 @@ function register($detail,$occurrence){
 }
 
 function remove($detail){
+	include('mysql_access.php');
 	$id = $_SESSION['sessionID'];
 
 	$sql = "DELETE FROM service_attendance WHERE detail_id = $detail AND user_id =  $id AND processed = 0";
