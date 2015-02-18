@@ -42,7 +42,7 @@ function register($detail,$occurrence){
 			VALUES ($detail,$id,$occurrence,'$length')";
 	$result = $db->query($sql);
 	if(!$result){
-		echo("something went wrong".mysql_error()."<br/>".$sql."<br/>Perhaps someone else signed up for the event.");
+		echo("something went wrong".mysqli_error()."<br/>".$sql."<br/>Perhaps someone else signed up for the event.");
 	}else{
 		refresh();
 	}
