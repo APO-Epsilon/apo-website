@@ -206,7 +206,7 @@ $resultO = $db->query($sql);
 				<input type='submit' name=\"Drive\" value='submit' class=\"button expand\"/>
 				</form>
 				<div>
-				<div class=\"small-3 columns end\">
+				<div class=\"small-5 columns\">
 				You answered: ".$driveCount."</td></tr>
 				</div>
 				";
