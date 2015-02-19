@@ -228,7 +228,7 @@ $resultO = $db->query($sql);
 				echo "$fname $lname";
 			}
 			//echo "</td><td></td><td>";
-			echo "</div><div class=\"small-1 columns end\">";
+			echo "</div><div class=\"small-7 columns\">";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
 			while($row = mysqli_fetch_array($resultPLData)){
@@ -254,7 +254,7 @@ $resultO = $db->query($sql);
 			echo "</div>";
 			
 			//echo "<td></td><td>";
-			echo "<div class=\"small-1 columns end\">";
+			echo "<div class=\"small-7 columns\">";
 			$sqlUserData = "SELECT s.*, c.firstname, c.lastname, phone FROM service_attendance AS s JOIN contact_information AS c ON c.id = s.user_id WHERE occurrence_id = $occurrence_id ORDER BY c.firstname, c.lastname";
 			$resultUserData = $db->query($sqlUserData);
 			while($rw = mysqli_fetch_array($resultUserData)){
