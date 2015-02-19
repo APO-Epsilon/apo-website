@@ -87,6 +87,7 @@ $id = $_SESSION['sessionID'];
 //echo "<tr class=\"displayListing2\"><td>event name</td><td>date</td><td></td><td>start</td><td>end</td><td>current</td><td>limit</td><td>hours</td><td></td></tr>";
 //new frontend attempt here
 echo <<<END
+<div class="row">
 <div class="small-2 columns">Event name</div>
 <div class="small-3 columns">Date</div>
 <div class="small-1 columns">Start</div>
@@ -95,6 +96,7 @@ echo <<<END
 <div class="small-1 columns">Limit</div>
 <div class="small-1 columns">Hours</div>
 <div class="small-2 columns">Event name</div>
+</div>
 END;
 
 $sql = "SELECT d.detail_id, d.event_id, d.DOW,
@@ -217,8 +219,8 @@ $resultO = $db->query($sql);
 
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
-			echo "<div class=\"small-2 columns\">$name</div><div class=\"small-3 columns\">$DOW $theDate</div><div class=\"small-1 columns\">$start</div><div class=\"small-1 columns\">$end</div><div class=\"small-1 columns\">$count</div><div class=\"small-1 columns\">$max</div><div class=\"small-1 columns\">$length $v $ma</div><div class=\"small-2 columns\">{$message}</div><br>";
-			echo "<div class=\"small-2 columns\">Project Leader: </div><div class=\"small-3 columns\">";
+			echo "<div class=\"row\"><div class=\"small-2 columns\">$name</div><div class=\"small-3 columns\">$DOW $theDate</div><div class=\"small-1 columns\">$start</div><div class=\"small-1 columns\">$end</div><div class=\"small-1 columns\">$count</div><div class=\"small-1 columns\">$max</div><div class=\"small-1 columns\">$length $v $ma</div><div class=\"small-2 columns\">{$message}</div></div>";
+			echo "<div class=\"row\"><div class=\"small-2 columns\">Project Leader: </div><div class=\"small-3 columns\">";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
 			while($row = mysqli_fetch_array($resultPLData)){
@@ -266,9 +268,9 @@ $resultO = $db->query($sql);
 				echo "$ph<br/>";
 			}
 			//echo "</td></tr>";
-			echo "</div>";
+			echo "</div></div>";
 			
-			echo "$drive <div class=\"small-12 columns\"><br><br></div>";
+			echo "$drive";
 			$m = 0;
 		}
 	}
