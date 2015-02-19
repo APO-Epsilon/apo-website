@@ -267,7 +267,7 @@ $resultO = $db->query($sql);
 				$dr = $rw['drive'];
 				$ph = $rw['phone'];
 				if($ph == ""){ $ph = "- - - - - - - - -";}
-				echo "$ph";
+				echo "$ph <br>";
 			}
 			//echo "</td></tr>";
 			echo "</div></div>";
