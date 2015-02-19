@@ -243,7 +243,7 @@ $resultO = $db->query($sql);
 			//echo "</tr>";
 			//echo "<tr><td>Volunteers: </td><td>";
 			echo "</div></div>";
-			echo "<div class=\"row\"><div class=\"small-5 small-offset-2 columns\">";
+			echo "<div class=\"row\"><div class=\"medium-5 small-6 medium-offset-2 small-offset-1 columns\">";
 			$sqlUserData = "SELECT s.*, c.firstname, c.lastname FROM service_attendance AS s JOIN contact_information AS c ON c.id = s.user_id WHERE occurrence_id = $occurrence_id ORDER BY c.firstname, c.lastname";
 			$resultUserData = $db->query($sqlUserData);
 			while($rw = mysqli_fetch_array($resultUserData)){
