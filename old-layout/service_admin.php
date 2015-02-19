@@ -13,7 +13,7 @@ if($position != "Webmaster" && $position != "VP of Regular Service"){
 }
 echo "<h2>Disabled</h2>";
 echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
-echo "<h4><a href=\"http://apo.truman.edu/service_admin_week.php\">back to dashboard</a></h4>";
+echo "<h4><a href=\"http://apoepsilon.org/old-layout/service_admin_week.php\">back to dashboard</a></h4>";
 
 //if a form has been submitted, do the associated action
 if(isset($_POST['submit'])){
