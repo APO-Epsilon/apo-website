@@ -218,7 +218,7 @@ $resultO = $db->query($sql);
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
 			echo "<div class=\"small-2 columns\">$name</div><div class=\"small-3 columns\">$DOW $theDate</div><div class=\"small-1 columns\">$start</div><div class=\"small-1 columns\">$end</div><div class=\"small-1 columns\">$count</div><div class=\"small-1 columns\">$max</div><div class=\"small-1 columns\">$length $v $ma</div><div class=\"small-2 columns\">{$message}</div>";
-			echo "<div class=\"small-2 columns\">Project Leader: </div><div class=\"small-3 columns\">;
+			echo "<div class=\"small-2 columns\">Project Leader: </div><div class=\"small-3 columns\">";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
 			while($row = mysqli_fetch_array($resultPLData)){
