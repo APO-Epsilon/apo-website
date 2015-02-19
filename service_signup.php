@@ -70,7 +70,7 @@ function option($occurrence_id, $driveCount){
 						}else{
 							$s = "";
 						}
-					$return .= "<option value=$u $s>$driveCount</option>";
+					$return .= "<option value=$u $s>$u</option>";
 				}	
 				return $return;
 			}
