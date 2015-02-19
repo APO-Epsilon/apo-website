@@ -71,7 +71,7 @@ function option($occurrence_id){
 					}
 					for($u = 0; $u <= 6; $u++){
 						if($u==$driveCount){
-							$s = "selected";
+							$s = "selected=\"selected\"";
 						}else{
 							$s = "";
 						}
@@ -206,7 +206,7 @@ $resultO = $db->query($sql);
 				Seats available:
 				</div>
 				<div class=\"small-4 columns\">
-				<select name=\"driveCount\" value=\"$drivecount\">".$optionC."</select>
+				<select name=\"driveCount\">".$optionC."</select>
 				</div>
 				<input type='hidden' name=\"occ\" value =".$occurrence_id." />
 				<div class=\"small-4 columns\">
