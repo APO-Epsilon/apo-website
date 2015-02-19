@@ -83,9 +83,19 @@ function option($occurrence_id){
 function displayListing(){
 include('mysql_access.php');
 $id = $_SESSION['sessionID'];
-echo "<table border=0 class=\"displayListingTable2\">";
-echo "<tr class=\"displayListing2\"><td>event name</td><td>date</td><td></td><td>start</td><td>end</td><td>current</td><td>limit</td><td>hours</td><td></td></tr>";
+//echo "<table border=0 class=\"displayListingTable2\">";
+//echo "<tr class=\"displayListing2\"><td>event name</td><td>date</td><td></td><td>start</td><td>end</td><td>current</td><td>limit</td><td>hours</td><td></td></tr>";
 //new frontend attempt here
+echo <<<END
+<div class="small-2 columns">Event name</div>
+<div class="small-3 columns">Date</div>
+<div class="small-1 columns">Start</div>
+<div class="small-1 columns">End</div>
+<div class="small-1 columns">Current</div>
+<div class="small-1 columns">Limit</div>
+<div class="small-1 columns">Hours</div>
+<div class="small-2 columns">Event name</div>
+END;
 
 $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		o.start, o.end, o.length, o.max, e.P_Id,
@@ -178,7 +188,7 @@ $resultO = $db->query($sql);
 				
 			if($m==2){					
 				$optionC = option($occurrence_id);
-				$drive = 
+				/*$drive = 
 				"<tr class=\"trNEW\"><td></td><td colspan=\"8\"><form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
 				How many seats do you have in your car?
 				<select name=\"driveCount\">".$optionC."</select>
@@ -186,14 +196,29 @@ $resultO = $db->query($sql);
 				<input type='submit' name=\"Drive\" value='submit'/>
 				</form>
 				You answered: ".$driveCount."</td></tr>
+				";*/
+				$drive = 
+				"<div class=\"small-4 small-offset-3 columns\">
+				<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
+				How many seats do you have in your car?
+				<select name=\"driveCount\">".$optionC."</select>
+				<input type='hidden' name=\"occ\" value =".$occurrence_id." />
+				<input type='submit' name=\"Drive\" value='submit' class=\"button expand\"/>
+				</form>
+				<div>
+				<div class=\"small-3 columns end\">
+				You answered: ".$driveCount."</td></tr>
+				</div>
 				";
 			}
 			if($m!=2){
 				$drive = "";
 			}
 
-			echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
-			echo "<tr><td>Project Leader: </td><td>";
+			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
+			//echo "<tr><td>Project Leader: </td><td>";
+			echo "<div class=\"small-2 columns\">$name</div><div class=\"small-3 columns\">$DOW $theDate</div><div class=\"small-1 columns\">$start</div><div class=\"small-1 columns\">$end</div><div class=\"small-1 columns\">$count</div><div class=\"small-1 columns\">$max</div><div class=\"small-1 columns\">$length $v $ma</div><div class=\"small-2 columns\">{$message}</div>";
+			echo "<div class=\"small-2 columns\">Project Leader: </div><div class=\"small-3 columns\">;
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
 			while($row = mysqli_fetch_array($resultPLData)){
@@ -202,7 +227,8 @@ $resultO = $db->query($sql);
 				$phone = $row['phone'];
 				echo "$fname $lname";
 			}
-			echo "</td><td></td><td>";
+			//echo "</td><td></td><td>";
+			echo "</div><div class=\"small-1 columns end\">";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
 			while($row = mysqli_fetch_array($resultPLData)){
@@ -211,8 +237,10 @@ $resultO = $db->query($sql);
 				$phone = $row['phone'];
 				echo "$phone";
 			}
-			echo "</tr>";
-			echo "<tr><td>Volunteers: </td><td>";
+			//echo "</tr>";
+			//echo "<tr><td>Volunteers: </td><td>";
+			echo "</div>";
+			echo "<div class=\"small-2 columns\">Volunteers: </div><div class=\"small-3 columns\">";
 			$sqlUserData = "SELECT s.*, c.firstname, c.lastname FROM service_attendance AS s JOIN contact_information AS c ON c.id = s.user_id WHERE occurrence_id = $occurrence_id ORDER BY c.firstname, c.lastname";
 			$resultUserData = $db->query($sqlUserData);
 			while($rw = mysqli_fetch_array($resultUserData)){
@@ -222,9 +250,11 @@ $resultO = $db->query($sql);
 				if($dr > 0){$dr = "(".$dr." seats)";}else{ $dr = "";}
 				echo "$fn $ln {$dr}<br/>";
 			}
-			echo"</td>";
+			//echo "</td>";
+			echo "</div>"
 			
-			echo "<td></td><td>";
+			//echo "<td></td><td>";
+			echo "<div class=\"small-1 columns end\">";
 			$sqlUserData = "SELECT s.*, c.firstname, c.lastname, phone FROM service_attendance AS s JOIN contact_information AS c ON c.id = s.user_id WHERE occurrence_id = $occurrence_id ORDER BY c.firstname, c.lastname";
 			$resultUserData = $db->query($sqlUserData);
 			while($rw = mysqli_fetch_array($resultUserData)){
@@ -235,14 +265,15 @@ $resultO = $db->query($sql);
 				if($ph == ""){ $ph = "- - - - - - - - -";}
 				echo "$ph<br/>";
 			}
-			echo"</td></tr>";
+			//echo "</td></tr>";
+			echo "</div>";
 			
-			echo"$drive";
+			echo "$drive";
 			
 			$m = 0;
 		}
 	}
-echo "</table>";
+//echo "</table>";
 $sql = "SELECT d.event_id, d.DOW, d.start, d.end, d.length, e.name, o.theDate
 FROM service_details AS d
 JOIN service_events AS e
