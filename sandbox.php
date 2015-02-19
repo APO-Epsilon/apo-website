@@ -11,9 +11,9 @@ require_once ('session.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
-        <p>
+        <p><b>
         Happy Chinese New Year!
-        </p>
+        </p></br>
     </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
