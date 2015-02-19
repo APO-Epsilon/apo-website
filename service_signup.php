@@ -221,7 +221,7 @@ $resultO = $db->query($sql);
 
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
-			echo "<div class=\"row\"><div class=\"small-12 columns\"><h3>$name</h3></div></div>";
+			echo "<div class=\"row\"><div class=\"small-12 columns\"><h2>$name</h2></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b></div><div class=\"small-2 columns\"><b>Start</b></div><div class=\"small-2 columns\"><b>End</b></div><div class=\"small-2 columns\"><b>Hours</b></div><div class=\"small-2 columns\"><b>Spots</b></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\">$DOW $theDate</div><div class=\"small-2 columns\">$start</div><div class=\"small-2 columns\">$end</div><div class=\"small-2 columns\">$length $v $ma</div><div class=\"small-2 columns\">$max</div></div>";
 			echo "<div class=\"row\"><div class=\"small-8 columns\">Project Leader: ";
