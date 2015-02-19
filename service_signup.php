@@ -210,7 +210,7 @@ $resultO = $db->query($sql);
 				</div>
 				<input type='hidden' name=\"occ\" value =".$occurrence_id." />
 				<div class=\"small-2 columns\">
-				<input type='submit' name=\"Drive\" value='Change' class=\"button expand\"/>
+				<input type='submit' name=\"Drive\" value='Change' class=\"button medium\"/>
 				</div>
 				</form>
 				</div>
