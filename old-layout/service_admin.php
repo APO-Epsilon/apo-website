@@ -6,8 +6,7 @@ require_once ('service_admin_functions.php');
 page_header();
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
-?> <div class="content">
-<?php
+echo "<div class=\"content\">";
 if($position != "Webmaster" && $position != "VP of Regular Service"){
 	die("you do not have sufficient permissions to view this page.");
 }
