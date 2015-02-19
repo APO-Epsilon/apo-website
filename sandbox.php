@@ -12,9 +12,11 @@ require_once ('session.php');
     <div id="header"></div>
     <div class="row">
         <p><b>
-        Happy Chinese New Year!
+        Happy Chinese New Year!  Nick Eaton eats shit. He also eats cats. 
         </p></br>
-        <img>http://upload.wikimedia.org/wikipedia/commons/5/5a/Ke_Lok_Si_Illuminations_01.JPG </img></br>
+        <img>
+        http://upload.wikimedia.org/wikipedia/commons/5/5a/Ke_Lok_Si_Illuminations_01.JPG
+        </img></br>
     </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
