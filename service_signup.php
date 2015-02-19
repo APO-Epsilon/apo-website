@@ -218,7 +218,7 @@ $resultO = $db->query($sql);
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
 			echo "<li>";
-			echo "<a id=\"$occurence_id\"></a>";
+			echo "<a id=\"$occurrence_id\"></a>";
 			echo "<div class=\"small-12 columns\">";
 			echo "<div class=\"row\"><div class=\"small-12 columns\"><h2>$name</h2></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b><br>$DOW<br>$theDate</div><div class=\"small-2 columns\"><b>Start</b><br>$start</div><div class=\"small-2 columns\"><b>End</b><br>$end</div><div class=\"small-2 columns text-center\"><b>Hours</b><br>$length $v $ma</div><div class=\"small-2 columns text-center\"><b>Spots</b><br>$max</div></div>";
