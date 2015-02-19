@@ -68,7 +68,7 @@ function option($occurrence_id){
 					$result = $db->query($sql);
 					while($p = mysqli_fetch_array($result)){
 						$driveCount = $p['drive'];
-						echo "$driveCount";
+						echo "Findthis $driveCount";
 					}
 					for($u = 0; $u <= 6; $u++){
 						if($u==$driveCount){
