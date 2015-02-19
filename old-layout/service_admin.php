@@ -56,10 +56,10 @@ if(isset($_POST['submit'])){
 		removeEventForm();
 		editEventForm();
 		assignPLForm();
-		/** Display **
+		/** Display **/
 		displayProjectList();
 	
-}*/
+}
 ?> </div>
 <?php 
 page_footer();
