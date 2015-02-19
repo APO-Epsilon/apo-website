@@ -12,7 +12,7 @@ require_once ('session.php');
     <div id="header"></div>
     <div class="row">
         <p><b>
-        Happy Chinese New Year!  Nick Eaton eats shit. He also eats cats. 
+        Happy Chinese New Year!  Nick Eaton eats shit. He also eats cats. Top Kek.
         </p></br>
         
         <img src= 'http://upload.wikimedia.org/wikipedia/commons/5/5a/Ke_Lok_Si_Illuminations_01.JPG'> </br>
