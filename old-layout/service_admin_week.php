@@ -124,7 +124,7 @@ $result = mysql_query($sql);
 			if($i == 0){
 				$additional_info = "&p=-1";
 			}
-			echo "<meta http-equiv=\"refresh\" content=\"0;URL='http://apo.truman.edu/service_leader_dashboard.php?d=".$detail_id."&z=".$i.$additional_info."&o=".$occurrence_id."'\">";
+			echo "<meta http-equiv=\"refresh\" content=\"0;URL='http://apoepsilon.org/old-layout/service_leader_dashboard.php?d=".$detail_id."&z=".$i.$additional_info."&o=".$occurrence_id."'\">";
 		}
 	}
 }
@@ -339,7 +339,7 @@ $result = mysql_query($sql);
 	
 echo "<hr/>";
 echo "<h2>Next Week</h2>";
-echo "<h3>Run new week setup for {$date1} to {$date2} <a href=\"http://apo.truman.edu/service_admin_week_setup.php\">here</a>.</h3>";
+echo "<h3>Run new week setup for {$date1} to {$date2} <a href=\"http://apoepsilon.org/old-layout/service_admin_week_setup.php\">here</a>.</h3>";
 echo "<table border=0 class=\"displayListingTable\">";
 echo "<tr class=\"displayListing\"><td>date</td><td></td><td>name</td><td>start</td><td>end</td><td>current</td><td>max</td><td>hours</td><td></td></tr>";
 $sql = "SELECT d.detail_id, d.event_id, d.DOW,
@@ -451,21 +451,21 @@ $result = mysql_query($sql);
 
 
 echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
-echo "<h4><a href=\"http://apo.truman.edu/service_admin.php?run=KDj83jJ$\">modify defaults</a></h4>";
+echo "<h4><a href=\"http://apoepsilon.org/old-layout/service_admin.php?run=KDj83jJ$\">modify defaults</a></h4>";
 if(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'cancel')){
 	$sql = "UPDATE service_occurrence SET active = active+1 WHERE occurrence_id = ".$_POST['occurrence_id']." 
 			AND (active = 1 OR active = 3)";
 	$result = mysql_query($sql);
 	$sql = "UPDATE service_attendance SET processed = -2 WHERE occurrence_id = ".$_POST['occurrence_id'];
 	$result = mysql_query($sql);
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apo.truman.edu/service_admin_week.php\">");
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/old-layout/service_admin_week.php\">");
 }elseif(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'activate')){
 	$sql = "UPDATE service_occurrence SET active = active-1 WHERE occurrence_id = ".$_POST['occurrence_id']."
 			AND (active = 2 OR active = 4)";
 	$result = mysql_query($sql);
 	$sql = "UPDATE service_attendance SET processed = 0 WHERE occurrence_id = ".$_POST['occurrence_id'];
 	$result = mysql_query($sql);
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apo.truman.edu/service_admin_week.php\">");	
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/old-layout/service_admin_week.php\">");	
 }elseif(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'view')){
 	$i = $_POST['occurrence_id'];
 	view($i);
