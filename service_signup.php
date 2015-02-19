@@ -200,7 +200,8 @@ $resultO = $db->query($sql);
 				You answered: ".$driveCount."</td></tr>
 				";*/
 				$drive = 
-				"<div class=\"small-4 small-offset-3 columns\">
+				"<div class=\"row\">
+				<div class=\"small-4 small-offset-3 columns\">
 				<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
 				How many seats do you have in your car?
 				<select name=\"driveCount\">".$optionC."</select>
@@ -210,6 +211,7 @@ $resultO = $db->query($sql);
 				<div>
 				<div class=\"small-5 columns\">
 				You answered: ".$driveCount."</td></tr>
+				</div>
 				</div>
 				";
 			}
