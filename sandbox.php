@@ -14,6 +14,9 @@ require_once ('session.php');
         <p><b>
         Happy Chinese New Year!
         </p></br>
+        <img>
+        http://upload.wikimedia.org/wikipedia/commons/5/5a/Ke_Lok_Si_Illuminations_01.JPG
+        </img></br>
     </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
