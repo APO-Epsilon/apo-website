@@ -151,7 +151,7 @@ $resultO = $db->query($sql);
 			if(($count < $max)||($num_rows == 1)||($max==-1)){
 				if($num_rows == 0){
 					$m = 1;
-					$message = "<a href=\"http://www.apoepsilon.org/service_signup.php?d=$detail_id&o=$occurrence_id\" class=\"button expand\">Sign up</a>";
+					$message = "<a href=\"http://www.apoepsilon.org/service_signup.php?d=$detail_id&o=$occurrence_id\" class=\"button expand success\">Sign up</a>";
 					//$message = "";
 				}else{
 					$m = 2;
@@ -201,9 +201,9 @@ $resultO = $db->query($sql);
 				";*/
 				$drive = 
 				"<div class=\"row\">
-				<div class=\"small-6 columns\">
+				<div class=\"small-4 small-offset-2 columns\">
 				<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
-				How many seats do you have in your car?
+				Seats available:
 				</div>
 				<div class=\"small-2 columns\">
 				<select name=\"driveCount\" value=\"$drivecount\">".$optionC."</select>
@@ -213,9 +213,6 @@ $resultO = $db->query($sql);
 				<input type='submit' name=\"Drive\" value='Change' class=\"button expand\"/>
 				</div>
 				</form>
-				<div class=\"small-2 columns\">
-				Current seats: ".$driveCount."</td></tr>
-				</div>
 				</div>
 				";
 			}
