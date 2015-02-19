@@ -22,8 +22,8 @@ if (!isset($_SESSION['sessionID'])) {
 	echo "<p>You need to login before you can see this page.</p>"; 
 }else{
 
-function refresh(){
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://www.apoepsilon.org/service_signup.php\">");
+function refresh($occurrence){
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://www.apoepsilon.org/service_signup.php#$occurrence\">");
 }
 
 
@@ -43,11 +43,11 @@ function register($detail,$occurrence){
 	if(!$result){
 		echo("something went wrong".mysqli_error()."<br/>".$sql."<br/>Perhaps someone else signed up for the event.");
 	}else{
-		refresh();
+		refresh($occurrence);
 	}
 }
 
-function remove($detail){
+function remove($detail, $occurrence){
 	include('mysql_access.php');
 	$id = $_SESSION['sessionID'];
 
@@ -56,7 +56,7 @@ function remove($detail){
 	if(!$result){
 		echo(mysqli_error());
 	}else{
-		refresh();
+		refresh($occurrence);
 	}
 	
 }
@@ -218,6 +218,7 @@ $resultO = $db->query($sql);
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
 			echo "<li>";
+			echo "<a name=\"$occurence_id\"></a>"
 			echo "<div class=\"small-12 columns\">";
 			echo "<div class=\"row\"><div class=\"small-12 columns\"><h2>$name</h2></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b><br>$DOW<br>$theDate</div><div class=\"small-2 columns\"><b>Start</b><br>$start</div><div class=\"small-2 columns\"><b>End</b><br>$end</div><div class=\"small-2 columns text-center\"><b>Hours</b><br>$length $v $ma</div><div class=\"small-2 columns text-center\"><b>Spots</b><br>$max</div></div>";
