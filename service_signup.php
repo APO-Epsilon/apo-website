@@ -68,7 +68,6 @@ function option($occurrence_id){
 					$result = $db->query($sql);
 					while($p = mysqli_fetch_array($result)){
 						$driveCount = $p['drive'];
-						echo "Findthis $driveCount";
 					}
 					for($u = 0; $u <= 6; $u++){
 						if($u==$driveCount){
@@ -76,7 +75,7 @@ function option($occurrence_id){
 						}else{
 							$s = "";
 						}
-					$return .= "<option value=$u $s>$u</option>";
+					$return .= "<option value=$u $s>$driveCount</option>";
 				}	
 				return $return;
 			}
