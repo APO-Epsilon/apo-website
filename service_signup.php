@@ -159,7 +159,7 @@ $resultO = $db->query($sql);
 					//$message;
 				}
 			}else{
-				$message = "<a href=\"#\" class=\"button alert expand\">Full</a>";
+				$message = "<a href=\"#\" class=\"button alert expand\" onclick=\"return false;\">Full</a>";
 				$drive = "";
 			}
 			
