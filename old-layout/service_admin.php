@@ -8,10 +8,9 @@ $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
 ?> <div class="content">
 <?php
-//if($position != "Webmaster" && $position != "VP of Regular Service"){
-//	die("you do not have sufficient permissions to view this page.");
-//}
-echo "<h2>Disabled</h2>";
+if($position != "Webmaster" && $position != "VP of Regular Service"){
+	die("you do not have sufficient permissions to view this page.");
+}
 echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
 echo "<h4><a href=\"http://apoepsilon.org/old-layout/service_admin_week.php\">back to dashboard</a></h4>";
 
