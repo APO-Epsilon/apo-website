@@ -12,7 +12,7 @@ require_once ('session.php');
     <div id="header"></div>
     <div class="row">
         <p>
-        Hello world!
+        Happy Chinese New Year!
         </p>
     </div>
     <!-- Javascript method to include footer -->
