@@ -224,7 +224,7 @@ $resultO = $db->query($sql);
 			echo "<div class=\"row\"><div class=\"small-12 columns\"><h3>$name</h3></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b></div><div class=\"small-2 columns\"><b>Start</b></div><div class=\"small-2 columns\"><b>End</b></div><div class=\"small-2 columns\"><b>Hours</b></div><div class=\"small-2 columns\"><b>Spots</b></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\">$DOW $theDate</div><div class=\"small-2 columns\">$start</div><div class=\"small-2 columns\">$end</div><div class=\"small-2 columns\">$length $v $ma</div><div class=\"small-2 columns\">$max</div></div>";
-			echo "<div class=\"row\"><div class=\"small-6 columns\">Project Leader: ";
+			echo "<div class=\"row\"><div class=\"small-8 columns\">Project Leader: ";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
 			while($row = mysqli_fetch_array($resultPLData)){
@@ -234,7 +234,7 @@ $resultO = $db->query($sql);
 				echo "$fname $lname";
 			}
 			//echo "</td><td></td><td>";
-			echo "</div><div class=\"small-6 columns\">";
+			echo "</div><div class=\"small-4 columns\">";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
 			while($row = mysqli_fetch_array($resultPLData)){
