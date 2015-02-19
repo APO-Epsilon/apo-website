@@ -8,6 +8,7 @@ $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
 echo "<div class=\"content\">";
 if($position != "Webmaster" && $position != "VP of Regular Service"){
+	echo "$_SESSION['sessionposition']";
 	die("you do not have permission to view this page.");
 }
 echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
