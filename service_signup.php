@@ -197,7 +197,7 @@ $resultO = $db->query($sql);
 				$drive = 
 				"<div class=\"row\">
 				<div class=\"small-4 columns\">
-				<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
+				<form method=\"post\" action=\"$_SERVER[PHP_SELF]#$occurrence_id\">
 				Seats available:
 				</div>
 				<div class=\"small-4 columns\">
