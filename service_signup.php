@@ -318,7 +318,7 @@ echo <<<END
 	</div>
 	<div class="row">
 		<div class="small-12 columns">
-			<ul class="large-block-grid-2">
+			<ul class="large-block-grid-2 small-block-grid-1">
 END;
 
 if(isset($_GET['d'])){
