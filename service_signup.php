@@ -217,7 +217,7 @@ $resultO = $db->query($sql);
 
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
-			echo "<div class=\"large-6 small-12 columns\">";
+			echo "<li>";
 			echo "<div class=\"row\"><div class=\"small-12 columns\"><h2>$name</h2></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b><br>$DOW<br>$theDate</div><div class=\"small-2 columns\"><b>Start</b><br>$start</div><div class=\"small-2 columns\"><b>End</b><br>$end</div><div class=\"small-2 columns text-center\"><b>Hours</b><br>$length $v $ma</div><div class=\"small-2 columns text-center\"><b>Spots</b><br>$max</div></div>";
 			echo "<div class=\"row\"><div class=\"small-8 columns\">Project Leader: ";
@@ -271,12 +271,12 @@ $resultO = $db->query($sql);
 			echo "</div></div>";
 			echo "<div class=\"row\"><div class=\"small-8 small-centered columns\">$drive</div></div>";
 			echo "<div class=\"row\"><div class=\"small-12 columns\">{$message}</div></div>";
-			echo "</div>";
+			echo "</li>";
 			$m = 0;
 		}
 	}
 //echo "</table>";
-echo "</div>";
+echo "</ul>";
 $sql = "SELECT d.event_id, d.DOW, d.start, d.end, d.length, e.name, o.theDate
 FROM service_details AS d
 JOIN service_events AS e
@@ -314,7 +314,7 @@ echo <<<END
 			<h1>Service Signup</h1>
 		</div>
 	</div>
-	<div class="row">
+	<ul class="large-block-grid-2">
 END;
 
 if(isset($_GET['d'])){
