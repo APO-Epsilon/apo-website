@@ -278,7 +278,7 @@ $resultO = $db->query($sql);
 		}
 	}
 //echo "</table>";
-echo "</ul></div></div>";
+echo "</ul></div>";
 $sql = "SELECT d.event_id, d.DOW, d.start, d.end, d.length, e.name, o.theDate
 FROM service_details AS d
 JOIN service_events AS e
@@ -317,8 +317,7 @@ echo <<<END
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-12 columns">
-			<ul class="large-block-grid-2 small-block-grid-1">
+		<ul class="large-block-grid-2 small-block-grid-1">
 END;
 
 if(isset($_GET['d'])){
