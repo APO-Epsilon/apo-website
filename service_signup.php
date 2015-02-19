@@ -201,7 +201,7 @@ $resultO = $db->query($sql);
 				";*/
 				$drive = 
 				"<div class=\"row\">
-				<div class=\"small-2 small-offset-2 columns\">
+				<div class=\"small-3 columns\">
 				<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
 				Seats available:
 				</div>
@@ -209,7 +209,7 @@ $resultO = $db->query($sql);
 				<select name=\"driveCount\" value=\"$drivecount\">".$optionC."</select>
 				</div>
 				<input type='hidden' name=\"occ\" value =".$occurrence_id." />
-				<div class=\"small-2 columns\">
+				<div class=\"small-3 columns\">
 				<input type='submit' name=\"Drive\" value='Change' class=\"button medium\"/>
 				</div>
 				</form>
@@ -274,8 +274,8 @@ $resultO = $db->query($sql);
 			}
 			//echo "</td></tr>";
 			echo "</div></div>";
+			echo "<div class=\"row\"><div class=\"small-8 small-centered columns\">$drive</div></div>";
 			echo "<div class=\"row\"><div class=\"small-12 columns\">{$message}</div></div>";
-			echo "$drive";
 			$m = 0;
 		}
 	}
