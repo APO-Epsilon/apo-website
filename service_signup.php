@@ -61,14 +61,9 @@ function remove($detail){
 	
 }
 
-function option($occurrence_id){
+function option($occurrence_id, $driveCount){
 				include('mysql_access.php');
 				$return = "";
-					$sql = "SELECT drive FROM service_attendance WHERE occurrence_id = $occurrence_id AND user_id = $id";
-					$result = $db->query($sql);
-					while($p = mysqli_fetch_array($result)){
-						$driveCount = $p['drive'];
-					}
 					for($u = 0; $u <= 6; $u++){
 						if($u==$driveCount){
 							$s = "selected=\"selected\"";
@@ -189,7 +184,7 @@ $resultO = $db->query($sql);
 			$optionC = "";	
 				
 			if($m==2){					
-				$optionC = option($occurrence_id);
+				$optionC = option($occurrence_id, $driveCount);
 				/*$drive = 
 				"<tr class=\"trNEW\"><td></td><td colspan=\"8\"><form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
 				How many seats do you have in your car?
