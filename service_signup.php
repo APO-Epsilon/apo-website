@@ -201,16 +201,16 @@ $resultO = $db->query($sql);
 				";*/
 				$drive = 
 				"<div class=\"row\">
-				<div class=\"small-4 small-offset-2 columns\">
+				<div class=\"small-6 columns\">
 				<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
 				How many seats do you have in your car?
 				</div>
 				<div class=\"small-2 columns\">
-				<select name=\"driveCount\">".$optionC."</select>
+				<select name=\"driveCount\" value=\"$drivecount\">".$optionC."</select>
 				</div>
 				<input type='hidden' name=\"occ\" value =".$occurrence_id." />
 				<div class=\"small-2 columns\">
-				<input type='submit' name=\"Drive\" value='Submit' class=\"button expand\"/>
+				<input type='submit' name=\"Drive\" value='Change' class=\"button expand\"/>
 				</div>
 				</form>
 				<div class=\"small-2 columns\">
