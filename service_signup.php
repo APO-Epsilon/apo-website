@@ -268,8 +268,7 @@ $resultO = $db->query($sql);
 			//echo "</td></tr>";
 			echo "</div>";
 			
-			echo "$drive";
-			<br><br>
+			echo "$drive <br><br>";
 			$m = 0;
 		}
 	}
