@@ -208,7 +208,7 @@ $resultO = $db->query($sql);
 				<input type='hidden' name=\"occ\" value =".$occurrence_id." />
 				<input type='submit' name=\"Drive\" value='submit' class=\"button expand\"/>
 				</form>
-				<div>
+				</div>
 				<div class=\"small-5 columns\">
 				You answered: ".$driveCount."</td></tr>
 				</div>
