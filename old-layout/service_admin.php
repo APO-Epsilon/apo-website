@@ -7,7 +7,7 @@ page_header();
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
 echo "<div class=\"content\">";
-if($position != "Webmaster" && $position != "VP of Regular Service"){
+if($_SESSION['sessionposition'] != "Webmaster" && $_SESSION['sessionposition'] != "VP of Regular Service"){
 	die("you do not have sufficient permissions to view this page.");
 }
 echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
