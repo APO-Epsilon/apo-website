@@ -217,8 +217,8 @@ $resultO = $db->query($sql);
 
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
+			echo "<div class=\"large-6 small-12 columns\">";
 			echo "<div class=\"row\"><div class=\"small-12 columns\"><h2>$name</h2></div></div>";
-			//echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b></div><div class=\"small-2 columns\"><b>Start</b></div><div class=\"small-2 columns\"><b>End</b></div><div class=\"small-2 columns\"><b>Hours</b></div><div class=\"small-2 columns\"><b>Spots</b></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b><br>$DOW<br>$theDate</div><div class=\"small-2 columns\"><b>Start</b><br>$start</div><div class=\"small-2 columns\"><b>End</b><br>$end</div><div class=\"small-2 columns text-center\"><b>Hours</b><br>$length $v $ma</div><div class=\"small-2 columns text-center\"><b>Spots</b><br>$max</div></div>";
 			echo "<div class=\"row\"><div class=\"small-8 columns\">Project Leader: ";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
@@ -271,10 +271,12 @@ $resultO = $db->query($sql);
 			echo "</div></div>";
 			echo "<div class=\"row\"><div class=\"small-8 small-centered columns\">$drive</div></div>";
 			echo "<div class=\"row\"><div class=\"small-12 columns\">{$message}</div></div>";
+			echo "</div>";
 			$m = 0;
 		}
 	}
 //echo "</table>";
+echo "</div>";
 $sql = "SELECT d.event_id, d.DOW, d.start, d.end, d.length, e.name, o.theDate
 FROM service_details AS d
 JOIN service_events AS e
@@ -310,8 +312,9 @@ echo <<<END
 	<div class="row">
 		<div class="small-12 columns">
 			<h1>Service Signup</h1>
-			<!--<h2>Online sign-ups have been disabled.</h2>-->
 		</div>
+	</div>
+	<div class="row">
 END;
 
 if(isset($_GET['d'])){
