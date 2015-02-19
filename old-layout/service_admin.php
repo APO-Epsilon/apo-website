@@ -1,8 +1,8 @@
 <?php
 require_once ('layout.php');
 require_once ('mysql_access.php');
-require_once ('service_admin_forms.php');
-require_once ('service_admin_functions.php');
+//require_once ('service_admin_forms.php');
+//require_once ('service_admin_functions.php');
 page_header();
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
