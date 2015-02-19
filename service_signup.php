@@ -251,7 +251,7 @@ $resultO = $db->query($sql);
 				echo "$fn $ln {$dr}<br/>";
 			}
 			//echo "</td>";
-			echo "</div>"
+			echo "</div>";
 			
 			//echo "<td></td><td>";
 			echo "<div class=\"small-1 columns end\">";
