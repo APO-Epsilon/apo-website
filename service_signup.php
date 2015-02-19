@@ -221,8 +221,9 @@ $resultO = $db->query($sql);
 
 			//echo "<tr class=\"trNEW\"><td>$name</td><td>$DOW</td><td>$theDate</td><td>$start</td><td>$end</td><td>$count</td><td>$max</td><td>$length $v $ma</td><td>{$message}</td></tr>";
 			//echo "<tr><td>Project Leader: </td><td>";
+			echo "<div class=\"row\"><div class=\"small-12 columns\"><h3>$name</h3></div></div>";
 			echo "<div class=\"row\"><div class=\"small-4 columns\">Date</div><div class=\"small-2 columns\">Start</div><div class=\"small-2 columns\">End</div><div class=\"small-2 columns\">Hours</div><div class=\"small-2 columns\">Spots</div></div>";
-			echo "<div class=\"row\"><div class=\"small-12 columns\"><h3>$name</h3></div></div><div class=\"row\"><div class=\"small-4 columns\">$DOW $theDate</div><div class=\"small-2 columns\">$start</div><div class=\"small-2 columns\">$end</div><div class=\"small-2 columns\">$length $v $ma</div><div class=\"small-2 columns\">$max</div></div>";
+			echo "<div class=\"row\"><div class=\"small-4 columns\">$DOW $theDate</div><div class=\"small-2 columns\">$start</div><div class=\"small-2 columns\">$end</div><div class=\"small-2 columns\">$length $v $ma</div><div class=\"small-2 columns\">$max</div></div>";
 			echo "<div class=\"row\"><div class=\"small-6 columns\">Project Leader: ";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
