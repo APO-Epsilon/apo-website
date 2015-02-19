@@ -201,7 +201,7 @@ $resultO = $db->query($sql);
 				";*/
 				$drive = 
 				"<div class=\"row\">
-				<div class=\"small-4 small-offset-2 columns\">
+				<div class=\"small-2 small-offset-2 columns\">
 				<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
 				Seats available:
 				</div>
