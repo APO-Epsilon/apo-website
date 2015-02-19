@@ -253,7 +253,7 @@ $resultO = $db->query($sql);
 				$fn = $rw['firstname'];
 				$ln = $rw['lastname'];
 				$dr = $rw['drive'];
-				if($dr > 0){$dr = "(".$dr." seats)";}else{ $dr = "";}
+				if($dr > 0){$dr = "(".$dr.")";}else{ $dr = "";}
 				echo "$fn $ln {$dr}<br/>";
 			}
 			//echo "</td>";
