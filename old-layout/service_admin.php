@@ -1,4 +1,5 @@
 <?php
+
 require_once ('layout.php');
 require_once ('mysql_access.php');
 require_once ('service_admin_forms.php');
@@ -7,9 +8,9 @@ page_header();
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
 echo "<div class=\"content\">";
-//if($position != "Webmaster" && $position != "VP of Regular Service"){
-//	die("you do not have permission to view this page.");
-//}
+if($position != "Webmaster" && $position != "VP of Regular Service"){
+	die("you do not have permission to view this page.");
+}
 echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
 echo "<h4><a href=\"http://apoepsilon.org/old-layout/service_admin_week.php\">back to dashboard</a></h4>";
 
