@@ -11,14 +11,9 @@ require_once ('session.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
-     <!-- This Script is from www.htmlfreecodes.com, Provided by: Mahmood Bina -->
-<script type='text/javascript' src='http://manage.htmlfreecodes.com/mg.js'></script>
-<body style="filter:progid:DXImageTransform.Microsoft.Gradient(endColorstr='#C0CFE2', startColorstr='#FFFFFF', gradientType='0');">
-<a target="_blank" href="http://allfreecodes.com/category/free-javascript-code" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">free javascript code</a><a target="_blank" href="http://www.htmlfreecodes.com" style="font-size: 8pt; text-decoration: none">Html Codes</a>   
         <p><b>
         Happy Chinese New Year!  Nick Eaton eats shit. He also eats cats. Top Kek.
         </p></br>
-        <!-- This Script is from www.htmlfreecodes.com, Provided by: Mahmood Bina -->
 <script type='text/javascript' src='http://manage.htmlfreecodes.com/mg.js'></script>
 <script>
 // Set the number of snowflakes (more than 30 - 40 not recommended)
