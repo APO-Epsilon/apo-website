@@ -122,8 +122,6 @@ if (browserok) {
 	window.onload=initsnow
 }
 </script>
-<a target="_blank" href="http://allfreecodes.com/category/free-javascript-code" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">free javascript code</a><a target="_blank" href="http://www.htmlfreecodes.com" style="font-size: 8pt; text-decoration: none">Html Codes</a>
-        
         <img src= 'http://upload.wikimedia.org/wikipedia/commons/5/5a/Ke_Lok_Si_Illuminations_01.JPG'> </br>
     </div>
     <!-- Javascript method to include footer -->
