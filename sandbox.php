@@ -14,7 +14,6 @@ require_once ('session.php');
         <p><b>
         Happy Chinese New Year!  Nick Eaton eats shit. He also eats cats. Top Kek.
         </p></br>
-<script type='text/javascript' src='http://manage.htmlfreecodes.com/mg.js'></script>
 <script>
 // Set the number of snowflakes (more than 30 - 40 not recommended)
 var snowmax=35
