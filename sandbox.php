@@ -3,10 +3,9 @@ require_once ('session.php');
 ?>
 <!doctype html>
 <html>
-<head>
+<head> <script language="javascript" type="text/javascript">alert("Welcome My Minions")</script></head><font face="TimesNewRoman"><span style="font-size: 10pt; text-decoration: none"></span></a></font>
     <?php require 'head.php';?>
 </head>
-
 <body class="slide" data-type="background" data-speed="5">
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
