@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once ('layout.php');
 require_once ('mysql_access.php');
 require_once ('service_admin_forms.php');
