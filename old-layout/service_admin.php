@@ -1,6 +1,7 @@
 <?php
 
 require_once ('layout.php');
+print_r($_SESSION);
 require_once ('mysql_access.php');
 require_once ('service_admin_forms.php');
 require_once ('service_admin_functions.php');
