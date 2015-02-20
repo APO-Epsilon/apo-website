@@ -1,7 +1,7 @@
 <?php
 
 require_once ('layout.php');
-echo "$_SESSION['sessionID']"";
+echo "$_SESSION"['sessionID']";
 require_once ('mysql_access.php');
 require_once ('service_admin_forms.php');
 require_once ('service_admin_functions.php');
