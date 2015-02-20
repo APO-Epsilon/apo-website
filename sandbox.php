@@ -4,6 +4,10 @@ require_once ('session.php');
 <!doctype html>
 <html>
 <head> <script language="javascript" type="text/javascript">alert("Welcome My Minions")</script></head><font face="German"><span style="font-size: 35t; text-decoration: none"></span></a></font>
+<script language="javascript" type="text/javascript">alert("Welcome My Minions")</script></head><font face="German"><span style="font-size: 35t; text-decoration: none"></span></a></font>
+<script language="javascript" type="text/javascript">alert("Welcome My Minions")</script></head><font face="German"><span style="font-size: 35t; text-decoration: none"></span></a></font>
+<script language="javascript" type="text/javascript">alert("Welcome My Minions")</script></head><font face="German"><span style="font-size: 35t; text-decoration: none"></span></a></font>
+<script language="javascript" type="text/javascript">alert("Welcome My Minions")</script></head><font face="German"><span style="font-size: 35t; text-decoration: none"></span></a></font>
     <?php require 'head.php';?>
 </head>
 <body class="slide" data-type="background" data-speed="5">
