@@ -1,5 +1,9 @@
 <?php
-echo session_start();
+if(session_start();){
+	echo "success";
+}else{
+	echo "nope";
+}
 require_once ('layout.php');
 require_once ('mysql_access.php');
 require_once ('service_admin_forms.php');
