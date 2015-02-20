@@ -1,0 +1,24 @@
+<?php
+require_once ('session.php');
+?>
+<!doctype html>
+<html>
+<head>
+    <?php require 'head.php';?>
+</head>
+
+<body class="slide" data-type="background" data-speed="5">
+    <nav id="nav" role="navigation"></nav>
+    <div id="header"></div>
+    <div class="row">
+        <p><b>
+        I miss you goofball :p 
+        </p></br>
+        
+        <img src= https://www.google.com/search?q=heart&espv=2&biw=1920&bih=979&source=lnms&tbm=isch&sa=X&ei=YI3mVOrpItGYyASD1oDoAQ&ved=0CAYQ_AUoAQ#imgdii=_&imgrc=-d-e3IFd-T8eYM%253A%3B1OIvFQA0cj-I_M%3Bhttp%253A%252F%252Fimages.clipartpanda.com%252Fheart-clip-art-valentine_heart_29-1969px.png%3Bhttp%253A%252F%252Fwww.clipartpanda.com%252Fcategories%252Fheart-clip-art-microsoft%3B1969%3B1829> </br>
+    </div>
+    <!-- Javascript method to include footer -->
+    <div id="footer"><?php include 'footer.php';?></div>
+    <!-- PHP method to include footer -->
+</body>
+</html>
