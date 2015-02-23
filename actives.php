@@ -17,7 +17,7 @@ require_once ('session.php');
                 <a href="#" ></a>
                 </p>
             <?php 
-            $selectm = <<<SQL
+            $selectm = "
 	SELECT `firstname`,
 	`lastname`,
 	`major`,
@@ -29,8 +29,7 @@ require_once ('session.php');
 	WHERE pledgesem= "Fall" AND pledgeyear= "2011" 
 	ORDER BY `lastname`
 	ASC, `firstname`
-	ASC
-SQL;
+	ASC";
 	$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
 	while ($t = mysqli_fetch_array($querym)){
 	    echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
