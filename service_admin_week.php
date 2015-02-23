@@ -1,13 +1,25 @@
-﻿<?php
-
-require_once ('layout.php');
+<?php
+require_once ('session.php');
 require_once ('mysql_access.php');
 require_once ('service_admin_functions.php');
+?>
+<!doctype html>
+<html>
+<head>
+	<?php require 'head.php';?>
+</head>
 
-page_header();
+<body class="slide" data-type="background" data-speed="5">
+    <nav id="nav" role="navigation"></nav>
+    <div id="header"></div>
+
+<?php
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
-?> <div class="content">
+?> 
+<div class="content">
+<div class="row">
+	<div class="small-12 columns">
 <?php
 if($position != "Webmaster" && $position != "VP of Regular Service"){
 	die("you do not have permission to view this page.");
@@ -21,16 +33,17 @@ if(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'submitEdit')){
 	$max = $_POST['max'];
 	$occurrence_id = $_POST['occurrence_id'];
 	$sql = "UPDATE service_occurrence SET start='".$start."',end='".$end."',length=$length,max=$max WHERE occurrence_id = ".$occurrence_id;
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if(!$result){
-		echo mysql_error()."<br/>".$sql;
+		echo mysqli_error()."<br/>".$sql;
 	}else{
 		$sql = "UPDATE service_attendance SET length = $length WHERE occurrence_id = ".$occurrence_id;
-		$result = mysql_query($sql);
+		$result = $db->query($sql);
 		//echo "<meta http-equiv=\"refresh\" content=\"0;URL='http://apo.truman.edu/service_admin_week.php'\">";
 	}
 }
 function editPosting($i){
+		include('mysql_access.php');
 		$sql = "SELECT c.firstname, c.lastname, c.id, l.detail_id, d.event_id, d.DOW, o.start, o.end, o.length, o.max,  e.name, o.theDate
 					FROM contact_information AS c
 					JOIN service_leaders AS l
@@ -42,11 +55,11 @@ function editPosting($i){
 					JOIN service_occurrence AS o
 					ON o.detail_id = d.detail_id
 					WHERE o.occurrence_id = $i";
-			$result = mysql_query($sql);
+			$result = $db->query($sql);
 			if(!$result){
 				die("error");
 			}else{
-				while($r = mysql_fetch_array($result)){
+				while($r = mysqli_fetch_array($result)){
 					$user_id = $r['id'];
 					$detail_id = $r['detail_id'];
 					$firstname = $r['firstname'];
@@ -79,6 +92,7 @@ function editPosting($i){
 }
 
 function view($i){
+	include('mysql_access.php');
 	$id = $_SESSION['sessionID'];
 
 $sql = "SELECT d.detail_id, d.event_id, d.DOW,
@@ -96,11 +110,11 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		ON c.id = l.user_id
 		WHERE o.occurrence_id = $i 
 		ORDER BY o.theDate ASC";
-$result = mysql_query($sql);
+$result = $db->query($sql);
 	if(!$result){
 		die("error");
 	}else{
-		while($r = mysql_fetch_array($result)){
+		while($r = mysqli_fetch_array($result)){
 			$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
@@ -116,8 +130,8 @@ $result = mysql_query($sql);
 			$occurrence_id = $r['occurrence_id'];
 
 			$sql = "SELECT COUNT(*) AS count FROM service_attendance WHERE detail_id = $detail_id AND occurrence_id = $occurrence_id";
-			$result2 = mysql_query($sql);
-			while($r = mysql_fetch_array($result2)){
+			$result2 = $db->query($sql);
+			while($r = mysqli_fetch_array($result2)){
 				$count = $r['count'];
 			}
 			
@@ -130,7 +144,7 @@ $result = mysql_query($sql);
 }
 
 function displayListing(){
-	
+	include('mysql_access.php');
 	$dateMapNew = array(1,0,6,5,4,3,2);
 	$dateMap1 = array(0,6,5,4,3,2,1);
 	$currentDOW1 = date('w');//returns integer of DOW
@@ -162,11 +176,11 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		WHERE (((o.active = 1 OR o.active = 2)
 		AND o.theDate > $weekAgoStart) OR (o.theDate = '$today' AND o.active = 0))
 		ORDER BY o.theDate";
-$result = mysql_query($sql);
+$result = $db->query($sql);
 	if(!$result){
 		die("error");
 	}else{
-		while($r = mysql_fetch_array($result)){
+		while($r = mysqli_fetch_array($result)){
 			$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
@@ -188,8 +202,8 @@ $result = mysql_query($sql);
 			}
 
 			$sql = "SELECT COUNT(*) AS count FROM service_attendance WHERE detail_id = $detail_id AND occurrence_id = ".$occurrence_id;
-			$result2 = mysql_query($sql);
-			while($r = mysql_fetch_array($result2)){
+			$result2 = $db->query($sql);
+			while($r = mysqli_fetch_array($result2)){
 				$count = $r['count'];
 			}
 			
@@ -240,13 +254,13 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		WHERE (((o.active = 1 OR o.active = 2)
 		AND o.theDate > $weekAgoStart) OR (o.theDate = '$today' AND o.active = 0))
 		ORDER BY o.theDate";
-$result = mysql_query($sql);
+$result = $db->query($sql);
 	if(!$result){
 		die("error");
 	}else{
 		echo"<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">";
 		echo"<select name=\"occurrence_id\">";
-		while($r = mysql_fetch_array($result)){
+		while($r = mysqli_fetch_array($result)){
 			$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
@@ -294,8 +308,8 @@ $result = mysql_query($sql);
 			WHERE (o.active = 1 OR o.active = 2 OR o.active = 0)
 			AND o.theDate > $weekAgoStart
 			ORDER BY d.detail_id DESC LIMIT 1";
-	$result = mysql_query($sql);
-	while($r = mysql_fetch_array($result)){
+	$result = $db->query($sql);
+	while($r = mysqli_fetch_array($result)){
 		$maxDetailId = $r['detail_id'];
 	}
 	
@@ -311,8 +325,8 @@ $result = mysql_query($sql);
 			JOIN contact_information AS c
 			ON c.id = l.user_id
 			ORDER BY d.detail_id DESC LIMIT 1";
-	$result = mysql_query($sql);
-	while($r = mysql_fetch_array($result)){
+	$result = $db->query($sql);
+	while($r = mysqli_fetch_array($result)){
 		$detailDetailId = $r['detail_id'];
 		$start =  $r['start'];
 		$end = $r['end'];
@@ -331,7 +345,7 @@ $result = mysql_query($sql);
 			
 		$sql = "INSERT INTO service_occurrence (detail_id, theDate, active, start, end, length, max)
 				VALUES (".$detailDetailId.",'".$date2."',1,'".$start."','".$end."',".$length.",".$max.")";
-		$result = mysql_query($sql);
+		$result = $db->query($sql);
 		
 		
 	}
@@ -357,11 +371,11 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		ON c.id = l.user_id
 		WHERE o.active = 3 OR o.active = 4
 		ORDER BY o.theDate";
-$result = mysql_query($sql);
+$result = $db->query($sql);
 	if(!$result){
 		die("error");
 	}else{
-		while($r = mysql_fetch_array($result)){
+		while($r = mysqli_fetch_array($result)){
 			$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
@@ -382,8 +396,8 @@ $result = mysql_query($sql);
 			}
 
 			$sql = "SELECT COUNT(*) AS count FROM service_attendance WHERE detail_id = $detail_id AND occurrence_id = ".$occurrence_id;
-			$result2 = mysql_query($sql);
-			while($r = mysql_fetch_array($result2)){
+			$result2 = $db->query($sql);
+			while($r = mysqli_fetch_array($result2)){
 				$count = $r['count'];
 			}
 			
@@ -421,13 +435,13 @@ $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		ON c.id = l.user_id
 		WHERE o.active = 3 OR o.active = 4
 		ORDER BY o.theDate";
-$result = mysql_query($sql);
+$result = $db->query($sql);
 	if(!$result){
 		die("error");
 	}else{
 		echo"<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">";
 		echo"<select name=\"occurrence_id\">";
-		while($r = mysql_fetch_array($result)){
+		while($r = mysqli_fetch_array($result)){
 			$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
@@ -455,16 +469,16 @@ echo "<h4><a href=\"http://apoepsilon.org/old-layout/service_admin.php?run=KDj83
 if(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'cancel')){
 	$sql = "UPDATE service_occurrence SET active = active+1 WHERE occurrence_id = ".$_POST['occurrence_id']." 
 			AND (active = 1 OR active = 3)";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	$sql = "UPDATE service_attendance SET processed = -2 WHERE occurrence_id = ".$_POST['occurrence_id'];
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/old-layout/service_admin_week.php\">");
 }elseif(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'activate')){
 	$sql = "UPDATE service_occurrence SET active = active-1 WHERE occurrence_id = ".$_POST['occurrence_id']."
 			AND (active = 2 OR active = 4)";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	$sql = "UPDATE service_attendance SET processed = 0 WHERE occurrence_id = ".$_POST['occurrence_id'];
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/old-layout/service_admin_week.php\">");	
 }elseif(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'view')){
 	$i = $_POST['occurrence_id'];
@@ -475,7 +489,8 @@ if(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'cancel')){
 }else{
 	displayListing();
 }
-?> </div>
-<?php 
-page_footer();
 ?>
+	</div></div>
+	<div id="footer"><?php include 'footer.php';?></div>
+</body>
+</html>
