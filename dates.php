@@ -376,7 +376,10 @@ require_once ('session.php');
     <ul>
         <li>Nikki Kwarta & Kate Hays start the full Epsilon online family tree and online photo archive.</li>
     </ul>
-
+<b>2016</b>
+    <ul>
+        <li>Epsilon Chapter hosts Regional Confrence.</li>
+    </ul>
 
         </div>
     </div>
