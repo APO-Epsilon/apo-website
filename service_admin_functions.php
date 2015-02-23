@@ -1,16 +1,17 @@
 <?php
 function refresh(){
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/old-layout/service_admin.php\">");
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/service_admin.php\">");
 }
 
 function newEvent(){
+	include('mysql_access.php');
 	//new project name
 	$eventName = $_POST['projectName'];
 	//insert the values
 	$sql = "INSERT INTO `service_events` (name) VALUES ('".$eventName."')";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if(!$result){
-		die("something went wrong".mysql_error().mysql_errno());
+		die("something went wrong".mysqli_error().mysqli_errno());
 	}else{
 		refresh();
 	}
@@ -26,7 +27,7 @@ function eventDetails(){
 	 * @param length the defualt length (number of hours) for the event
 	 * @param max the default max allowed
 	 */
-
+	include('mysql_access.php');
 	$event_id = $_POST['event_id'];
 	$DOW = $_POST['DOW'];	
 	$start = $_POST['start'];
@@ -38,9 +39,9 @@ function eventDetails(){
 			(event_id, DOW, start, end, length, max)
 			VALUES (".$event_id.", '".$DOW."',
 				'".$start."','".$end."',".$length.",".$max.")";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if(!$result){
-		die("something went wrong<br/>".mysql_error()."<br/>".mysql_errno()."<p>".$sql);
+		die("something went wrong<br/>".mysqli_error()."<br/>".mysqli_errno()."<p>".$sql);
 	}else{
 		refresh();
 	}
@@ -53,16 +54,16 @@ function assignPL(){
 	$d_id = $_POST['event'];
 	//insert the values
 	$sql = "INSERT INTO `service_leaders` (`detail_id`, `user_id`) VALUES (".$d_id.",".$id.")";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if(!$result){
-		die("something went wrong<br/>".mysql_error()."<br/>".mysql_errno()."<p>".$sql);
+		die("something went wrong<br/>".mysqli_error()."<br/>".mysqli_errno()."<p>".$sql);
 	}else{
 		refresh();
 	}
 }
 
 function displayProjectList(){
-	
+	include('mysql_access.php');
 	echo "<h2>Project Leaders</h2>";
 
 
@@ -75,13 +76,13 @@ function displayProjectList(){
 			JOIN service_events AS e
 			ON d.event_id = e.P_Id
 			ORDER BY d.detail_id";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if(!$result){
 		die("error");
 	}else{
 		echo "<table border=0 class=\"displayListingTable\">";
 		echo "<tr class=\"displayListing\"><td>day</td><td>event</td><td>name</td><td>start</td><td>end</td><td></td></tr>";
-				while($r = mysql_fetch_array($result)){
+				while($r = mysqli_fetch_array($result)){
 					$user_id = $r['id'];
 					$detail_id = $r['detail_id'];
 					$firstname = $r['firstname'];
@@ -123,32 +124,32 @@ function displayProjectList(){
 
 
 function removePL($detail_id, $user_id){
-
+	include('mysql_access.php');
 	$sql = "DELETE FROM service_leaders
 			WHERE detail_id = $detail_id
 			AND user_id = $user_id LIMIT 1";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if(!$result){
-		die("something went wrong".mysql_error()."<br/>");
+		die("something went wrong".mysqli_error()."<br/>");
 	}else{
 		refresh();
 	}
 }
 
 function removeEvent($detail_id){
-
+	include('mysql_access.php');
 	$sql = "DELETE FROM service_details
 			WHERE detail_id = $detail_id LIMIT 1";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if(!$result){
-		die("something went wrong".mysql_error()."<br/>");
+		die("something went wrong".mysqli_error()."<br/>");
 	}else{
 		refresh();
 	}
 }
 
 function modifyEvent($detail_id){
-
+	include('mysql_access.php');
 	
 	$sql = "SELECT e.name AS name, d.detail_id AS detail_id, d.event_id AS id, 
 				d.DOW AS DOW, d.start AS start, d.end AS end,d.length,d.max
@@ -156,8 +157,8 @@ function modifyEvent($detail_id){
 			JOIN service_details AS d
 			ON e.P_Id = d.event_id
 			WHERE detail_id=$detail_id";
-	$query = mysql_query($sql) or die("error".mysql_error());
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("error".mysqli_error());
+	while ($r = mysqli_fetch_array($query)) {
 				$detail_id = $r['detail_id'];
 				$day = $r['DOW'];
 				$DOW = date('w', strtotime($r['DOW']));
@@ -183,11 +184,11 @@ function modifyEvent($detail_id){
 		
 }
 function modifyEvent2($P_Id){
-
+	include('mysql_access.php');
 	
 	$sql = "SELECT * FROM service_events WHERE P_Id = $P_Id";
-	$query = mysql_query($sql) or die("error".mysql_error().$sql);
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("error".mysqli_error().$sql);
+	while ($r = mysqli_fetch_array($query)) {
 				$P_Id = $r['P_Id'];
 				$name = $r['name'];
 				$description = $r['description'];
@@ -212,18 +213,20 @@ function modifyEvent2($P_Id){
 
 
 function submitModifyEvent($start,$end,$max,$length,$detail_id){
+	include('mysql_access.php');
 	$sql = "UPDATE service_details SET start='".$start."',end='".$end."',length=$length,max=$max WHERE detail_id = ".$detail_id;
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if($result){
 	refresh();
 	}
 }
 
 function submitModifyEvent2($d, $l, $n, $P){
+	include('mysql_access.php');
 	$sql = "UPDATE service_events SET description = '".$d."', location = '".$l."', notes = '".$n."' WHERE P_Id = ".$P."";
-	$result = mysql_query($sql);
+	$result = $db->query($sql);
 	if($result){
 	refresh();
 	}
 }
->
+?>
