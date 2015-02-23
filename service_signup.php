@@ -77,6 +77,7 @@ function option($occurrence_id, $driveCount){
 			
 function displayListing(){
 include('mysql_access.php');
+$id = $_SESSION['sessionID'];
 $sql = "SELECT d.event_id, d.DOW, d.start, d.end, d.length, e.name, o.theDate
 FROM service_details AS d
 JOIN service_events AS e
@@ -109,7 +110,6 @@ while($r = mysqli_fetch_array($result)){
 }
 }
 
-$id = $_SESSION['sessionID'];
 //echo "<table border=0 class=\"displayListingTable2\">";
 //echo "<tr class=\"displayListing2\"><td>event name</td><td>date</td><td></td><td>start</td><td>end</td><td>current</td><td>limit</td><td>hours</td><td></td></tr>";
 //new frontend attempt here
