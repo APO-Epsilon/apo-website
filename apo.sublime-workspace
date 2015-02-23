@@ -153,6 +153,10 @@
 	],
 	"file_history":
 	[
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/status_change.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/risk_management_quiz.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login_updatepw.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/ajax.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/updateinfo.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/sass/main.sass",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login.php",
@@ -267,20 +271,16 @@
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/register.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/register_process.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/join.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login_updatepw.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/login_sendpw.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/check_all_hours.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/check_hours.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/edit_exec.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/ajax.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/risk_management_quiz.php",
 		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/index.php",
 		"/Users/dalerace/racedale.github.io/source/rss.xml",
 		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/ajax.php",
 		"/private/var/folders/qg/f350hkmx24lc5mtvsycm1rsc0000gn/T/510caa5d-eabb-44a1-9c43-1ccc8654c171/apo/register.php",
 		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/advisors.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/attendance.php",
-		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/js/watch.js"
+		"/Applications/XAMPP/xamppfiles/htdocs/apo-website/attendance.php"
 	],
 	"find":
 	{
@@ -291,6 +291,7 @@
 		"height": 108.0,
 		"where_history":
 		[
+			"/Applications/XAMPP/xamppfiles/htdocs/apo-website"
 		]
 	},
 	"find_state":
@@ -298,6 +299,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mysql",
 			"form",
 			"inc",
 			"$i",
@@ -424,8 +426,7 @@
 			"service-grid-left",
 			"service-grid",
 			"h4",
-			"social",
-			"footer-social"
+			"social"
 		],
 		"highlight": true,
 		"in_selection": false,
