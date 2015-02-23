@@ -4,7 +4,7 @@
 	<ul class="clearfix">
 		<li><a href="index.php">Home</a></li>
 		<li>
-			<a href="about.php" aria-haspopup="true"><span>About</span></a>
+			<a href="?about" aria-haspopup="true"><span>About</span></a>
 			<ul>
 				<li><a href="join.php">Join</a></li>
 				<li><a href="history.php">History</a></li>
