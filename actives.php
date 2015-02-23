@@ -8,20 +8,54 @@ require_once ('session.php');
 </head>
 
 <body class="slide" data-type="background" data-speed="5">
-    <!-- Javascript method to include navigation -->
-    <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
-    <!-- PHP method to include navigation -->
-
-    <!-- Javascript method to include header -->
-    <div id="header"><?php include 'header.php';?></div>
-    <!-- PHP method to include header -->
-
-<div class="row">
-        <div class="large-10 medium-9 small-12 column large-centered medium-centered">
+    <nav id="nav" role="navigation"></nav>
+    <div id="header"></div>
+    <div class="row">
+        <div class="large-6 medium-9 small-12 columns">
+            <h1> Fall 2011</h1>
+                <p>  <br>
+                <a href=" ></a>
+                </p>
+            <hr>
+            <h1> Fall 2011 </h1>
+                <p>  <br>
+                <a href=" ></a></p>
+            <hr>
+            <h1> Spring 2012 </h1>
+                <p> <br>
+                <a href="></a>
+                </p>
+            <hr>
+            <h1> Fall 2012 </h1>
+                <p>  <br>
+                <a href="></a>
+                </p>
+            <hr>
+            <h1> Spring 2013 </h1>
+                <p> <br>
+                <a href="></a>
+                </p>
+            <hr>
+            <h1> Fall 2013 </h1>
+                <p> <br>
+                <a href="></a>
+                </p>
+            <hr>
+            <h1> Spring 2014 </h1>
+                <p>  <br>
+                <a href="></a>
+                </p>
+            <hr>
+            <h1> Fall 2014 </h1>
+                <p>  <br>
+                <a href="></a>
+                </p>
+            <hr>
+            <h1> Spring 2015 </h1>
+                <p>  <br>
+                <a href=" ></a>
+                </p>
+           
         </div>
-    </div>
-    <!-- Javascript method to include footer -->
-    <div id="footer"><?php include 'footer.php';?></div>
-    <!-- PHP method to include footer -->
 </body>
 </html>
