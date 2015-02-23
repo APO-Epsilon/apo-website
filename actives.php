@@ -16,13 +16,13 @@ require_once ('session.php');
                 <p>  <br>
                 <a href="#" ></a>
                 </p>
-            <?php 
-            $selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem=Fall AND pledgeyear=2011 ORDER BY lastname ASC, firstname ASC";	
-            $querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
-	while ($t = mysqli_fetch_array($querym)){
-	    echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
-	}
-	?>
+<?php 
+$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem=Fall AND pledgeyear=2011 ORDER BY lastname ASC, firstname ASC";	
+$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
+while ($t = mysqli_fetch_array($querym)){
+	echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
+}
+?>
             <hr>
             <h1> Spring 2012 </h1>
                 <p>  <br>
