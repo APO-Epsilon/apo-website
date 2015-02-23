@@ -91,7 +91,7 @@ $result = $db->query($sql);
 
 if(mysqli_num_rows($result)!=0){
 echo "<h2>Currently Attending:</h2>";
-echo "<div class=\"row\">"
+echo "<div class=\"row\">";
 while($r = mysqli_fetch_array($result)){
 			$event_id = $r['event_id'];
 			$DOW = $r['DOW'];
