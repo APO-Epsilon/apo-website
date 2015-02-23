@@ -90,8 +90,10 @@ ORDER BY a.occurrence_id ASC";
 $result = $db->query($sql);
 
 if(mysqli_num_rows($result)!=0){
-echo "<h2>Currently Attending:</h2>";
 echo "<div class=\"row\">";
+echo "<div class=\"small-12 columns\"";
+echo "<h2>Currently Attending:</h2>";
+echo "</div></div>"
 while($r = mysqli_fetch_array($result)){
 			$event_id = $r['event_id'];
 			$DOW = $r['DOW'];
@@ -101,11 +103,10 @@ while($r = mysqli_fetch_array($result)){
 			$name = $r['name'];
 			$theDate = $r['theDate'];
 			echo "<div class=\"row\">";
-			echo "<div class=\"small-2 columns\">$DOW</div><div class=\"small-2 columns\">$theDate</div><div class=\"small-4 columns\">$name</div><div class=\"small-2 columns\">$start</div>";
-			echo "</div></div>";
+			echo "<div class=\"small-2 columns\">$DOW</div><div class=\"small-2 columns\">$theDate</div><div class=\"small-4 columns\">$name</div><div class=\"small-2 columns end\">$start</div>";
+			echo "</div>";
 
 }
-echo "</div>";
 }
 
 $id = $_SESSION['sessionID'];
