@@ -7,7 +7,6 @@
     "grunt-autoprefixer": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-sass": "latest",
-    "grunt-takana": "latest",
     "node-bourbon": "latest",
     "node-neat": "latest"
   }
