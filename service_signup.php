@@ -89,7 +89,7 @@ WHERE a.processed = 0 AND a.occurrence_id = o.occurrence_id AND a.user_id = $id 
 ORDER BY a.occurrence_id ASC";
 $result = $db->query($sql);
 
-if(mysqli_num_rows($result)!=0){
+if(mysqli_stmt_num_rows($result)!=0){
 echo "<div class=\"row\">";
 echo "<div class=\"small-12 columns\">";
 echo "<h2>Currently Attending:</h2>";
