@@ -35,6 +35,7 @@ SQL;
 	while ($t = mysqli_fetch_array($querym)){
 	    echo "<p>$t['firstname'] $t['lastname']</p>";
 	}
+	?>
             <hr>
             <h1> Spring 2012 </h1>
                 <p>  <br>
