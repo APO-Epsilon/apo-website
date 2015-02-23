@@ -11,7 +11,7 @@ require_once ('session.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
-        <div class="large-6 medium-9 small-12 small-centered columns">
+        <div class="large-6 medium-9 small-12 small-centered columns text-center">
             <h1> Fall 2011</h1>
                 <p>  <br>
                 <a href="#" ></a>
