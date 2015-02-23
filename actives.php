@@ -17,22 +17,17 @@ require_once ('session.php');
                 <a href=" ></a>
                 </p>
             <hr>
-            <h1> Fall 2011 </h1>
+            <h1> Spring 2012 </h1>
                 <p>  <br>
                 <a href=" ></a></p>
             <hr>
-            <h1> Spring 2012 </h1>
+            <h1> Fall 2012 2012 </h1>
                 <p> <br>
-                <a href="></a>
-                </p>
-            <hr>
-            <h1> Fall 2012 </h1>
-                <p>  <br>
                 <a href="></a>
                 </p>
             <hr>
             <h1> Spring 2013 </h1>
-                <p> <br>
+                <p>  <br>
                 <a href="></a>
                 </p>
             <hr>
@@ -42,7 +37,7 @@ require_once ('session.php');
                 </p>
             <hr>
             <h1> Spring 2014 </h1>
-                <p>  <br>
+                <p> <br>
                 <a href="></a>
                 </p>
             <hr>
@@ -53,7 +48,7 @@ require_once ('session.php');
             <hr>
             <h1> Spring 2015 </h1>
                 <p>  <br>
-                <a href=" ></a>
+                <a href="></a>
                 </p>
            
         </div>
