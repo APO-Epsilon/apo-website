@@ -6,3 +6,5 @@ Thumbs.db
 # grunt files #
 sass/node_modules
 sass/bower_components
+
+apo.sublime-workspace
