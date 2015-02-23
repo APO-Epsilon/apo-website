@@ -77,6 +77,37 @@ function option($occurrence_id, $driveCount){
 			
 function displayListing(){
 include('mysql_access.php');
+$sql = "SELECT d.event_id, d.DOW, d.start, d.end, d.length, e.name, o.theDate
+FROM service_details AS d
+JOIN service_events AS e
+ON d.event_id = e.P_Id
+JOIN service_attendance AS a
+ON a.detail_id = d.detail_id
+JOIN service_occurrence AS o
+ON o.detail_id = d.detail_id
+WHERE a.processed = 0 AND a.occurrence_id = o.occurrence_id AND a.user_id = $id AND NOW() > o.theDate
+ORDER BY a.occurrence_id ASC";
+$result = $db->query($sql);
+
+if(mysqli_num_rows($result)!=0){
+echo "<h2>Currently Attending:</h2>";
+echo "<div class=\"row\">"
+while($r = mysqli_fetch_array($result)){
+			$event_id = $r['event_id'];
+			$DOW = $r['DOW'];
+			$start = $r['start'];
+			$end = $r['end'];
+			$length = $r['length'];
+			$name = $r['name'];
+			$theDate = $r['theDate'];
+			echo "<div class=\"row\">";
+			echo "<div class=\"small-2 columns\">$DOW</div><div class=\"small-2 columns\">$theDate</div><div class=\"small-4 columns\">$name</div><div class=\"small-2 columns\">$start</div>";
+			echo "</div></div>";
+
+}
+echo "</div>";
+}
+
 $id = $_SESSION['sessionID'];
 //echo "<table border=0 class=\"displayListingTable2\">";
 //echo "<tr class=\"displayListing2\"><td>event name</td><td>date</td><td></td><td>start</td><td>end</td><td>current</td><td>limit</td><td>hours</td><td></td></tr>";
@@ -279,35 +310,6 @@ $resultO = $db->query($sql);
 	}
 //echo "</table>";
 echo "</ul></div>";
-$sql = "SELECT d.event_id, d.DOW, d.start, d.end, d.length, e.name, o.theDate
-FROM service_details AS d
-JOIN service_events AS e
-ON d.event_id = e.P_Id
-JOIN service_attendance AS a
-ON a.detail_id = d.detail_id
-JOIN service_occurrence AS o
-ON o.detail_id = d.detail_id
-WHERE a.processed = 0 AND a.occurrence_id = o.occurrence_id AND a.user_id = $id AND NOW() > o.theDate
-ORDER BY a.occurrence_id ASC";
-$result = $db->query($sql);
-
-if(mysqli_num_rows($result)!=0){
-echo "<hr /><h2>Pending Events</h2>";
-echo "<table border=0 class=\"displayListingTable\">";
-echo "<tr class=\"displayListing\"><td>date</td><td></td><td>name</td><td>hours</td></tr>";
-while($r = mysqli_fetch_array($result)){
-			$event_id = $r['event_id'];
-			$DOW = $r['DOW'];
-			$start = $r['start'];
-			$end = $r['end'];
-			$length = $r['length'];
-			$name = $r['name'];
-			$theDate = $r['theDate'];
-			echo "<tr><td>$DOW</td><td>$theDate</td><td>$name</td><td>$length</td></tr>";
-
-}
-echo "</table>";
-}
 }
 
 echo <<<END
