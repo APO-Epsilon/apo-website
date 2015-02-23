@@ -33,7 +33,7 @@ require_once ('session.php');
 SQL;
 	$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
 	while ($t = mysqli_fetch_array($querym)){
-	    echo "<p>$t['firstname'] $t['lastname']</p>";
+	    echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
 	}
 	?>
             <hr>
