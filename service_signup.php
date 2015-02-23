@@ -91,7 +91,7 @@ $result = $db->query($sql);
 
 if(mysqli_num_rows($result)!=0){
 echo "<div class=\"row\">";
-echo "<div class=\"small-12 columns\"";
+echo "<div class=\"small-12 columns\">";
 echo "<h2>Currently Attending:</h2>";
 echo "</div></div>"
 while($r = mysqli_fetch_array($result)){
