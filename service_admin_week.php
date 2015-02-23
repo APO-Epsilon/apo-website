@@ -24,7 +24,6 @@ $position = $_SESSION['sessionposition'];
 if($position != "Webmaster" && $position != "VP of Regular Service"){
 	die("you do not have permission to view this page.");
 }
-echo "<h2>Disabled</h2>";
 
 if(isset($_POST['Navigate']) && ($_POST['Navigate'] == 'submitEdit')){
 	$start = $_POST['start'];
