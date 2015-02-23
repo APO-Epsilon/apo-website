@@ -19,7 +19,7 @@ require_once('mysql_access.php');
                 </p>
 			<?php
 			include('mysql_access.php');
-			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem=Fall AND pledgeyear=2011 ORDER BY lastname ASC, firstname ASC";	
+			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Fall' AND pledgeyear='2011' ORDER BY lastname ASC, firstname ASC";	
 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
 			while ($t = mysqli_fetch_array($querym)){
 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
