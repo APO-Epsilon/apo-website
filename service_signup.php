@@ -125,6 +125,16 @@ $id = $_SESSION['sessionID'];
 </div>
 END;
 */
+echo <<<END
+	<div class="row">
+		<div class="small-12 columns">
+			<h1>Service Signup</h1>
+		</div>
+	</div>
+	<div class="row">
+		<ul class="large-block-grid-2 small-block-grid-1">
+END;
+
 $sql = "SELECT d.detail_id, d.event_id, d.DOW,
 		o.start, o.end, o.length, o.max, e.P_Id,
 		e.name, l.user_id, o.theDate, o.occurrence_id,
@@ -311,16 +321,6 @@ $resultO = $db->query($sql);
 //echo "</table>";
 echo "</ul></div>";
 }
-
-echo <<<END
-	<div class="row">
-		<div class="small-12 columns">
-			<h1>Service Signup</h1>
-		</div>
-	</div>
-	<div class="row">
-		<ul class="large-block-grid-2 small-block-grid-1">
-END;
 
 if(isset($_GET['d'])){
 	register($_GET['d'],$_GET['o']);
