@@ -29,8 +29,7 @@ var snowcolor=new Array("#aaaacc","#ddddFF","#ccccDD"," #7A007A", "#0066FF", "#0
 var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
 
 // Set the letter that creates your snowflake (recommended:*)
-var snowletter="8===D"
-var snowletter="Austin is BAE"
+var snowletter="8===D~"
 
 // Set the speed of sinking (recommended values range from 0.3 to 2)
 var sinkspeed=0.6
