@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+ini_set('display_errors', 'Off');
 // Yeah, these are kind of important.  A lot of random pages use them.
 // So don't mess with them.  Make sure as you update the semesters you keep them
 // the same,  that is don't switch previous_semester to "Fall10" if it was "Fall 2010"
