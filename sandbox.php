@@ -16,6 +16,7 @@ require_once ('session.php');
     <div class="row">
         <p><b>
         Happy Chinese New Year!  Nick Eaton eats shit. He also eats cats. Top Kek.
+        It's rainin' men.  Hallelujah, it's rainin' men.  Amen.
         </p></br>
 <script>
 // Set the number of snowflakes (more than 30 - 40 not recommended)
