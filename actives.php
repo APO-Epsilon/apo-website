@@ -38,13 +38,12 @@ require_once('mysql_access.php');
 25 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>"; 
 26 			} 
 27 			?> 
-
             <hr>
             <h1> Fall 2012 </h1>
                 <p> <br>
                 <a href="#"></a>
                 </p>
-                <?php 
+                        <?php 
 21 			include('mysql_access.php'); 
 22 			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Fall' AND pledgeyear='2012' ORDER BY lastname ASC, firstname ASC";	 
 23 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster."); 
@@ -52,13 +51,12 @@ require_once('mysql_access.php');
 25 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>"; 
 26 			} 
 27 			?> 
-
             <hr>
             <h1> Spring 2013 </h1>
                 <p>  <br>
                 <a href="#"></a>
                 </p>
-                <?php 
+                        <?php 
 21 			include('mysql_access.php'); 
 22 			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Spring' AND pledgeyear='2013' ORDER BY lastname ASC, firstname ASC";	 
 23 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster."); 
@@ -66,13 +64,12 @@ require_once('mysql_access.php');
 25 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>"; 
 26 			} 
 27 			?> 
-
             <hr>
             <h1> Fall 2013 </h1>
                 <p> <br>
                 <a href="#"></a>
                 </p>
-                <?php 
+                        <?php 
 21 			include('mysql_access.php'); 
 22 			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Fall' AND pledgeyear='2013' ORDER BY lastname ASC, firstname ASC";	 
 23 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster."); 
@@ -80,13 +77,12 @@ require_once('mysql_access.php');
 25 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>"; 
 26 			} 
 27 			?> 
-
             <hr>
             <h1> Spring 2014 </h1>
                 <p> <br>
                 <a href="#"></a>
                 </p>
-                <?php 
+                        <?php 
 21 			include('mysql_access.php'); 
 22 			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Spring' AND pledgeyear='2014' ORDER BY lastname ASC, firstname ASC";	 
 23 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster."); 
@@ -94,13 +90,12 @@ require_once('mysql_access.php');
 25 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>"; 
 26 			} 
 27 			?> 
-
             <hr>
             <h1> Fall 2014 </h1>
                 <p>  <br>
                 <a href="#"></a>
                 </p>
-                <?php 
+                        <?php 
 21 			include('mysql_access.php'); 
 22 			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Fall' AND pledgeyear='2014' ORDER BY lastname ASC, firstname ASC";	 
 23 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster."); 
@@ -108,13 +103,12 @@ require_once('mysql_access.php');
 25 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>"; 
 26 			} 
 27 			?> 
-
             <hr>
             <h1> Spring 2015 </h1>
                 <p>  <br>
                 <a href="#"></a>
                 </p>
-                <?php 
+                       <?php 
 21 			include('mysql_access.php'); 
 22 			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Spring' AND pledgeyear='2015' ORDER BY lastname ASC, firstname ASC";	 
 23 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster."); 
@@ -122,8 +116,6 @@ require_once('mysql_access.php');
 25 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>"; 
 26 			} 
 27 			?> 
-
-           
         </div>
 </body>
 </html>
