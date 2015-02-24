@@ -24,7 +24,7 @@ require_once('mysql_access.php');
 			while ($t = mysqli_fetch_array($querym)){
 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
 			}
-			?>
+		?>
             <hr>
             <h1> Spring 2012 </h1>
                 <p>  <br>
@@ -36,7 +36,7 @@ require_once('mysql_access.php');
  			while ($t = mysqli_fetch_array($querym)){
  				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
  			}
- 			?>
+		?>
             <hr>
             <h1> Fall 2012 </h1>
                 <p> <br>
@@ -49,7 +49,7 @@ require_once('mysql_access.php');
  			while ($t = mysqli_fetch_array($querym)){
  				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
  			}
- 			?>
+		?>
             <hr>
             <h1> Spring 2013 </h1>
                 <p>  <br>
@@ -62,7 +62,7 @@ require_once('mysql_access.php');
  			while ($t = mysqli_fetch_array($querym)){
  				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
  			}
- 			?>
+		?>
             <hr>
             <h1> Fall 2013 </h1>
                 <p> <br>
@@ -75,20 +75,20 @@ require_once('mysql_access.php');
  			while ($t = mysqli_fetch_array($querym)){
  				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
  			}
- 			?>
+		?>
             <hr>
             <h1> Spring 2014 </h1>
                 <p> <br>
                 <a href="#"></a>
                 </p>
-            <?php
+        <?php
  			include('mysql_access.php');
  			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Spring' AND pledgeyear='2014' ORDER BY lastname ASC, firstname ASC";
  			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
  			while ($t = mysqli_fetch_array($querym)){
  				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
  			}
- 			?>
+		?>
             <hr>
             <h1> Fall 2014 </h1>
                 <p>  <br>
@@ -101,20 +101,20 @@ require_once('mysql_access.php');
  			while ($t = mysqli_fetch_array($querym)){
  				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
  			}
- 			?>
+		?>
             <hr>
             <h1> Spring 2015 </h1>
                 <p>  <br>
                 <a href="#"></a>
                 </p>
-           <?php
+       <?php
  			include('mysql_access.php');
  			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Spring' AND pledgeyear='2015' ORDER BY lastname ASC, firstname ASC";
  			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
  			while ($t = mysqli_fetch_array($querym)){
  				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
  			}
- 			?>
+		?>
         </div>
 </body>
 </html>
