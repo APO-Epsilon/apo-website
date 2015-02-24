@@ -35,7 +35,7 @@ var snowletter="8===D"
 var sinkspeed=0.6
 
 // Set the maximal-size of your snowflaxes
-var snowmaxsize=22
+var snowmaxsize=36
 
 // Set the minimal-size of your snowflaxes
 var snowminsize=8
