@@ -161,7 +161,7 @@ function list_hours($hours_id) {
 		if ($i['fundraising'] == 1) {
 			$fund = "<img src='img/fundraising_coin.jpg' style='vertical-align: middle;' title='Fundraising!' alt='Fundraising!'/>";
 		}
-		echo "<tr $hours_line><td width='20%'>$i[event]</td>
+		echo "<tr><td width='20%'>$i[event]</td>
 		<td width='15%'> $i[month] / $i[day] / $i[year] </td>
 		<td width='10%'> $i[servicetype] </td>
 		<td style='text-align: center;'> $i[hours] $fund</td>
