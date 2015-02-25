@@ -1,6 +1,6 @@
 <?php
 function refresh(){
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=service_admin.php\">");
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=/service_admin.php\">");
 }
 
 function newEvent(){
@@ -91,36 +91,17 @@ function displayProjectList(){
 					$start = $r['start'];
 					$end = $r['end'];
 					$length = $r['length'];
-					$max = $result['max'];
-					$name = $r['name'];
-						
-					$projectLeaderArray[] = array($DOW,$name,$firstname,$lastname,$start,$end,$detail_id,$user_id);	
-				}		
-						
-				$PLASize = count($projectLeaderArray);
-				
-					for($a=0; $a<=6;$a++){
-					for($v=0;$v<=$PLASize;$v++){
-						$d = $a+6;
-						$theDOW = date('l', mktime(0,0,0,1,$d,2013));
-					
-						$DOW = $projectLeaderArray[$v][0];
-						$name = $projectLeaderArray[$v][1];
-						$firstname = $projectLeaderArray[$v][2];
-						$lastname = $projectLeaderArray[$v][3];
-						$start = $projectLeaderArray[$v][4];
-						$end = $projectLeaderArray[$v][5];
-						$detail_id = $projectLeaderArray[$v][6];
-						$user_id = $projectLeaderArray[$v][7];
-							
-						if($theDOW==$DOW){
-							echo ("<tr class=\"rowm1\"><td>$DOW</td><td>$name</td><td>$firstname $lastname</td><td>$start</td><td>$end</td><td><a href=\"old-layout/service_admin.php?remove=1&d=".$detail_id."&u=".$user_id."\">X</a></td></tr>");
-						}
+					$max = $r['max'];
+					$name = $r['name'];	
+
+					//$theDOW = date('l', mktime(0,0,0,1,6,2013));							
+					//if($theDOW==$DOW){
+						echo ("<tr class=\"rowm1\"><td>$DOW</td><td>$name</td><td>$firstname $lastname</td><td>$start</td><td>$end</td><td><a href=\"/old-layout/service_admin.php?remove=1&d=".$detail_id."&u=".$user_id."\">X</a></td></tr>");
+					//}
 				}	
 		}
 		echo "</table>";
 	}
-}
 
 
 function removePL($detail_id, $user_id){

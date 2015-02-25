@@ -1,18 +1,32 @@
 <?php
-
-require_once ('layout.php');
+require_once ('session.php');
 require_once ('mysql_access.php');
 require_once ('service_admin_forms.php');
 require_once ('service_admin_functions.php');
-page_header();
+?>
+<!doctype html>
+<html>
+<head>
+	<?php require 'head.php';?>
+</head>
+
+<body class="slide" data-type="background" data-speed="5">
+	<nav id="nav" role="navigation"></nav>
+	<div id="header"></div>
+
+<?php
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
-echo "<div class=\"content\">";
+?>
+<div class="content">
+<div class="row">
+	<div class="small-12 columns">
+<?php
 if($position != "Webmaster" && $position != "VP of Regular Service"){
 	die("you do not have permission to view this page.");
 }
 echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
-echo "<h4><a href=\"old-layout/service_admin_week.php\">back to dashboard</a></h4>";
+echo "<h4><a href=\"service_admin_week.php\">back to dashboard</a></h4>";
 
 //if a form has been submitted, do the associated action
 if(isset($_POST['submit'])){
@@ -52,14 +66,16 @@ if(isset($_POST['submit'])){
 		newEventForm();
 		editEventForm2();
 		eventDetailsForm();
-		removeEventForm();
+		removeEventForm();	
 		editEventForm();
 		assignPLForm();
 		/** Display **/
 		displayProjectList();
 	
 }
-?> </div>
-<?php 
-page_footer();
 ?>
+	</div>
+</div>
+<div id="footer"><?php include('footer.php');?></div>
+</body>
+</html>

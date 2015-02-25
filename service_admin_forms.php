@@ -12,7 +12,7 @@ echo<<<FORM
 FORM;
 }
 function removeEventForm(){
-	
+	include('mysql_access.php');
 	echo "<h2>Remove an Event</h2>";
 	echo "<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">";
 	echo "<select name=\"event\">";
@@ -22,8 +22,8 @@ function removeEventForm(){
 			JOIN service_details AS d
 			ON e.P_Id = d.event_id
 			ORDER BY id";
-	$query = mysql_query($sql) or die("error".mysql_error());
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("error".mysqli_error());
+	while ($r = mysqli_fetch_array($query)) {
 		echo "<option value='$r[detail_id]'>{$r[name]}: {$r[DOW]} {$r[start]}-{$r[end]}</option>";
 	}
 	echo "</select>";
@@ -35,7 +35,7 @@ FORM;
 
 }
 function editEventForm(){
-	
+	include('mysql_access.php');
 	echo "<h2>Edit an Event</h2>";
 	echo "<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">";
 	echo "<select name=\"event\">";
@@ -45,8 +45,8 @@ function editEventForm(){
 			JOIN service_details AS d
 			ON e.P_Id = d.event_id
 			ORDER BY id";
-	$query = mysql_query($sql) or die("error".mysql_error());
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("error".mysqli_error());
+	while ($r = mysqli_fetch_array($query)) {
 		echo "<option value='$r[detail_id]'>{$r[name]}: {$r[DOW]} {$r[start]}-{$r[end]}</option>";
 	}
 	echo "</select>";
@@ -58,6 +58,7 @@ FORM;
 
 }
 function eventDetailsForm(){
+	include('mysql_access.php');
 	echo "<h2>Add Event Details</h2>";
 	
 echo<<<FORM
@@ -66,8 +67,8 @@ echo<<<FORM
 	<tr><td width="40%">Select project name: </td><td><select name="event_id">
 FORM;
 	$sql = "SELECT `P_Id`, `name` FROM `service_events` ORDER BY `P_Id`";
-	$query = mysql_query($sql) or die("Error: line 29");
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("Error: line 29");
+	while ($r = mysqli_fetch_array($query)) {
 		echo "<option value='$r[P_Id]'>$r[name]</option>";
 	}
 	echo "</select><br/></td></tr>";
@@ -96,14 +97,15 @@ FORM;
 }
 
 function assignPLForm(){
+	include('mysql_access.php');
 	echo "<h2>Assign Project Leader (Limit 1)</h2>";
 	echo <<<FORM
 	<form method="post" action="$_SERVER[PHP_SELF]">
 		<select name='user_id'>
 FORM;
 	$sql = "SELECT `id`, `firstname`, `lastname` FROM `contact_information` ORDER BY `lastname`";
-	$query = mysql_query($sql) or die("Error: line 24");
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("Error: line 24");
+	while ($r = mysqli_fetch_array($query)) {
 		echo "<option value='$r[id]'>$r[lastname], $r[firstname]</option>";
 	}
 	echo "</select>";
@@ -114,8 +116,8 @@ FORM;
 			JOIN service_details AS d
 			ON e.P_Id = d.event_id
 			ORDER BY id";
-	$query = mysql_query($sql) or die("error".mysql_error());
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("error".mysqli_error());
+	while ($r = mysqli_fetch_array($query)) {
 		echo "<option value='$r[detail_id]'>{$r[name]}: {$r[DOW]} {$r[start]}-{$r[end]}</option>";
 	}
 	echo "</select>";
@@ -127,12 +129,12 @@ FORM;
 
 }
 function editEventForm2(){
-	
+	include('mysql_access.php');
 	echo "<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">";
 	echo "<select name=\"event\">";
 	$sql = "SELECT * FROM service_events ORDER BY name";
-	$query = mysql_query($sql) or die("error".mysql_error());
-	while ($r = mysql_fetch_array($query)) {
+	$query = $db->query($sql) or die("error".mysqli_error());
+	while ($r = mysqli_fetch_array($query)) {
 		echo "<option value='$r[P_Id]'>{$r[name]}</option>";
 	}
 	echo "</select>";
