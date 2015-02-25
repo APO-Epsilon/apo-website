@@ -23,7 +23,7 @@ if (!isset($_SESSION['sessionID'])) {
 }else{
 
 function refresh($occurrence){
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/service_signup.php#$occurrence\">");
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=service_signup.php#$occurrence\">");
 }
 
 
@@ -188,11 +188,11 @@ $resultO = $db->query($sql);
 			if(($count < $max)||($num_rows == 1)||($max==-1)){
 				if($num_rows == 0){
 					$m = 1;
-					$message = "<a href=\"http://apoepsilon.org/service_signup.php?d=$detail_id&o=$occurrence_id\" class=\"button expand success\">Sign up</a>";
+					$message = "<a href=\"service_signup.php?d=$detail_id&o=$occurrence_id\" class=\"button expand success\">Sign up</a>";
 					//$message = "";
 				}else{
 					$m = 2;
-					$message = "<a href=\"http://apoepsilon.org/service_signup.php?r=$detail_id&o=$occurrence_id\" class=\"button expand\">Remove</a>";	
+					$message = "<a href=\"service_signup.php?r=$detail_id&o=$occurrence_id\" class=\"button expand\">Remove</a>";	
 					//$message;
 				}
 			}else{

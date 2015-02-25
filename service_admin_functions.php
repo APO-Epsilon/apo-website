@@ -1,6 +1,6 @@
 <?php
 function refresh(){
-	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=http://apoepsilon.org/service_admin.php\">");
+	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=service_admin.php\">");
 }
 
 function newEvent(){
@@ -114,7 +114,7 @@ function displayProjectList(){
 						$user_id = $projectLeaderArray[$v][7];
 							
 						if($theDOW==$DOW){
-							echo ("<tr class=\"rowm1\"><td>$DOW</td><td>$name</td><td>$firstname $lastname</td><td>$start</td><td>$end</td><td><a href=\"http://apoepsilon.org/old-layout/service_admin.php?remove=1&d=".$detail_id."&u=".$user_id."\">X</a></td></tr>");
+							echo ("<tr class=\"rowm1\"><td>$DOW</td><td>$name</td><td>$firstname $lastname</td><td>$start</td><td>$end</td><td><a href=\"old-layout/service_admin.php?remove=1&d=".$detail_id."&u=".$user_id."\">X</a></td></tr>");
 						}
 				}	
 		}
