@@ -104,7 +104,7 @@ while($r = mysqli_fetch_array($result)){
 			$name = $r['name'];
 			$theDate = $r['theDate'];
 			echo "<div class=\"row\">";
-			echo "<div class=\"small-2 columns\">$DOW</div><div class=\"small-2 columns\">$theDate</div><div class=\"small-4 columns\">$name</div><div class=\"small-2 columns end\">$start</div>";
+			echo "<div class=\"small-2 columns\">$DOW</div><div class=\"small-2 columns\">$theDate</div><div class=\"small-2 columns\">$start</div><div class=\"small-4 columns end\">$name</div>";
 			echo "</div>";
 
 }
