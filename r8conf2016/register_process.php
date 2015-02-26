@@ -1,7 +1,7 @@
 <?php
 require_once ('session.php');
-require_once ('mysql_access.php');
-require_once ("PasswordHash.php");
+require_once ('../mysql_access.php');
+require_once ('../PasswordHash.php');
 ?>
 <!doctype html>
 <html>
@@ -50,7 +50,7 @@ $result = $db->query($insert);
 if (!$result) {
     die('There has an been error with your registration. This may be because the email address you supplied is already in use, or there may be other technical problems. If the error persists, please contact the webmaster at <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com.</a>' . mysqli_error());
 }
-require("./phpmailer/class.phpmailer.php");
+require("../phpmailer/class.phpmailer.php");
 $mail = new PHPMailer();
 $mail->IsSMTP();                                      // set mailer to use SMTP
 //$mail->SMTPDebug = 1;  //Only use if you need to debug

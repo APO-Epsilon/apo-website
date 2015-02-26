@@ -1,6 +1,6 @@
 <?php
 require_once ('session.php');
-require_once ('PasswordHash.php');
+require_once ('../PasswordHash.php');
 ?>
 <!doctype html>
 <html>
