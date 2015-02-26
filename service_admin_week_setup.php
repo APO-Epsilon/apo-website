@@ -118,7 +118,6 @@ function processNewWeek(){
 			$detail_ids[$i] = $row['detail_id'];
 		}
 		//print_r($detail_ids);//creates an array with all of the detail_ids
-	*
 	
 	for($i = 0; $i < count($detail_ids); $i++){
 		if(in_array($detail_ids[$i], $exclude)){
