@@ -22,6 +22,15 @@ require_once('mysql_access.php');
 			$selectm = "SELECT firstname, lastname, major, minor, status, position, pledgesem, pledgeyear FROM contact_information WHERE pledgesem='Fall' AND pledgeyear='2011' ORDER BY lastname ASC, firstname ASC";
 			$querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
 			while ($t = mysqli_fetch_array($querym)){
+				echo "<li><div class=\"small-12 columns\"><h1>$current_position</h1><p>";
+		while($name_query = mysqli_fetch_array($result2)){
+			$firstname = $name_query['firstname'];
+			$lastname = $name_query['lastname'];
+			echo $firstname . " " . $lastname . "<br>";
+		$position_email = $position_query['position_email'];
+		echo ("<a href=\"mailto:" . $position_email . "\">" . $position_email . "</a>");
+		echo "</p><hr></div></li>";
+	}
 				echo "<p>" . $t['firstname'] . " " . $t['lastname'] . "</p>";
 			}
 		?>
