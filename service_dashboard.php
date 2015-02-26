@@ -275,7 +275,7 @@ while($r = mysqli_fetch_array($result)){
 echo "</table>";
 }
 }
-echo "<div class=\"row\"><div class=\"small-12 columns\">"
+echo "<div class=\"row\"><div class=\"small-12 columns\">";
 echo "<h1>Service Sign-Ups</h1>";
 echo "<h2>Online sign-ups have been disabled.</h2>";
 if(isset($_GET['d'])){
