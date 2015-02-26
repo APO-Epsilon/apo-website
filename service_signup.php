@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once ('session.php');
 require_once ('mysql_access.php');
 ?>
@@ -13,14 +13,11 @@ require_once ('mysql_access.php');
     <div id="header"></div>
 
 <?php
-$id = $_SESSION['sessionID'];
-$position = $_SESSION['sessionposition'];
-if($position != "Webmaster" && $position != "VP of Regular Service"){
-	//echo("this page is under construction. Please notify the webmaster of any issues");
-}
 if (!isset($_SESSION['sessionID'])) {
-	echo "<p>You need to login before you can see this page.</p>"; 
+	echo "<div class=\"row\"><div class=\"small-12 columns\"><p>You need to login before you can see this page.</p></div></div>"; 
 }else{
+
+$id = $_SESSION['sessionID'];
 
 function refresh($occurrence){
 	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=service_signup.php#$occurrence\">");
@@ -157,7 +154,7 @@ $resultO = $db->query($sql);
 	}else{
 		$v = 1;
 		while($r = mysqli_fetch_array($resultO)){
-			$user_id = $r['id'];
+			//$user_id = $r['id'];
 			$detail_id = $r['detail_id'];
 			$event_id = $r['event_id'];
 			$firstname = $r['firstname'];
@@ -262,7 +259,7 @@ $resultO = $db->query($sql);
 			echo "<li>";
 			echo "<div class=\"small-12 columns\">";
 			echo "<div class=\"row\"><div class=\"small-12 columns\"><h2 id=\"$occurrence_id\">$name</h2></div></div>";
-			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b><br>$DOW<br>$theDate</div><div class=\"small-2 columns\"><b>Start</b><br>$start</div><div class=\"small-2 columns\"><b>End</b><br>$end</div><div class=\"small-2 columns text-center\"><b>Hours</b><br>$length $v $ma</div><div class=\"small-2 columns text-center\"><b>Spots</b><br>$max</div></div>";
+			echo "<div class=\"row\"><div class=\"small-4 columns\"><b>Date</b><br>$DOW<br>$theDate</div><div class=\"small-2 columns\"><b>Start</b><br>$start</div><div class=\"small-2 columns\"><b>End</b><br>$end</div><div class=\"small-2 columns text-center\"><b>Hours</b><br>$length $v</div><div class=\"small-2 columns text-center\"><b>Spots</b><br>$max</div></div>";
 			echo "<div class=\"row\"><div class=\"small-8 columns\">Project Leader: ";
 			$sqlPLData = "SELECT d.detail_id, l.*, c.firstname, c.lastname, c.phone FROM service_details AS d JOIN service_leaders AS l ON l.detail_id = d.detail_id JOIN contact_information AS c ON c.id = l.user_id WHERE d.detail_id = $detail_id ORDER BY c.firstname, c.lastname";
 			$resultPLData = $db->query($sqlPLData);
