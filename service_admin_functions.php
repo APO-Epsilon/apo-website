@@ -48,6 +48,7 @@ function eventDetails(){
 }
 
 function assignPL(){
+	include('mysql_access.php');
 	//the new PL's id #
 	$id = $_POST['user_id'];
 	//the event id #
