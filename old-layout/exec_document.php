@@ -3,7 +3,7 @@ if(isset($_GET['id']) && isset($_GET['folder']))
 {
 // if id is set then get the file with the id from database
 
-$db = mysql_connect("mysql.truman.edu", "apo", "glueallE17");
+/*$db = mysql_connect("mysql.truman.edu", "apo", "glueallE17");
 if (!$db) {
     print "Error - Could not connect to mysql";
     exit;
@@ -13,7 +13,9 @@ $er = mysql_select_db("apo");
 if (!$er) {
 	print "Error - Could not select database";
 	exit;
-}
+}*/
+
+include('mysql_access.php');
 
 $id    = $_GET['id'];
 $folder = $_GET['folder'];
