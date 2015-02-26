@@ -12,6 +12,7 @@ require_once ('mysql_access.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
+    <ul class="large-block-grid-2 small-block-grid-1">
 <?php
 include('mysql_access.php');
 $sql = "SELECT position, position_email FROM positions WHERE position_order <> 0 ORDER BY position_order ASC;";
@@ -23,7 +24,7 @@ while($position_query = mysqli_fetch_array($result)){
 	if(mysqli_num_rows($result2) == 0){
 		;
 	}else{
-		echo "<div class=\"large-6 small-12 columns\"><h1>$current_position</h1><p>";
+		echo "<li><h1>$current_position</h1><p>";
 		while($name_query = mysqli_fetch_array($result2)){
 			$firstname = $name_query['firstname'];
 			$lastname = $name_query['lastname'];
@@ -31,10 +32,11 @@ while($position_query = mysqli_fetch_array($result)){
 		}
 		$position_email = $position_query['position_email'];
 		echo ("<a href=\"mailto:" . $position_email . "\">" . $position_email . "</a>");
-		echo "</p><hr></div>";
+		echo "</p><hr></li>";
 	}
 }
 ?>
+</ul>
 </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
