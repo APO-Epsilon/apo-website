@@ -1,5 +1,5 @@
 <?php
-/*
+
 	$dateMap1 = array(0,6,5,4,3,2,1);
 	$currentDOW1 = date('w');//returns integer of DOW
 	$z1 = $dateMap1[$currentDOW1];//go through map
@@ -10,6 +10,7 @@
 	$weekAgoStart = (date('Y-m-d', mktime(0,0,0,date("m"),date("d")+$z1-7,date("Y"))));
 
 function initializeNewWeekForm(){
+	include('mysql_access.php');
 	$dateMap1 = array(0,6,5,4,3,2,1);
 	$currentDOW1 = date('w');//returns integer of DOW
 	$z1 = $dateMap1[$currentDOW1];//go through map
@@ -24,8 +25,8 @@ function initializeNewWeekForm(){
 	$sql = "SELECT DATE(o.theDate) AS date
 			FROM service_occurrence AS o
 			WHERE active = 1 OR active = 2";
-	$result = mysql_query($sql);
-	while($r = mysql_fetch_array($result)){
+	$result = $db->query($sql);
+	while($r = mysqli_fetch_array($result)){
 		$date = $r['date'];
 		if($date >= $date1){
 			$num_rows = 1;
@@ -52,11 +53,11 @@ FORM;
 				JOIN service_events AS e
 				ON d.event_id = e.P_Id
 				ORDER BY d.detail_id";
-		$result = mysql_query($sql);
+		$result = $db->query($sql);
 		if(!$result){
 			die("error");
 		}else{
-			while($r = mysql_fetch_array($result)){
+			while($r = mysqli_fetch_array($result)){
 				$user_id = $r['id'];
 				$detail_id = $r['detail_id'];
 				$firstname = $r['firstname'];
@@ -97,6 +98,7 @@ FORM;
 }
 
 function processNewWeek(){
+	include('mysql_access.php');
 	$date = $_POST['date'];
 	$detail_ids = $_POST['detail_ids'];
 	$exclude = $_POST['exclude'];
@@ -106,13 +108,13 @@ function processNewWeek(){
 	$length = $_POST['length'];
 	$max = $_POST['max'];
 	$active = 3;
-	/*
+
 	$sql = "SELECT * FROM service_details";
-	$result = mysql_query($sql);
-	$num_rows = mysql_num_rows($result);
+	$result = $db->query($sql);
+	$num_rows = mysqli_num_rows($result);
 		for ($i = 0; $i<$num_rows; $i++){
 			$detail_ids;
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$detail_ids[$i] = $row['detail_id'];
 		}
 		//print_r($detail_ids);//creates an array with all of the detail_ids
@@ -126,7 +128,7 @@ function processNewWeek(){
 		}
 		$sql = "INSERT INTO service_occurrence (detail_id, theDate, active, start, end, length, max)
 				VALUES (".$detail_ids[$i].",'".$date[$i]."',".$active.",'".$start[$i]."','".$end[$i]."',".$length[$i].",".$max[$i].")";
-		$result = mysql_query($sql);
+		$result = $db->query($sql);
 		if(!$result){
 			//2 = disabled
 			//0 = in the past
@@ -134,7 +136,7 @@ function processNewWeek(){
 			//3 = future
 			//4 = future disabled
 			$sql = "UPDATE service_occurrence SET active = $active WHERE (active = 1 OR active = 2 OR active = 3) AND detail_id = ".$detail_ids[$i]." AND active != 0";
-			$result = mysql_query($sql);
+			$result = $db->query($sql);
 			if($result){
 				refresh();
 			}
@@ -143,12 +145,27 @@ function processNewWeek(){
 		}
 	}
 }
-
-require_once ('layout.php');
+require_once ('session.php');
 require_once ('mysql_access.php');
 require_once ('service_admin_functions.php');
+?>
+<!doctype html>
+<html>
+<head>
+	<?php require 'head.php';?>
+</head>
 
-page_header();
+<body class="slide" data-type="background" data-speed="5">
+    <!-- Javascript method to include navigation -->
+    <nav id="nav" role="navigation"><?php include 'nav.php';?></nav>
+    <!-- PHP method to include navigation -->
+
+    <!-- Javascript method to include header -->
+    <div id="header"><?php include 'header.php';?></div>
+    <!-- PHP method to include header -->
+<div class="row">
+	<div class="small-12 columns">
+<?php
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
 ?> <div class="content">
@@ -161,10 +178,12 @@ if(isset($_POST['newWeekFormSubmit'])){
 	processNewWeek();
 }else{
 echo "<h2>Set-Up a new week ({$date1} to {$date2})</h2>";
-echo "<a href=\"http://apo.truman.edu/service_admin_week.php\">back to dashboard</a><br/>";
+echo "<a href=\"service_admin_week.php\">back to dashboard</a><br/>";
 initializeNewWeekForm();
 }
-?> </div>
-<?php 
-page_footer();
-?>
+?> 
+	</div>
+</div>
+<div id="footer"><?php include 'footer.php';?></div>
+</body>
+</html>
