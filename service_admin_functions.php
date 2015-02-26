@@ -97,7 +97,7 @@ function displayProjectList(){
 
 					//$theDOW = date('l', mktime(0,0,0,1,6,2013));							
 					//if($theDOW==$DOW){
-						echo ("<tr class=\"rowm1\"><td>$DOW</td><td>$name</td><td>$firstname $lastname</td><td>$start</td><td>$end</td><td><a href=\"/old-layout/service_admin.php?remove=1&d=".$detail_id."&u=".$user_id."\">X</a></td></tr>");
+						echo ("<tr class=\"rowm1\"><td>$DOW</td><td>$name</td><td>$firstname $lastname</td><td>$start</td><td>$end</td><td><a href=\"service_admin.php?remove=1&d=".$detail_id."&u=".$user_id."\">X</a></td></tr>");
 					//}
 				}	
 		}
