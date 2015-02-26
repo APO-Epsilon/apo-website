@@ -24,7 +24,7 @@ while($position_query = mysqli_fetch_array($result)){
 	if(mysqli_num_rows($result2) == 0){
 		;
 	}else{
-		echo "<li><h1>$current_position</h1><p>";
+		echo "<li><div class=\"small-12 columns\"><h1>$current_position</h1><p>";
 		while($name_query = mysqli_fetch_array($result2)){
 			$firstname = $name_query['firstname'];
 			$lastname = $name_query['lastname'];
@@ -32,7 +32,7 @@ while($position_query = mysqli_fetch_array($result)){
 		}
 		$position_email = $position_query['position_email'];
 		echo ("<a href=\"mailto:" . $position_email . "\">" . $position_email . "</a>");
-		echo "</p><hr></li>";
+		echo "</p><hr></div></li>";
 	}
 }
 ?>
