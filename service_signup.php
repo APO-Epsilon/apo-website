@@ -19,6 +19,27 @@ if (!isset($_SESSION['sessionID'])) {
 
 $id = $_SESSION['sessionID'];
 
+$sql = "UPDATE service_occurrence SET active = 0 WHERE theDate < DATE(NOW())";
+$result = $db->query($sql);
+
+$datew = date('w');
+$dateG = date('G');
+if($datew == 6 && $dateG >= 13){//Friday
+	$sql = "UPDATE service_occurrence SET active = 1 WHERE active = 3";
+	$sql2 = "UPDATE service_occurrence SET active = 2 WHERE active = 4";
+	$result = $db->query($sql);
+	$result = $db->query($sql2);
+}
+
+$sql = "SELECT COUNT(*) AS count FROM service_attendance WHERE processed = 1";
+$result = $db->query($sql);
+while($r = mysqli_fetch_array($result)){
+	$count = $r['count'];
+}
+if($count > 0){
+	require_once('service_hours_logger.php');
+}
+
 function refresh($occurrence){
 	echo("<meta http-equiv=\"REFRESH\" content=\"0;url=service_signup.php#$occurrence\">");
 }
