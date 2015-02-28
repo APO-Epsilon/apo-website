@@ -15,21 +15,20 @@ require_once ('session.php');
     <div id="header"></div>
     <div class="row">
         <p><b>
-        Happy Chinese New Year!  Nick Eaton eats shit. He also eats cats. Top Kek.
-        It's rainin' men.  Hallelujah, it's rainin' men.  Amen.
+        He is sooooooooooooooooooooooooooooo cute :3
         </p></br>
 <script>
 // Set the number of snowflakes (more than 30 - 40 not recommended)
-var snowmax=35
+var snowmax=40
 
 // Set the colors for the snow. Add as many colors as you like
-var snowcolor=new Array("#ffcc99","#573719")
+var snowcolor=new Array("#FF0000")
 
 // Set the fonts, that create the snowflakes. Add as many fonts as you like
 var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
 
 // Set the letter that creates your snowflake (recommended:*)
-var snowletter="8===D~"
+var snowletter="<3"
 
 // Set the speed of sinking (recommended values range from 0.3 to 2)
 var sinkspeed=0.6
@@ -121,7 +120,7 @@ if (browserok) {
 	window.onload=initsnow
 }
 </script>
-        <img src= 'http://upload.wikimedia.org/wikipedia/commons/5/5a/Ke_Lok_Si_Illuminations_01.JPG'> </br>
+        <img src= 'https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t35.0-12/11028481_672848639491002_1334602732_o.jpg?oh=ebf1554a938f6c53ad7da4c9b792d819&oe=54F4DB1C&__gda__=1425339084_c56f7fdd8403730b83c895b1fe693f59'> </br>
     </div>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
