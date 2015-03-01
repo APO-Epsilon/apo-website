@@ -1,6 +1,7 @@
 <?php
 require_once ('session.php');
 require_once ('mysql_access.php');
+require_once ('get_photo.php');
 //Code based on example at https://vikasmahajan.wordpress.com/2010/07/07/inserting-and-displaying-images-in-mysql-using-php/
 ?>
 <!doctype html>
@@ -21,21 +22,29 @@ require_once ('mysql_access.php');
     <div class="row">
 
 <?php
-function uploadForm(){
-    $page = $_SERVER['PHP_SELF'];
-    echo <<<END
-    <div class="small-12 columns">
-        <h2>Upload your user photo.</h2>
-    </div>
-    <div class="small-12 columns">
-        <form enctype="multipart/form-data" action="$page" method="post">
-        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-        <input name="userfile" type="file" />
-        <input type="submit" value="Submit" />
-        </form>
-    </div>
-END;
+function cropPhoto(){
+    include('mysql_access.php');
+    $user_id = $_SESSION['sessionID'];
+    $photo = new Imagick();
+    $sql = "SELECT content FROM user_photos WHERE user_id=$user_id;";
+    $result = $db->query($sql);
+    $imageBlobArray = mysqli_fetch_array($result);
+    $imageBlob = $imageBlobArray['content'];
+    $photo->readImageBlob($imageBlob);
+    $photo->rotateImage(new ImagickPixel(), $_POST['angle']);
+    $width = $photo->getImageWidth();
+    $newWidth = round($width*$_POST['scale']);
+    $photo->scaleImage($newWidth, 0);
+    $photo->cropImage($_POST['w'], $_POST['h'], $_POST['x'], $_POST['y']);
+    $output = $photo->getImageBlob();
+    $output = $db->real_escape_string($output);
+    $sql = "SELECT user_id FROM user_photos WHERE user_id=$user_id;";
+    $result = $db->query($sql) or die("Error in query: " . mysqli_error());
+    $sql2 = "UPDATE user_photos SET content=\"{$output}\" WHERE user_id=$user_id;";
+    $db->query($sql2) or die("Error in query: " . mysqli_error($db));
+
 }
+
 function processForm(){
     include('mysql_access.php');
     $maxsize = $_POST['MAX_FILE_SIZE'];
@@ -105,7 +114,95 @@ function processForm(){
         echo "Sorry, the file could not be uploaded";
     }
     echo "</p></div>";
+}
 
+function showCrop(){
+    $photolink = getPhotoLink($_SESSION['sessionID']);
+    $page = $_SERVER['PHP_SELF'];
+    echo <<<END
+    <div class="medium-6 small-12 columns">
+        <h3>Current Photo</h3>
+        <link href='/js/guillotine/css/jquery.guillotine.css' media='all' rel='stylesheet'>
+    <div id='content'>
+    <div class='frame'>
+      <img id='sample_picture' src='$photolink'>
+    </div>
+
+    <div class="icon-bar five-up" id='controls'>
+      <a class="item" id='rotate_left' title='Rotate left'><i class="fa fa-undo"></i></a>
+      <a class="item" id='zoom_out' title='Zoom out'><i class="fa fa-search-minus"></i></a>
+      <a class="item" id='fit' title='Fit image'><i class="fa fa-arrows-alt"></i></a>
+      <a class="item" id='zoom_in' title='Zoom in'><i class="fa fa-search-plus"></i></a>
+      <a class="item" id='rotate_right' title='Rotate right'><i class="fa fa-repeat"></i></a>
+    </div>
+
+    <form id="guillotineValues" action="$page" method="POST">
+        <input type="hidden" id="x" name="x" />
+        <input type="hidden" id="y" name="y" />
+        <input type="hidden" id="w" name="w" />
+        <input type="hidden" id="h" name="h" />
+        <input type="hidden" id="scale" name="scale" />
+        <input type="hidden" id="angle" name="angle" />
+    </form>
+    <br>
+    <div class="row">
+        <div class="small-12 columns small-centered">
+            <button class="expand" onclick="submitGuillotine()">Save Cropping</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+  <script src='/js/vendor/jquery.js'></script>
+  <script src='/js/guillotine/js/jquery.guillotine.js'></script>
+  <script type='text/javascript'>
+    var picture;
+    jQuery(function() {
+      picture = $('#sample_picture');
+      picture.one('load', function(){
+        // Initialize plugin (with custom event)
+        picture.guillotine({height: 400, width: 300});
+
+        // Bind button actions
+        $('#rotate_left').click(function(){ picture.guillotine('rotateLeft'); });
+        $('#rotate_right').click(function(){ picture.guillotine('rotateRight'); });
+        $('#fit').click(function(){ picture.guillotine('fit'); });
+        $('#zoom_in').click(function(){ picture.guillotine('zoomIn'); });
+        $('#zoom_out').click(function(){ picture.guillotine('zoomOut'); });
+      }).each(function() {
+        if(this.complete) $(this).load();
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    function submitGuillotine(){
+        var data = picture.guillotine("getData");
+        document.getElementById("x").value = data["x"];
+        document.getElementById("y").value = data["y"];
+        document.getElementById("w").value = data["w"];
+        document.getElementById("h").value = data["h"];
+        document.getElementById("scale").value = data["scale"];
+        document.getElementById("angle").value = data["angle"];
+        document.getElementById("guillotineValues").submit();
+       }
+   </script>
+END;
+}
+
+function uploadForm(){
+    $page = $_SERVER['PHP_SELF'];
+    echo <<<END
+    <div class="small-12 columns">
+        <h2>Upload your user photo.</h2>
+    </div>
+    <div class="medium-6 small-12 columns end">
+        <form enctype="multipart/form-data" action="$page" method="post">
+            <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+            <input name="userfile" type="file" /> <br><br>
+            <input type="submit" class="button" value="Submit" />
+        </form>
+    </div>
+END;
 }
 
 if(!isset($_SESSION['sessionID'])){
@@ -113,8 +210,15 @@ if(!isset($_SESSION['sessionID'])){
 }else{
     if(isset($_FILES['userfile'])){
         processForm();
+    }elseif (isset($_POST['x'])) {
+        cropPhoto();
     }
     uploadForm();
+    $sql = "SELECT user_id FROM user_photos WHERE user_id={$_SESSION['sessionID']};";
+    $result = $db->query($sql) or die("Error in query: " . mysqli_error());
+    if(mysqli_num_rows($result) != 0){
+        showCrop();
+    }
 }
 ?>
 
