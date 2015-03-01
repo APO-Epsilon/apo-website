@@ -33,6 +33,7 @@
                     <li><a href="risk_management_quiz.php">Risk Management Quiz</a></li>
                     <li><a href="members_list.php">Members Info</a></li>
                     <li><a href="updateinfo.php">Update Info</a></li>
+                    <li><a href="upload_photo.php">Upload Photo</a></li>
             </ul>
         </li>
 		<li>
