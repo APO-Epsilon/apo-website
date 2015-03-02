@@ -15,11 +15,11 @@ require_once('get_photo.php');
     <div id="header"></div>
     <div class="row">
         <?php
-        	$sql = "SELECT DISTINCT pledgeyear FROM contact_information ORDER BY pledgeyear ASC;";
+        	$sql = "SELECT DISTINCT pledgeyear FROM contact_information WHERE pledgeyear<>\"\" ORDER BY pledgeyear ASC;";
         	$yearResult = $db->query($sql);
         	while($yearArray = mysqli_fetch_array($yearResult)){
         		$year = $yearArray['pledgeyear'];
-        		$sql = "SELECT DISTINCT pledgesem FROM contact_information WHERE pledgeyear=\"$year\" ORDER BY pledgesem DESC;";
+        		$sql = "SELECT DISTINCT pledgesem FROM contact_information WHERE pledgeyear=\"$year\" AND pledgesem<>\"\" ORDER BY pledgesem DESC;";
         		$semResult = $db->query($sql);
         		while($semArray = mysqli_fetch_array($semResult)){
         			$sem = $semArray['pledgesem'];
