@@ -25,7 +25,7 @@ require_once('get_photo.php');
         		while($semArray = mysqli_fetch_array($semResult)){
         			$sem = $semArray['pledgesem'];
         			echo "<div class=\"small-12 columns small-centered text-center\"><button id=\"{$sem}{$year}button\">$sem $year</button></div>";
-        			echo "<ul id=\"{$sem}{$year}\" class=\"large-block-grid-6 medium-block-grid-4 small-block-grid-2\">";
+        			echo "<ul id=\"{$sem}{$year}\" class=\"large-block-grid-6 medium-block-grid-4 small-block-grid-2\" style=\"display: none;\">";
         			$sql = "SELECT id, firstname, lastname FROM contact_information WHERE pledgeyear=\"$year\" AND pledgesem=\"$sem\" AND status<>\"Alumni\" ORDER BY lastname ASC;";
         			$activeResult = $db->query($sql);
         			while($active = mysqli_fetch_array($activeResult)){
@@ -37,7 +37,7 @@ require_once('get_photo.php');
         			}
         			echo "</ul>";
         			echo "<script type=\"text/javascript\">\$(document).ready(function(){\$(\"#{$sem}{$year}button\").click(function(){\$(\"#{$sem}{$year}\").slideToggle(600);});";
-        			echo "\$(\"#{$sem}{$year}\").toggle();});</script>";
+        			echo "});</script>";
         		}
         	}
         ?>
