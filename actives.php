@@ -14,6 +14,7 @@ require_once('get_photo.php');
     <nav id="nav" role="navigation"></nav>
     <div id="header"></div>
     <div class="row">
+		<div class="small-12 columns"><h2>Our Active Members</h2><p>Click on a pledge class to reveal those members</p></div><br><br><br><br><br><br>
         <?php
         	$sql = "SELECT DISTINCT pledgeyear FROM contact_information WHERE pledgeyear<>\"\" ORDER BY pledgeyear ASC;";
         	$yearResult = $db->query($sql);
@@ -35,7 +36,7 @@ require_once('get_photo.php');
         				echo "<li><div class=\"small-12 small-centered columns text-center\"><img src=\"{$activePhotoLink}\" width=\"75\" height=\"100\"><br><p>$firstname $lastname</p></div></li>\n";
         			}
         			echo "</ul>";
-        			echo "<script type=\"text/javascript\">\$(document).ready(function(){\$(\"#{$sem}{$year}button\").click(function(){\$(\"#{$sem}{$year}\").toggle();});";
+        			echo "<script type=\"text/javascript\">\$(document).ready(function(){\$(\"#{$sem}{$year}button\").click(function(){\$(\"#{$sem}{$year}\").slideToggle(600);});";
         			echo "\$(\"#{$sem}{$year}\").toggle();});</script>";
         		}
         	}
