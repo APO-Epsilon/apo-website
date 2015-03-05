@@ -1,3 +1,8 @@
+<?php
+require_once ('session.php');
+?>
+ <?php require 'head.php';?>
+
 <canvas id="canvas"></canvas>
 
 <div id="reMenu">
