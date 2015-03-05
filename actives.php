@@ -36,8 +36,16 @@ require_once('get_photo.php');
         				echo "<li><div class=\"small-12 small-centered columns text-center\"><img src=\"{$activePhotoLink}\" width=\"75\" height=\"100\"><br><p>$firstname $lastname</p></div></li>\n";
         			}
         			echo "</ul>";
-        			echo "<script type=\"text/javascript\">\$(document).ready(function(){\$(\"#{$sem}{$year}button\").click(function(){\$(\"#{$sem}{$year}\").slideToggle(600);});";
-        			echo "});</script>";
+        			echo "<script type=\"text/javascript\">";
+        			echo "\$(document).ready(function(){";
+        			echo "\$(\"#{$sem}{$year}button\").click(function(){";
+        			echo "if(\$(\"#{$sem}{$year}\").css(\"display\") == \"none\"){";
+        			echo "\$(\"html,body\").animate({scrollTop: $(\"#{$sem}{$year}button\").offset().top}, 600);";
+        			echo "}";
+        			echo "\$(\"#{$sem}{$year}\").slideToggle(600);";
+        			echo "});";
+        			echo "});";
+        			echo "</script>";
         		}
         	}
         ?>
