@@ -6,6 +6,7 @@ require_once ('session.php');
 <head>
     <?php require 'head.php';?>
 </head>
+<link href="css/snakes.css" rel="stylesheet" type="text/css">
 <canvas id="canvas"></canvas>
 
 <div id="reMenu">
@@ -39,7 +40,7 @@ require_once ('session.php');
 	<source src="http://dl.dropbox.com/u/26141789/canvas/snake/food.mp3" type="audio/mp3" />
 	<source src="http://dl.dropbox.com/u/26141789/canvas/snake/food.ogg" type="audio/ogg"/>
 </audio>
-</html>
+
 <script>
 //Preloading audio stuff
 var mainMusic = document.getElementById("main_music"),
@@ -278,3 +279,5 @@ function startMenu() {
 
 startMenu();
 </script>
+
+</html>
