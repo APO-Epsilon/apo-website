@@ -20,7 +20,7 @@ if (!isset($_SESSION['sessionID'])) {
 $id = $_SESSION['sessionID'];
 $sql = "SELECT theDate FROM service_occurrence WHERE active = 0;";
 $result = $db->query($sql);
-while($test = mysqli_fetch_array()) {
+while($test = mysqli_fetch_array($result)) {
 	print_r($test);
 }
 $sql = "UPDATE service_occurrence SET active = 0 WHERE theDate < DATE(NOW())";
