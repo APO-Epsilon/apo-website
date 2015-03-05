@@ -109,7 +109,8 @@ function process_login(){
 		$_SESSION['sessionUsername'] = $username;
 		$_SESSION['sessionFirstname'] = $firstname;
 		$_SESSION['sessionLastname'] = $lastname;
-		$_SESSION['sessionposition'] = $position;
+		if (isset"$position") {
+			$_SESSION['sessionposition'] = $position;}
 		$_SESSION['sessionexec'] = $exec;
 		$_SESSION['sessionID'] = $id;
 		$_SESSION['active_sem'] = $active_sem;
