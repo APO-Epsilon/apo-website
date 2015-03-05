@@ -23,7 +23,6 @@ $result = $db->query($sql);
 while($test = mysqli_fetch_array($result)) {
 	print_r($test);
 }
-echo DATE(NOW));
 $sql = "UPDATE service_occurrence SET active = 0 WHERE theDate < DATE(NOW())";
 $result = $db->query($sql);
 
