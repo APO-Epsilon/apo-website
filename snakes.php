@@ -18,7 +18,7 @@ require_once ('session.php');
 
 <div id="menu">
 	<h1 id="snake">Snake</h1>
-	<p id="info">by <a target="_blank" rel="nofollow" href="http://twitter.com/SolitaryDesigns">Kushagra Agarwal</a></p>
+	<p id="info">by <a target="_blank" rel="nofollow" href="http://twitter.com/SolitaryDesigns"> Salohcin96</a></p>
 	<a href="javascript: void(0)" id="start" onclick="init()" >Start</a>
 	<p id="loading">Loading...</p>
 </div>
