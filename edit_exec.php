@@ -22,7 +22,7 @@ page_header();
 <div class="row">
 
 <?php
-$position = $_SESSION['sessionposition'];
+$position = if $_SESSION['sessionposition'];
 
 
 if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
