@@ -87,7 +87,7 @@ function init() {
 	
 	var snake,
 			size = 10,
-			speed = 25,
+			speed = 90,
 			dir,
 			game_loop,
 			over = 0,
