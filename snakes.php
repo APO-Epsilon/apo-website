@@ -101,11 +101,11 @@ function init() {
 	msgsSelf[3] = "Do you have Autophagia?";	
 	
 	var msgsWall = [];
-	msgsWall[0] = "You broke your head!";
-	msgsWall[1] = "The wall is stronger than it seems!";
-	msgsWall[2] = "There's no way to escape the game...";
-	msgsWall[3] = "LOOK MA! NO HEAD..!!";
-	msgsWall[4] = "Can't see the wall? Huh?";
+	msgsWall[0] = "Guess you aren't good as Nick";
+	msgsWall[1] = "Nick is stronger than it seems!";
+	msgsWall[2] = "There's no way to escape the Nick...";
+	msgsWall[3] = "LOOK NICK! NO HEAD..!!";
+	msgsWall[4] = "Can't see the Nick? Huh?";
 	
 	function paintCanvas() {
 		ctx.fillStyle = "black";
@@ -121,7 +121,7 @@ function init() {
 			ctx.fillRect(this.x*size, this.y*size, size, size);
 		}
 	}
-			
+			var y = new Food();
 			var f = new Food();
 	
 	//Initialize the snake
@@ -137,7 +137,7 @@ function init() {
 		for(var i = 0; i < snake.length; i++) {
 			var s = snake[i];
 			
-			ctx.fillStyle = "white";
+			ctx.fillStyle = "blue";
 			ctx.fillRect(s.x*size, s.y*size, size, size);
 		}
 	}
@@ -186,9 +186,10 @@ function init() {
 		if(head_x == f.x && head_y == f.y) {
 			coll = 1;
 			f = new Food();
+			f = new Food();
 			var tail = {x: head_x, y:head_y};
 			snake.unshift(tail);	
-			score += 10;
+			score += 100;
 			scoreText.innerHTML = "Score: "+score;
 			foodMusic.pause();
 			foodMusic.currentTime = 0;
