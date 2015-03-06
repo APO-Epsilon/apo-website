@@ -20,7 +20,7 @@ require_once ('session.php');
 	<h1 id="snake">Snake</h1>
 	<p id="info">by <a target="_blank" rel="nofollow" href="http://twitter.com/SolitaryDesigns"> als44</a></p>
 	<a href="javascript: void(0)" id="start" onclick="init()" >Start</a>
-	<p id="loading">Loading...</p>
+	<p id="loading">Loading...Friendship, fellowship, and service!</p>
 </div>
 
 <p id="score">Score: 0</p>
