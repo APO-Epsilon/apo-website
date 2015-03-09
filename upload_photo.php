@@ -34,7 +34,9 @@ function cropPhoto(){
     $photo->rotateImage(new ImagickPixel(), $_POST['angle']);
     $width = $photo->getImageWidth();
     $newWidth = round($width*$_POST['scale']);
-    $photo->scaleImage($newWidth, 0);
+    $height = $photo->getImageHeight();
+    $newHeight = round($height*$_POST['scale']);
+    $photo->resizeImage($newWidth, $newHeight, Imagick::FILTER_GAUSSIAN, 1);
     $photo->cropImage($_POST['w'], $_POST['h'], $_POST['x'], $_POST['y']);
     $output = $photo->getImageBlob();
     $output = $db->real_escape_string($output);
