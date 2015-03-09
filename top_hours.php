@@ -61,11 +61,11 @@ END;
 function family_hours() {
 	include ('mysql_access.php');
 	global $current_semester;
-	$sql = "SELECT SUM(`hours`) AS sum_hours, contact_information.famflower FROM `recorded_hours`, `contact_information` WHERE recorded_hours.user_id = contact_information.id AND `semester` = '$current_semester' GROUP BY contact_information.famflower";
+	$sql = "SELECT SUM(`hours`) AS sum_hours, contact_information.famflower FROM `recorded_hours`, `contact_information` WHERE recorded_hours.user_id = contact_information.id AND `semester` = '$current_semester' AND (contact_information.status = 'Active' OR contact_information.status = 'Pledge' OR contact_information.status = 'Elected' OR contact_information.status = 'Appointed') GROUP BY contact_information.famflower";
 	$result = $db->query($sql);
 
 
-	$sql2 = "SELECT `famflower`, COUNT(`lastname`) as 'members' FROM `contact_information` GROUP BY `famflower`";
+	$sql2 = "SELECT `famflower`, COUNT(`lastname`) as 'members' FROM `contact_information` WHERE status = 'Active' OR status = 'Pledge' OR status = 'Elected' OR status = 'Appointed' GROUP BY `famflower`";
 	$result2 = $db->query($sql2);
 
 
