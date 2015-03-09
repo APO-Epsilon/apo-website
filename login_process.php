@@ -59,19 +59,21 @@ function process_login(){
 		if (!$r) {
 			;
 		} else {
-		extract($r);
+			extract($r);
 
-		$_SESSION['sessionUsername'] = $username;
-		$_SESSION['sessionFirstname'] = $firstname;
-		$_SESSION['sessionLastname'] = $lastname;
-		$_SESSION['sessionposition'] = $position;
-		$_SESSION['sessionexec'] = $exec;
-		$_SESSION['sessionID'] = $id;
-		$_SESSION['active_sem'] = $active_sem;
-		$_SESSION['sessionStatus'] = $status;
-
-		echo "<meta http-equiv='refresh' content='0;url=\"{$_POST['referringpage']}\"'>";
-
+			$_SESSION['sessionUsername'] = $username;
+			$_SESSION['sessionFirstname'] = $firstname;
+			$_SESSION['sessionLastname'] = $lastname;
+			$_SESSION['sessionposition'] = $position;
+			$_SESSION['sessionexec'] = $exec;
+			$_SESSION['sessionID'] = $id;
+			$_SESSION['active_sem'] = $active_sem;
+			$_SESSION['sessionStatus'] = $status;
+			if ($_POST['referringpage'] == "/login.php") {
+				echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
+			} else {
+				echo "<meta http-equiv='refresh' content='0;url=\"{$_POST['referringpage']}\"'>";
+			}
 		}
 	}
 }
