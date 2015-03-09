@@ -57,10 +57,7 @@ function show_insuff_permissions() {
 }
 
 function show_login() {
-	echo "<div class=\"small-12 columns\">";
-	echo "<h2>Sorry</h2>";
-	echo "<p>You must be logged in to view this page.</p>";
-	echo "</div>";
+	require_once('login_form.php');
 }
 
 ?>
