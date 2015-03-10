@@ -15,16 +15,21 @@ require_once ('session.php');
     <!-- Javascript method to include header -->
     <div id="header"><?php include 'header.php';?></div>
     <?php
-require_once ('mysql_access.php');
-
-page_header();
 
 ?>
 <div class="row">
 <?php
-if (!isset($_SESSION['sessionID'])) {
-	echo '<div class="entry">You need to login before you can use this page.</div>';
-} else {
+$exec_page = False;
+$active_page = True;
+$public_page = False;
+require_once('permissions.php');
+
+function show_active() {
+	show_page();
+}
+
+function show_page() {
+	require_once('mysql_access.php');
 ?>
 	<div class='large-12 medium-12 small-12 column'>
 		<h1>Member Information</h1>

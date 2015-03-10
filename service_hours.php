@@ -17,8 +17,26 @@ include ('mysql_access.php');
     <div id="header"><?php include 'header.php';?></div>
     <!-- PHP method to include header -->
 
+    <div class="row">
 <?php
-$result = '';
+$exec_page = False;
+$active_page = True;
+$public_page = False;
+require_once('permissions.php');
+function show_active() {
+	if (isset($_POST['action']) && $_POST['action'] == "add_hour") {
+		$result = process_form();
+		if ($result == 1){
+			//header('Location: ./service_hours.php' );
+		}
+	}
+	if (isset($_GET['delete'])) {
+		$user_id = $_SESSION['sessionID'];
+		$hour_id = $_GET['delete'];
+		delete_hour($hour_id, $user_id);
+	}
+	show_form();
+}
 global $current_semester;
 global $previous_semester;
 function process_form() {
@@ -33,7 +51,11 @@ function process_form() {
 	$hours = $_POST['hours'];
 	$hours = round($hours, 2);
 	$servicetype = $_POST['servicetype'];
-	$fundraising = $_POST['fundraising'];
+	if(isset($_POST['fundraising'])) {
+		$fundraising = $_POST['fundraising'];
+	} else {
+		$fundraising = "";
+	}
 	$semester = $_POST['semester'];
 
 	$description = htmlspecialchars($description, ENT_QUOTES);
@@ -47,7 +69,7 @@ function process_form() {
 		$insert = "INSERT INTO apo.recorded_hours (user_id, event, month, day, year, date, description, hours, servicetype, fundraising, semester) values('$id', '$event', '$month','$day', '$year', '$date', '$description', '$hours', '$servicetype', '$fundraising', '$semester') ON DUPLICATE KEY UPDATE description='NEEDS NEW DESCRIPTION';";
 		$query2 = $db->query($insert) or die($db->error);
 		$result = '1';
-			if($fundraising == 1){//also ads fundraising hours to another DB so we can see who the first 30 were.
+			/*if($fundraising == 1){//also ads fundraising hours to another DB so we can see who the first 30 were. --030915 code appears old, table no longer used
 				$sql5 = "SELECT * FROM `first_30`";
 					$result5 = $db->query($sql5);
 			if($result5 < 30){
@@ -61,8 +83,7 @@ function process_form() {
 				$sql2 = "INSERT INTO `first_30` (id, hours) VALUES ('$id', '$hours') ON DUPLICATE KEY UPDATE hours = '".$hn."'";
 					$result2 = $db->query($sql2);}
 					}
-			}
-END;
+			}*/
 	}
 return $result;
 }
@@ -175,44 +196,20 @@ function list_hours($hours_id) {
 	echo "</table></div>";
 }
 
-
-if (isset($_POST['action']) && $_POST['action'] == "add_hour") {
-	$result = process_form();
-	if ($result == 1)
-	{
-		header('Location: ./service_hours.php' );
-	}
-
-}
-
 function delete_hour($hour_id, $user_id) {
 	include ('mysql_access.php');
 	$sql = "DELETE FROM `recorded_hours` WHERE `index` = '$hour_id' AND `user_id` = '$user_id' LIMIT 1";
 	$result = $db->query($sql) or exit("There was an error, contact Webmaster");
 }
 
-if (isset($_GET['delete'])) {
-	$user_id = $_SESSION['sessionID'];
-	$hour_id = $_GET['delete'];
-
-	delete_hour($hour_id, $user_id);
-}
-
 ?>
 
-<div class="row">
-
-
 <?php
-if (!isset($_SESSION['sessionID'])) {
 
-		echo "<p>You need to login before you can see the rest of this section.</p>";
-
-} elseif ($_SESSION['sessionID'] == 'Advisor' OR $_SESSION['sessionID'] == 'Alumni') {
-		echo "<p>You need cannot log hours with the account you have logged in with.  Please contact the webmaster if you need help.";
-} else {
-
-echo $result;
+function show_form() {
+if(isset($result)) {
+	echo $result;
+}
 $month_no = date('n');
 $month_name = date('M');
 $day_of_month = date('j');
@@ -225,7 +222,6 @@ global $next_semester;
 <!--<h3>Check your hours from previous semesters <a href="http://apo.truman.edu/service_hours_history.php">here</a></h3>-->
 
 </div>
-<div class="row">
 	<div class="row">
 	<table class="large-5 medium-6 small-12 column">
 	<tr>

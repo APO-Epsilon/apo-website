@@ -19,16 +19,27 @@ require_once ('mysql_access.php');
 <div class="row">
 
 <?php
-if (!isset($_SESSION['sessionID'])) {
+$exec_page = False;
+$active_page = True;
+$public_page = False;
+require_once('permissions.php');
 
-	echo '<div class="entry">You need to <a href="./login.php">login</a> before you can use this page.</div>';
+function show_active() {
+	show_page();
+}
 
-} else {
+function array_map_calllback($a) {
+	include('mysql_access.php');
+	return $db->real_escape_string($a);
+}
 
+function show_page() {
+	include('mysql_access.php');
+	global $current_semester;
 
 	if (isset($_POST['update'])) {
 		// Update Information
-		$_POST = array_map('mysql_real_escape_string', $_POST);
+		$_POST = array_map('array_map_calllback', $_POST);
 		$user_id = $_SESSION['sessionID'];
 $sql = <<<SQL
     UPDATE `contact_information`
@@ -84,7 +95,7 @@ SQL;
 
 		$row = mysqli_fetch_array($result);
 
-		$b_day = mktime(0, 0, 0, $row['bmonth'], 1, 2000);
+		$b_day = mktime(0, 0, 0, intval($row['bmonth']), 1, 2000);
 		$month = date('F', $b_day);
 		$selected = $row['hide_info'];
 		if($selected == 'F'){

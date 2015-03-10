@@ -18,7 +18,25 @@ require_once ('mysql_access.php');
     <!-- PHP method to include header -->
 <div class="row">
 
-<?php function passed_quiz() {
+<?php
+$exec_page = False;
+$active_page = True;
+$public_page = False;
+require_once('permissions.php');
+
+function show_active() {
+    if (passed_quiz()) {
+        echo "<h2>You have passed the quiz!</h2>";
+    } else {
+        echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
+        show_quiz();
+    }
+}
+?>
+
+<?php
+
+function passed_quiz() {
     include ('mysql_access.php');
     if (isset($_SESSION['sessionID'])) {
         $user_id = $_SESSION['sessionID'];
@@ -33,42 +51,41 @@ require_once ('mysql_access.php');
         }
     }
 }
-if (passed_quiz()) {
-    echo "<h2>You have passed the quiz!</h2>";
-} else {
-    echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
-}?>
 
-<?php $response=$db->query("SELECT * FROM questions");?>
+function show_quiz() {
+    include('mysql_access.php');
+    $response=$db->query("SELECT * FROM questions");?>
 
-<br>
-<form method='post' id='quiz_form'>
-    <?php while($result=mysqli_fetch_array($response)){ ?>
-    <div id="question_<?php echo $result['id'];?>" class='questions'>
-    <h3 id="question_<?php echo $result['id'];?>"><?php echo $result['id'].".".$result['question_name'];?></h3>
-    <div class='align'>
-    <input type="radio" value="1" id='radio1_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
-    <label id='ans1_<?php echo $result['id'];?>' for='1'><?php echo $result['answer1'];?></label>
-    <br/>
-    <input type="radio" value="2" id='radio2_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
-    <label id='ans2_<?php echo $result['id'];?>' for='1'><?php echo $result['answer2'];?></label>
-    <br/>
-    <input type="radio" value="3" id='radio3_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
-    <label id='ans3_<?php echo $result['id'];?>' for='1'><?php echo $result['answer3'];?></label>
-    <br/>
-    <input type="radio" value="4" id='radio4_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
-    <label id='ans4_<?php echo $result['id'];?>' for='1'><?php echo $result['answer4'];?></label>
-    <input type="radio" checked='checked' value="5" style='display:none' id='radio4_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
+    <br>
+    <form method='post' id='quiz_form'>
+        <?php while($result=mysqli_fetch_array($response)){ ?>
+        <div id="question_<?php echo $result['id'];?>" class='questions'>
+        <h3 id="question_<?php echo $result['id'];?>"><?php echo $result['id'].".".$result['question_name'];?></h3>
+        <div class='align'>
+        <input type="radio" value="1" id='radio1_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
+        <label id='ans1_<?php echo $result['id'];?>' for='1'><?php echo $result['answer1'];?></label>
+        <br/>
+        <input type="radio" value="2" id='radio2_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
+        <label id='ans2_<?php echo $result['id'];?>' for='1'><?php echo $result['answer2'];?></label>
+        <br/>
+        <input type="radio" value="3" id='radio3_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
+        <label id='ans3_<?php echo $result['id'];?>' for='1'><?php echo $result['answer3'];?></label>
+        <br/>
+        <input type="radio" value="4" id='radio4_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
+        <label id='ans4_<?php echo $result['id'];?>' for='1'><?php echo $result['answer4'];?></label>
+        <input type="radio" checked='checked' value="5" style='display:none' id='radio4_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
+        </div>
+        <br/>
+        <input type="button" id='next<?php echo $result['id'];?>' value='Next!' name='question' class='butt'/>
+        </div>
+        <?php }?>
+    </form>
+    <div id='result'>
     </div>
-    <br/>
-    <input type="button" id='next<?php echo $result['id'];?>' value='Next!' name='question' class='butt'/>
-    </div>
-    <?php }?>
-</form>
-<div id='result'>
+    <script src="./js/watch.js"></script>
+    <script src="./js/quiz.js"></script>
+<?php } ?>
 </div>
-<script src="./js/watch.js"></script>
-<script src="./js/quiz.js"></script>
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
     <!-- PHP method to include footer -->

@@ -207,9 +207,13 @@ function uploadForm(){
 END;
 }
 
-if(!isset($_SESSION['sessionID'])){
-    echo "<p>You must sign in to view this page.</p>";
-}else{
+$exec_page = False;
+$active_page = True;
+$public_page = False;
+require_once('permissions.php');
+
+function show_active() {
+    include('mysql_access.php');
     if(isset($_FILES['userfile'])){
         processForm();
     }elseif (isset($_POST['x'])) {
