@@ -12,7 +12,7 @@ function show_exec() {
 		$page_text = trim($page_text);
 		$page_text = stripslashes($page_text);
 		$page_text = $db->real_escape_string($page_text);
-		$today = date("Y-M-D");
+		$today = date("Y-m-d");
 		$user_id = $_SESSION['sessionID'];
 		$sql = "UPDATE editable_pages SET page_text=\"$page_text\", edit_date=\"$today\", edit_id=\"$user_id\" WHERE page_name=\"$_SERVER[PHP_SELF]\";";
 		$result = $db->query($sql);
