@@ -27,14 +27,7 @@ require_once ('session.php');
 
 <div class="row">
         <div class="large-8 medium-6 small-12 columns">
-            <h2>Alpha Phi Omega</h2>
-            <h3>Epsilon Chapter</h3>
-            <br>
-            <p>Welcome to the Epsilon Chapter of Alpha Phi Omega at Truman State University. The Epsilon Chapter of Alpha Phi Omega was founded on December 13, 1927 by ten young men, who were all former scouts. Ever since, Epsilon has been a leader both at the national level of the fraternity, and on the campus of Truman. Some of the service projects that Epsilon has worked on in its first fifty years included running Red Cross drives, putting up squirrel boxes on campus, being tour guides for visit days, and helping out at registration.
-                <br><br>
-            Today Epsilon is one of the strongest organizations on the Truman State University campus. It is also the largest non-honor group on Trumans campus, with over 200 members. Epsilons service program now includes the Red Cross Blood Drives, Camp Silver Meadows, YMCA, Ray Miller, and Twin Pines Retirement Community. Epsilon also hosts a philanthropy event every fall and St. Baldricks in the spring! Through friendship and service, Epsilon is poised to lead the Kirksville and Truman communities into the twenty-first century.
-            <br>
-            </p>
+            <?php require_once('editable_page.php'); ?>
         </div>
         <div class="large-4 medium-6 small-12 columns">
             <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false">
