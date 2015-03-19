@@ -102,11 +102,15 @@ function init() {
 	
 	var msgsWall = [];
 	msgsWall[0] = "Guess you aren't good as Nick";
-	msgsWall[1] = "Nick is stronger than it seems!";
+	msgsWall[1] = "Nick is stronger than he seems!";
 	msgsWall[2] = "There's no way to escape the Nick...";
 	msgsWall[3] = "LOOK NICK! NO HEAD..!!";
-	msgsWall[4] = "Can't see the Nick? Huh?";
-	
+	msgsWall[4] = "Did you mean to lose :,)";
+	msgsWall[5] = "#Duggars"
+	msgsWall[6] = "Kevin Wu is bae"
+	msgsWall[7] = "Shreck is love, Shreck is life"
+	msgsWall[8] = "Sammi Strangge Smells XD"
+	msgsWall[9] = "Don't worry I still love you.."
 	function paintCanvas() {
 		ctx.fillStyle = "black";
 		ctx.fillRect(0, 0, w, h);
