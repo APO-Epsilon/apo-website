@@ -190,7 +190,7 @@ function init() {
 		if(head_x == f.x && head_y == f.y) {
 			coll = 1;
 			f = new Food();
-			f = new Food();
+			y = new Food();
 			var tail = {x: head_x, y:head_y};
 			snake.unshift(tail);	
 			score += 100;
@@ -227,6 +227,7 @@ function init() {
 		
 		//Draw food
 		f.draw();
+		y.draw();
 	}
 	
 	reset = function() {
