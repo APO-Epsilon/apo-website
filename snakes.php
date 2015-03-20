@@ -95,22 +95,22 @@ function init() {
 	
 	//Custom funny gameover messages
 	var msgsSelf = [];
-	msgsSelf[0] = "There's plenty of food. Don't eat yourself!";
+	msgsSelf[0] = "There's plenty of food. Don't eat yourself.";
 	msgsSelf[1] = "Is your body tastier than the food?";
 	msgsSelf[2] = "AArrgghhh!! I bit myself!!";	
 	msgsSelf[3] = "Do you have Autophagia?";	
 	
 	var msgsWall = [];
-	msgsWall[0] = "Guess you aren't good as Nick";
+	msgsWall[0] = "Guess you aren't as good as Nick";
 	msgsWall[1] = "Nick is stronger than he seems!";
 	msgsWall[2] = "There's no way to escape the Nick...";
 	msgsWall[3] = "LOOK NICK! NO HEAD..!!";
-	msgsWall[4] = "Did you mean to lose :,)";
-	msgsWall[5] = "#Duggars"
+	msgsWall[4] = "Did you mean to lose terribly? :,)";
+	msgsWall[5] = "#DuggarsWereHur"
 	msgsWall[6] = "Kevin Wu is bae"
-	msgsWall[7] = "Shreck is love, Shreck is life"
+	msgsWall[7] = "Shreck is love, Shreck is life -shreck"
 	msgsWall[8] = "Sammi Strangge Smells XD"
-	msgsWall[9] = "Don't worry I still love you.."
+	msgsWall[9] = "Don't worry I still love you..NOT"
 	function paintCanvas() {
 		ctx.fillStyle = "black";
 		ctx.fillRect(0, 0, w, h);
