@@ -79,6 +79,7 @@ END;
     	echo "<option value=\"{$row['id']}\">{$row['firstname']} {$row['lastname']}</option>\n";
     }
 	echo "</select>";
+	echo "<div id=\"member_info\"></div>";
 	echo <<<END
 	<script>
 		//jQuery is currently included on every page by the site. If this changes, include the src to it above this script
@@ -89,6 +90,11 @@ END;
 				scrollLeft: elementid.offset().left + elementid.get(0).getBBox().width/2 - container.offset().left + container.scrollLeft() - container.width()/2,
 				scrollTop: elementid.offset().top + elementid.get(0).getBBox().height/2 - container.offset().top + container.scrollTop() - container.height()/2
 			}, 600);
+		});
+		$("g").click(function(event) {
+			console.log(this.id);
+			event.stopPropagation();
+			$("#member_info").load("includes/member_info.php?user_id=" + this.id);
 		});
 	</script>
 END;
