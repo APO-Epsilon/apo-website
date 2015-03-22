@@ -38,25 +38,30 @@ function show_public() {
 		fontname = "Helvetica-Outline" ];
 
 END;
-	$color = array("maroon", "red", "green", "chartreuse", "plum", "salmon", "goldenrod", "yellow", "blue", "cyan");
-	$pledgecolor = array();
-	$memberselect = "";
+	$colorarray = array("maroon", "red", "green", "chartreuse", "plum", "salmon", "goldenrod", "yellow", "blue", "cyan");
+	$rank = "";
 	$sql = "SELECT DISTINCT pledgeyear, pledgesem FROM contact_information ORDER BY pledgeyear ASC, pledgesem DESC;";
     $result = $db->query($sql);
     while ($row = mysqli_fetch_array($result)) {
-    	$pledgecolor["{$row['pledgesem']} {$row['pledgeyear']}"] = array_pop($color);
-    }
-	$sql = "SELECT id, firstname, lastname, pledgeyear, pledgesem FROM contact_information ORDER BY lastname ASC;";
-	$result = $db->query($sql);
-	while ($row = mysqli_fetch_array($result)) {
-		$id = $row['id'];
-		$firstname = $row['firstname'];
-		$lastname = $row['lastname'];
-		$pledgesemyear = $row['pledgesem'] . " " . $row['pledgeyear'];
-		$nodecolor = $pledgecolor["$pledgesemyear"];
-		echo "\"$id\" [label=\"$firstname $lastname\", id=\"$id\", color=$nodecolor];\n";
-		$memberselect .= "<option value=\"$id\">$firstname $lastname</option>\n";
+    	$pledgeyear = $row['pledgeyear'];
+    	$pledgesem = $row['pledgesem'];
+    	if (empty($colorarrayloop)) {
+    		$colorarrayloop = $colorarray;
+    	}
+    	$color = array_shift($colorarrayloop);
+    	$rank .= "{ rank=same;";
+		$sql = "SELECT id, firstname, lastname FROM contact_information WHERE pledgesem=\"$pledgesem\" AND pledgeyear=\"$pledgeyear\" ORDER BY lastname ASC;";
+		$result2 = $db->query($sql);
+		while ($row2 = mysqli_fetch_array($result2)) {
+			$id = $row2['id'];
+			$firstname = $row2['firstname'];
+			$lastname = $row2['lastname'];
+			echo "\"$id\" [label=\"$firstname $lastname\", id=\"$id\", color=$color];\n";
+			$rank .= " " . $id;
+		}
+		$rank .= ";}\n";
 	}
+	echo $rank;
 	$sql = "SELECT big_id, little_id FROM family_tree;";
 	$result = $db->query($sql);
 	while ($row = mysqli_fetch_array($result)) {
@@ -67,7 +72,13 @@ END;
 	echo "} </script>";
 	echo "<script src='/js/viz.js/viz.js'></script>";
 	echo "<script>document.getElementById('family_tree').innerHTML = Viz(document.getElementById('family_tree_script').innerHTML, \"svg\", \"dot\")</script>";
-	echo "<br><select id=\"memberselect\">\n$memberselect</select>";
+	echo "<select id=\"memberselect\">\n";
+	$sql = "SELECT id, firstname, lastname FROM contact_information ORDER BY lastname ASC;";
+	$result = $db->query($sql);
+    while ($row = mysqli_fetch_array($result)) {
+    	echo "<option value=\"{$row['id']}\">{$row['firstname']} {$row['lastname']}</option>\n";
+    }
+	echo "</select>";
 	echo <<<END
 	<script>
 		//jQuery is currently included on every page by the site. If this changes, include the src to it above this script
