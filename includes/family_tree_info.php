@@ -15,7 +15,7 @@ function show_info($access) {
 	$user_id = $_GET['user_id'];
 	$photolink = getPhotoLink($user_id);
 	include("../mysql_access.php");
-	$sql = "SELECT firstname, lastname, pledgesem, pledgeyear FROM contact_information WHERE id=\"$user_id\";";
+	$sql = "SELECT firstname, lastname, pledgesem, pledgeyear FROM (SELECT id, firstname, lastname, pledgesem, pledgeyear FROM contact_information UNION DISTINCT SELECT id, firstname, lastname, pledgesem, pledgeyear FROM alumni UNION DISTINCT SELECT id, firstname, lastname, pledgesem, pledgeyear FROM alumni_info WHERE pledgesem<>\"\" AND pledgeyear<>\"\")all_users WHERE id=\"$user_id\";";
 	$result = $db->query($sql);
 	$row = mysqli_fetch_array($result);
 	echo "<div class=\"row\"><div class=\"small-4 columns\">";
@@ -24,7 +24,7 @@ function show_info($access) {
 	echo "<h4>{$row['firstname']} {$row['lastname']}</h4>\n";
 	echo "<p>Pledged: {$row['pledgesem']} {$row['pledgeyear']}</p></div>";
 	echo "<div class=\"small-12 columns\"><h5>Bigs</h5>";
-	$sql = "SELECT big_id, firstname, lastname FROM family_tree LEFT JOIN contact_information ON family_tree.big_id=contact_information.id WHERE little_id=\"$user_id\" ORDER BY lastname ASC;";
+	$sql = "SELECT big_id, firstname, lastname FROM family_tree LEFT JOIN (SELECT id, firstname, lastname FROM contact_information UNION DISTINCT SELECT id, firstname, lastname FROM alumni UNION DISTINCT SELECT id, firstname, lastname FROM alumni_info WHERE pledgesem<>\"\" AND pledgeyear<>\"\")all_users ON family_tree.big_id=all_users.id WHERE little_id=\"$user_id\" ORDER BY lastname ASC;";
 	$result = $db->query($sql);
 	while ($row = mysqli_fetch_array($result)) {
 		echo "<div class=\"small-3 columns end text-center\"><div class=\"biglittle\" id=\"bl" . $row['big_id'] . "\">";
@@ -34,7 +34,7 @@ function show_info($access) {
 	}
 	echo "</div>";
 	echo "<div class=\"small-12 columns\"><h5>Littles</h5>";
-	$sql = "SELECT little_id, firstname, lastname FROM family_tree LEFT JOIN contact_information ON family_tree.little_id=contact_information.id WHERE big_id=\"$user_id\" ORDER BY lastname ASC;";
+	$sql = "SELECT little_id, firstname, lastname FROM family_tree LEFT JOIN (SELECT id, firstname, lastname FROM contact_information UNION DISTINCT SELECT id, firstname, lastname FROM alumni UNION DISTINCT SELECT id, firstname, lastname FROM alumni_info WHERE pledgesem<>\"\" AND pledgeyear<>\"\")all_users ON family_tree.little_id=all_users.id WHERE big_id=\"$user_id\" ORDER BY lastname ASC;";
 	$result = $db->query($sql);
 	while ($row = mysqli_fetch_array($result)) {
 		echo "<div class=\"small-3 columns end text-center\"><div class=\"biglittle\" id=\"bl" . $row['little_id'] . "\">";
