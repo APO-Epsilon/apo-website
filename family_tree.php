@@ -43,7 +43,7 @@ function show_public() {
 END;
 	$colorarray = array("maroon", "red", "green", "chartreuse", "plum", "salmon", "goldenrod", "yellow", "blue", "cyan");
 	$rank = "";
-	$sql = "SELECT DISTINCT pledgeyear, pledgesem FROM contact_information WHERE pledgeyear<>\"\" AND pledgesem<>\"\" ORDER BY pledgeyear ASC, pledgesem DESC;";
+	$sql = "SELECT DISTINCT pledgeyear, pledgesem FROM (SELECT pledgeyear, pledgesem FROM contact_information UNION DISTINCT SELECT pledgeyear, pledgesem FROM alumni UNION DISTINCT SELECT pledgeyear, pledgesem FROM alumni_info)all_users WHERE pledgeyear<>\"\" AND pledgesem<>\"\" ORDER BY pledgeyear ASC, pledgesem DESC;";
     $result = $db->query($sql);
     while ($row = mysqli_fetch_array($result)) {
     	$pledgeyear = $row['pledgeyear'];
@@ -53,7 +53,7 @@ END;
     	}
     	$color = array_shift($colorarrayloop);
     	$rank .= "{ rank=same;";
-		$sql = "SELECT id, firstname, lastname FROM contact_information WHERE pledgesem=\"$pledgesem\" AND pledgeyear=\"$pledgeyear\" ORDER BY lastname ASC;";
+		$sql = "SELECT id, firstname, lastname FROM (SELECT id, firstname, lastname, pledgeyear, pledgesem FROM contact_information UNION DISTINCT SELECT id, firstname, lastname, pledgeyear, pledgesem FROM alumni UNION DISTINCT SELECT id, firstname, lastname, pledgeyear, pledgesem FROM alumni_info)all_users WHERE pledgesem=\"$pledgesem\" AND pledgeyear=\"$pledgeyear\" ORDER BY lastname ASC;";
 		$result2 = $db->query($sql);
 		while ($row2 = mysqli_fetch_array($result2)) {
 			$id = $row2['id'];
@@ -80,7 +80,7 @@ END;
 	//generate dropdown box
 	echo "<div class=\"medium-6 small-12 columns\">";
 	echo "<select id=\"memberselect\">\n";
-	$sql = "SELECT id, firstname, lastname FROM contact_information ORDER BY lastname ASC;";
+	$sql = "SELECT id, firstname, lastname FROM contact_information UNION DISTINCT SELECT id, firstname, lastname FROM alumni UNION DISTINCT SELECT id, firstname, lastname FROM alumni_info ORDER BY lastname ASC;";
 	$result = $db->query($sql);
     while ($row = mysqli_fetch_array($result)) {
     	echo "<option value=\"{$row['id']}\">{$row['firstname']} {$row['lastname']}</option>\n";
