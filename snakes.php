@@ -188,8 +188,7 @@ function init() {
 		
 		//Food collision
 		if(head_x == f.x && head_y == f.y ||
-		   head_x == y.x && head_y == y.y ||
-		   head_x == j.x && head_y == j.y) {
+		   head_x == y.x && head_y == y.y ) {
 			coll = 1;
 			f = new Food();
 			y = new Food();
