@@ -187,10 +187,13 @@ function init() {
 		}
 		
 		//Food collision
-		if(head_x == f.x && head_y == f.y) {
+		if(head_x == f.x && head_y == f.y ||
+		   head_x == y.x && head_y == y.y ||
+		   head_x == j.x && head_y == j.y) {
 			coll = 1;
 			f = new Food();
 			y = new Food();
+			j = new Food();
 			var tail = {x: head_x, y:head_y};
 			snake.unshift(tail);	
 			score += 100;
