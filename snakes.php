@@ -143,6 +143,12 @@ function init() {
 			
 			ctx.fillStyle = "blue";
 			ctx.fillRect(s.x*size, s.y*size, size, size);
+				for(var i = 0; i < snake.length; i++) {
+			var s = snake[i];
+			
+			ctx.fillStyle = "blue";
+			ctx.fillRect(s.x*size, s.y*size, size, size);
+		}
 		}
 	}
 	
