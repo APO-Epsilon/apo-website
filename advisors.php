@@ -62,16 +62,16 @@ echo <<<END
 
         </ul>
 
-        <b>Marlene Talbert</b>
+        <b>Kim Baker</b>
         <ul>
-            <li>Community Advisor</li>
-            <li>Email: druandmarlene@gmail.com</li>
-            <li>Phone: (660) 956-2716</li>
+            <li>Scouting Advisor</li>
+            <li>Email: kim.baker.89@gmail.com</li>
+            <li>Phone: (314) 920-7942</li>
         </ul>
 
         <b>Linda "Mom" Caraway</b>
         <ul>
-            <li>Community Advisor</li>
+            <li> Advisor Emeritus</li>
             <li>Email: l.caraway@gmail.com</li>
             <li>Phone: (660) 341-7548</li>
         </ul>
