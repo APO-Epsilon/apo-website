@@ -62,6 +62,9 @@ function process_form() {
 	if ($month == NULL || $day == NULL || $event == NULL || $hours == NULL || $servicetype == NULL) {
 		$result = "Your didn't fill out the form completely.<br/>";
 	}
+	if (!checkdate($month, $day, $year)){
+		echo "You have entered an invalid date.<br/>";
+	}
 	else if ($description == 'KCOM' || $description == 'Lancaster' || $description == 'CSI Friday' || $description == 'Ray Miller' || $description == 'Pop-Tab Collection' ||$description == 'Twin Pines' ||$description == 'Humane Society' ||$description == 'Adair Co. Library' ||$description == 'Recycling Center' ||$description == 'Bought Hours' ||$description == 'Camp' ||$description == 'Bake sale' ||$description == 'Large Service Project' ||$description == 'Other Service Project' ||$description == 'Non-APO Hours' || $description == 'NMCAA' || $description == 'Multicultural Affairs Center' || $description == "MAC" || $description == 'Highway Cleanup' || $description == 'SAA Babysitting') {
 		$result = "<div class='entry'>The description cannot be the same as the event. Please enter a valid description.<br/></div>";
 	}
