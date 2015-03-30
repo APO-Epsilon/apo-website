@@ -66,8 +66,8 @@ function process_form() {
 		echo "You have entered an invalid date.<br/>";
 	}
 	echo $year."/".$month."/".$day;
-	//print_r ((strtotime($year."/".$month."/".$date))."");
-	print_r (time());
+	print_r ((strtotime($year."/".$month."/".$date))."");
+	//print_r (time());
 	if (time() - strtotime($year."/".$month."/".$date) < 0){
 		echo "You have entered a future date.<br/>";
 	}
