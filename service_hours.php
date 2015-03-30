@@ -65,7 +65,7 @@ function process_form() {
 	if (!checkdate($month, $day, $year)){
 		echo "You have entered an invalid date.<br/>";
 	}
-	echo $year."/".$month."/".$date;
+	echo $year."/".$month."/".$day;
 	if (time() - strtotime($year."/".$month."/".$date) < 0){
 		echo "You have entered a future date.<br/>";
 	}
