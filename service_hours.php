@@ -67,7 +67,7 @@ function process_form() {
 	}
 	echo $year."/".$month."/".$day;
 	//print_r ((strtotime($year."/".$month."/".$date))."");
-	print_r (getTimestamp(DateTime date_create($year."/".$month."/".$day))); 
+	//print_r (getTimestamp(DateTime date_create($year."/".$month."/".$day))); 
 	//print_r (time());
 	if (time() - strtotime($year."/".$month."/".$date) < 0){
 		echo "You have entered a future date.<br/>";
