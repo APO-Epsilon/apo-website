@@ -67,8 +67,6 @@ function process_form() {
 	}
 	echo $year."/".$month."/".$day;
 	//print_r ((strtotime($year."/".$month."/".$date))."");
-	$theDate = new DateTime ($year."/".$month."/".$day);
-	print_r $theDate;
 	//print_r (DateTime date_create($year."/".$month."/".$day); 
 	//print_r (time());
 	//if (time() - strtotime($year."/".$month."/".$date) < 0){
