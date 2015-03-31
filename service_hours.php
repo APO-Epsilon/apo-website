@@ -65,7 +65,7 @@ function process_form() {
 	if (!checkdate($month, $day, $year)){
 		echo "You have entered an invalid date.<br/>";
 	}
-	echo $year."/".$month."/".$day;
+	//echo $year."/".$month."/".$day;
 	//print_r ((strtotime($year."/".$month."/".$date))."");
 	//print_r (DateTime date_create($year."/".$month."/".$day); 
 	//print_r (time());
