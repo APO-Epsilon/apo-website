@@ -1,5 +1,5 @@
 <?php
-require_once('session.php');
+session_start();
 require_once('PasswordHash.php');
 
 if (!isset($_SESSION['sessionID']) && isset($_POST['logstate']) && ($_POST['logstate'] == 'login')) {
@@ -50,7 +50,7 @@ function process_login(){
 				$r = $query->fetch_assoc();
 			} else {
 				//Authentication Failed
-				echo "<meta http-equiv='refresh' content='0;url=\"{$_POST['referringpage']}?login=failure\"'>";
+				echo "Failed";
 			}
 			unset($hasher);
 		}
@@ -69,11 +69,8 @@ function process_login(){
 			$_SESSION['sessionID'] = $id;
 			$_SESSION['active_sem'] = $active_sem;
 			$_SESSION['sessionStatus'] = $status;
-			if ($_POST['referringpage'] == "/login.php") {
-				echo "<meta http-equiv='refresh' content='0;url=\"index.php\"'>";
-			} else {
-				echo "<meta http-equiv='refresh' content='0;url=\"{$_POST['referringpage']}\"'>";
-			}
+			
+			echo "Success";
 		}
 	}
 }
