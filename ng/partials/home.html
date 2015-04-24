@@ -1,0 +1,64 @@
+<div class="grid-block scroll-section">
+	<div class="small-12 medium-5 large-3 grid-content">
+		<div class="card">
+      <div class="card-divider">
+        Login/Logout
+      </div>
+      <div class="card-section">
+        <form id="loginform" name="loginform" method="post">
+
+        <label>Email:</label>
+        <input type="text" ng-model="login.email" name="email" placeholder="example@truman.edu"/>
+        <label>Password:</label>
+        <input id="password" ng-model="login.password" type="password" name="password" required/>
+
+        <button type="submit" class="button primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
+
+    </form>
+     <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+      </div>
+		</div>
+		<div class="card">
+      <div class="card-divider">
+        Card Title
+      </div>
+      <div class="card-section">
+        <p>Stuff I must get done!</p>
+      </div>
+		</div>
+		<div class="card">
+      <div class="card-divider">
+        Card Title
+      </div>
+      <div class="card-section">
+        <p>Stuff I must get done!</p>
+      </div>
+		</div>
+	</div>
+
+
+
+	<div class="small-12 medium-7 large-6 grid-content">
+   <div class="card">
+      <div class="card-divider">
+        Welcome
+      </div>
+      <div class="card-section">
+        <p>Welcome to the Epsilon Chapter of Alpha Phi Omega at Truman State University. The Epsilon Chapter of Alpha Phi Omega was founded on December 13, 1927 by ten young men, who were all former scouts. Ever since, Epsilon has been a leader both at the national level of the fraternity, and on the campus of Truman. Some of the service projects that Epsilon has worked on in its first fifty years included running Red Cross drives, putting up squirrel boxes on campus, being tour guides for visit days, and helping out at registration.</p>
+        <p>Today Epsilon is one of the strongest organizations on the Truman State University campus. It is also the largest non-honor group on Trumans campus, with over 200 members. Epsilons service program now includes the Red Cross Blood Drives, Camp Silver Meadows, YMCA, Ray Miller, and Twin Pines Retirement Community. Epsilon also hosts a philanthropy event every fall and St. Baldricks in the spring! Through friendship and service, Epsilon is poised to lead the Kirksville and Truman communities into the twenty-first century. </p>
+      </div>
+    </div>
+  </div>
+
+
+	<div class="small-12 medium-6 large-3 grid-content">
+		<div class="card">
+      <div class="card-divider">
+        Calendar
+      </div>
+      <div class="card-section">
+        <iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=h84dpe9q6v9eft0vpgbbdmf2so%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FChicago" style=" border-width:0 " width="300" height="400" frameborder="0" scrolling="no"></iframe>
+      </div>
+		</div>
+	</div>
+</div>

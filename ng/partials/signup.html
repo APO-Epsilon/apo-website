@@ -1,0 +1,89 @@
+<div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li class="active">SignUp</li>
+    </ul>
+</div>
+
+<div class="grid-frame align-center">
+    <div class="grid-content medium-8 large-6">
+            <div class="card">
+                <div class="card-divider">
+                    <h4>
+                        Signup for AngularCode
+                    </h4>
+                </div>
+            <div class="card-section">
+                <form name="signupForm" class="form-horizontal" role="form">
+                    <div>
+                        <label class="grid-content" for="email">Email</label>
+                        <div class="grid-content">
+                            <span>
+                                <input type="text" class="form-control" placeholder="Email" name="email" ng-model="signup.email" focus/>
+                                <span ng-show="signupForm.email.$error.email" class="help-inline">Email is not valid</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="grid-content" for="password">Password</label>
+                        <div class="grid-content">
+                            <span>
+                        <input type="password" class="form-control" name = "password" placeholder="Password" ng-model="signup.password" required/>
+                        <small class="errorMessage" data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Enter Password.</small>
+                    </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="grid-content" for="password2">Confirm Password</label>
+                        <div class="grid-content">
+                            <span>
+                        <input type="password" class="form-control" name="password2" placeholder="Password Again" ng-model="signup.password2" password-match="signup.password" required/>
+                        <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required"> Enter password again.</small>
+
+                       <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.passwordNoMatch && !signupForm.password2.$error.required"> Password do not match.</small>
+
+                    </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="grid-content" for="name">Name</label>
+                        <div class="grid-content">
+                            <span>
+                        <input type="text" class="form-control" placeholder="Name" ng-model="signup.name" />
+                    </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="grid-content" for="phone">Phone</label>
+                        <div class="grid-content">
+                            <span>
+                        <input type="text" class="form-control" placeholder="Phone" name="phone" ng-model="signup.phone"/>
+                    </span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="grid-content" for="address">Address</label>
+                        <div class="grid-content">
+                        <span>
+                            <input type="text" class="form-control" placeholder="Address" ng-model="signup.address" />
+                        </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="grid-content">
+                            <button type="submit" class="button primary pull-right" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
+                                Sign Up
+                            </button>
+                        </div>
+                    </div>
+                    </fieldset>
+                    <div>Already have an account? <a href="#/login">SignIn</a>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
