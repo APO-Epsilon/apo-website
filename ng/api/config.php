@@ -2,12 +2,12 @@
 /**
  * Database configuration
  */
-/*
-$DBServer = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
-$DBUser   = 'apo';
-$DBPass   = 'alphaphiomega';
-$DBName   = 'apo';
-*/
+
+// $DBServer = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
+// $DBUser   = 'apo';
+// $DBPass   = 'alphaphiomega';
+// $DBName   = 'apo';
+
 define('DB_HOST', 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com');
 define('DB_NAME', 'apo');
 define('DB_USER','apo');
