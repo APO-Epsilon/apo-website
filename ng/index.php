@@ -13,12 +13,6 @@
           <link rel="stylesheet" href="http://cdn.jsdelivr.net/zurb/foundation-apps-1.1.0.min.css">
           <link href="css/toaster.css" rel="stylesheet">
 
-          <!-- Foundation for Apps -->
-            <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-1.1.0.js"></script>
-            <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-1.1.0.min.js"></script>
-            <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-templates-1.1.0.js"></script>
-            <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-templates-1.1.0.min.js"></script>
-
 
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -136,4 +130,9 @@
   <script src="app/data.js"></script>
   <script src="app/directives.js"></script>
   <script src="app/authCtrl.js"></script>
+  <!-- Foundation for Apps -->
+  <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-1.1.0.js"></script>
+  <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-1.1.0.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-templates-1.1.0.js"></script>
+  <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-templates-1.1.0.min.js"></script>
 </html>
