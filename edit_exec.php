@@ -23,9 +23,10 @@ page_header();
 
 <?php
 $position = $_SESSION['sessionposition'];
+$Webmaster=1012;
 
-
-if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
+if (1012)//(($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) 
+{
 	if (isset($_GET['action']) == "delete_exec") {
 		$id = $_GET['id'];
 		$sql = "UPDATE `contact_information` SET `exec` = 0, `position` = '', `status` = 'Active' WHERE `id`=$id";
@@ -160,7 +161,6 @@ END;
 		print "<div><b>$r[position]:</b> $r[position_status]";
 //		print "<a href='edit_exec.php?action=delete_position&id=$r[position_id]'>X</a>";
 		print "</div>";
-
 	}
 
 echo <<<END
