@@ -26,60 +26,60 @@ $position = $_SESSION['sessionposition'];
 
 
 if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
-	if (isset($_GET['action']) == "delete_exec") {
-		$id = $_GET['id'];
-		$sql = "UPDATE `contact_information` SET `exec` = 0, `position` = '', `status` = 'Active' WHERE `id`=$id";
-		if ($querey = $db->query($sql)) {
-			echo "Removed position";
-		} else {
-			echo "There was an error removing position, please contact Webmaster.";
-		}
-	} elseif (isset($_GET['action']) == "make_exec") {
-		$pos_id = $_GET['pos_id'];
-		$user_id = $_GET['user_id'];
-
-		$pos = $_GET['position'];
-
-		$sql = "SELECT `position`, `position_status` FROM `positions` WHERE `position_id` = '$pos_id' LIMIT 1";
-		$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 1");
-
-
-		while($pos = mysqli_fetch_array($query)){
-			// If any position name has an apostrophe in it, it doesn't like it.
-			$sql = "UPDATE `contact_information` SET `exec` = 1, `position` = '$pos[position]', `status` = '$pos[position_status]' WHERE `id`='$user_id'";
+	if (isset($_GET['action'])) {
+		if ($_GET['action'] == "delete_exec") {
+			$id = $_GET['id'];
+			$sql = "UPDATE `contact_information` SET `exec` = 0, `position` = '', `status` = 'Active' WHERE `id`=$id";
 			if ($querey = $db->query($sql)) {
-				echo "Update Executive List.";
+				echo "Removed position";
 			} else {
-				echo "There was an error adding position, please contact Webmaster.";
+				echo "There was an error removing position, please contact Webmaster.";
 			}
-		}
-	} elseif (isset($_GET['action']) == "new_position") {
-		$position_name = $_GET['position_name'];
-		$position_status = $_GET['position_status'];
+		} elseif ($_GET['action'] == "make_exec") {
+			$pos_id = $_GET['pos_id'];
+			$user_id = $_GET['user_id'];
 
-		$sql = "INSERT INTO `positions` (position, position_status) VALUES ('$position_name', '$position_status')";
-		if ($querey = $db->query($sql)) {
-			echo "Added position $position_name";
-		} else {
-			echo "There was an error, please contact Webmaster.";
-		}
-//	} elseif ($_GET[action] == "delete_position") {
-//		$id = $_GET['id'];
-//
-//		$sql = "DELETE FROM `positions` WHERE `position_id` = $id";
-//		if ($querey = $db->query($sql)) {
-//			echo "Deleted $id";
-//		} else {
-//			echo "There was an error, please contact Webmaster.";
-//		}
-	} elseif (isset($_GET['action']) == "make_pledge_trainer") {
-		$id = $_GET['user_id'];
+			$sql = "SELECT `position`, `position_status` FROM `positions` WHERE `position_id` = '$pos_id' LIMIT 1";
+			$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 1");
 
-		$sql = "UPDATE `contact_information` SET `position` = 'Pledge Trainer', `status` = 'Active' WHERE `id`='$id'";
-		if ($querey = $db->query($sql)) {
-			echo "Added Pledge Trainer";
-		} else {
-			echo "There was an error, please contact Webmaster.";
+
+			while($pos = mysqli_fetch_array($query)){
+				// If any position name has an apostrophe in it, it doesn't like it.
+				$sql = "UPDATE `contact_information` SET `exec` = 1, `position` = '$pos[position]', `status` = '$pos[position_status]' WHERE `id`='$user_id'";
+				if ($querey = $db->query($sql)) {
+					echo "Update Executive List.";
+				} else {
+					echo "There was an error adding position, please contact Webmaster.";
+				}
+			}
+		} elseif ($_GET['action'] == "new_position") {
+			$position_name = $_GET['position_name'];
+			$position_status = $_GET['position_status'];
+
+			$sql = "INSERT INTO `positions` (position, position_status) VALUES ('$position_name', '$position_status')";
+			if ($querey = $db->query($sql)) {
+				echo "Added position $position_name";
+			} else {
+				echo "There was an error, please contact Webmaster.";
+			}
+	//	} elseif ($_GET[action] == "delete_position") {
+	//		$id = $_GET['id'];
+	//
+	//		$sql = "DELETE FROM `positions` WHERE `position_id` = $id";
+	//		if ($querey = $db->query($sql)) {
+	//			echo "Deleted $id";
+	//		} else {
+	//			echo "There was an error, please contact Webmaster.";
+	//		}
+		} elseif ($_GET['action'] == "make_pledge_trainer") {
+			$id = $_GET['user_id'];
+
+			$sql = "UPDATE `contact_information` SET `position` = 'Pledge Trainer', `status` = 'Active' WHERE `id`='$id'";
+			if ($querey = $db->query($sql)) {
+				echo "Added Pledge Trainer";
+			} else {
+				echo "There was an error, please contact Webmaster.";
+			}
 		}
 	}
 
