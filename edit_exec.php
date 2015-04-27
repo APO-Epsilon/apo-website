@@ -25,8 +25,8 @@ page_header();
 $position = $_SESSION['sessionposition'];
 $Webmaster=1012;
 
-if (1012)//(($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) 
-{
+//if (1012)//(($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) 
+//{
 	if (isset($_GET['action']) == "delete_exec") {
 		$id = $_GET['id'];
 		$sql = "UPDATE `contact_information` SET `exec` = 0, `position` = '', `status` = 'Active' WHERE `id`=$id";
@@ -82,7 +82,7 @@ if (1012)//(($position == "Webmaster" OR $position == "President" ) & ($_SESSION
 		} else {
 			echo "There was an error, please contact Webmaster.";
 		}
-	}
+//	}
 
 
 	$sql = "SELECT * FROM `contact_information` WHERE `exec` = 1 ORDER BY `position`";
