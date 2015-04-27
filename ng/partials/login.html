@@ -1,0 +1,50 @@
+
+<div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li class="active current">Login</li>
+    </ul>
+</div>
+<div class="grid-block">
+<div class="grid-block align-center">
+<div class="grid-content small-10 medium-8 large-6">
+    <div id="login-box" class="login-box visible widget-box no-border">
+        <div class="widget-body">
+            <div class="widget-main">
+                <h3 class="subheader">
+                    Login to AngularCode
+                </h3>
+
+    <div class="card">
+      <div class="card-divider">
+        Login/Logout
+      </div>
+      <div class="card-section">
+        <form id="loginform" name="loginform" method="post">
+
+        <label>Email:</label>
+        <input type="text" ng-model="login.email" name="email" placeholder="example@truman.edu"/>
+        <label>Password:</label>
+        <input id="password" ng-model="login.password" type="password" name="password" required/>
+
+        <button type="submit" class="button primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
+
+    </form>
+      </div>
+        </div>
+                </div>
+
+            <span class="grid-content small-3"> </span><div class="grid-content small-7">Don't have an account? <a href="#/signup">Signup</a></div>
+            </form>
+
+            </div><!-- /widget-main -->
+
+
+        </div><!-- /widget-body -->
+    </div><!-- /login-box -->
+
+</div><!-- /position-relative -->
+</div>
+</div><!-- /.page-content -->

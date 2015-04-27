@@ -23,7 +23,9 @@ page_header();
 
 <?php
 $position = $_SESSION['sessionposition'];
+$Webmaster=1012;
 
+<<<<<<< HEAD
 
 if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
 	if (isset($_GET['action'])) {
@@ -55,6 +57,27 @@ if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessio
 		} elseif ($_GET['action'] == "new_position") {
 			$position_name = $_GET['position_name'];
 			$position_status = $_GET['position_status'];
+=======
+//if (1012)//(($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) 
+//{
+	if (isset($_GET['action']) == "delete_exec") {
+		$id = $_GET['id'];
+		$sql = "UPDATE `contact_information` SET `exec` = 0, `position` = '', `status` = 'Active' WHERE `id`=$id";
+		if ($querey = $db->query($sql)) {
+			echo "Removed position";
+		} else {
+			echo "There was an error removing position, please contact Webmaster.";
+		}
+	} elseif (isset($_GET['action']) == "make_exec") {
+		$pos_id = $_GET['pos_id'];
+		$user_id = $_GET['user_id'];
+
+		$pos = $_GET['position'];
+
+		$sql = "SELECT `position`, `position_status` FROM `positions` WHERE `position_id` = '$pos_id' LIMIT 1";
+		$query = $db->query($sql) or die("If you encounter problems, please contact the webmaster. 1");
+
+>>>>>>> e5faf67c006a4cdcc4dae7265149047fe64ec3e0
 
 			$sql = "INSERT INTO `positions` (position, position_status) VALUES ('$position_name', '$position_status')";
 			if ($querey = $db->query($sql)) {
@@ -81,7 +104,7 @@ if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessio
 				echo "There was an error, please contact Webmaster.";
 			}
 		}
-	}
+//	}
 
 
 	$sql = "SELECT * FROM `contact_information` WHERE `exec` = 1 ORDER BY `position`";
@@ -160,7 +183,6 @@ END;
 		print "<div><b>$r[position]:</b> $r[position_status]";
 //		print "<a href='edit_exec.php?action=delete_position&id=$r[position_id]'>X</a>";
 		print "</div>";
-
 	}
 
 echo <<<END

@@ -1,7 +1,7 @@
 {
   "name": "Dale",
   "version": "0.0.1",
-  "description": "Simple sassc compilation test",
+  "description": "Simple sass compilation test",
   "devDependencies": {
     "grunt": "latest",
     "grunt-autoprefixer": "latest",
