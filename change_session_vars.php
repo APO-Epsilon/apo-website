@@ -60,7 +60,7 @@ $active_page = True;
 $public_page = False;
 require_once('permissions.php');
 function show_active() {
-	if ($_SESSION['sessionID'] == 426 || $_SESSION['sessionID'] == 443 || $_SESSION['sessionID'] == 739 || $_SESSION['sessionID'] == 668 || $_SESSION['sessionID'] == 851 ) || $_SESSION['sessionID'] == 1012 ) || {				//list users ids for webmaster committee here to allow access - current: 426-Justin 443-Kevin 739-Austin 668-Carnahan
+	if ($_SESSION['sessionID'] == 426 || $_SESSION['sessionID'] == 443 || $_SESSION['sessionID'] == 739 || $_SESSION['sessionID'] == 668 || $_SESSION['sessionID'] == 851 || $_SESSION['sessionID'] == 1012 ) || {				//list users ids for webmaster committee here to allow access - current: 426-Justin 443-Kevin 739-Austin 668-Carnahan
 		if (isset($_POST['ID'])){
 			setvars();
 		}
