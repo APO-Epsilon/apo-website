@@ -9,7 +9,6 @@
 				<li><a href="join.php">Join</a></li>
 				<li><a href="history.php">History</a></li>
 				<li><a href="dates.php">Important Dates</a></li>
-				<li><a href="awards.php">Awards</a></li>
                 <li><a href="traditions.php">Traditions</a></li>
 			</ul>
 		</li>
