@@ -37,7 +37,7 @@ function show_active() {
 	}
 	show_form();
 }
-global $current_semester;
+global $current_semestern = "fall 2015";
 global $previous_semester;
 function process_form() {
 	include ('mysql_access.php');
