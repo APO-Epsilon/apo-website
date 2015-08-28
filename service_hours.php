@@ -37,8 +37,9 @@ function show_active() {
 	}
 	show_form();
 }
-global $current_semestern = "fall 2015";
+global $current_semestern;
 global $previous_semester;
+$asemester = "fall 2015";
 function process_form() {
 	include ('mysql_access.php');
 	$id = $_SESSION['sessionID'];
