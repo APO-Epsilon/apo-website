@@ -57,6 +57,7 @@ function process_form() {
 	} else {
 		$fundraising = "";
 	}
+	$semester = 'fall 2015';// $_POST['semester'];
 	$semester = $_POST['semester'];
 
 	$description = htmlspecialchars($description, ENT_QUOTES);
