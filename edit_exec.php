@@ -25,7 +25,9 @@ page_header();
 $position = $_SESSION['sessionposition'];
 
 
-if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
+//if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
+$_SESSION['sessionexec'] == 1;
+{
 	if (isset($_GET['action'])) {
 		if ($_GET['action'] == "delete_exec") {
 			$id = $_GET['id'];
