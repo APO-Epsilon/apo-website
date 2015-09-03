@@ -7,7 +7,7 @@ ini_set('display_errors', 'On');
 // the same,  that is don't switch previous_semester to "Fall10" if it was "Fall 2010"
 $previous_semester = 'Spring 2015';
 $current_semester = 'Fall 2015';
-$next_semester = 'Spring 2015';
+$next_semester = 'Spring 2016';
 function page_header() {
 
     // Evil code to force memembers to update their information each new semester.
