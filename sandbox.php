@@ -15,7 +15,7 @@ require_once ('session.php');
     <div id="header"></div>
     <div class="row">
         <p><b>
-        He is the Nick
+        He is the Nick, but she is the Zoe
         </p></br>
 <script>
 // Set the number of snowflakes (more than 30 - 40 not recommended)
