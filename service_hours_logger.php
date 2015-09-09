@@ -6,6 +6,7 @@ function recorded_hours(){
 	include('mysql_access.php');
 	global $current_semester;
 	//this is shit code. could be written in OOP.
+	// not shit code INVENTIVE code.
 
 	$sql = "SELECT user_id, detail_id, occurrence_id, length FROM service_attendance WHERE processed = 1";
 	$result = $db->query($sql);
