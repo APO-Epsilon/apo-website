@@ -1,7 +1,7 @@
 <?php
 require_once ('session.php');
-require_once ('/mysql_access.php');
-require_once ('/get_photo.php');
+require_once ('../mysql_access.php');
+require_once ('../get_photo.php');
 ?>
 <!doctype html>
 <html>
