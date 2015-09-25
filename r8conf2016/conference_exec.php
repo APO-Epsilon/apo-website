@@ -17,7 +17,7 @@ require_once ('../get_photo.php');
 
       <div class="row">
         <div class="small-12 columns">
-          <h1 class="text-center">Header</h1>
+          <h1 class="text-center">Conference Executive Member</h1>
         </div>
 
         <ul class="small-block-grid-3 text-center">
@@ -25,6 +25,7 @@ require_once ('../get_photo.php');
             <div class="small-12 columns">
           		<img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           		<h4 class="text-center">
+              Name
                 <br>
               </h4>
             </div>
