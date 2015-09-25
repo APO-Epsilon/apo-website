@@ -15,6 +15,7 @@ require_once ('../get_photo.php');
     <div class="row">
     <ul class="large-block-grid-2 small-block-grid-1">
 
+      <!-- This is the part that gets repeated for each person -->
       <div class="row">
         <div class="small-12 columns">
           <h1 class="text-center">Conference Executive Member</h1>
@@ -25,7 +26,7 @@ require_once ('../get_photo.php');
             <div class="small-12 columns">
           		<img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           		<h4 class="text-center">
-              Name
+                Name
                 <br>
               </h4>
             </div>
@@ -35,10 +36,39 @@ require_once ('../get_photo.php');
         <div class="small-12 columns">
           <p class="text-center">
             <a href="mailto:">
+              Email
             </a>
           </p>
         </div>
       </div>
+      <!-- This is the end of the part that gets repeated for each person -->
+            <!-- This is the part that gets repeated for each person -->
+      <div class="row">
+        <div class="small-12 columns">
+          <h1 class="text-center">Conference Executive Member</h1>
+        </div>
+
+        <ul class="small-block-grid-3 text-center">
+          <li style="float: none; display: inline-block;">
+            <div class="small-12 columns">
+              <img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+              <h4 class="text-center">
+                Name
+                <br>
+              </h4>
+            </div>
+          </li>
+        </ul>
+
+        <div class="small-12 columns">
+          <p class="text-center">
+            <a href="mailto:">
+              Email
+            </a>
+          </p>
+        </div>
+      </div>
+      <!-- This is the end of the part that gets repeated for each person -->
 </ul>
 </div>
     <!-- Javascript method to include footer -->
