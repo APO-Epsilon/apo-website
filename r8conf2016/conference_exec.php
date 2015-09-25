@@ -21,17 +21,13 @@ require_once ('../get_photo.php');
         </div>
 
       <!-- This is the part that gets repeated for each person -->
-        <ul class="small-block-grid-3 text-center">
-      		<li style="float: none; display: inline-block;">
-            <div class="small-12 columns">
-          		<img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
-          		<h4 class="text-center">
-                Name
-                <br>
-              </h4>
-            </div>
-          </li>
-        </ul>
+        <div class="small-12 columns">
+      		<img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+      		<h4 class="text-center">
+            Name
+            <br>
+          </h4>
+        </div>
 
         <div class="small-12 columns">
           <p class="text-center">
@@ -43,17 +39,13 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
 
       <!-- This is the part that gets repeated for each person -->
-        <ul class="small-block-grid-3 text-center">
-          <li style="float: none; display: inline-block;">
-            <div class="small-12 columns">
-              <img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
-              <h4 class="text-center">
-                Name
-                <br>
-              </h4>
-            </div>
-          </li>
-        </ul>
+        <div class="small-12 columns">
+          <img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <h4 class="text-center">
+            Second Name
+            <br>
+          </h4>
+        </div>
 
         <div class="small-12 columns">
           <p class="text-center">
