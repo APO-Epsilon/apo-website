@@ -15,7 +15,10 @@ require_once ('../get_photo.php');
     <div class="row">
     <ul class="large-block-grid-2 small-block-grid-1">
 <?php
-$sql = "SELECT position, position_email FROM positions WHERE position_order <> 0 ORDER BY position_order ASC;";
+$sql = "SELECT position, position_email
+FROM conf_positions
+WHERE position_order <> 0
+ORDER BY position_order ASC;";
 $result = $db->query($sql);
 while($position_query = mysqli_fetch_array($result)){
 	$current_position = $position_query['position'];
