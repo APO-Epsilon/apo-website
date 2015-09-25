@@ -40,7 +40,6 @@ require_once ('../get_photo.php');
             </a>
           </p>
         </div>
-      </div>
       <!-- This is the end of the part that gets repeated for each person -->
 
       <!-- This is the part that gets repeated for each person -->
@@ -63,7 +62,6 @@ require_once ('../get_photo.php');
             </a>
           </p>
         </div>
-      </div>
       <!-- This is the end of the part that gets repeated for each person -->
 
   </ul>
