@@ -7,7 +7,7 @@ function getPhotoLink($user_id){
 	$sql = "SELECT user_id FROM user_photos WHERE user_id=$user_id;";
 			$result = $db->query($sql);
 			if(mysqli_num_rows($result) == 0){
-				return "img/unknown.jpg";
+				return "/img/unknown.jpg";
 			}else{
 				return "/user_photo.php?user_id=" . $user_id;
 			}
