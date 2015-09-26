@@ -19,31 +19,31 @@ require_once ('session.php');
 
 <?php
 function varsform() {
-echo <<<END
+?>
 	<div class="small-12 small-centered columns">
-		<form name="sessionvarsform" method="post" action="$_SERVER[PHP_SELF]">
-		<label for="ID">ID</label><input type="text" name="ID" value="{$_SESSION['sessionID']}"/>
+		<form name="sessionvarsform" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+		<label for="ID">ID</label><input type="text" name="ID" value="<?php echo $_SESSION['sessionID'] ?>"/>
 	</div>
 	<div class="small-12 small-centered columns">
-		<label for="Username">Username</label><input type="text" name="Username" value="{$_SESSION['sessionUsername']}"/>
+		<label for="Username">Username</label><input type="text" name="Username" value="<?php echo $_SESSION['sessionUsername'] ?>"/>
 	</div>
 	<div class="small-12 small-centered columns">
-		<label for="Firstname">Firstname</label><input type="text" name="Firstname" value="{$_SESSION['sessionFirstname']}"/>
+		<label for="Firstname">Firstname</label><input type="text" name="Firstname" value="<?php echo $_SESSION['sessionFirstname'] ?>"/>
 	</div>
 	<div class="small-12 small-centered columns">
-		<label for="Lastname">Lastname</label><input type="text" name="Lastname" value="{$_SESSION['sessionLastname']}"/>
+		<label for="Lastname">Lastname</label><input type="text" name="Lastname" value="<?php echo $_SESSION['sessionLastname'] ?>"/>
 	</div>
 	<div class="small-12 small-centered columns">
-		<label for="exec">exec</label><input type="text" name="exec" value="{$_SESSION['sessionexec']}"/>
+		<label for="exec">exec</label><input type="text" name="exec" value="<?php echo $_SESSION['sessionexec'] ?>"/>
 	</div>
 	<div class="small-12 small-centered columns">
-		<label for="position">position</label><input type="text" name="position" value="{$_SESSION['sessionposition']}"/>
+		<label for="position">position</label><input type="text" name="position" value="<?php echo $_SESSION['sessionposition'] ?>"/>
 	</div>
 	<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
 		<input type="submit" class="button expand" value="Submit"/>
 	</div>
 	</form>
-END;
+<?php
 }
 
 function setvars() {
