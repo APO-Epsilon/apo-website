@@ -15,15 +15,13 @@ require_once ('../get_photo.php');
     <div class="row">
     <ul class="large-block-grid-2 small-block-grid-1">
 
-      <div class="row">
         <div class="small-12 columns">
           <h1 class="text-center">Conference Executive Member</h1>
         </div>
-      </div>
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 large-4 columns">
-      		<img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+      		<img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
       		<h4 class="text-center">
             Name
             <br>
@@ -38,7 +36,7 @@ require_once ('../get_photo.php');
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 large-4 columns">
-          <img src="" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Second Name
             <br>
