@@ -37,7 +37,7 @@ echo <<<END
 		</div>
 			<br>
 		<div class="large-6 medium-6 small-12 columns">
-				<label for="username">Email</label>
+				<label for="email">Email</label>
 				<input type="text" name="username" />
 		</div>
 			<br>
