@@ -19,6 +19,7 @@ require_once ('../get_photo.php');
         <div class="small-12 columns">
           <h1 class="text-center">Conference Executive Member</h1>
         </div>
+      </div>
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 large-4 columns">
