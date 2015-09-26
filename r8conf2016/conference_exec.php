@@ -28,6 +28,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Joe Hall
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -44,6 +45,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             David Gilbert
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -59,6 +61,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Ashley Banze
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -75,6 +78,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Emily Leddin
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -90,6 +94,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Josh Bright
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -105,6 +110,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Valerie Frerichs
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -120,6 +126,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Trista Sullivan
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -135,6 +142,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Libby Moser
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -150,6 +158,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Molly Turner and Rick Cazzato Jr.
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
@@ -165,6 +174,7 @@ require_once ('../get_photo.php');
           </h4>
           <p class="text-center">
             Taylor Demien
+            <br>
             <a href="mailto:apo.epsilon.conferencechair@gmail.com">
               apo.epsilon.conferencechair@gmail.com
             </a>
