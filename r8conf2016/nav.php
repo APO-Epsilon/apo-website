@@ -8,7 +8,7 @@
 			<a href="schedule.php"><span>Events</span></a>
 			<ul>
 				<li><a href="schedule.php">Schedule</a></li>
-				<li><a href="jaredbox.php">The Jared Box</a></li>
+				<li><a href="jared_box.php">The Jared Box</a></li>
 			</ul>
 		</li>
         <li>
