@@ -21,7 +21,8 @@ require_once ('../get_photo.php');
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-      	 <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <h4 class="text-center">
             Conference Chair
             <br>
           </h4>
@@ -33,7 +34,7 @@ require_once ('../get_photo.php');
             </a>
           </p>
         </div>
-      <!-- This is the end of the part that gets repeated for each person -->
+      <!-- This is the end of the part that gets repeated for each person --> 
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
