@@ -22,7 +22,7 @@ require_once ('../PasswordHash.php');
 <?php
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     $hasher = new PasswordHash(8, true);
@@ -38,8 +38,8 @@ require_once ('../PasswordHash.php');
       echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
     } else {
         $insert = "INSERT INTO `conf_contact_information` (firstname,
-        lastname, username, password) VALUES('$firstname','$lastname',
-        '$username', '$password')";
+        lastname, email, password) VALUES('$firstname','$lastname',
+        '$email', '$password')";
         /*
         echo($query2);
 
@@ -50,6 +50,7 @@ $result = $db->query($insert);
 if (!$result) {
     die('There has an been error with your registration. This may be because the email address you supplied is already in use, or there may be other technical problems. If the error persists, please contact the webmaster at <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com.</a>' . mysqli_error());
 }
+/* Uncomment to enable sending an email to the conference chair for each registration
 require("../phpmailer/class.phpmailer.php");
 $mail = new PHPMailer();
 $mail->IsSMTP();                                      // set mailer to use SMTP
@@ -65,7 +66,7 @@ $mail->AddAddress("apo.epsilon.conferencechair@gmail.com", "APO Epsilon Conferen
 $resultcount = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM conf_contact_information;"));
 $subject = "(" . $resultcount['COUNT(*)'] . ") " . $firstname . " " . $lastname . " has registered for the APO Epsilon Region VIII Conference";
 $emailToSend = "Name: " . $firstname . " " . $lastname . "\n" . 
-    "Additional Information submitted will go here.";
+    ""; //Additional information to go here
 
 $mail->Subject = $subject;
 $mail->Body    = $emailToSend;
@@ -74,6 +75,8 @@ if(!$mail->Send()) {
 } else {
 	;
 }
+*/
+
 echo <<<END
         <div class="small-12 columns">
             <h2>Success!</h2>

@@ -34,8 +34,8 @@ echo <<<END
 	<h1>Conference Registration Login</h1><br>
 		<form name="loginform" method="post" action="$_SERVER[PHP_SELF]">
 			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
-				<label for="username">Email: </label>
-				<input type="text" name="username"/>
+				<label for="email">Email: </label>
+				<input type="text" name="email"/>
 			</div><br>
 			<div class="large-6 medium-6 small-12 large-centered medium-centered columns">
 				<label for="password">Password: </label>
@@ -56,8 +56,8 @@ END;
 	echo(isset($_SESSION['continue']) ? $_SESSION['continue'] : '');
 }
 function process_login(){
-	require_once $_SERVER['DOCUMENT_ROOT'].'/mysql_access.php';
-	$username = addslashes($_POST["username"]);
+	require_once ('../mysql_access.php');
+	$username = addslashes($_POST["email"]);
 	$password = addslashes($_POST["password"]);
 	$hasher = new PasswordHash(8, true);
 
@@ -102,9 +102,6 @@ function process_login(){
 	} else {
 	extract($r);
 
-	$_SESSION['sessionConfUsername'] = $username;
-	$_SESSION['sessionConfFirstname'] = $firstname;
-	$_SESSION['sessionConfLastname'] = $lastname;
 	$_SESSION['sessionConfID'] = $id;
 
 
@@ -119,9 +116,6 @@ function process_login(){
 	}
 }
 function logout(){
-	unset($_SESSION['sessionConfUsername']);
-	unset($_SESSION['sessionConfFirstname']);
-	unset($_SESSION['sessionConfLastname']);
 	unset($_SESSION['sessionConfID']);
 }
 	if (!isset($_SESSION['sessionConfID']) && isset($_POST['logstate']) && ($_POST['logstate'] == 'login')) {
