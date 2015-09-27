@@ -18,7 +18,7 @@ require_once ('session.php');
 
 
 <div class="row">
-    <div class="large-8 medium-8 small-12 columns">
+    <div class="medium-10 small-12 columns">
         <?php require_once('editable_page.php'); ?>
     </div>
 </div>
