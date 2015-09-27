@@ -1,6 +1,5 @@
 <?php
 require_once ('session.php');
-require_once ('../mysql_access.php');
 ?>
 <!doctype html>
 <html>
@@ -17,8 +16,14 @@ require_once ('../mysql_access.php');
     <div id="header"><?php include 'header.php';?></div>
     <!-- PHP method to include header -->
 
-	<div class="row">
-    
-  <div class="small-12 columns">
-			 <h2>The Jared Box</h2>
-			    
+
+<div class="row">
+    <div class="medium-10 small-12 columns">
+        <?php require_once('editable_page.php'); ?>
+    </div>
+</div>
+    <!-- Javascript method to include footer -->
+    <div id="footer"><?php include 'footer.php';?></div>
+    <!-- PHP method to include footer -->
+</body>
+</html>
