@@ -21,7 +21,7 @@ require_once ('../get_photo.php');
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-      		<img src="../img/https://mail.google.com/mail/u/3/#inbox/1500ab377624d206?projector=1" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+      		<img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
       		<h4 class="text-center">
             Conference Chair
             <br>
