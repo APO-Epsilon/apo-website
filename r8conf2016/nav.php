@@ -15,6 +15,8 @@
         	<a href="transportation.php"><span>Logistics</span></a>
         	<ul>
         		<li><a href="transportation.php">Transportation</a></li>
+        		<li><a href="lodging.php">Lodging</a></li>
+        		<li><a href="truman.php">Truman</a></li>
         	</ul>
         </li>
 		<li><a href="conference_exec.php">Conference Committee</a></li>
