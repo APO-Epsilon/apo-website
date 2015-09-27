@@ -13,7 +13,7 @@ require_once ('session.php');
 
 <div class="row">
         <div class="large-10 medium-9 small-12 column large-centered medium-centered">
-            <?php require_once('editable_page.php'); ?>
+            <?'editable_page.php'); ?>
         </div>
     </div>
     <div id="footer"></div>
