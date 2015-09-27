@@ -16,7 +16,7 @@ require_once ('../get_photo.php');
     <ul class="large-block-grid-2 small-block-grid-1">
 
         <div class="small-12 columns">
-          <h1 class="text-center">Conference Executive Member</h1>
+          <h1 class="text-center">Conference Committee</h1>
         </div>
 
       <!-- This is the part that gets repeated for each person -->
