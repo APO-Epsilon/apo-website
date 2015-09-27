@@ -21,7 +21,7 @@ require_once ('../get_photo.php');
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-      		<img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+      		<img src="../img/https://gm1.ggpht.com/CBpVjn72k7fUu-LEig8xbq-9Xmh1gpqxeir0fwAi4MNa2YZqjcqpGA_GA2WU1OZxBUlDC4gN82W7iHlPgUkpF02onhLR_WQkFHOZkPVk6-JEYsef1Iwmcz_GfWHLHSfOwEg5zHJTdZ-nJDOXAJm2CoVDN2_V1LZiNG2X1MJt39c_Kmpp_-_lS8uoD-BJC-k0sKrCygDqpVdmxRjJYN78O_fv8KCSM_26QuSEdku-DaNt2vhbjsnTu4bgr5PbspSDhkDix8Vk9YV7Z2f01g2ANOy7il1hP82Xa_iPSbk2gnNRzp41ZKhKeCduqFlJhXU5BPkSv8J-JaZtgTErbyYO4ls7eI1EZTLjdpfC9zKfn3YDJpamE6zZ6fQD34q1-6aThfOL9jEgjK-rgZPIUa8effnkQtfxwq9Ul-6lUMpHGgSvg6JtpMNV2xHM1medw4zbdy4DLgQb2VZ7oyDYYvB12JhuMu9mGgpzhlpE5robMU5gXZAAEtYdydKfjZxIANpDeYz3omh3NlzuwYnhL-kp0VlUmgkoPNhkq81KzD2RWKi4qejsYoL689qAC31iF-znWmVYYF5xcJTCOgglGyUu-rxT2hjhg-1hfjrKN1SmT6AZCVvze0o7OL9q2uD4et8NIE8_nTYM7RtrAN8fqw5dDsyl8PM=w686-h914-l75-ft" width="125" style="display: block; margin-left: auto; margin-right: auto;">
       		<h4 class="text-center">
             Conference Chair
             <br>
