@@ -21,7 +21,7 @@ require_once ('../get_photo.php');
 
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(640); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Conference Chair
             <br>
@@ -54,7 +54,7 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
             <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(645); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Logistics Chair
             <br>
@@ -71,7 +71,7 @@ require_once ('../get_photo.php');
 
         <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(818); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Public Relations
             <br>
@@ -87,7 +87,7 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(537); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Treasurer
             <br>
@@ -103,7 +103,7 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(648); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Workshops
             <br>
@@ -119,7 +119,7 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(753); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Brotherhood
             <br>
@@ -135,7 +135,7 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(423); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Bidding Committee Liason
             <br>
@@ -151,7 +151,10 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <div class="text-center">
+            <img src="<?php echo getPhotoLink(620); ?>" width="125" style="display: inline; margin-left: auto; margin-right: auto;">
+            <img src="<?php echo getPhotoLink(854); ?>" width="125" style="display: inline; margin-left: auto; margin-right: auto;">
+          </div>
           <h4 class="text-center">
             Brother Housing
             <br>
@@ -167,7 +170,7 @@ require_once ('../get_photo.php');
       <!-- This is the end of the part that gets repeated for each person -->
       <!-- This is the part that gets repeated for each person -->
         <div class="small-12 medium-6 columns">
-          <img src="../img/unknown.jpg" width="125" style="display: block; margin-left: auto; margin-right: auto;">
+          <img src="<?php echo getPhotoLink(429); ?>" width="125" style="display: block; margin-left: auto; margin-right: auto;">
           <h4 class="text-center">
             Ceremony
             <br>
