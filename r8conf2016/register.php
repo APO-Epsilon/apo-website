@@ -51,8 +51,8 @@ if (!isset($_SESSION['sessionConfID'])) {
 					</fieldset>
 					<fieldset>
 						<legend>APO Information</legend>
-						<div class="medium-6 small-12 columns">
-							<label for="chapter">Chapter
+						<div class="small-6 columns">
+							<label for="chapter">Chapter</label>
 							<select name="chapter">
 								<option value=""></option>
 								<option value="Epsilon">Epsilon</option>
@@ -65,10 +65,9 @@ if (!isset($_SESSION['sessionConfID'])) {
 								<option value="Chi Omega">Chi Omega</option>
 								<option value="Alpha Delta Sigma">Alpha Delta Sigma</option>
 							</select>
-							</label>
 						</div>
-						<div class="medium-6 small-12 columns">
-							<label for="status">Status</label>
+						<div class="small-6 columns">
+							<label for="status">Registration</label>
 							<select name="status">
 								<option value=""></option>
 								<option value="Active">Active</option>
