@@ -30,10 +30,10 @@ require_once ('../PasswordHash.php');
 
     $firstname = htmlspecialchars($firstname, ENT_QUOTES);
     $lastname = htmlspecialchars($lastname, ENT_QUOTES);
-    $email = htmlspecialchars($email, ENT_QUOTES);
+    $username = htmlspecialchars($username, ENT_QUOTES);
     $password = htmlspecialchars($hash, ENT_QUOTES);
 
-    if ($firstname == NULL || $lastname == NULL || $email == NULL || $password == NULL)
+    if ($firstname == NULL || $lastname == NULL || $username == NULL || $password == NULL)
     {
       echo '<div class="entry"><strong>Not all of the required fields were filled out.  Please try again.</strong></div>';
     } else {
