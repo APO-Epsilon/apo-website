@@ -35,7 +35,7 @@ require_once ('../PasswordHash.php');
 
     if ($firstname == NULL || $lastname == NULL || $username == NULL || $password == NULL)
     {
-      echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
+      echo '<div class="entry"><strong>Not all of the required fields were filled out.  Please try again.</strong></div>';
     } else {
         $insert = "INSERT INTO `conf_contact_information` (firstname,
         lastname, email, password) VALUES('$firstname','$lastname',
