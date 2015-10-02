@@ -30,7 +30,7 @@ require_once ('../PasswordHash.php');
 
     $firstname = htmlspecialchars($firstname, ENT_QUOTES);
     $lastname = htmlspecialchars($lastname, ENT_QUOTES);
-    $username = htmlspecialchars($username, ENT_QUOTES);
+    $email = htmlspecialchars($email, ENT_QUOTES);
     $password = htmlspecialchars($hash, ENT_QUOTES);
 
     if ($firstname == NULL || $lastname == NULL || $username == NULL || $password == NULL)
