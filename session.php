@@ -6,7 +6,7 @@ ini_set('display_errors', 'On');
 // So don't mess with them.  Make sure as you update the semesters you keep them
 // the same,  that is don't switch previous_semester to "Fall10" if it was "Fall 2010"
 $previous_semester = 'Spring 2015';
-$current_semester = 'Fall 2015';
+$current_semester = 'Spring 2016';
 $next_semester = 'Spring 2016';
 function page_header() {
 
