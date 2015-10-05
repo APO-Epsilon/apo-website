@@ -23,6 +23,7 @@ var snowmax=40
 
 // Set the colors for the snow. Add as many colors as you like
 var snowcolor=new Array("#FF0E00")
+var snowcolor=new Array("Blue")
 
 // Set the fonts, that create the snowflakes. Add as many fonts as you like
 var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
