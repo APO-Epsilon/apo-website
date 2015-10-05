@@ -24,19 +24,25 @@ require_once ('../PasswordHash.php');
     $lastname = $_POST['lname'];
     $email = $_POST['email'];
     $password = $_POST['password1'];
+    $T_shirt_size = $_POST['TShirtSize']
+    $phone1 = $_POST['tel1']
+    $phone2 = $_POST['tel2']
+    $phone3 = $_POST['tel3']
+    $phone = $phone1.$phone2.$phone3
     $hasher = new PasswordHash(8, true);
     $hash = $hasher->HashPassword($password);
     $firstname = htmlspecialchars($firstname, ENT_QUOTES);
     $lastname = htmlspecialchars($lastname, ENT_QUOTES);
     $email = htmlspecialchars($email, ENT_QUOTES);
     $password = htmlspecialchars($hash, ENT_QUOTES);
-    if ($firstname == NULL || $lastname == NULL || $email == NULL || $password == NULL)
+    if ($firstname == NULL || $lastname == NULL || $email == NULL || $password == NULL || 
+    	$T_shirt_size == NULL || $phone1 == NULL || $phone2 == NULL || $phone3 == NULL)
     {
       echo '<div class="entry"><strong>Not all of the required fields were filled out.  Please try again.</strong></div>';
     } else {
         $insert = "INSERT INTO `conf_contact_information` (firstname,
-        lastname, email, password) VALUES('$firstname','$lastname',
-        '$email', '$password')";
+        lastname, email, password, T_shirt_size, phone) VALUES('$firstname','$lastname',
+        '$email', '$password', '$T_shirt_size', '$phone')";
         /*
         echo($query2);
         $query2 = $db->query($insert) or die('<br><div class="entry"><strong>Your username is already taken.  Please try again.</strong></div>');
