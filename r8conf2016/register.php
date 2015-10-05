@@ -26,7 +26,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 			<h2>Register for the Conference</h2>
 		</div>
 	</div>
-	<form action="register_process.php" method="POST" autocomplete="on">
+	<form action="register_process2.php" method="POST" autocomplete="on">
 		<div class="row">
 			<div class="medium-9 small-12 small-centered columns">
 				<div class="row">
