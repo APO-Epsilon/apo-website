@@ -22,7 +22,7 @@ require_once ('session.php');
 var snowmax=40
 
 // Set the colors for the snow. Add as many colors as you like
-var snowcolor=new Array("Red","Blue","Purple","Green","Orange","Black","Turquoise","Pink","Gold","Silver","Brown","Magenta")
+var snowcolor=new Array("Red","Blue","Purple","Green","Orange","Black","Turquoise","Pink","Gold","Silver","Brown","Magenta","White")
 
 // Set the fonts, that create the snowflakes. Add as many fonts as you like
 var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
@@ -31,7 +31,7 @@ var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
 var snowletter="Hello There ;)"
 
 // Set the speed of sinking (recommended values range from 0.3 to 2)
-var sinkspeed=0.6
+var sinkspeed=2
 
 // Set the maximal-size of your snowflaxes
 var snowmaxsize=36
