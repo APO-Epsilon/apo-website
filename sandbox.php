@@ -15,7 +15,7 @@ require_once ('session.php');
     <div id="header"></div>
     <div class="row">
         <p><b>
-        He is the Nick, but she is the Zoe
+        He is the Nick, but she is the Zoe.
         So apparently whole screen snowing makes the screen shake. Who knew?
         </p></br>
 <script>
