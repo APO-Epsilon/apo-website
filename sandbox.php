@@ -16,7 +16,7 @@ require_once ('session.php');
     <div class="row">
         <p><b>
         He is the Nick, but she is the Zoe.
-        So apparently whole screen snowing makes the screen shake. Who knew?
+        So apparently whole-screen snowing makes the screen shake. Who knew?
         </p></br>
 <script>
 // Set the number of snowflakes (more than 30 - 40 not recommended)
