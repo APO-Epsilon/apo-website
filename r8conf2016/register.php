@@ -51,7 +51,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<strong>)</strong>
 							<input type="tel" name="tel2" placeholder="867" required minlength="3" maxlength="3" style="width: 25%; display: inline; text-align: center;" />
 							<strong>-</strong>
-							<input type="tel" name="tel3" placeholder="5309" required minlength="3" maxlength="4" style="width: 30%; display: inline; text-align: center;" />
+							<input type="tel" name="tel3" placeholder="5309" required minlength="4" maxlength="4" style="width: 30%; display: inline; text-align: center;" />
 						</div>
 						<div class="medium-6 small-12 columns">
 							<label for="password1">Password</label>
