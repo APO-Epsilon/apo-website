@@ -16,6 +16,7 @@ require_once ('session.php');
     <div class="row">
         <p><b>
         He is the Nick, but she is the Zoe
+        So apparently whole screen snowing makes the screen shake. Who knew?
         </p></br>
 <script>
 // Set the number of snowflakes (more than 30 - 40 not recommended)
@@ -42,7 +43,7 @@ var snowminsize=8
 // Set the snowing-zone
 // Set 1 for all-over-snowing, set 2 for left-side-snowing 
 // Set 3 for center-snowing, set 4 for right-side-snowing
-var snowingzone=1
+var snowingzone=3
 
 // Do not edit below this line
 var snow=new Array()
