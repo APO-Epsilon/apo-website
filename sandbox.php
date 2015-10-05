@@ -28,6 +28,7 @@ var snowcolor=new Array("Purple")
 var snowcolor=new Array("Green")
 var snowcolor=new Array("Yellow")
 var snowcolor=new Array("Light Blue")
+var snowcolor=new Array("Grey")
 
 // Set the fonts, that create the snowflakes. Add as many fonts as you like
 var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
