@@ -23,7 +23,7 @@ require_once ('session.php');
 var snowmax=40
 
 // Set the colors for the snow. Add as many colors as you like
-var snowcolor=new Array("Red","Blue","Purple","Green","Orange","Black","Turquoise","Pink","Gold","Silver","Brown","Magenta","White")
+var snowcolor=new Array("Blue","Gold")
 
 // Set the fonts, that create the snowflakes. Add as many fonts as you like
 var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
