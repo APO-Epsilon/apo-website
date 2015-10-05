@@ -81,7 +81,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 						</div>
 						<div class="small-6 columns">
 							<label for="TShirtSize">T-shirt size</label>
-							<select id="ShirtSize" required style="width: 30%;">
+							<select id="ShirtSize" name="ShirtSize" required style="width: 30%;">
 								<option></option>
 								<option value="S">S</option>
 								<option value="M">M</option>
