@@ -28,7 +28,7 @@ require_once ('../PasswordHash.php');
     $phone1 = $_POST['tel1'];
     $phone2 = $_POST['tel2'];
     $phone3 = $_POST['tel3'];
-    $phone = $phone1.$phone2.$phone3;
+    $phone = $phone1."-".$phone2."-"$phone3;
     $hasher = new PasswordHash(8, true);
     $hash = $hasher->HashPassword($password);
     $firstname = htmlspecialchars($firstname, ENT_QUOTES);
