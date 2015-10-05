@@ -24,11 +24,11 @@ require_once ('../PasswordHash.php');
     $lastname = $_POST['lname'];
     $email = $_POST['email'];
     $password = $_POST['password1'];
-    $T_shirt_size = $_POST['TShirtSize']
-    $phone1 = $_POST['tel1']
-    $phone2 = $_POST['tel2']
-    $phone3 = $_POST['tel3']
-    $phone = $phone1.$phone2.$phone3
+    $T_shirt_size = $_POST['TShirtSize'];
+    $phone1 = $_POST['tel1'];
+    $phone2 = $_POST['tel2'];
+    $phone3 = $_POST['tel3'];
+    $phone = $phone1.$phone2.$phone3;
     $hasher = new PasswordHash(8, true);
     $hash = $hasher->HashPassword($password);
     $firstname = htmlspecialchars($firstname, ENT_QUOTES);
