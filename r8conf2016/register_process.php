@@ -1,4 +1,4 @@
-<?php
+#<?php
 require_once ('session.php');
 require_once ('../mysql_access.php');
 require_once ('../PasswordHash.php');
