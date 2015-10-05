@@ -80,6 +80,18 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<div style="display: block;"><input type="radio" name="housing" value="No" id="hno">No</div>
 						</div>
 						<div class="small-6 columns">
+							<label for="TShirtSize">T-shirt size</label>
+							<select id="ShirtSize" required style="width: 30%;">
+								<option></option>
+								<option value="S">S</option>
+								<option value="M">M</option>
+								<option value="L">L</option>
+								<option value="XL">XL</option>
+								<option value="2XL">2XL</option>
+								<option value="3XL">3XL</option>
+							</select>
+						</div>
+						<div class="small-6 columns">
 							<label for="chapter1">Chapter</label>
 							<select id="chapter1" required style="width: 30%;">
 								<option></option>
