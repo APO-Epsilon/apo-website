@@ -31,7 +31,7 @@ var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
 var snowletter="Hello There ;)"
 
 // Set the speed of sinking (recommended values range from 0.3 to 2)
-var sinkspeed=2
+var sinkspeed=1.5
 
 // Set the maximal-size of your snowflaxes
 var snowmaxsize=36
@@ -42,7 +42,7 @@ var snowminsize=8
 // Set the snowing-zone
 // Set 1 for all-over-snowing, set 2 for left-side-snowing 
 // Set 3 for center-snowing, set 4 for right-side-snowing
-var snowingzone=3
+var snowingzone=1
 
 // Do not edit below this line
 var snow=new Array()
