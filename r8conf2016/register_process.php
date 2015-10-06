@@ -1,4 +1,4 @@
-#<?php
+<?php
 require_once ('session.php');
 require_once ('../mysql_access.php');
 require_once ('../PasswordHash.php');
@@ -20,26 +20,47 @@ require_once ('../PasswordHash.php');
 
     <div class="row">
 <?php
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $tel1 = $_POST['tel1'];
+    $tel2 = $_POST['tel2'];
+    $tel3 = $_POST['tel3'];
+    $password = $_POST['password1'];
+    $shirt = $_POST['shirt'];
+    $allergytext = $_POST['allergytext'];
+    $housing = $_POST['housing'];
+    $chapter1 = $_POST['chapter1'];
+    $chapter2 = $_POST['chapter2'];
+    $chapter3 = $_POST['chapter3'];
+    $guests = $_POST['guests'];
+    $payment = $_POST['payment'];
 
     $hasher = new PasswordHash(8, true);
     $hash = $hasher->HashPassword($password);
 
-    $firstname = htmlspecialchars($firstname, ENT_QUOTES);
-    $lastname = htmlspecialchars($lastname, ENT_QUOTES);
-    $username = htmlspecialchars($username, ENT_QUOTES);
+    $fname = htmlspecialchars($fname, ENT_QUOTES);
+    $lname = htmlspecialchars($lname, ENT_QUOTES);
+    $email = htmlspecialchars($email, ENT_QUOTES);
+    $tel1 = htmlspecialchars($tel1, ENT_QUOTES);
+    $tel2 = htmlspecialchars($tel2, ENT_QUOTES);
+    $tel3 = htmlspecialchars($tel3, ENT_QUOTES);
     $password = htmlspecialchars($hash, ENT_QUOTES);
+    $shirt = htmlspecialchars($shirt, ENT_QUOTES);
+    $allergytext = htmlspecialchars($allergytext, ENT_QUOTES);
+    $housing = htmlspecialchars($housing, ENT_QUOTES);
+    $chapter1 = htmlspecialchars($chapter1, ENT_QUOTES);
+    $chapter2 = htmlspecialchars($chapter2, ENT_QUOTES);
+    $chapter3 = htmlspecialchars($chapter3, ENT_QUOTES);
+    $guests = htmlspecialchars($guests, ENT_QUOTES);
+    $payment = htmlspecialchars($payment, ENT_QUOTES);
 
-    if ($firstname == NULL || $lastname == NULL || $username == NULL || $password == NULL)
+
+    if ($fname == NULL || $lname == NULL || $email == NULL || $tel1 == NULL || $tel2 == NULL || $tel3 == NULL || $password == NULL || $shirt == NULL || $housing == NULL || $chapter1 == NULL || $payment == NULL)
     {
-      echo '<div class="entry"><strong>Not all of the required fields were filled out.  Please try again.</strong></div>';
+      echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
     } else {
-        $insert = "INSERT INTO `conf_contact_information` (firstname,
-        lastname, email, password) VALUES('$firstname','$lastname',
-        '$email', '$password')";
+        $insert = "INSERT INTO `conf_contact_information` (firstname, lastname, email, tel1, tel2, tel3, password, shirt, allergytext, housing, chapter1, chapter2, chapter3, guests, payment) VALUES('$fname','$lname', '$email', '$tel1', '$tel2', '$tel3', '$password', '$shirt', '$allergytext', '$housing', '$chapter1', '$chapter2', '$chapter3', '$guests', '$payment')";
         /*
         echo($query2);
 
