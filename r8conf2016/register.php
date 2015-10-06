@@ -26,7 +26,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 			<h2>Register for the Conference</h2>
 		</div>
 	</div>
-	<form action="register_process2.php" method="POST" autocomplete="on">
+	<form action="register_process.php" method="POST" autocomplete="on">
 		<div class="row">
 			<div class="medium-9 small-12 small-centered columns">
 				<div class="row">
@@ -51,15 +51,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<strong>)</strong>
 							<input type="tel" name="tel2" placeholder="867" required minlength="3" maxlength="3" style="width: 25%; display: inline; text-align: center;" />
 							<strong>-</strong>
-							<input type="tel" name="tel3" placeholder="5309" required minlength="4" maxlength="4" style="width: 30%; display: inline; text-align: center;" />
-						</div>
-						<div class="medium-6 small-12 columns">
-							<label for="allergy">What allergies do you have?</label>
-							<input type="text" name="allergy" placeholder="If you have none, enter None" required autocomplete="allergy" />
-						</div>
-						<div class="medium-6 small-12 columns">
-							<label for="guests">How many guests will you bring?</label>
-							<input type="text" name="guests" placeholder="If none, enter 0" required autocomplete="guests" />
+							<input type="tel" name="tel3" placeholder="5309" required minlength="3" maxlength="4" style="width: 30%; display: inline; text-align: center;" />
 						</div>
 						<div class="medium-6 small-12 columns">
 							<label for="password1">Password</label>
@@ -71,9 +63,112 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<input type="password" name="password2" id="password2" minlength="8" maxlength="20" placeholder="At least 1 letter, 1 number" required />
 							<small class="error" id="password2error" style="display: none;">Password Mismatch</small>
 						</div>
+						<div class="small-6 columns">
+							<label for="shirt">T-Shirt Size</label>
+							<select name="shirt" required />
+								<option></option>
+								<option value="S">S</option>
+								<option value="M">M</option>
+								<option value="L">L</option>
+								<option value="XL">XL</option>
+								<option value="2XL">2XL</option>
+								<option value="3XL">3XL</option>
+							</select>
+						</div>
+						<div class="small-6 columns">
+							<br>
+							<input type="checkbox" name="allergy" id="allergy" value="true" /> I have a food allergy
+						</div>
+						<div class="small-12 colums">
+							<input type="text" name="allergytext" id="allergytext" placeholder="Please list any allergies here" style="display: none;" />
+						</div>	
 					</fieldset>
 					<fieldset>
 						<legend>Conference Information</legend>
+						<div class="small-12 columns">
+							<label for="chapter1">Chapter</label>
+							<select name="chapter1" id="chapter1" required style="width: 30%;">
+								<option></option>
+								<option value="Alpha">Alpha</option>
+								<option value="Beta">Beta</option>
+								<option value="Gamma">Gamma</option>
+								<option value="Delta">Delta</option>
+								<option value="Epsilon">Epsilon</option>
+								<option value="Zeta">Zeta</option>
+								<option value="Eta">Eta</option>
+								<option value="Theta">Theta</option>
+								<option value="Iota">Iota</option>
+								<option value="Kappa">Kappa</option>
+								<option value="Lambda">Lambda</option>
+								<option value="Mu">Mu</option>
+								<option value="Nu">Nu</option>
+								<option value="Xi">Xi</option>
+								<option value="Omicron">Omicron</option>
+								<option value="Pi">Pi</option>
+								<option value="Rho">Rho</option>
+								<option value="Sigma">Sigma</option>
+								<option value="Tau">Tau</option>
+								<option value="Upsilon">Upsilon</option>
+								<option value="Phi">Phi</option>
+								<option value="Chi">Chi</option>
+								<option value="Psi">Psi</option>
+								<option value="Omega">Omega</option>
+							</select>
+							<select name="chapter2" id="chapter2" style="width: 30%;">
+								<option></option>
+								<option value="Alpha">Alpha</option>
+								<option value="Beta">Beta</option>
+								<option value="Gamma">Gamma</option>
+								<option value="Delta">Delta</option>
+								<option value="Epsilon">Epsilon</option>
+								<option value="Zeta">Zeta</option>
+								<option value="Eta">Eta</option>
+								<option value="Theta">Theta</option>
+								<option value="Iota">Iota</option>
+								<option value="Kappa">Kappa</option>
+								<option value="Lambda">Lambda</option>
+								<option value="Mu">Mu</option>
+								<option value="Nu">Nu</option>
+								<option value="Xi">Xi</option>
+								<option value="Omicron">Omicron</option>
+								<option value="Pi">Pi</option>
+								<option value="Rho">Rho</option>
+								<option value="Sigma">Sigma</option>
+								<option value="Tau">Tau</option>
+								<option value="Upsilon">Upsilon</option>
+								<option value="Phi">Phi</option>
+								<option value="Chi">Chi</option>
+								<option value="Psi">Psi</option>
+								<option value="Omega">Omega</option>
+							</select>
+							<select name="chapter3" id="chapter3" style="width: 30%;">
+								<option></option>
+								<option value="Alpha">Alpha</option>
+								<option value="Beta">Beta</option>
+								<option value="Gamma">Gamma</option>
+								<option value="Delta">Delta</option>
+								<option value="Epsilon">Epsilon</option>
+								<option value="Zeta">Zeta</option>
+								<option value="Eta">Eta</option>
+								<option value="Theta">Theta</option>
+								<option value="Iota">Iota</option>
+								<option value="Kappa">Kappa</option>
+								<option value="Lambda">Lambda</option>
+								<option value="Mu">Mu</option>
+								<option value="Nu">Nu</option>
+								<option value="Xi">Xi</option>
+								<option value="Omicron">Omicron</option>
+								<option value="Pi">Pi</option>
+								<option value="Rho">Rho</option>
+								<option value="Sigma">Sigma</option>
+								<option value="Tau">Tau</option>
+								<option value="Upsilon">Upsilon</option>
+								<option value="Phi">Phi</option>
+								<option value="Chi">Chi</option>
+								<option value="Psi">Psi</option>
+								<option value="Omega">Omega</option>
+							</select>
+						</div>
 						<div class="small-6 columns">
 							<label for="status">Registration</label>
 							<select id="status" required style="width: 80%;">
@@ -88,110 +183,18 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<div style="display: block;"><input type="radio" name="housing" value="No" id="hno">No</div>
 						</div>
 						<div class="small-6 columns">
-							<label for="TShirtSize">T-shirt size</label>
-							<select id="TShirtSize" name="TShirtSize" required style="width: 30%;">
-								<option></option>
-								<option value="S">S</option>
-								<option value="M">M</option>
-								<option value="L">L</option>
-								<option value="XL">XL</option>
-								<option value="2XL">2XL</option>
-								<option value="3XL">3XL</option>
-							</select>
-						</div>
-						<div class="small-6 columns">
-							<label for="chapter1">Chapter</label>
-							<select id="chapter1" required style="width: 30%;">
-								<option></option>
-								<option value="Alpha">Alpha</option>
-								<option value="Beta">Beta</option>
-								<option value="Gamma">Gamma</option>
-								<option value="Delta">Delta</option>
-								<option value="Epsilon">Epsilon</option>
-								<option value="Zeta">Zeta</option>
-								<option value="Eta">Eta</option>
-								<option value="Theta">Theta</option>
-								<option value="Iota">Iota</option>
-								<option value="Kappa">Kappa</option>
-								<option value="Lambda">Lambda</option>
-								<option value="Mu">Mu</option>
-								<option value="Nu">Nu</option>
-								<option value="Xi">Xi</option>
-								<option value="Omicron">Omicron</option>
-								<option value="Pi">Pi</option>
-								<option value="Rho">Rho</option>
-								<option value="Sigma">Sigma</option>
-								<option value="Tau">Tau</option>
-								<option value="Upsilon">Upsilon</option>
-								<option value="Phi">Phi</option>
-								<option value="Chi">Chi</option>
-								<option value="Psi">Psi</option>
-								<option value="Omega">Omega</option>
-							</select>
-							<select id="chapter2" style="width: 30%;">
-								<option></option>
-								<option value="Alpha">Alpha</option>
-								<option value="Beta">Beta</option>
-								<option value="Gamma">Gamma</option>
-								<option value="Delta">Delta</option>
-								<option value="Epsilon">Epsilon</option>
-								<option value="Zeta">Zeta</option>
-								<option value="Eta">Eta</option>
-								<option value="Theta">Theta</option>
-								<option value="Iota">Iota</option>
-								<option value="Kappa">Kappa</option>
-								<option value="Lambda">Lambda</option>
-								<option value="Mu">Mu</option>
-								<option value="Nu">Nu</option>
-								<option value="Xi">Xi</option>
-								<option value="Omicron">Omicron</option>
-								<option value="Pi">Pi</option>
-								<option value="Rho">Rho</option>
-								<option value="Sigma">Sigma</option>
-								<option value="Tau">Tau</option>
-								<option value="Upsilon">Upsilon</option>
-								<option value="Phi">Phi</option>
-								<option value="Chi">Chi</option>
-								<option value="Psi">Psi</option>
-								<option value="Omega">Omega</option>
-							</select>
-							<select id="chapter3" style="width: 30%;">
-								<option></option>
-								<option value="Alpha">Alpha</option>
-								<option value="Beta">Beta</option>
-								<option value="Gamma">Gamma</option>
-								<option value="Delta">Delta</option>
-								<option value="Epsilon">Epsilon</option>
-								<option value="Zeta">Zeta</option>
-								<option value="Eta">Eta</option>
-								<option value="Theta">Theta</option>
-								<option value="Iota">Iota</option>
-								<option value="Kappa">Kappa</option>
-								<option value="Lambda">Lambda</option>
-								<option value="Mu">Mu</option>
-								<option value="Nu">Nu</option>
-								<option value="Xi">Xi</option>
-								<option value="Omicron">Omicron</option>
-								<option value="Pi">Pi</option>
-								<option value="Rho">Rho</option>
-								<option value="Sigma">Sigma</option>
-								<option value="Tau">Tau</option>
-								<option value="Upsilon">Upsilon</option>
-								<option value="Phi">Phi</option>
-								<option value="Chi">Chi</option>
-								<option value="Psi">Psi</option>
-								<option value="Omega">Omega</option>
-							</select>
+							<label for="guests">Number of Guests</label>
+							<input type="number" name="guests" min="0" max="10" step="1" />
 						</div>
 						<div class="small-6 columns">
 							<label for="payment">Payment Method</label>
-							<select id="payment" required>
+							<select name="payment" id="payment" required>
 								<option></option>
 								<option value="personal">Personal Check</option>
 								<option value="chapter">Chapter Check</option>
 								<option value="online">Online Payment</option>
 							</select>
-							<a href="http://www.google.com" id="paybutton" target="_blank" class="button tiny" style="display: none;">Pay Here</a>
+							<a href="https://www.eventbrite.com/e/apo-regional-conference-tickets-18814073400" id="paybutton" target="_blank" class="button tiny" style="display: none;">Pay Here</a>
 						</div>
 					</fieldset>
 				</div>
@@ -212,6 +215,14 @@ if (!isset($_SESSION['sessionConfID'])) {
 				$("#paybutton").fadeIn();
 			} else {
 				$("#paybutton").fadeOut();
+			}
+		});
+
+		$("#allergy").change(function() {
+			if(this.checked) {
+				$("#allergytext").fadeIn();
+			} else {
+				$("#allergytext").fadeOut();
 			}
 		});
 
