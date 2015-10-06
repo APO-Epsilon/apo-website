@@ -54,7 +54,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<input type="tel" name="tel3" placeholder="5309" required minlength="4" maxlength="4" style="width: 30%; display: inline; text-align: center;" />
 						</div>
 						<div class="medium-6 small-12 columns">
-							<label for="allergy">Do you have any allergies?</label>
+							<label for="allergy">What allergies do you have, if any?</label>
 							<input type="text" name="allergy" required autocomplete="allergy" />
 						</div>
 						<div class="medium-6 small-12 columns">
