@@ -80,6 +80,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<input type="checkbox" name="allergy" id="allergy" value="true" /> I have a food allergy
 						</div>
 						<div class="small-12 colums">
+							<br>
 							<input type="text" name="allergytext" id="allergytext" placeholder="Please list any allergies here" style="display: none;" />
 						</div>	
 					</fieldset>
