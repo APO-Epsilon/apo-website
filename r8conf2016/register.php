@@ -55,7 +55,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 						</div>
 						<div class="medium-6 small-12 columns">
 							<label for="allergy">What allergies do you have?</label>
-							<input type="text" name="allergy" placeholder="If you have none, enter none" required autocomplete="allergy" />
+							<input type="text" name="allergy" placeholder="If you have none, enter None" required autocomplete="allergy" />
 						</div>
 						<div class="medium-6 small-12 columns">
 							<label for="guests">How many guests will you bring?</label>
