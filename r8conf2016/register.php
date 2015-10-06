@@ -54,6 +54,14 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<input type="tel" name="tel3" placeholder="5309" required minlength="4" maxlength="4" style="width: 30%; display: inline; text-align: center;" />
 						</div>
 						<div class="medium-6 small-12 columns">
+							<label for="allergy">Do you have any allergies?</label>
+							<input type="text" name="allergy" required autocomplete="allergy" />
+						</div>
+						<div class="medium-6 small-12 columns">
+							<label for="guests">How many guests will you bring? (If none, enter 0)</label>
+							<input type="text" name="guests" required autocomplete="guests" />
+						</div>
+						<div class="medium-6 small-12 columns">
 							<label for="password1">Password</label>
 							<input type="password" name="password1" id="password1" minlength="8" maxlength="20" placeholder="At least 8 alphanumeric characters" required />
 							<small class="error" id="password1error" style="display: none;">Invalid Password</small>
