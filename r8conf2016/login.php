@@ -57,7 +57,7 @@ END;
 }
 function process_login(){
 	require_once ('../mysql_access.php');
-	$username = addslashes($_POST["email"]);
+	$email = addslashes($_POST["email"]);
 	$password = addslashes($_POST["password"]);
 	$hasher = new PasswordHash(8, true);
 
@@ -77,8 +77,8 @@ function process_login(){
 	else {
 		$r = NULL;
 		$hash = '*'; // In case the user is not found
-		($stmt = $db->prepare('select password from conf_contact_information where username=?'));
-		$stmt->bind_param('s', $username);
+		($stmt = $db->prepare('select password from conf_contact_information where email=?'));
+		$stmt->bind_param('s', $email);
 		$stmt->execute();
 		$stmt->bind_result($hash);
 		if (!$stmt->fetch() && $db->errno);
@@ -86,7 +86,7 @@ function process_login(){
 		if ($hasher->CheckPassword($password, $hash)) {
 			$what = 'Authentication succeeded';
 			$stmt->close();
-			$select = "SELECT * FROM conf_contact_information WHERE username='$username'";
+			$select = "SELECT * FROM conf_contact_information WHERE email='$email'";
 			$query = $db->query($select) or die("Unable to get data. $db->error");
 			$r = $query->fetch_assoc();
 		} else {
@@ -108,7 +108,7 @@ function process_login(){
 	$sql = "SELECT * FROM `conf_contact_information`
 			WHERE `lastname` = '".$lastname."'
 			AND `firstname` = '".$firstname."'
-			AND `username` = '".$username."'";
+			AND `email` = '".$email."'";
 	$result = $db->query($sql);
 
 		echo "<meta http-equiv='refresh' content='0;url=\"schedule.php\"'>";
