@@ -54,12 +54,12 @@ if (!isset($_SESSION['sessionConfID'])) {
 							<input type="tel" name="tel3" placeholder="5309" required minlength="4" maxlength="4" style="width: 30%; display: inline; text-align: center;" />
 						</div>
 						<div class="medium-6 small-12 columns">
-							<label for="allergy">What allergies do you have, if any?</label>
-							<input type="text" name="allergy" required autocomplete="allergy" />
+							<label for="allergy">What allergies do you have?</label>
+							<input type="text" name="allergy" placeholder="If you have none, enter none" required autocomplete="allergy" />
 						</div>
 						<div class="medium-6 small-12 columns">
-							<label for="guests">How many guests will you bring, if any?</label>
-							<input type="text" name="guests" required autocomplete="guests" />
+							<label for="guests">How many guests will you bring?</label>
+							<input type="text" name="guests" placeholder="If none, enter 0" required autocomplete="guests" />
 						</div>
 						<div class="medium-6 small-12 columns">
 							<label for="password1">Password</label>
