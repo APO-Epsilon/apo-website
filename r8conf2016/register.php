@@ -191,7 +191,7 @@ if (!isset($_SESSION['sessionConfID'])) {
 								<option value="chapter">Chapter Check</option>
 								<option value="online">Online Payment</option>
 							</select>
-							<a href="https://www.eventbrite.com/e/apo-regional-conference-tickets-18814073400" id="paybutton" target="_blank" class="button tiny" style="display: none;">Pay Here</a>
+							<a href="http://www.google.com" id="paybutton" target="_blank" class="button tiny" style="display: none;">Pay Here</a>
 						</div>
 					</fieldset>
 				</div>
