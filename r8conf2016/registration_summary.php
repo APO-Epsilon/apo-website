@@ -26,7 +26,12 @@ require_once ('session.php');
     }
     
     function show_public() {
-        echo "public";
+        ?>
+        
+        <h1>Oops</h1>
+        <p>It appears that you're in the wrong place. This page is only for the Conference Chair</p>
+        
+        <?php
     }
     
     $exec_page = True;
