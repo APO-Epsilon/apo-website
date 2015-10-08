@@ -45,8 +45,8 @@ require_once ('session.php');
         <h3>Shirt Sizes</h3>
         <?php echo $shirt_sizes ?>
 
-
-
+    </div>
+    
         <?php
     }
     
