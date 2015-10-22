@@ -24,11 +24,20 @@ $active_page = True;
 $public_page = False;
 require_once('permissions.php');
 
+// function show_active() {
+//    if (passed_quiz()) {
+//        echo "<h2>You have passed the quiz!</h2>";
+//    } else {
+//        echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
+//        show_quiz();
+    }
+}
 function show_active() {
     if (passed_quiz()) {
         echo "<h2>You have passed the quiz!</h2>";
-    } else {
+    if (not_passed_quiz()) {
         echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
+    } else {
         show_quiz();
     }
 }
