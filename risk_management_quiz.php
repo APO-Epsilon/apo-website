@@ -60,7 +60,20 @@ function passed_quiz() {
         }
     }
 }
-
+function not_passed_quiz() {
+    include ('mysql_access.php');
+    if (isset($_SESSION['sessionID'])) {
+        $user_id = $_SESSION['sessionID'];
+        $result = $db->query($sql);
+        $row = mysqli_fetch_array($result);
+        if ($row['risk_management'] == "0000-00-00") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
 function show_quiz() {
     include('mysql_access.php');
     $response=$db->query("SELECT * FROM questions");?>
