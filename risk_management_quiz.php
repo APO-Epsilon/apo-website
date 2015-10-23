@@ -24,24 +24,15 @@ $active_page = True;
 $public_page = False;
 require_once('permissions.php');
 
-// function show_active() {
-//    if (passed_quiz()) {
-//        echo "<h2>You have passed the quiz!</h2>";
-//    } else {
-//        echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
-//        show_quiz();
-    }
-}
 function show_active() {
     if (passed_quiz()) {
         echo "<h2>You have passed the quiz!</h2>";
-    if (not_passed_quiz()) {
+    } else {
         echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
-    } 
-    else {
         show_quiz();
     }
 }
+
 ?>
 
 <?php
@@ -61,21 +52,7 @@ function passed_quiz() {
         }
     }
 }
-function not_passed_quiz() {
-    include ('mysql_access.php');
-    if (isset($_SESSION['sessionID'])) {
-        $user_id = $_SESSION['sessionID'];
-        $sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
-        $result = $db->query($sql);
-        $row = mysqli_fetch_array($result);
-        if ($row['risk_management'] == "0000-00-00") {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-}
+
 function show_quiz() {
     include('mysql_access.php');
     $response=$db->query("SELECT * FROM questions");?>
