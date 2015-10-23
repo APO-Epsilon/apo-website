@@ -37,7 +37,8 @@ function show_active() {
         echo "<h2>You have passed the quiz!</h2>";
     if (not_passed_quiz()) {
         echo "<h1>You have <b>NOT</b> passed the quiz!</h1>";
-    } else {
+    } 
+    else {
         show_quiz();
     }
 }
