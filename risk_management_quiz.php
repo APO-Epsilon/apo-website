@@ -64,6 +64,7 @@ function not_passed_quiz() {
     include ('mysql_access.php');
     if (isset($_SESSION['sessionID'])) {
         $user_id = $_SESSION['sessionID'];
+        $sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
         $result = $db->query($sql);
         $row = mysqli_fetch_array($result);
         if ($row['risk_management'] == "0000-00-00") {
