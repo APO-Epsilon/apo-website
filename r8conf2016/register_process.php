@@ -55,12 +55,16 @@ require_once ('../PasswordHash.php');
     $guests = htmlspecialchars($guests, ENT_QUOTES);
     $payment = htmlspecialchars($payment, ENT_QUOTES);
 
+    $reg_date = date("Y-m-d");
+    $reg_time = date("H:i:s");
+
+
 
     if ($fname == NULL || $lname == NULL || $email == NULL || $tel1 == NULL || $tel2 == NULL || $tel3 == NULL || $password == NULL || $shirt == NULL || $housing == NULL || $chapter1 == NULL || $payment == NULL)
     {
       echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
     } else {
-        $insert = "INSERT INTO `conf_contact_information` (firstname, lastname, email, tel1, tel2, tel3, password, shirt, allergytext, housing, chapter1, chapter2, chapter3, guests, payment) VALUES('$fname','$lname', '$email', '$tel1', '$tel2', '$tel3', '$password', '$shirt', '$allergytext', '$housing', '$chapter1', '$chapter2', '$chapter3', '$guests', '$payment')";
+        $insert = "INSERT INTO `conf_contact_information` (firstname, lastname, email, tel1, tel2, tel3, password, shirt, allergytext, housing, chapter1, chapter2, chapter3, guests, payment, reg_date, reg_time) VALUES('$fname','$lname', '$email', '$tel1', '$tel2', '$tel3', '$password', '$shirt', '$allergytext', '$housing', '$chapter1', '$chapter2', '$chapter3', '$guests', '$payment', '$reg_date', '$reg_time')";
         /*
         echo($query2);
 
