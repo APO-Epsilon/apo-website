@@ -37,6 +37,23 @@ require_once ('session.php');
         }
         $shirt_sizes .= "</p>";
 
+        //Who needs housing?
+        $sql = "SELECT housing, COUNT(id) AS num_housing FROM conf_contact_information GROUP BY housing ORDER BY housing DESC;";
+        $result = $db->query($sql);
+        $housing = "<p>";
+        while($row = mysqli_fetch_assoc($result)) {
+            $housing .= $row['housing'] . "; " . $row['num_housing'] . "<br>";
+        }
+        $housing .= "</p>";
+
+        //All them chapters coming
+        $sql = "SELECT RTRIM(CONCAT(chapter1, ' ', chapter2, ' ', chapter3)) AS chapter, COUNT(id) AS num_chapter FROM conf_contact_information GROUP BY chapter ORDER BY num_chapter DESC;";
+        $result = $db->query($sql);
+        $chapters = "<p>";
+        while($row = mysqli_fetch_assoc($result)) {
+            $chapters .= $row['chapter'] . ": " . $row['num_chapter'] . "<br>";
+        }
+        $chapters .= "</p>";
         ?>
 
     <div class="small-12 columns">
@@ -44,6 +61,10 @@ require_once ('session.php');
         <h3>Number registered: <?php echo $num_reg ?></h3>
         <h3>Shirt Sizes</h3>
         <?php echo $shirt_sizes ?>
+        <h3>Brother Housing</h3>
+        <?php echo $housing ?>
+        <h3>Chapters</h3>
+        <?php echo $chapters ?>
 
     </div>
     
