@@ -42,7 +42,7 @@ require_once ('session.php');
         $result = $db->query($sql);
         $housing = "<p>";
         while($row = mysqli_fetch_assoc($result)) {
-            $housing .= $row['housing'] . "; " . $row['num_housing'] . "<br>";
+            $housing .= $row['housing'] . ": " . $row['num_housing'] . "<br>";
         }
         $housing .= "</p>";
 
@@ -54,6 +54,24 @@ require_once ('session.php');
             $chapters .= $row['chapter'] . ": " . $row['num_chapter'] . "<br>";
         }
         $chapters .= "</p>";
+
+        //How are y'all paying?
+        $sql = "SELECT payment, COUNT(id) as num_paying FROM conf_contact_information GROUP BY payment ORDER BY num_paying DESC;";
+        $result = $db->query($sql);
+        $payment = "<p>";
+        while($row = mysqli_fetch_assoc($result)) {
+            $payment .= $row['payment'] . ": " . $row['num_paying'] . "<br>";
+        }
+        $payment .= "</p>";
+
+        //Get all the details
+        $sql = "SELECT *, RTRIM(CONCAT(chapter1, ' ', chapter2, ' ', chapter3)) AS chapter, CONCAT('(', tel1, ') ', tel2, '-', tel3) AS phone FROM conf_contact_information ORDER BY id ASC;";
+        $result = $db->query($sql);
+        $registrants = "";
+        while($row = mysqli_fetch_assoc($result)) {
+            $registrants .= "<tr><td>" . $row['firstname'] . "</td><td>" . $row['lastname'] . "</td><td>" . $row['email'] . "</td><td>" . $row['phone'] . "</td><td>" . $row['shirt'] . "</td><td>" . $row['allergytext'] . "</td><td>" . $row['housing'] . "</td><td>" . $row['chapter'] . "</td><td>" . $row['payment'] . "</td><td>" . $row['guests'] . "</td></tr>";
+        }
+
         ?>
 
     <div class="small-12 columns">
@@ -65,7 +83,24 @@ require_once ('session.php');
         <?php echo $housing ?>
         <h3>Chapters</h3>
         <?php echo $chapters ?>
-
+        <h3>Payment Summary</h3>
+        <?php echo $payment ?>
+        <h3>Registrants</h3>
+        <table>
+        	<tr>
+        		<th>First Name</th>
+        		<th>Last Name</th>
+        		<th>Email</th>
+        		<th>Phone Number</th>
+        		<th>Shirt Size</th>
+        		<th>Allergies</th>
+        		<th>Brother Housing</th>
+        		<th>Chapter</th>
+        		<th>Payment</th>
+        		<th>Guests</th>
+    		</tr>
+    		<?php echo $registrants ?>
+		</table>
     </div>
     
         <?php
