@@ -32,10 +32,13 @@ require_once ('session.php');
         $sql = "SELECT shirt, COUNT(id) AS num_shirts FROM conf_contact_information GROUP BY shirt ORDER BY FIELD(shirt, 'S', 'M', 'L', 'XL', '2XL', '3XL');";
         $result = $db->query($sql);
         $shirt_sizes = "<p>";
+        $shirt_data = "";
         while($row = mysqli_fetch_assoc($result)) {
             $shirt_sizes .= $row['shirt'] . ": " . $row['num_shirts'] . "<br>";
+            $shirt_data .= "{'xvalue': 0, 'shirtsize': '" . $row['shirt'] . "', 'numshirts': " . $row['num_shirts'] . "},\n";
         }
         $shirt_sizes .= "</p>";
+        $shirt_data = rtrim($shirt_data, ",\n");
 
         //Who needs housing?
         $sql = "SELECT housing, COUNT(id) AS num_housing FROM conf_contact_information GROUP BY housing ORDER BY housing DESC;";
@@ -76,15 +79,22 @@ require_once ('session.php');
 
     <div class="small-12 columns">
         <h1>Registration Summary</h1>
-        <h3>Number registered: <?php echo $num_reg ?></h3>
+        <h3>Number registered: <?php echo $num_reg; ?></h3>
+    </div>
+    <div class="small-6 columns">
         <h3>Shirt Sizes</h3>
-        <?php echo $shirt_sizes ?>
+        <div id="shirtdiv" style="height: 30%;"></div>
+        <?php echo $shirt_sizes; ?>
+    </div>
+    <div class="small-6 columns">
         <h3>Brother Housing</h3>
-        <?php echo $housing ?>
+        <?php echo $housing; ?>
+    </div>
+    <div class="small-12 columns">
         <h3>Chapters</h3>
-        <?php echo $chapters ?>
+        <?php echo $chapters; ?>
         <h3>Payment Summary</h3>
-        <?php echo $payment ?>
+        <?php echo $payment; ?>
         <h3>Registrants</h3>
         <table>
         	<tr>
@@ -99,10 +109,28 @@ require_once ('session.php');
         		<th>Payment</th>
         		<th>Guests</th>
     		</tr>
-    		<?php echo $registrants ?>
+    		<?php echo $registrants; ?>
 		</table>
     </div>
     
+    <script src="/js/d3/d3.min.js"></script>
+    <script src="/js/d3plus/d3plus.min.js"></script>
+    <script>
+
+        var shirtdata = [
+            <?php echo $shirt_data; ?>
+        ]
+
+        var shirtvisualization = d3plus.viz()
+            .container("#shirtdiv")
+            .data(shirtdata)
+            .type("bar")
+            .id("shirtsize")
+            .x("xvalue")
+            .y("numshirts")
+            .draw()
+    </script>
+
         <?php
     }
     
