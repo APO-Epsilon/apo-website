@@ -36,7 +36,7 @@ function show_page() {
 		<p>Here you can find a list of members in Epsilon (who have registered on the website).  If you wish to update your information displayed here, please go <a href="./updateinfo.php">here</a>.
 		</p>
 		<h5>
-		<a href="http://familyecho.com/?p=GT11Y&c=gcv7hl4fx6&f=484622734175584762#view:GT11Y">Click here to view the family tree</a>.
+		<a href="./family_tree.php">Click here to view the family tree</a>.
 		</h5>
 	</div>
 </div>
