@@ -68,8 +68,8 @@ function vars_form() {
 		</div>
 	</div>
 	
+	<!-- This script uses jquery -->
 	<script type="text/javascript">
-		<!-- This script uses jquery -->
 		$(document).ready(function(){
 			$("#member").val('<?php echo $_SESSION['sessionID'] ?>');
 			$("#exec").val('<?php echo $_SESSION['sessionposition'] ?>');
