@@ -37,6 +37,42 @@ require_once ('session.php');
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
 </div>
+<?php
+    include('../mysql_access.php');
+    //All them chapters coming
+    $sql = "SELECT RTRIM(CONCAT(chapter1, ' ', chapter2, ' ', chapter3)) AS chapter, COUNT(id) AS num_chapter FROM conf_contact_information GROUP BY chapter ORDER BY num_chapter DESC;";
+    $result = $db->query($sql);
+    $chapters_data = "";
+    while($row = mysqli_fetch_assoc($result)) {
+        $chapters_data .= "{'Chapter Name': '" . $row['chapter'] . "', 'Number Registered': " . $row['num_chapter'] . "},\n";
+    }
+    $chapters_data = rtrim($chapters_data, ",\n");
+?>
+<div class="row">
+    <div class="medium-8 small-12 medium-centered columns">
+        <div id="chapterdiv" style="height: 30%;"></div>
+    </div>
+</div>
+<script src="/js/d3/d3.min.js"></script>
+<script src="/js/d3plus/d3plus.min.js"></script>
+<script>
+
+    var chapterdata = [
+            <?php echo $chapters_data; ?>
+        ]
+
+    var chaptervisualization = d3plus.viz()
+        .container("#chapterdiv")
+        .data(chapterdata)
+        .type("bar")
+        .id("Chapter Name")
+        .x({"value": "Chapter Name", "grid": false, "ticks": {"size": 0}})
+        .y({"value": "Number Registered"})
+        .title("Chapter Registrations")
+        .draw()
+
+</script>
+
     <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
     <!-- PHP method to include footer -->
