@@ -49,7 +49,7 @@ require_once ('session.php');
     $chapters_data = rtrim($chapters_data, ",\n");
 ?>
 <div class="row">
-    <div class="medium-8 small-12 medium-centered columns">
+    <div class="small-12 columns">
         <div id="chapterdiv" style="height: 30%;"></div>
     </div>
 </div>
