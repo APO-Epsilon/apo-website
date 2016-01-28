@@ -21,11 +21,11 @@ require_once ('session.php');
 include('mysql_access.php');
 include('get_photo.php');
 
-$sql = "SELECT `id`, `firstname`, `lastname`, `email` FROM contact_information WHERE `position` = 'Rush' GROUP BY lastname, firstname ;";
+$sql = "SELECT `id`, `firstname`, `lastname`, `email` FROM contact_information WHERE `position` = 'Recruitment' GROUP BY lastname, firstname ;";
 $result = $db->query($sql) or die("SEARCH FAILED");
 
 
-echo "<div class=\"small-12 columns text-center\"><h3>Meet our Rush Chairs</h3><br></div>";
+echo "<div class=\"small-12 columns text-center\"><h3>Meet our Recruitment Chairs</h3><br></div>";
 echo "<ul class=\"medium-block-grid-1 small-block-grid-2\">";
 while ($rname = mysqli_fetch_array($result)) {
     $photolink = getPhotoLink($rname['id']);
