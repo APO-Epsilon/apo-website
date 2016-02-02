@@ -341,12 +341,11 @@ END;
 	<div class="large-7 medium-6 small-12 column">
 		<h2>Service Policy</h2>
 		Active: <b>25</b> hours of service.<br>
-		<b>18</b> hours must be APO service hours.<br>
+		<b>10</b> hours must be APO service hours.<br>
 		<b>3</b> out of the 4 fields of service: Chapter, Campus, Community, Country.<br>
-		<b>3</b> hours of fundraising.<br>
+		<b>2</b> hours of fundraising.<br>
 		Maximum of <b>5</b> bought hours<br>
 		Associate: <b>12.5</b> hours of service <br>
-		9 hours must be APO service hours
 		<hr>
 <?php echo <<<END
 	<h2>Current Hours for $current_semester</h2>
