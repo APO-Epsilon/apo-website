@@ -18,7 +18,7 @@ require_once ('session.php');
 
 <div class="row">
 
-<?php 
+<?php
 
 function show_exec() {
     if(isset($_GET['page_id'])) {
@@ -32,13 +32,13 @@ function show_exec() {
     }
 }
 
-function add_permission($page_id, $exec_id) {
+function add_permission($pageId, $execId) {
     include('mysql_access.php');
-    $sql = "SELECT page FROM exec_permissions_pages WHERE entry_id=$page_id;";
+    $sql = "SELECT page FROM exec_permissions_pages WHERE entry_id=$pageId;";
     $result = $db->query($sql);
     $row = mysqli_fetch_array($result);
     $page = $row['page'];
-    $sql = "SELECT position FROM positions WHERE position_id=$exec_id;";
+    $sql = "SELECT position FROM positions WHERE position_id=$execId;";
     $result = $db->query($sql);
     $row = mysqli_fetch_array($result);
     $position = $row['position'];
@@ -61,15 +61,15 @@ function list_exec_by_page() {
     } elseif(isset($_GET['add'])) {
         add_permission($_GET['page_id'], $_GET['add']);
     }
-    $page_id = $_GET['page_id'];
-    $sql = "SELECT page FROM exec_permissions_pages WHERE entry_id=$page_id;";
+    $pageId = $_GET['page_id'];
+    $sql = "SELECT page FROM exec_permissions_pages WHERE entry_id=$pageId;";
     $result = $db->query($sql);
     $row = mysqli_fetch_array($result);
     echo "<a href='{$_SERVER['PHP_SELF']}' class='button'>< Back to main page</a>";
     echo "<div class=\"small-12 columns\">";
     echo "<h2>Current Exec with Permission for {$row['page']}</h2>";
     echo "<form action=\"{$_SERVER['PHP_SELF']}\" method=\"GET\">";
-    echo "<input type=\"hidden\" name=\"page_id\" value=\"$page_id\" />";
+    echo "<input type=\"hidden\" name=\"page_id\" value=\"$pageId\" />";
     echo "<label for=\"add\">Add Exec</label>";
     echo "<select name=\"add\">";
     $sql = "SELECT position, position_id FROM positions;";
@@ -78,11 +78,11 @@ function list_exec_by_page() {
         echo "<option value=\"{$row['position_id']}\">{$row['position']}</option>";
     }
     echo "</select><input type='submit' class='button' value='Add' /></form>";
-    $sql = "SELECT exec_permissions.position AS position FROM exec_permissions_pages INNER JOIN exec_permissions ON exec_permissions.page=exec_permissions_pages.page WHERE exec_permissions_pages.entry_id=$page_id;";
+    $sql = "SELECT exec_permissions.position AS position FROM exec_permissions_pages INNER JOIN exec_permissions ON exec_permissions.page=exec_permissions_pages.page WHERE exec_permissions_pages.entry_id=$pageId;";
     $result = $db->query($sql);
     echo "<table><tr><th>Position</th><th>Remove Exec</th></tr>";
     while($row = mysqli_fetch_array($result)) {
-        echo "<tr><td>{$row['position']}</td><td><a href=\"{$_SERVER['PHP_SELF']}?page_id=$page_id&remove={$row['position']}\" class=\"button expand\">Remove</a></td></tr>";
+        echo "<tr><td>{$row['position']}</td><td><a href=\"{$_SERVER['PHP_SELF']}?page_id=$pageId&remove={$row['position']}\" class=\"button expand\">Remove</a></td></tr>";
     }
     echo "</table></div>";
 }
@@ -146,13 +146,13 @@ function list_positions() {
     echo "</table></div>";
 }
 
-function remove_permission($page_id, $exec_id) {
+function remove_permission($pageId, $execId) {
     include('mysql_access.php');
-    $sql = "SELECT page FROM exec_permissions_pages WHERE entry_id=$page_id;";
+    $sql = "SELECT page FROM exec_permissions_pages WHERE entry_id=$pageId;";
     $result = $db->query($sql);
     $row = mysqli_fetch_array($result);
     $page = $row['page'];
-    $sql = "SELECT position FROM positions WHERE position_id=$exec_id;";
+    $sql = "SELECT position FROM positions WHERE position_id=$execId;";
     $result = $db->query($sql);
     $row = mysqli_fetch_array($result);
     $position = $row['position'];
