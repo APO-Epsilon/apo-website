@@ -1,4 +1,5 @@
 Alpha Phi Omega - Epsilon Chapter's Website
+[![Code Climate](https://codeclimate.com/github/APO-Epsilon/apo-website/badges/gpa.svg)](https://codeclimate.com/github/APO-Epsilon/apo-website) [![Test Coverage](https://codeclimate.com/github/APO-Epsilon/apo-website/badges/coverage.svg)](https://codeclimate.com/github/APO-Epsilon/apo-website/coverage)
 ===========
 
 Epsilon's chapter management website
