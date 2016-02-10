@@ -1,0 +1,13 @@
+## other configuration excluded from example...
+exclude_paths:
+- fonts/*
+- tests/**/*
+- spec/**/*
+- js/d3/*
+- js/d3plus/*
+- js/foundation/*
+- js/guillotine/*
+- js/tinymce/*
+- js/vendor/*
+- js/vis.js/*
+- phpmailer/*
