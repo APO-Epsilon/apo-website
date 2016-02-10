@@ -165,9 +165,9 @@ function remove_permission($pageId, $execId) {
     }
 }
 
-$exec_page = True;
-$active_page = False;
-$public_page = False;
+$exec_page = true;
+$active_page = false;
+$public_page = false;
 
 require_once('permissions.php');
 
