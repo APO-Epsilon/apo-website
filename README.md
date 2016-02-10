@@ -1,4 +1,4 @@
-Alpha Phi Omega - Epsilon Chapter's Website
+#Alpha Phi Omega - Epsilon Chapter's Website
 [![Code Climate](https://codeclimate.com/github/APO-Epsilon/apo-website/badges/gpa.svg)](https://codeclimate.com/github/APO-Epsilon/apo-website) [![Test Coverage](https://codeclimate.com/github/APO-Epsilon/apo-website/badges/coverage.svg)](https://codeclimate.com/github/APO-Epsilon/apo-website/coverage) [![Issue Count](https://codeclimate.com/github/APO-Epsilon/apo-website/badges/issue_count.svg)](https://codeclimate.com/github/APO-Epsilon/apo-website)
 ===========
 
