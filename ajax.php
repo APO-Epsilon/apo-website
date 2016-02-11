@@ -3,32 +3,32 @@ require_once ('session.php');
 require_once 'mysql_access.php';
 
 $response=$db->query("SELECT id,question_name,answer FROM questions");
-	 $i=1;
-	 $right_answer=0;
-	 $wrong_answer=0;
-	 $unanswered=0;
-	 $user_id = $_SESSION['sessionID'];
-	 while($result=mysqli_fetch_array($response)){
-	       if($result['answer']==$_POST["$i"]){
-		       $right_answer++;
-		   }else if($_POST["$i"]==5){
-		       $unanswered++;
-		   }
-		   else{
-		       $wrong_answer++;
-		   }
-		   $i++;
-	 }
-	 echo "<div id='answer'>";
-	 echo " Right Answer  : <span class='highlight'>". $right_answer."</span><br>";
-	 echo " Wrong Answer  : <span class='highlight'>". $wrong_answer."</span><br>";
-	 echo " Unanswered Question  : <span class='highlight'>". $unanswered."</span><br>";
-	 echo "</div>";
-	 if ($right_answer >= ($i-1)) {
-		$sql = "UPDATE `contact_information` SET `risk_management`=CURDATE() WHERE id='$user_id'";
-		$update = $db->query($sql);
-		echo "<h2>You have passed the quiz! </h2>";
-	 }
+   $i=1;
+   $right_answer=0;
+   $wrong_answer=0;
+   $unanswered=0;
+   $user_id = $_SESSION['sessionID'];
+   while($result=mysqli_fetch_array($response)){
+         if($result['answer']==$_POST["$i"]){
+           $right_answer++;
+       }else if($_POST["$i"]==5){
+           $unanswered++;
+       }
+       else{
+           $wrong_answer++;
+       }
+       $i++;
+   }
+   echo "<div id='answer'>";
+   echo " Right Answer  : <span class='highlight'>". $right_answer."</span><br>";
+   echo " Wrong Answer  : <span class='highlight'>". $wrong_answer."</span><br>";
+   echo " Unanswered Question  : <span class='highlight'>". $unanswered."</span><br>";
+   echo "</div>";
+   if ($right_answer >= ($i-1)) {
+    $sql = "UPDATE `contact_information` SET `risk_management`=CURDATE() WHERE id='$user_id'";
+    $update = $db->query($sql);
+    echo "<h2>You have passed the quiz! </h2>";
+   }
 
 /*$limit=$_POST['question_num'];
 //$limit1=$limit+1;

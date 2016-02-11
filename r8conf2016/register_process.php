@@ -70,7 +70,7 @@ require_once ('../PasswordHash.php');
 
         $query2 = $db->query($insert) or die('<br><div class="entry"><strong>Your username is already taken.  Please try again.</strong></div>');
 */
-    
+
 $result = $db->query($insert);
 if (!$result) {
     die('There has an been error with your registration. This may be because the email address you supplied is already in use, or there may be other technical problems. If the error persists, please contact the webmaster at <a href="mailto:apo.epsilon.webmaster@gmail.com">apo.epsilon.webmaster@gmail.com.</a>' . mysqli_error());
@@ -82,7 +82,7 @@ $mail->IsSMTP();                                      // set mailer to use SMTP
 //$mail->SMTPDebug = 1;  //Only use if you need to debug
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = "tls";
-$mail->Host = "smtp.gmail.com";  					  // specify main server
+$mail->Host = "smtp.gmail.com";              // specify main server
 $mail->Port = 587;
 $mail->Username = "apo.epsilon.webmaster@gmail.com";
 $mail->Password = "alphaphiomega";
@@ -90,15 +90,15 @@ $mail->FromName = "Alpha Phi Omega Epsilon";
 $mail->AddAddress("apo.epsilon.conferencechair@gmail.com", "APO Epsilon Conference Chair");
 $resultcount = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM conf_contact_information;"));
 $subject = "(" . $resultcount['COUNT(*)'] . ") " . $fname . " " . $lname . " has registered for the APO Epsilon Region VIII Conference";
-$emailToSend = "Name: " . $fname . " " . $lname . "\n" . 
+$emailToSend = "Name: " . $fname . " " . $lname . "\n" .
     ""; //Additional information to go here
 
 $mail->Subject = $subject;
 $mail->Body    = $emailToSend;
 if(!$mail->Send()) {
-	exit;
+  exit;
 } else {
-	;
+  ;
 }
 
 echo <<<END

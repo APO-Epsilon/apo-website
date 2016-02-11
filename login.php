@@ -19,9 +19,9 @@ require_once ('session.php');
 <div class="row">
 <?php
 function show_active() {
-	echo "<div class=\"small-12 columns\">";
-	echo "<h3><a href='./logout.php'>Logout</a></h3>";
-	echo "</div>";
+  echo "<div class=\"small-12 columns\">";
+  echo "<h3><a href='./logout.php'>Logout</a></h3>";
+  echo "</div>";
 }
 
 $exec_page = False;

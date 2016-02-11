@@ -23,30 +23,30 @@ require_once ("PasswordHash.php");
 require_once ('mysql_access.php');
 if (!isset($_SESSION['sessionID'])) {
 
-	echo '<div class="entry">You need to login before you can use this page.</div>';
+  echo '<div class="entry">You need to login before you can use this page.</div>';
 
 } else {
 
-	if (isset($_POST['update_password'])) {
+  if (isset($_POST['update_password'])) {
 
-		if ($_POST['new_password_1'] == $_POST['new_password_2']) {
-			// Update Information
-			$_POST = array_map('mysql_real_escape_string', $_POST);
-			$user_id = $_SESSION['sessionID'];
+    if ($_POST['new_password_1'] == $_POST['new_password_2']) {
+      // Update Information
+      $_POST = array_map('mysql_real_escape_string', $_POST);
+      $user_id = $_SESSION['sessionID'];
             $password = $_POST['new_password_1'];
             $hasher = new PasswordHash(8, true);
             $hash = $hasher->HashPassword($password);
-			$sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
-			$result = $db->query($sql);
-			if (mysqli_affected_rows($db) == 1) {
-				echo "Your password has been updated.";
-			} else {
-				echo "Your password was not changed.  Did you input the correct old password?  Click <a href='./login_updatepw.php'>here</a> to try again.";
-			}
-		} else {
-			echo "Your new passwords did not match. Click <a href='./login_updatepw.php'>here</a> to try again.";
-		}
-	} else {
+      $sql = "UPDATE `contact_information` SET `password` = '".$hash."' WHERE `id` = ".$user_id." LIMIT 1";
+      $result = $db->query($sql);
+      if (mysqli_affected_rows($db) == 1) {
+        echo "Your password has been updated.";
+      } else {
+        echo "Your password was not changed.  Did you input the correct old password?  Click <a href='./login_updatepw.php'>here</a> to try again.";
+      }
+    } else {
+      echo "Your new passwords did not match. Click <a href='./login_updatepw.php'>here</a> to try again.";
+    }
+  } else {
 
 
 echo<<<END
@@ -70,7 +70,7 @@ Please use this form to change your password.
 
 </form>
 END;
-	}
+  }
 }
 
 

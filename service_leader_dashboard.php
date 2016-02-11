@@ -21,28 +21,28 @@ require_once ('service_leader_functions.php');
 $id = $_SESSION['sessionID'];
 $position = $_SESSION['sessionposition'];
 if($position != "Webmaster" && $position != "VP of Regular Service"){
-	//die("this page is under construction.");
+  //die("this page is under construction.");
 }
 echo("<div class=\"row\"><div class=\"small-12 columns\">");
 
-if (isset($_POST['log']) && ('process' == $_POST['log'])) {     
+if (isset($_POST['log']) && ('process' == $_POST['log'])) {
     process_log();
 }else{
-	if(isset($_GET['p'])){
-		processAttendance($_GET['d'],$_GET['o']);
-	}elseif(isset($_GET['d'])){
-		displayView($_GET['d']);
-	}elseif(isset($_POST['addNew']) && ('continue' == $_POST['addNew'])){
-		processNew();
-	}else{
-		displayActive(1);
-		displayActive(0);
-		displayActive(2);
-	}
+  if(isset($_GET['p'])){
+    processAttendance($_GET['d'],$_GET['o']);
+  }elseif(isset($_GET['d'])){
+    displayView($_GET['d']);
+  }elseif(isset($_POST['addNew']) && ('continue' == $_POST['addNew'])){
+    processNew();
+  }else{
+    displayActive(1);
+    displayActive(0);
+    displayActive(2);
+  }
 }
 echo("</div></div>");
 ?>
- 	<!-- Javascript method to include footer -->
+   <!-- Javascript method to include footer -->
     <div id="footer"><?php include 'footer.php';?></div>
     <!-- PHP method to include footer -->
 </body>
