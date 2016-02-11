@@ -51,8 +51,6 @@ function list_attendance_stats($user_id){
 	$result = mysql_query($sql);
 		while($row = mysql_fetch_array($result)){
 			$name = $row['name'];
-			$sum_worth = $row['sum_worth'];
-			$worth = $row['worth'];
 		}
 	$sql = "SELECT COUNT(*) AS num_missed
 			FROM occurrence

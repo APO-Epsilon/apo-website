@@ -34,8 +34,6 @@ function list_attendance_stats($user_id){
     $result = mysql_query($sql);
         while($row = mysql_fetch_array($result)){
             $name = $row['name'];
-            $sum_worth = $row['sum_worth'];
-            $worth = $row['worth'];
         }
     $sql = "SELECT COUNT(*) AS num_missed
             FROM occurrence
@@ -95,12 +93,9 @@ END;
                 <td></td>
                 </tr>";
             while($row = mysql_fetch_array($results)){
-                $e_id = $row['e_id'];
-                $event_id = $row['id'];
                 $date = $row['date'];
                 $name = $row['name'];
                 $worth = $row['worth'];
-                $type = $row['type'];
                 $attended = $row['attended'];
 
                 if($attended == 1){
@@ -141,8 +136,6 @@ echo "      <div style='margin: 0px auto; width: 100%; text-align: center;'>
                 <td></td>
                 </tr>";
             while($row = mysql_fetch_array($result)){
-            $comm_id = $row['comm_id'];
-            $position_id = $row['position_id'];
             $position = $row['position'];
             $date = $row['date'];
 
