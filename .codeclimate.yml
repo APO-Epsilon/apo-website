@@ -40,4 +40,3 @@ exclude_paths:
 - phpmailer/*
 - "**.min.css"
 - "**.min.js"
-- **/_vti_cnf/*
