@@ -26,6 +26,7 @@ ratings:
 exclude_paths:
 - fonts/*
 - css/foundation.css
+- r8conf2016/css/foundation.css
 - tests/**/*
 - spec/**/*
 - ng/**/*
@@ -37,3 +38,6 @@ exclude_paths:
 - js/vendor/*
 - js/vis.js/*
 - phpmailer/*
+- "**.min.css"
+- "**.min.js"
+- **/_vti_cnf/*
