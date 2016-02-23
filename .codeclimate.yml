@@ -39,7 +39,9 @@ exclude_paths:
 - js/guillotine/*
 - js/tinymce/*
 - js/vendor/*
+- r8conf2016/js/vendor/*
 - js/**/vis.js
 - phpmailer/*
 - "**.min.css"
 - "**.min.js"
+- "jquery.**.js"
