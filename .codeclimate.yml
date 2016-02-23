@@ -39,7 +39,7 @@ exclude_paths:
 - js/guillotine/*
 - js/tinymce/*
 - js/vendor/*
-- js/vis.js/*
+- js/vis.js/vis.js
 - phpmailer/*
 - "**.min.css"
 - "**.min.js"
