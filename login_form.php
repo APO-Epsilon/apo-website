@@ -1,23 +1,26 @@
-<table>
-<div class="small-12 columns">
-<h1>Member Login</h1>
-<p>Please log in if you belong to Epsilon and have an account.  If you do not have an account, please contact the webmaster for the registration password and <a color="#FFFF00" href='register.php'>sign up</a>.  If you forgot your password, go here: <a href='login_forgotpw.php'> Forgot Password</a>
-</p>
+<div class="small-6 small-centered columns">
+    <h1>Member Login</h1><br><br>
+</div>
 <div id="messagearea"></div>
-    <form id="loginform" name="loginform" method="post" action="login_process.php">
-    <tr>
-    <td width="40%">Username:</td><td width="60%"><input type="text" name="username"/></td>
-    </tr>
-    <tr>
-    <td width="40%">Password:</td><td width="60%"><input id="password" type="password" name="password"/></td>
-    </tr>
-    <tr>
-    <td><input type="submit" value="Login"/></td>
-    </tr>
-    <input type="hidden" name="logstate" value="login"/>
-    <input type="hidden" name="referringpage" value="$_SERVER[PHP_SELF]"/>
+<form id="loginform" name="loginform" method="post" action="login_process.php">
+    <div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+        <label for="username">Username: </label>
+        <input type="text" name="username" required autofocus/>
+    </div><br>
+    <div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+        <label for="password">Password: </label>
+        <input type="password" name="password" required/>
+    </div><br>
+    <div class="large-6 medium-6 small-12 large-centered medium-centered columns">
+        <input type="submit" class="expand button" value="Login"/>
+        <input type="hidden" name="logstate" value="login"/>
+    </div>
 </form>
-</table>
+<div class="large-3 medium-3 small-6 large-offset-3 medium-offset-3 columns">
+    <a href="register.php" class="button expand">Register</a>
+</div>
+<div class="large-3 medium-3 small-6 end columns">
+    <a href="login_forgotpw.php" class="button expand">Forgot Password?</a>
 </div>
 <script>
 <!-- This script requires jQuery. It is currently included on every page, but make sure to include it should that change -->
