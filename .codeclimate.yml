@@ -42,6 +42,7 @@ exclude_paths:
 - r8conf2016/js/vendor/*
 - js/**/vis.js
 - phpmailer/*
-- "jquery.fancybox.js"
+- js/jquery.fancybox.js
+- r8conf2016/js/jquery.fancybox.js
 - "**.min.css"
 - "**.min.js"
