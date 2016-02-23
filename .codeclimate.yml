@@ -5,7 +5,7 @@ engines:
   phpmd:
     enabled: true
   duplication:
-    enabled: false
+    enabled: true
   fixme:
     enabled: true
   eslint:
