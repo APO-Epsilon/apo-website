@@ -82,7 +82,7 @@ function show_public() {
   }
   echo "} </script>";
 ?>
-  <script src='/js/viz.js/viz.js'></script>
+  <script src='/js/viz.js/viz.min.js'></script>
   <script>document.getElementById('family_tree').innerHTML = Viz(document.getElementById('family_tree_script').innerHTML, "svg", "dot")</script>
     <div class="medium-6 small-12 columns">
       <select id="memberselect">
