@@ -40,7 +40,7 @@ exclude_paths:
 - js/tinymce/*
 - js/vendor/*
 - r8conf2016/js/vendor/*
-- js/**/vis.js
+- js/viz.js/*
 - phpmailer/*
 - js/jquery.fancybox.js
 - r8conf2016/js/jquery.fancybox.js
