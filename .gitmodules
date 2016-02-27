@@ -1,0 +1,3 @@
+[submodule "js/Hermite-resize"]
+	path = js/Hermite-resize
+	url = git@github.com:JustinTBayer/Hermite-resize.git
