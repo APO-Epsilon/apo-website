@@ -1,3 +1,6 @@
 [submodule "js/Hermite-resize"]
 	path = js/Hermite-resize
 	url = git@github.com:JustinTBayer/Hermite-resize.git
+[submodule "js/StackBlur"]
+	path = js/StackBlur
+	url = git@github.com:JustinTBayer/StackBlur
