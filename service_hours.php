@@ -269,7 +269,7 @@ END; ?>
               <option value="31">31</option>
             </select>,
             <select name="year">
-              <option selected="selected" value="2015">2015</option>
+              <option selected="selected" value="2016">2016</option>
             </select>
         </p>
         <p>
