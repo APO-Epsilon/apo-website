@@ -42,7 +42,7 @@
                 <ul>
                     <li><a href="service_admin.php">service admin</a></li>
                     <li><a href="service_admin_week.php">service admin week</a></li>
-                    <li><a href="service_admin_week_setup.php">week setup</a></li>
+  
                     <li><a href="attendance_admin.php">Record Attendance</a></li>
                     <li><a href="attendance_check.php">Check Attendance</a></li>
                     <li><a href="check_hours.php">Check Hours</a></li>
