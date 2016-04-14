@@ -30,6 +30,7 @@
                     <li><a href="https://docs.google.com/document/d/15-J7-iN9vKM0x3l0wS_EtOiuRgd-lAal-sa-UomSXBY">Bylaws</a></li>
                     <li><a href="calendar.php">Calendar</a></li>
                     <li><a href="service_hours.php">Hours</a></li>
+                    <li><a href="service_signup.php">Service Signups</a></li>
                     <li><a href="risk_management_quiz.php">Risk Management Quiz</a></li>
                     <li><a href="members_list.php">Members Info</a></li>
                     <li><a href="updateinfo.php">Update Info</a></li>
@@ -39,6 +40,9 @@
     <li>
             <a href="?exec" aria-haspopup="true"><span>Executive</span></a>
                 <ul>
+                    <li><a href="service_admin.php">service admin</a></li>
+                    <li><a href="service_admin_week.php">service admin week</a></li>
+                    <li><a href="service_admin_week_setup.php">week setup</a></li>
                     <li><a href="attendance_admin.php">Record Attendance</a></li>
                     <li><a href="attendance_check.php">Check Attendance</a></li>
                     <li><a href="check_hours.php">Check Hours</a></li>
