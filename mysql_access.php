@@ -3,9 +3,9 @@
 // http://codular.com/php-mysqli
 // http://www.pontikis.net/blog/how-to-use-php-improved-mysqli-extension-and-why-you-should
 error_reporting(-1);
-$DBServer = 'apo.cxav86kuligx.us-west-2.rds.amazonaws.com';
+$DBServer = 'mysql.truman.edu';
 $DBUser   = 'apo';
-$DBPass   = 'alphaphiomega';
+$DBPass   = 'glueallE17';
 $DBName   = 'apo';
 
 // Object oriented way (good way)
