@@ -69,8 +69,8 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
-			echo "Question : <br>";
-			echo "Correct Answer : <br>";
+			echo "Question : What can the chapter not sell?<br>";
+			echo "Correct Answer : Alcoholic beverages<br>";
 			echo "<br>";
 		}
 	}
@@ -80,6 +80,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What should be available when alcoholic beverages are served?<br>";
+			echo "Correct Answer : All of the above<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["3"])) {
@@ -88,6 +91,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Who is responsible for guests at chapter functions?<br>";
+			echo "Correct Answer : All members<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["4"])) {
@@ -96,6 +102,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Who cannot be served alcoholic beverages?<br>";
+			echo "Correct Answer : All of the above<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["5"])) {
@@ -104,6 +113,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What happens to members who violate the risk management policy?<br>";
+			echo "Correct Answer : J-Board<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["6"])) {
@@ -112,6 +124,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : If an event is called unofficial by a member, what does that mean in the eyes of the law, the campus, and the fraternity?<br>";
+			echo "Correct Answer : It's official<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["7"])) {
@@ -120,6 +135,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Who is required to wear a seatbelt?<br>";
+			echo "Correct Answer : State's laws<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["8"])) {
@@ -128,6 +146,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Which is not in the risk management policy regarding transportation?<br>";
+			echo "Correct Answer : Starting with a full tank of gas<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["9"])) {
@@ -135,7 +156,10 @@ function grade_quiz() {
 			$score++;
 		}
 		else {
-			//show correct answer for question
+			//show correct answer for questio
+			necho "Question : What cannot be purchased with fraternity funds?<br>";
+			echo "Correct Answer : Alcohol<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["10"])) {
@@ -144,6 +168,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Which of the following laws and regulations applies to members?<br>";
+			echo "Correct Answer : All of the above<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["11"])) {
@@ -152,6 +179,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Who is the spokesperson for the chapter?<br>";
+			echo "Correct Answer : The president<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["12"])) {
@@ -160,6 +190,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Who takes over for the president?<br>";
+			echo "Correct Answer : VP of large service<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["13"])) {
@@ -168,6 +201,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What are you supposed to do during a chapter emergency?<br>";
+			echo "Correct Answer : All of the above<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["14"])) {
@@ -176,6 +212,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What should you do if questioned?<br>";
+			echo "Correct Answer : Say no comment<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["15"])) {
@@ -184,6 +223,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What does APO say about hazing?<br>";
+			echo "Correct Answer : Hazing is forbidden<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["16"])) {
@@ -192,6 +234,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What is a violation of the national fraternity membership policies?<br>";
+			echo "Correct Answer : All of the above<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["17"])) {
@@ -200,6 +245,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What happens if I loan my crockpot and it breaks?<br>";
+			echo "Correct Answer : I have to pay for damages<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["18"])) {
@@ -208,6 +256,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What should I do if the chainsaw I'm supposed to use during camp service has a damaged wire?<br>";
+			echo "Correct Answer : You can't use it<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["19"])) {
@@ -216,6 +267,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : What is not allowed on my personal facebook page?<br>";
+			echo "Correct Answer : A negative post about APO<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["20"])) {
@@ -224,6 +278,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Where can I post ritual information<br>";
+			echo "Correct Answer : Nowhere<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["21"])) {
@@ -232,6 +289,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : If I see a negative yak about APO what do I do?<br>";
+			echo "Correct Answer : All of the above<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["22"])) {
@@ -239,7 +299,10 @@ function grade_quiz() {
 			$score++;
 		}
 		else {
-			//show correct answer for question
+			//show correct answer for questio
+			necho "Question : If I'm taking a picture with APO letters, can I flip the bird?<br>";
+			echo "Correct Answer : No<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["23"])) {
@@ -248,6 +311,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : How often does instruction need to be given on risk management?<br>";
+			echo "Correct Answer : Once a year<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["24"])) {
@@ -256,6 +322,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Do unofficial APO functions exist?<br>";
+			echo "Correct Answer : No<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["25"])) {
@@ -264,6 +333,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Can there be alcohol at rush?<br>";
+			echo "Correct Answer : No<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["26"])) {
@@ -272,6 +344,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Can I wear my letters while drinking alcohol?<br>";
+			echo "Correct Answer : No<br>";
+			echo "<br>";
 		}
 	}		
 	if(isset($_POST["27"])) {
@@ -280,6 +355,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Is the national fraternity a dry organization?<br>";
+			echo "Correct Answer : No<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["28"])) {
@@ -288,6 +366,10 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Is Epsilon a dry organization?<br>";
+			echo "Correct Answer : Yes<br>";
+			echo "<br>";
+
 		}
 	}
 	if(isset($_POST["29"])) {
@@ -296,6 +378,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Do members need to use proper safety equipment?<br>";
+			echo "Correct Answer : Yes<br>";
+			echo "<br>";
 		}
 	}
 	if(isset($_POST["30"])) {
@@ -304,6 +389,9 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for question
+			echo "Question : Does Epsilon need to provide sober drivers?<br>";
+			echo "Correct Answer : Yes<br>";
+			echo "<br>";
 		}
 	}
 
@@ -326,7 +414,7 @@ function grade_quiz() {
 
 function show_quiz() {
     include('mysql_access.php');
-    $response=$db->query("SELECT * FROM questions LIMIT 20");?>
+    $response=$db->query("SELECT * FROM questions ORDER BY rand() LIMIT 20");?>
 
     <br>
     <form name="quiz" method='post' id='quiz_form'>
