@@ -336,7 +336,6 @@ function show_quiz() {
 		$count++; ?>
         <div id="question_<?php echo $result['id'];?>" class='questions'>
         <h3 id="question_<?php echo $result['id'];?>"><?php echo $count.". ".$result['question_name'];?></h3>
-		<h4 id="answer_<?php echo $result['id'];?>"><?php echo $result['answer'];?></h4>
         <div class='align'>
         <input type="radio" value="1" id='radio1_<?php echo $result['id'];?>' name='<?php echo $result['id'];?>'>
         <label id='ans1_<?php echo $result['id'];?>' for='1'><?php echo $result['answer1'];?></label>
