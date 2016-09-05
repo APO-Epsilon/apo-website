@@ -55,7 +55,7 @@ function passed_quiz() {
 
 function show_quiz() {
     include('mysql_access.php');
-    $response=$db->query("SELECT * FROM questions ORDER BY RAND() LIMIT 20;");?>
+    $response=$db->query("SELECT * FROM questions");?>
 
     <br>
     <form method='post' id='quiz_form'>
