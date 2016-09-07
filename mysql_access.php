@@ -3,10 +3,13 @@
 // http://codular.com/php-mysqli
 // http://www.pontikis.net/blog/how-to-use-php-improved-mysqli-extension-and-why-you-should
 error_reporting(-1);
-$DBServer = 'mysql.truman.edu';
-$DBUser   = 'apo';
-$DBPass   = 'glueallE17';
-$DBName   = 'apo';
+
+if (($config = include 'config.local.php') != true) {
+
+    throw new Exception(
+        'Could not load the configuration from the local config file.'
+    );
+}
 
 // Object oriented way (good way)
 
@@ -21,7 +24,12 @@ $DBName   = 'apo';
         }
     }
 }*/
-$db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
+$db = new mysqli(
+    $config['server'],
+    $config['user'],
+    $config['password'],
+    $config['database']
+);
 
 // check connection
 if ($db->connect_error) {
@@ -51,4 +59,3 @@ define('DB_PASSWORD','alphaphiomega');
 $db=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error());
 $er=mysql_select_db(DB_NAME,$db) or die("Failed to connect to MySQL: " . mysql_error());
 */
-?>
