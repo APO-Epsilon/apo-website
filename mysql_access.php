@@ -3,10 +3,13 @@
 // http://codular.com/php-mysqli
 // http://www.pontikis.net/blog/how-to-use-php-improved-mysqli-extension-and-why-you-should
 error_reporting(-1);
-$DBServer = 'w';
-$DBUser   = 'x';
-$DBPass   = 'y';
-$DBName   = 'z';
+
+if (($config = include 'config.local.php') != true) {
+    
+    throw new Exception(
+        'Could not load the configuration from the local config file.'
+        );
+}
 
 // Object oriented way (good way)
 
@@ -21,7 +24,12 @@ $DBName   = 'z';
         }
     }
 }*/
-$db = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
+$db = new mysqli(
+    $config['server'],
+    $config['user'],
+    $config['password'],
+    $config['database']
+);
 
 // check connection
 if ($db->connect_error) {
