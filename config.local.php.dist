@@ -1,0 +1,11 @@
+<?php
+/**
+ * Application's distributable configuration. Copy this to config.local.php
+ * on deployment if it does not exist, then set the option values.
+ */
+return array(
+    'server' => '',
+    'user' => '',
+    'password' => '',
+    'database' => ''
+);
