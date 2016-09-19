@@ -157,7 +157,7 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for questio
-			necho "Question : What cannot be purchased with fraternity funds?<br>";
+			echo "Question : What cannot be purchased with fraternity funds?<br>";
 			echo "Correct Answer : Alcohol<br>";
 			echo "<br>";
 		}
@@ -300,7 +300,7 @@ function grade_quiz() {
 		}
 		else {
 			//show correct answer for questio
-			necho "Question : If I'm taking a picture with APO letters, can I flip the bird?<br>";
+			echo "Question : If I'm taking a picture with APO letters, can I flip the bird?<br>";
 			echo "Correct Answer : No<br>";
 			echo "<br>";
 		}
