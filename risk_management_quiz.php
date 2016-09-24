@@ -26,7 +26,19 @@ require_once('permissions.php');
 
 function show_active() {
     if (passed_quiz()) {
-        echo "<h2>You have passed the quiz!</h2>";
+      $user_id = $_SESSION['sessionID'];
+      include('mysql_access.php');
+      $response=$db->query("SELECT position FROM contact_information WHERE id = $user_id");
+      $result=mysqli_fetch_array($response);
+      if ($result['position'] == 'Sergeant at Arms' or $result['position'] == 'Webmaster') {
+        echo '<h1>PASSED THE QUIZ</h1><br>';
+        show_pass();
+        echo '<h1>NEED TO PASS THE QUIZ</h1><br>';
+        show_fail();
+      }
+      else{
+        echo '<h2>You have passed the quiz!</h2>';
+      }
     } else {
 		echo "<h2>Risk Management Quiz</h2>";
 		if (count($_POST) > 0) {
@@ -41,7 +53,36 @@ function show_active() {
 ?>
 
 <?php
-
+function show_pass() {
+    $count = 0;
+    include('mysql_access.php');
+    $response=$db->query("SELECT * FROM contact_information WHERE risk_management != '0000-00-00' ORDER BY lastname");
+    echo '<table>';
+    echo '<tr><td>Last Name</td><td>First Name</td><td>Date Passed</td></tr>';
+    while($result=mysqli_fetch_array($response)){ 
+      if ( ($result['status'] != 'Alumni') and ($result['status'] != 'Advisor') and ($result['status'] != 'Inactive') ) {
+        echo '<tr><td>' . $result['lastname'] . '</td><td>' . $result['firstname'] . '</td><td>' . $result['risk_management'] . '</td></tr>';
+        $count++;
+      }
+    }
+    echo '</table>';
+    echo $count . ' people have passed the quiz.<br><br>';
+}
+function show_fail() {
+    $count = 0;
+    include('mysql_access.php');
+    $response=$db->query("SELECT * FROM contact_information WHERE risk_management = '0000-00-00' ORDER BY lastname");
+    echo '<table>';
+    echo '<tr><td>Last Name</td><td>First Name</td></tr>';
+    while($result=mysqli_fetch_array($response)){ 
+      if ( ($result['status'] != 'Alumni') and ($result['status'] != 'Advisor') ) {
+        echo '<tr><td>' . $result['lastname'] . '</td><td>' . $result['firstname'] . '</td></tr>';
+        $count++;
+      }
+    }
+    echo '</table>';
+    echo $count . ' people have not passed the quiz.<br>';
+  }
 function passed_quiz() {
     include ('mysql_access.php');
     if (isset($_SESSION['sessionID'])) {
