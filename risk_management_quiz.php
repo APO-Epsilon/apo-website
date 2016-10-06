@@ -73,10 +73,10 @@ function show_fail() {
     include('mysql_access.php');
     $response=$db->query("SELECT * FROM contact_information WHERE risk_management = '0000-00-00' ORDER BY lastname");
     echo '<table>';
-    echo '<tr><td>Last Name</td><td>First Name</td></tr>';
+    echo '<tr><td>Last Name</td><td>First Name</td><td>Status</td></tr>';
     while($result=mysqli_fetch_array($response)){ 
-      if ( ($result['status'] != 'Alumni') and ($result['status'] != 'Advisor') ) {
-        echo '<tr><td>' . $result['lastname'] . '</td><td>' . $result['firstname'] . '</td></tr>';
+      if ( ($result['status'] != 'Alumni') and ($result['status'] != 'Advisor') and ($result['status'] != 'Pledge') ) {
+        echo '<tr><td>' . $result['lastname'] . '</td><td>' . $result['firstname'] . '</td><td>' . $result['status'] . '</td></tr>';
         $count++;
       }
     }
