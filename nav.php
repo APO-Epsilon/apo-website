@@ -1,6 +1,3 @@
-<?php
-require_once ('mysql_access.php');
-?>
 <!--<div id="lefttriangle"></div>-->
     <a href="#nav" title="Show navigation">Show</a>
   <a href="#" title="Hide navigation">Hide</a>
@@ -12,8 +9,8 @@ require_once ('mysql_access.php');
         <li><a href="join.php">Join</a></li>
         <li><a href="history.php">History</a></li>
         <li><a href="dates.php">Important Dates</a></li>
-              <li><a href="awards.php">Awards</a></li>
-                <li><a href="traditions.php">Traditions</a></li>
+        <li><a href="awards.php">Awards</a></li>
+        <li><a href="traditions.php">Traditions</a></li>    
       </ul>
     </li>
     <li>
@@ -22,7 +19,7 @@ require_once ('mysql_access.php');
         <li><a href="exec.php">Executive Board</a></li>
         <li><a href="actives.php">Actives</a></li>
         <li><a href="alumni.php">Alumni</a></li>
-                <li><a href="advisors.php">Advisors</a></li>
+        <li><a href="advisors.php">Advisors</a></li>
       </ul>
     </li>
     <li>
@@ -53,20 +50,19 @@ require_once ('mysql_access.php');
                     <li><a href="member_statuses.php">Edit Members</a></li>
                 </ul>
         </li>
-      $link1=$db->query("SELECT link_URL FROM important_links WHERE link_id = 1");?>
-      $link2=$db->query("SELECT link_URL FROM important_links WHERE link_id = 2");?>
-      $link3=$db->query("SELECT link_URL FROM important_links WHERE link_id = 3");?>
-      $link4=$db->query("SELECT link_URL FROM important_links WHERE link_id = 4");?>
-      $link5=$db->query("SELECT link_URL FROM important_links WHERE link_id = 5");?>
+<?php
+      include('mysql_access.php');
+      $response=$db->query("SELECT * FROM important_links ORDER BY link_id");
+?>
         <li>
-            <a href="?Links" aria-haspopup="true"><span>Links</span></a>
+            <a href="?links" aria-haspopup="true"><span>Links</span></a>
                 <ul>
-                    <li><a href=$link1>Google Calendar</a></li>
-                    <li><a href=$link2>Google Drive</a></li>   
-                    <li><a href=$link3>Family Flower</a></li>
-                    <li><a href=$link4>Regular Service</a></li>
-                    <li><a href=$link5>Large Service</a></li>
-                    <li><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <?php
+                      while($result=mysqli_fetch_array($response)){ 
+                        echo '<li><a href="' . $result['link_URL'] . '">' . $result['link_title'] . '</a></li>';
+                      }
+                  ?>
+                  <li><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                       <input type="hidden" name="cmd" value="_s-xclick">
                       <input type="hidden" name="hosted_button_id" value="PEA3YS23SH8BY">
                       <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
