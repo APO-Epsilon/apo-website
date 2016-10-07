@@ -1,3 +1,6 @@
+<?php
+require_once ('mysql_access.php');
+?>
 <!--<div id="lefttriangle"></div>-->
     <a href="#nav" title="Show navigation">Show</a>
   <a href="#" title="Hide navigation">Hide</a>
@@ -50,14 +53,19 @@
                     <li><a href="member_statuses.php">Edit Members</a></li>
                 </ul>
         </li>
+      $link1=$db->query("SELECT link_URL FROM important_links WHERE link_id = 1");?>
+      $link2=$db->query("SELECT link_URL FROM important_links WHERE link_id = 2");?>
+      $link3=$db->query("SELECT link_URL FROM important_links WHERE link_id = 3");?>
+      $link4=$db->query("SELECT link_URL FROM important_links WHERE link_id = 4");?>
+      $link5=$db->query("SELECT link_URL FROM important_links WHERE link_id = 5");?>
         <li>
             <a href="?Links" aria-haspopup="true"><span>Links</span></a>
                 <ul>
-                    <li><a href="https://calendar.google.com/calendar/render?cid=u3q6udtat5aeia3jbfna05qga0@group.calendar.google.com#main_7">Google Calendar</a></li>
-                    <li><a href="https://drive.google.com/drive/folders/0B64sX_KlRJvYZG5Za3dDakVzYU0">Google Drive</a></li>   
-                    <li><a href="https://docs.google.com/spreadsheets/d/11J6o0GyKgN5c9_4CY68fO7Ne0u6hngnNez7_K19iE-M/edit#gid=0">Family Flower</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1K_rUuRX0DNtQ930iT3nfpDwQxr53o_MFstckAl3AGlc/edit#gid=0">Large Service</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1tGFRJCyG3HP0njM2O2MODeCQ9mVgvSVVQwxUfy4RSxQ/edit#gid=1343545188">Regular Service</a></li>
+                    <li><a href=$link1>Google Calendar</a></li>
+                    <li><a href=$link2>Google Drive</a></li>   
+                    <li><a href=$link3>Family Flower</a></li>
+                    <li><a href=$link4>Regular Service</a></li>
+                    <li><a href=$link5>Large Service</a></li>
                     <li><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                       <input type="hidden" name="cmd" value="_s-xclick">
                       <input type="hidden" name="hosted_button_id" value="PEA3YS23SH8BY">
