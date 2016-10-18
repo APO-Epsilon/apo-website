@@ -26,8 +26,14 @@ require_once ('session.php');
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="row">
-        <div class="large-8 medium-6 small-12 columns">
-            <?php require_once('editable_page.php'); ?>
+	<?php
+		include('mysql_access.php');
+		$response=$db->query("SELECT sum(hours) FROM recorded_hours");
+		$result=mysqli_fetch_array($response);
+		echo "<h2> This semester, Epsilon has completed " . $result['sum(hours)'] . " hours!</h2>";
+    ?>
+    <div class="large-8 medium-6 small-12 columns">
+    <?php require_once('editable_page.php'); ?>
         </div>
         <div class="large-4 medium-6 small-12 columns">
             <div class="fb-like-box" data-href="https://www.facebook.com/apo.epsilon" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false">
