@@ -19,17 +19,9 @@ require_once ('mysql_access.php');
 
     <div class="row">
         <p>
-        Please enter the email address you used when you signed up, and we will send your password to you immediately.
-        If you don't receive an email, that means you either typed the email wrong, or registered with a different email address.  If you need help, Please contact the webmaster.
+        Please contact the webmaster at their email: apo.epsilon.webmaster@truman.edu or through any other method (facebook or in person). 
         </p>
 
-        <form method="GET" action="login_sendpw.php" >
-            <p>
-            <label>E-mail</label><input type="text" size="30" name="email" id="email" value="" />
-        	<br>
-            <input type="submit" value="Send"/>
-            </p>
-        </form>
     </div>
 
     <!-- Javascript method to include footer -->
