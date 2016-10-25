@@ -30,7 +30,15 @@ function show_active() {
       include('mysql_access.php');
       $response=$db->query("SELECT position FROM contact_information WHERE id = $user_id");
       $result=mysqli_fetch_array($response);
+	  //include results for the sarge and webmaster
       if ($result['position'] == 'Sergeant at Arms' or $result['position'] == 'Webmaster') {
+		?>
+		<audio id="myTune">
+			<source src="RISK.wav">
+		</audio>
+ 
+		<button onclick="document.getElementById('myTune').play()">RISK ALERT</button>
+		<?php
         echo '<h1>PASSED THE QUIZ</h1><br>';
         show_pass();
         echo '<h1>NEED TO PASS THE QUIZ</h1><br>';
@@ -38,6 +46,14 @@ function show_active() {
       }
       else{
         echo '<h2>You have passed the quiz!</h2>';
+		echo '<h3>As a reward you have unlocked : RISK alert button<br>';
+		?>
+		<audio id="myTune">
+			<source src="RISK.wav">
+		</audio>
+ 
+		<button onclick="document.getElementById('myTune').play()">RISK ALERT</button>
+		<?php
       }
     } else {
 		echo "<h2>Risk Management Quiz</h2>";
@@ -54,12 +70,14 @@ function show_active() {
 
 <?php
 function show_pass() {
+	//count may be simplified with SQL query
     $count = 0;
     include('mysql_access.php');
     $response=$db->query("SELECT * FROM contact_information WHERE risk_management != '0000-00-00' ORDER BY lastname");
     echo '<table>';
     echo '<tr><td>Last Name</td><td>First Name</td><td>Date Passed</td></tr>';
-    while($result=mysqli_fetch_array($response)){ 
+    while($result=mysqli_fetch_array($response)){
+	//leave out members who do not need this quiz 
       if ( ($result['status'] != 'Alumni') and ($result['status'] != 'Advisor') and ($result['status'] != 'Inactive') ) {
         echo '<tr><td>' . $result['lastname'] . '</td><td>' . $result['firstname'] . '</td><td>' . $result['risk_management'] . '</td></tr>';
         $count++;
@@ -68,23 +86,27 @@ function show_pass() {
     echo '</table>';
     echo $count . ' people have passed the quiz.<br><br>';
 }
+
 function show_fail() {
     $count = 0;
     include('mysql_access.php');
     $response=$db->query("SELECT * FROM contact_information WHERE risk_management = '0000-00-00' ORDER BY lastname");
     echo '<table>';
-    echo '<tr><td>Last Name</td><td>First Name</td><td>Status</td></tr>';
-    while($result=mysqli_fetch_array($response)){ 
+    echo '<tr><td>Last Name</td><td>First Name</td><td>Status</td><td>Email</td></tr>';
+    while($result=mysqli_fetch_array($response)){
+	//leave out members who do not need this quiz
       if ( ($result['status'] != 'Alumni') and ($result['status'] != 'Advisor') and ($result['status'] != 'Pledge') ) {
-        echo '<tr><td>' . $result['lastname'] . '</td><td>' . $result['firstname'] . '</td><td>' . $result['status'] . '</td></tr>';
+        echo '<tr><td>' . $result['lastname'] . '</td><td>' . $result['firstname'] . '</td><td>' . $result['status'] . '</td><td>' . $result['email'] . '</td></tr>';
         $count++;
       }
     }
     echo '</table>';
     echo $count . ' people have not passed the quiz.<br>';
   }
+  
 function passed_quiz() {
     include ('mysql_access.php');
+	//check if the user has passed the quiz
     if (isset($_SESSION['sessionID'])) {
         $user_id = $_SESSION['sessionID'];
         $sql = "SELECT `risk_management` FROM `contact_information` WHERE id='$user_id'";
@@ -100,9 +122,8 @@ function passed_quiz() {
 }
 
 function grade_quiz() {
-	
+	//This part of the code is ridiculously hardcoded for now. Should use SQL to check for correct answers.
 	$score = 0;
-	
 	//questions
 	if(isset($_POST["1"])) {
 		if($_POST["1"]==1){
@@ -455,8 +476,8 @@ function grade_quiz() {
 
 function show_quiz() {
     include('mysql_access.php');
+	//display the actual quiz, pick 20 random questions from the 30 in the database
     $response=$db->query("SELECT * FROM questions ORDER BY rand() LIMIT 20");?>
-
     <br>
     <form name="quiz" method='post' id='quiz_form'>
         <?php 
