@@ -142,7 +142,7 @@ function show_page() {
   ASC, `firstname`
   ASC
 SQL;
-
+	include('mysql_access.php');
   $querym = $db->query($selectm) or die("If you encounter problems, please contact the webmaster.");
 
 
