@@ -28,10 +28,14 @@ function show_active() {
 	include('mysql_access.php');
 	$email = $_POST['email'];
 	$default = '$P$BLcP9TBqSqFi6r6jkJHC8EVgoXfy01.';
-	echo $email . "<br>";
 	$SQL ="UPDATE  `apo`.`contact_information` SET  `password` = '" . $default . "' WHERE  `contact_information`.`email` ='" . $email . "';";
 	$result = $db->query($SQL) or die("failed to reset password");
-	echo "Password Reset!";
+	echo "Password Reset!<br>";
+	echo "email : " . $email . "<br>";
+	$response=$db->query("SELECT username FROM contact_information WHERE email ='$email'");
+    $result=mysqli_fetch_array($response);
+	echo "username : " . $result['username'] . "<br>";
+	echo "password : password<br>";
 }
 
 
