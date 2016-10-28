@@ -33,6 +33,7 @@ function show_active() {
 	{
 		?>
 		<form action="pw_reset.php" method="POST">
+			<p>Enter the user's email.</p>
 			<input type="text" name="email">
 			<input type="submit">
 		</form>
