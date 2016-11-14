@@ -35,7 +35,7 @@ function show_active() {
 	}
 	echo '<h1> You are Signed Up for ' .  $_POST['event_name'] . '! </h1>';
 	//change this link from test site to real site before uploading
-	echo "<a href='http://sand.truman.edu/~arc6278/apoTry/point_signup.php'>SIGN UP FOR ANOTHER CHAPTER EVENT</a>";
+	echo "<a href='http://apo.truman.edu/point_signup.php'>SIGN UP FOR ANOTHER CHAPTER EVENT</a>";
 	echo "<br><br><a href='check_requirements.php'>CHECK REQUIREMENTS HERE</a>";
 }
 
