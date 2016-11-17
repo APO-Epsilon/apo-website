@@ -157,7 +157,7 @@ function display_event_table($rtype)
 		$points_needed = 4;
 	}
 		echo "<h3>" . $rtype . " - " . $points_needed . " Points</h3>";
-		echo "<a href='point_signup.php'>Add events here.</a><br>";
+		echo "<a href='event_signup.php'>Add events here.</a><br>";
 		$count = 0;
 		$points = 0;
 		echo "<table>";
