@@ -10,7 +10,8 @@ function cleanUpSubmodules() {
     //Indicate here the location of all of our submodules and the files in them that we want to keep
     $submoduleArray = array(
         "js/StackBlur" => array("dist/stackblur.min.js"),
-        "js/Hermite-resize" => array("hermite.js", "hermite-worker.js")
+        "js/Hermite-resize" => array("hermite.js", "hermite-worker.js"),
+        "includes/PHPMailer" => array("class.phpmailer.php", "class.pop3.php", "class.smtp.php")
     );
 
     //Save us a lot of typing when making the array by creating the full filename for us
