@@ -4,3 +4,6 @@
 [submodule "js/StackBlur"]
 	path = js/StackBlur
 	url = git@github.com:JustinTBayer/StackBlur
+[submodule "includes/PHPMailer"]
+	path = includes/PHPMailer
+	url = https://github.com/JustinTBayer/PHPMailer
