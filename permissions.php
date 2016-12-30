@@ -4,7 +4,10 @@ if(isset($_SESSION['sessionID'])){
     $exec_authorized = False;
     if($exec_page){
       include('mysql_access.php');
-      $sql = "SELECT * FROM exec_permissions WHERE position = \"{$_SESSION['sessionposition']}\" AND page = \"{$_SERVER['PHP_SELF']}\";";
+      if (!isset($permissions_page)) {
+        $permissions_page = $_SERVER['PHP_SELF'];
+      }
+      $sql = "SELECT * FROM exec_permissions WHERE position = \"{$_SESSION['sessionposition']}\" AND page = \"$permissions_page\";";
       $result = $db->query($sql);
       if(mysqli_num_rows($result) != 0){
         $exec_authorized = True;
