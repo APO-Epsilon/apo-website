@@ -20,6 +20,9 @@ require_once ("PasswordHash.php");
 
     <div class="row">
 <?php
+    //password to register, change each semester
+    $current_reg_pass = 'Pledge2017LFS';
+        
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $username = $_POST['username'];
@@ -71,7 +74,7 @@ require_once ("PasswordHash.php");
     if ($firstname == NULL || $lastname == NULL || $username == NULL || $password == NULL || $email == NULL  ||  $regpass == NULL )
     {
       echo '<div class="entry"><strong>All of the required fields were not filled out.  Please try again.</strong></div>';
-    } else if ($regpass == 'LFSRushAPO') {
+    } else if ($regpass == $current_reg_pass) {
         $insert = "INSERT INTO `contact_information` (firstname,
         lastname, username, password, homeaddress, citystatezip,
         localaddress, email, phone, bmonth, bday, byear, schoolyear, major,
