@@ -160,42 +160,42 @@ function list_stats($hours_id, $semester) {
   // Total Hours
   echo "<br><br><h2>Total Hours</h2><br>";
   $user_id = $_SESSION['sessionID'];
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Lifetime Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();
   // Total APO Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND event!='Non-APO Hours'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND event!='Non-APO Hours'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>APO Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Chapter Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='chapter'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='chapter'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Chapter Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Campus Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='campus'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='campus'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Campus Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Community Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='community'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='community'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Community Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Country Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='country'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='country'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Country Hours: </span>" . $result['sum(hours)'] . "<br/>";
