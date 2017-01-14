@@ -43,6 +43,8 @@ function display($event_type) {
 				<input type="number" step="0.25" name="L_val" value="0"></p>
 				<p>Friendship Points:
 				<input type="number" step="0.25" name="F_val" value="0"></p>
+				<p>Service Points:
+				<input type="number" step="0.25" name="S_val" value="0"></p>
 				<p>Date: (leave blank if not applicable)
 				<input type='date' name='event_time' value=0></p>
 				<p>Meeting Location:
@@ -72,6 +74,8 @@ function display($event_type) {
 				<input type="text" name="event_name" required></p>
 				<input type="hidden" step="0.25" name="L_val" value="0"></p>
 				<input type="hidden" step="0.25" name="F_val" value="0"></p>
+				<p>Service Points:
+				<input type="number" step="0.25" name="S_val" value="0"></p>
 				<p>Date: (leave blank if not applicable)
 				<input type='date' name='event_time' value=0></p>
 				<p>Meeting Location:
@@ -103,6 +107,8 @@ function display($event_type) {
 				<p>Leadership Points:
 				<input type="number" step="0.25" name="L_val" value="0"></p>
 				<input type="hidden" step="0.25" name="F_val" value="0"></p>
+				<p>Service Points:
+				<input type="number" step="0.25" name="S_val" value="0"></p>
 				<p>Date: (leave blank if not applicable)
 				<input type='date' name='event_time' value=0></p>
 				<p>Meeting Location:
@@ -132,6 +138,7 @@ function display($event_type) {
 				<input type="text" name="event_name" required></p>
 				<input type="hidden" step="0.25" name="L_val" value="0"></p>
 				<input type="hidden" step="0.25" name="F_val" value="0"></p>
+				<input type="hidden" step="0.25" name="S_val" value="0"></p>
 				<p>Date: (leave blank if not applicable)
 				<input type='date' name='event_time' value=0></p>
 				<p>Meeting Location:

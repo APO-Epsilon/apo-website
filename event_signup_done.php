@@ -30,7 +30,7 @@ function show_active() {
 	{
 		include('mysql_access.php');
 		//add their signup to the database
-		$SQL = "INSERT INTO events_signup (event_id,user_id) VALUES (" . $_POST['event_id'] . "," . $_POST['user'] . ")";
+		$SQL = "INSERT INTO events_signup (event_id,user_id, semester) VALUES (" . $_POST['event_id'] . "," . $_POST['user'] . ",'Spring 2017')";
 		$result = $db->query($SQL) or die("Signup Failed");
 	}
 	echo '<h1> You are Signed Up for ' .  $_POST['event_name'] . '! </h1>';

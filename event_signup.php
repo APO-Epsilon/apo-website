@@ -28,7 +28,9 @@ require_once('permissions.php');
 function display($event_type) {
 		include('mysql_access.php');
 		$user_id = $_SESSION['sessionID'];
+
 		echo "Displaying " . $event_type . " Events";
+
 		if ($event_type != "All")
 		{
 			$xresponse=$db->query("SELECT * FROM events_listing WHERE event_type='$event_type' ORDER BY event_name");
@@ -37,13 +39,36 @@ function display($event_type) {
 		{
 			$xresponse=$db->query("SELECT * FROM events_listing ORDER BY event_name");
 		}
+
 		while($result=mysqli_fetch_array($xresponse)) 
 		{
 			$l_id = $result['event_leader_id'];
 			$yresponse=$db->query("SELECT email FROM contact_information WHERE id='$l_id'");
 			$yresult=mysqli_fetch_array($yresponse);
 			$l_email = $yresult['email'];
-			//create a table entry for the event
+			$event = $result['event_id'];
+
+			$response=$db->query("SELECT * FROM events_listing WHERE event_id = $event");
+			$result=mysqli_fetch_array($response);
+
+			$response=$db->query("SELECT COUNT(user_id) FROM events_signup WHERE event_id = $event");
+			$signed=mysqli_fetch_array($response);
+			$count = $signed['COUNT(user_id)'];
+
+			$response=$db->query("SELECT user_id FROM events_signup WHERE event_id = $event AND user_id = $user_id");
+			$already=mysqli_fetch_array($response);
+
+			//check if full
+			if (($result['event_cap'] <= $count) && ($count != 0))
+			{
+			}
+			//check if already signed up
+			else if (($already['user_id'] == $user_id) && ($result['repeatable'] == 0))
+			{
+			}
+			//create a table entry
+			else
+			{
 			?>
 			<form method="post" action="event_signup_done.php">
 				<input type="hidden" name="user" value="<?php echo htmlspecialchars($user_id); ?>">
@@ -55,6 +80,7 @@ function display($event_type) {
 			</table>
 			</form>
 			<?php
+			}
 		}
 }
 
@@ -74,46 +100,17 @@ function show_active() {
 		<form name="myform" action="" method="post">
 		<select name='type_set' onchange="this.form.submit()">
 			<option value='null' selected>-- select event type --</option>
-			<!-- <option value='All'>All</option> !-->
+			<option value='All'>All</option>
 			<option value='Chapter'>Chapter / Point</option>
-			<!-- <option value='Taskforce'>Taskforce</option>
+			<option value='Taskforce'>Taskforce</option>
 			<option value='Large Service'>Large Service</option>
-			<option value='Other'>Other</option> !-->
+			<!-- <option value='Other'>Other</option> !-->
 		</select>
 		</form>
 		<?php
 		display($event_type);
 }
 
-//old code that checks for capacity and repeated entries
-function old_display($event) {
-	if ($event != 0)
-	{	
-		include('mysql_access.php');
-		$user_id = $_SESSION['sessionID'];
-		$response=$db->query("SELECT * FROM events_listing WHERE event_id = $event");
-		$result=mysqli_fetch_array($response);
-		$response=$db->query("SELECT COUNT(user_id) FROM events_signup WHERE event_id = $event");
-		$signed=mysqli_fetch_array($response);
-		$response=$db->query("SELECT user_id FROM events_signup WHERE event_id = $event AND user_id = $user_id");
-		$already=mysqli_fetch_array($response);
-		echo $result['event_name'] . " " . $result['event_time'] . " " . $result['event_place'] . "<br>";
-		//don't allow signup if the user is already signed up
-		if ($already['user_id'] == $user_id && $result['repeatable'] == 0)
-		{
-			echo "You're already signed up for this category!";
-		}
-		//elaborate on event
-		else
-		{
-			echo "Click to signup!";
-		}
-	}
-	else
-	{
-		echo "Choose a service event!";
-	}
-}
 ?>
 </div>
     <!-- Javascript method to include footer -->

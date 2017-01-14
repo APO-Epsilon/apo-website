@@ -38,6 +38,7 @@ if ($status == 'Appointed' || $status == 'Elected') {
 		$event_name = htmlspecialchars($_POST['event_name']);
 		$L_val = htmlspecialchars($_POST['L_val']);
 		$F_val = htmlspecialchars($_POST['F_val']);
+		$S_val = htmlspecialchars($_POST['S_val']);
 		$event_time = htmlspecialchars($_POST['event_time']);
 		$event_place = htmlspecialchars($_POST['event_place']);
 		$event_description = htmlspecialchars($_POST['event_description']);
@@ -56,9 +57,9 @@ if ($status == 'Appointed' || $status == 'Elected') {
 		
 		//add their signup to the database
 		$SQL = "INSERT INTO events_listing ";
-		$SQL = $SQL . "(event_type,event_id,event_name,L_val,F_val,event_time,event_place,event_description,event_cap,event_leader_id,repeatable,required)";
+		$SQL = $SQL . "(event_type,event_id,event_name,L_val,F_val,S_val,event_time,event_place,event_description,event_cap,event_leader_id,repeatable,required)";
 		$SQL = $SQL . " VALUES ('";
-		$SQL = $SQL . $event_type . "'," . $event_id . ",'" . $event_name . "'," . $L_val . "," . $F_val . ",'" . $event_time . "','";
+		$SQL = $SQL . $event_type . "'," . $event_id . ",'" . $event_name . "'," . $L_val . "," . $F_val . "," . $S_val . ",'" . $event_time . "','";
 		$SQL = $SQL . $event_place . "','" . $event_description . "'," . $event_cap . "," . $event_leader_id . ",";
 		$SQL = $SQL . $repeatable . "," . $required . ")";
 		$result = $db->query($SQL) or die("<a href='create_point_event.php'>Create an Event</a>");
