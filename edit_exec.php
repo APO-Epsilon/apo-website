@@ -1,5 +1,6 @@
 <?php
 require_once ('session.php');
+require_once ('mysql_access.php');
 ?>
 <!doctype html>
 <html>
@@ -14,18 +15,31 @@ require_once ('session.php');
 
     <!-- Javascript method to include header -->
     <div id="header"><?php include 'header.php';?></div>
+    <!-- PHP method to include header -->
+<div class="row">
+
 <?php
-require_once ('mysql_access.php');
-page_header();
+$exec_page = False;
+$active_page = True;
+$public_page = False;
+require_once('permissions.php');
 ?>
 
 <div class="row">
 
 <?php
-$position = $_SESSION['sessionposition'];
 
 
-if (($position == "Webmaster" OR $position == "President" ) & ($_SESSION['sessionexec'] == 1)) {
+function show_active() {
+
+	include('mysql_access.php');
+	$position = $_SESSION['sessionposition'];
+	echo $position;
+
+	$s_exec = $_SESSION['sessionexec'];
+	echo $s_exec;
+
+if (($position == "Webmaster" OR $position == "President" ) ) {
 //$_SESSION['sessionexec'] == 1;
 //{
   if (isset($_GET['action'])) {
@@ -105,7 +119,7 @@ echo <<<END
     <select name='user_id'>
 END;
 
-  $sql = "SELECT `id`, `firstname`, `lastname` FROM `contact_information` WHERE `active_sem` = '$current_semester' OR `active_sem` = '$previous_semester' ORDER BY `lastname`";
+  $sql = "SELECT `id`, `firstname`, `lastname` FROM `contact_information` ORDER BY `lastname`";
   $query = $db->query($sql) or die("Error");
   while ($r = mysqli_fetch_array($query)) {
     echo "<option value='$r[id]'>$r[lastname], $r[firstname]</option>";
@@ -144,7 +158,7 @@ echo <<<END
     <select name='user_id'>
 END;
 
-  $sql = "SELECT `id`, `firstname`, `lastname` FROM `contact_information` WHERE `active_sem` = '$current_semester' ORDER BY `lastname`";
+  $sql = "SELECT `id`, `firstname`, `lastname` FROM `contact_information` ORDER BY `lastname`";
   $query = $db->query($sql) or die("Error");
   while ($r = mysqli_fetch_array($query)) {
     echo "<option value='$r[id]'>$r[lastname], $r[firstname]</option>";
@@ -178,7 +192,7 @@ echo <<<END
   </form>
 END;
 }
-
+}
 ?>
 
 </div>
@@ -189,3 +203,4 @@ END;
     <!-- PHP method to include footer -->
 </body>
 </html>
+
