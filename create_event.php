@@ -64,7 +64,95 @@ function display($event_type) {
 			</form>
 			<?php
 		}
-		else if ($event_type=='Large Service') {
+		else if ($event_type=='Attendance') {
+			?>	
+			<h2>Create Attendance Event</h2>
+			<form name="myform" action="create_event_done.php" method="post">
+				<input type='hidden' name='event_type' value='<?= $event_type ?>'>
+				<input type='hidden' name='event_id' value=<?= $next ?>>
+				<p>Event Title:
+				<input type="text" name="event_name" required></p>
+				<input type="hidden" step="0.25" name="L_val" value="0"></p>
+				<input type="hidden" step="0.25" name="F_val" value="0"></p>
+				<p>Service Points:
+				<input type="number" step="0.25" name="S_val" value="0"></p>
+				<p>Date: (leave blank if not applicable)
+				<input type='date' name='event_time' value=0></p>
+				<p>Meeting Location:
+				<input type='text' name='event_place' value='Circle Drive'></p>
+				<p>Description:<p>
+				<input type="text" name="event_description"></p>
+				<input type="hidden" name="event_cap" value="0"></p>
+				<p>Event Leader ID: (defaults to your ID)
+				<input type='number' name='event_leader_id' value=<?= $user_id ?>></p>
+				<p>Repeatable?
+				<input type="checkbox" name="repeatable"></p>
+				<p>Required?
+				<input type="checkbox" name="required"></p>
+				<p>
+				<input type="submit" name="submit" value="create"/></p>
+			</form>
+			<?php
+		}
+		else if ($event_type=='Regular') {
+			?>	
+			<h2>Create Regular Service Event</h2>
+			<form name="myform" action="create_event_done.php" method="post">
+				<input type='hidden' name='event_type' value='<?= $event_type ?>'>
+				<input type='hidden' name='event_id' value=<?= $next ?>>
+				<p>Event Title:
+				<input type="text" name="event_name" required></p>
+				<input type="hidden" step="0.25" name="L_val" value="0"></p>
+				<input type="hidden" step="0.25" name="F_val" value="0"></p>
+				<p>Service Points:
+				<input type="number" step="0.25" name="S_val" value="0"></p>
+				<input type='hidden' name='event_time' value=0>
+
+				<p> Occurence Information: </p>
+				<p> 0 : never on this day </p>
+				<p> 1 : weekly </p>
+				<p> 2 : every other week </p>
+				<p> 3 : irregular (monthly, etc) talk to webmaster after selecting<p>
+				<p> Sunday
+				<input type='number' name='sunday' value=0></p>
+				<p> Monday
+				<input type='number' name='monday' value=0></p>
+				<p> Tuesday
+				<input type='number' name='tuesday' value=0></p>
+				<p> Wednesday
+				<input type='number' name='wednesday' value=0></p>
+				<p> Thursday
+				<input type='number' name='thursday' value=0></p>
+				<p> Friday
+				<input type='number' name='friday' value=0></p>
+				<p> Saturday
+				<input type='number' name='saturday' value=0></p>
+
+				<p>Time
+				<input type='text' name='time' value=0></p>
+
+				<p>Meeting Location:
+				<input type='text' name='event_place' value='Circle Drive'></p>
+				<p>Description:
+				<input type="text" name="event_description"></p>
+				<p>Service Type:
+				<input type="text" name="service_type"></p>
+				<p>Event Cap: (use 0 if there is no cap) do not include project leader
+				<input type="number" name="event_cap" value="0"></p>
+				<p>Event Leader ID: (defaults to your ID)
+				<input type='number' name='event_leader_id' value=<?= $user_id ?>></p>
+				<p>Repeatable?
+				<input type="checkbox" name="repeatable"></p>
+				<p>Required?
+				<input type="checkbox" name="required"></p>
+				<p>Youth?
+				<input type="checkbox" name="youth"></p>
+				<p>
+				<input type="submit" name="submit" value="create"/></p>
+			</form>
+			<?php
+		}
+		else if ($event_type=='Large') {
 			?>	
 			<h2>Create Large Service Event</h2>
 			<form name="myform" action="create_event_done.php" method="post">
@@ -184,10 +272,12 @@ function show_active() {
 		<form name="myform" action="" method="post">
 		<select name='type_set' onchange="this.form.submit()">
 			<option value='null' selected>-- select one --</option>
-			<!-- <option value='Chapter'>Chapter</option> !-->
+			<option value='Chapter'>Chapter</option>
+			<option value='Attendance'>Attendance</option>
 			<option value='Taskforce'>Taskforce</option>
-			<!-- <option value='Large Service'>Large Service</option>!-->
-			<option value='Other'>Other</option>
+			<!--<option value='Regular'>Regular Service</option>
+			<option value='Large'>Large Service</option>
+			<option value='Other'>Other</option>!-->
 		</select>
 		</form>
 		<?php

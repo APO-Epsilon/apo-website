@@ -28,15 +28,60 @@ function show_active() {
 	//check for proper parameters
 	if(isset($_POST['submit']))
 	{
+		$eid = $_POST['event_id'];
+		$uid = $_POST['user'];
+		
+		if (!isset($_POST['Factor']))
+		{
+			$factor = 0;
+			$drive = '';
+			$day = '';
+			$week = 0;
+		}
+		//regular service events have extra info
+		else
+		{
+			$factor = $_POST['Factor'];
+			$drive = $_POST['drive'];
+			$day = $_POST['day'];
+			$week = $_POST['week'];
+		}
 		include('mysql_access.php');
 		//add their signup to the database
-		$SQL = "INSERT INTO events_signup (event_id,user_id, semester) VALUES (" . $_POST['event_id'] . "," . $_POST['user'] . ",'Spring 2017')";
+		$SQL = "INSERT INTO events_signup (event_id,user_id,semester,Factor,drive,day,week) VALUES ($eid,$uid,'Spring 2017',$factor,'$drive','$day',$week)";
 		$result = $db->query($SQL) or die("Signup Failed");
+
 	}
-	echo '<h1> You are Signed Up for ' .  $_POST['event_name'] . '! </h1>';
+	
+	$uresponse=$db->query("SELECT firstname,lastname,email FROM contact_information WHERE id = $uid");
+	$uresult=mysqli_fetch_array($uresponse);
+	
+	$eresponse=$db->query("SELECT event_leader_id FROM events_listing WHERE event_id = $eid");
+	$eresult=mysqli_fetch_array($eresponse);
+	$lid = $eresult['event_leader_id'];
+	
+	$lresponse=$db->query("SELECT email FROM contact_information WHERE id = $lid");
+	$lresult=mysqli_fetch_array($lresponse);
+	
+	$user_name = $uresult['firstname'] . " " . $uresult['lastname'];
+	$user_email = $uresult['email'];
+	
+	$event_name = $_POST['event_name'];
+	echo '<h1> You are Signed Up for '. $event_name .'! </h1>';
 	//change this link from test site to real site before uploading
 	echo "<a href='event_signup.php'>SIGN UP FOR ANOTHER EVENT</a>";
 	echo "<br><br><a href='check_requirements.php'>CHECK REQUIREMENTS HERE</a>";
+	
+	// the message
+	$msg = "$user_name ($user_email) has signed up for your event $event_name.";
+
+	// use wordwrap() if lines are longer than 70 characters
+	//$msg = wordwrap($msg,70);
+
+	// send email
+	$subject = "APO SIGNUP : "  . $event_name;
+	$to = $lresult['email'];
+	mail($to,$subject,$msg);
 }
 
 

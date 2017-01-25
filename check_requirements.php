@@ -239,6 +239,30 @@ function show_active() {
 		delete_event($eid, $user_id);
 	}
 	
+	echo "<h3>Committee - 3 taskforce events</h3>";
+	$c_events = 0;
+	echo "<table><tr><th>#</th><th>Event Name</th><th>Event Leader</th></tr>";
+	$zresponse=$db->query("SELECT event_id FROM events_signup WHERE user_id='" . $user_id . "'");
+	while($zresult=mysqli_fetch_array($zresponse))
+	{
+		$taskq=$db->query("SELECT * FROM events_listing WHERE event_id='" . $zresult["event_id"] . "'");
+		$taskr=mysqli_fetch_array($taskq);
+		if($taskr['event_type'] == 'Taskforce')
+		{
+			$ename = $taskr['event_name'];
+			$elid = $taskr['event_leader_id'];
+			$eq=$db->query("SELECT email FROM contact_information WHERE id=$elid");
+			$er=mysqli_fetch_array($eq);
+			$leader_email = $er['email'];
+			
+			$c_events++;
+			echo "<tr><td>$c_events</td><td>$ename</td><td>$leader_email</td></tr>";
+		}
+	}
+	
+	echo "<tr><td></td><td>Total</td><td>$c_events</td></tr></table>";
+	echo "<p>You have $c_events of 3 events.</p>";
+	
 	display_event_table("Leadership");
 	display_event_table("Friendship");
 	display_event_table("Service");

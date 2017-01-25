@@ -55,14 +55,14 @@ if ($status == 'Appointed' || $status == 'Elected') {
 			$required = 1;
 		}
 		
-		//add their signup to the database
+		//add the event to the database
 		$SQL = "INSERT INTO events_listing ";
 		$SQL = $SQL . "(event_type,event_id,event_name,L_val,F_val,S_val,event_time,event_place,event_description,event_cap,event_leader_id,repeatable,required)";
 		$SQL = $SQL . " VALUES ('";
 		$SQL = $SQL . $event_type . "'," . $event_id . ",'" . $event_name . "'," . $L_val . "," . $F_val . "," . $S_val . ",'" . $event_time . "','";
 		$SQL = $SQL . $event_place . "','" . $event_description . "'," . $event_cap . "," . $event_leader_id . ",";
 		$SQL = $SQL . $repeatable . "," . $required . ")";
-		$result = $db->query($SQL) or die("<a href='create_point_event.php'>Create an Event</a>");
+		$result = $db->query($SQL) or die("<a href='create_event.php'>Create an Event</a>");
 		echo "<h1>Event " . $event_name . " successfully created!</h1>";
 				
 		//check input
@@ -77,9 +77,43 @@ if ($status == 'Appointed' || $status == 'Elected') {
 		echo "Capacity: " . $event_cap . '<br>';
 		echo "Leader ID: " . $event_leader_id . '<br>';
 		echo "Repeatable: " . $repeatable . '<br>';
-		echo "Required: " . $required . '<br>';
+		echo "Required: " . $required . '<br><br>';
+
+		//more work for regular service events!
+		if ($event_type = "Regular")
+		{
+			$e_time = htmlspecialchars($_POST['time']);
+			$sunday = htmlspecialchars($_POST['sunday']);
+			$monday = htmlspecialchars($_POST['monday']);
+			$tuesday = htmlspecialchars($_POST['tuesday']);
+			$wednesday = htmlspecialchars($_POST['wednesday']);
+			$thursday = htmlspecialchars($_POST['thursday']);
+			$friday = htmlspecialchars($_POST['friday']);
+			$saturday = htmlspecialchars($_POST['saturday']);
+			$service_type = htmlspecialchars($_POST['service_type']);
+			$youth = 0;
+			if (isset($_POST['youth']))
+			{
+				$youth = 1;
+			}
+
+			echo "Event Time: " . $e_time . '<br>';
+			echo "su: " . $sunday . '<br>';
+			echo "mo: " . $monday . '<br>';
+			echo "tu: " . $tuesday . '<br>';
+			echo "we: " . $wednesday . '<br>';
+			echo "th: " . $thursday . '<br>';
+			echo "fr: " . $friday . '<br>';
+			echo "sa: " . $saturday . '<br>';
+
+			//add their regular details to the database
+			$SQL = "INSERT INTO regular_service_details (event_id,time,sunday,monday,tuesday,wednesday,thursday,friday,saturday,service_type,youth) VALUES ($event_id,'$e_time',$sunday,$monday,$tuesday,$wednesday,$thursday,$friday,$saturday,'$service_type',$youth) ";
+
+			$result = $db->query($SQL) or die("Failed to submit.");
+
+		}
 	}
-	echo "<a href='create_event.php'>Create an Event</a><br>";
+	echo "<br><p><a href='create_event.php'>Create an Event</a></p><br>";
 	//display all events in a table
 	$response=$db->query("SELECT event_name,event_type FROM events_listing");
 	$count = 0;
