@@ -39,14 +39,15 @@ function show_active() {
 }
 global $current_semester;
 global $previous_semester;
+
 function process_form() {
   include ('mysql_access.php');
   $id = $_SESSION['sessionID'];
   $event = $_POST['event'];
   $month = $_POST['month'];
-    $day = $_POST['day'];
-    $year = $_POST['year'];
-    $date = "$year-$month-$day";
+  $day = $_POST['day'];
+  $year = $_POST['year'];
+  $date = "$year-$month-$day";
   $description = $_POST['description'];
   $hours = $_POST['hours'];
   $hours = round($hours, 2);
@@ -56,6 +57,11 @@ function process_form() {
   } else {
     $fundraising = "";
   }
+  if(isset($_POST['youth'])) {
+    $youth = $_POST['youth'];
+  } else {
+    $youth = "";
+  }
   $semester = $_POST['semester'];
   $description = htmlspecialchars($description, ENT_QUOTES);
   if ($month == NULL || $day == NULL || $event == NULL || $hours == NULL || $servicetype == NULL) {
@@ -64,18 +70,11 @@ function process_form() {
   if (!checkdate($month, $day, $year)){
     echo "You have entered an invalid date.<br/>";
   }
-  //echo $year."/".$month."/".$day;
-  //print_r ((strtotime($year."/".$month."/".$date))."");
-  //print_r (DateTime date_create($year."/".$month."/".$day);
-  //print_r (time());
-  //if (time() - strtotime($year."/".$month."/".$date) < 0){
-  //  echo "You have entered a future date.<br/>";
-  //}
   else if ($description == 'KCOM' || $description == 'Lancaster' || $description == 'CSI Friday' || $description == 'Ray Miller' || $description == 'Pop-Tab Collection' ||$description == 'Twin Pines' ||$description == 'Humane Society' ||$description == 'Adair Co. Library' ||$description == 'Recycling Center' ||$description == 'Bought Hours' ||$description == 'Camp' ||$description == 'Bake sale' ||$description == 'Large Service Project' ||$description == 'Other Service Project' ||$description == 'Non-APO Hours' || $description == 'NMCAA' || $description == 'Multicultural Affairs Center' || $description == "MAC" || $description == 'Highway Cleanup' || $description == 'SAA Babysitting') {
     $result = "<div class='entry'>The description cannot be the same as the event. Please enter a valid description.<br/></div>";
   }
   else {
-    $insert = "INSERT INTO apo.recorded_hours (user_id, event, month, day, year, date, description, hours, servicetype, fundraising, semester) values('$id', '$event', '$month','$day', '$year', '$date', '$description', '$hours', '$servicetype', '$fundraising', '$semester') ON DUPLICATE KEY UPDATE description='NEEDS NEW DESCRIPTION';";
+    $insert = "INSERT INTO apo.recorded_hours (user_id, event, month, day, year, date, description, hours, servicetype, fundraising, semester, youth) values('$id', '$event', '$month','$day', '$year', '$date', '$description', '$hours', '$servicetype', '$fundraising', '$semester', '$youth') ON DUPLICATE KEY UPDATE description='NEEDS NEW DESCRIPTION';";
     $query2 = $db->query($insert) or die($db->error);
     $result = '1';
       /*if($fundraising == 1){//also ads fundraising hours to another DB so we can see who the first 30 were. --030915 code appears old, table no longer used
@@ -160,42 +159,42 @@ function list_stats($hours_id, $semester) {
   // Total Hours
   echo "<br><br><h2>Total Hours</h2><br>";
   $user_id = $_SESSION['sessionID'];
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Lifetime Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();
   // Total APO Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND event!='Non-APO Hours'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND event!='Non-APO Hours'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>APO Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Chapter Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='chapter'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='chapter'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Chapter Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Campus Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='campus'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='campus'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Campus Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Community Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='community'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='community'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Community Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Country Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours  UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='country'";
+  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='country'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Country Hours: </span>" . $result['sum(hours)'] . "<br/>";
@@ -245,9 +244,10 @@ $day_of_month = date('j');
 global $previous_semester;
 global $current_semester;
 global $next_semester;
+global $previous_year;
+global $current_year;
 ?>
 <h1>Service Hours</h1>
-<!--<h3>Check your hours from previous semesters <a href="http://apo.truman.edu/service_hours_history.php">here</a></h3>-->
 
 </div>
   <div class="row">
@@ -311,9 +311,10 @@ END; ?>
               <option value="29">29</option>
               <option value="30">30</option>
               <option value="31">31</option>
-            </select>,
+            </select>
             <select name="year">
-              <option selected="selected" value="2016">2016</option>
+			  <option value="$previous_year">$previous_year</option>
+              <option selected="selected" value="$current_year">$current_year</option>
             </select>
         </p>
         <p>
@@ -326,21 +327,21 @@ END; ?>
                 <option value="Crossing Baby Sitting">Crossing Baby Sitting</option>
                 <option value="CSI Friday">CSI Friday</option>
                 <option value="Highway Cleanup">Highway Cleanup</option>
-              <option value="Humane Society">Humane Society</option>
-              <option value="KCOM">KCOM</option>
-              <option value="Lancaster">Lancaster</option>
-              <option value="Multicultural Affairs Center">MAC</option>
-                            <option value="NMCAA (Head Start)">NMCAA (Head Start)</option>
-              <option value="Life Ability Center">Life Ability Center</option>
-              <option value="Pop-Tab">Pop-Tab Collection</option>
-              <option value="Purple Friday Prize Patrol">Purple Friday Prize Patrol</option>
-              <option value="SAA Babysitting">SAA Babysitting</option>
-              <option value="YMCA">YMCA</option>
-              <option value="Sections Service Project">Sections Service Project</option>
-              <option value="Large Service Project">Large Service Project</option>
-              <option value="Other Service Project">Other Service Project</option>
-              <option value="Non-APO Hours">Non-APO Hours</option>
-            </select>
+              	<option value="Humane Society">Humane Society</option>
+             	<option value="KCOM">KCOM</option>
+             	<option value="Lancaster">Lancaster</option>
+             	<option value="Multicultural Affairs Center">MAC</option>
+                <option value="NMCAA (Head Start)">NMCAA (Head Start)</option>
+              	<option value="Life Ability Center">Life Ability Center</option>
+              	<option value="Pop-Tab">Pop-Tab Collection</option>
+              	<option value="Purple Friday Prize Patrol">Purple Friday Prize Patrol</option>
+              	<option value="SAA Babysitting">SAA Babysitting</option>
+              	<option value="YMCA">YMCA</option>
+              	<option value="Sections Service Project">Sections Service Project</option>
+              	<option value="Large Service Project">Large Service Project</option>
+              	<option value="Other Service Project">Other Service Project</option>
+              	<option value="Non-APO Hours">Non-APO Hours</option>
+              </select>
         </p>
         <p>
           <label for="hours">Hours</label>
@@ -359,6 +360,10 @@ END; ?>
             <input name="fundraising" type="checkbox" value="1" />
         </p>
         <p>
+          <label for="youth">Youth</label>
+            <input name="youth" type="checkbox" value="1" />
+        </p>	
+        <p>
           <label for="description">Description</label>
               <input name="description" size="30" type="text" />
         </p>
@@ -366,9 +371,7 @@ END; ?>
 <?php echo <<<END
           <label for="semester">Semester</label>
               <select name="semester">
-                <!--<option>$previous_semester</option>-->
                 <option selected='selected'>$current_semester</option>
-                <!--<option>$next_semester</option>-->
               </select>
 END;
 ?>

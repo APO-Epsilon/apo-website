@@ -35,7 +35,7 @@ function open_signin($instance) {
 	?>
 		<form form name="signin" action="" method="post">
 			<input type="hidden" name="instance" value=<?= $instance ?>>
-			<p>User Id:<input type="number" name="next_user_id" style="width: 7em">
+			<p>email: (include @truman.edu)<input type="text" name="next_user_email" style="width: 7em">
 			</p><p>
 			<input type="submit" name="submit" value="Sign In"/></p>
 		</form>
@@ -71,10 +71,10 @@ function show_active() {
 	<h1> Attendance Check-In </h1>
 		<?php
 	include('mysql_access.php');
+	include('retrieve_user.php');
 	$user_id = $_SESSION['sessionID'];	
-	$aresponse=$db->query("SELECT position FROM contact_information WHERE id=$user_id");
-	$aresult=mysqli_fetch_array($aresponse);
-	$position = $aresult['position'];
+
+	$position = id_to_position($user_id);
 	if ($position == "Webmaster" || $position == "Recording Secretary") {
 		$page = null;
 		//sets event info section from selection
@@ -102,9 +102,13 @@ function show_active() {
 		}
 		else
 		{
-			if(isset($_POST['next_user_id']))
+			if(isset($_POST['next_user_email']))
 			{
-				$nuid = $_POST['next_user_id'];
+				$nue = $_POST['next_user_email'];
+				$tresponse=$db->query("SELECT id FROM contact_information WHERE email='$nue'");
+				$tresult=mysqli_fetch_array($tresponse);
+				
+				$nuid = $tresult['id'];
 
 				//if not already, add $nuid to signin
 				$check=$db->query("SELECT user_id FROM events_signup WHERE event_id=$instance");

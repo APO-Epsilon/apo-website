@@ -292,7 +292,7 @@ function display($event_type) {
 				<input type="hidden" name="event_id" value="<?php echo htmlspecialchars($result['event_id']); ?>">
 			<table>
 			<tr><td><input type="submit" name="submit" value="signup"/></td><th><?= $result['event_type'] ?> Event : <?= $result['event_name'] ?></th> <td colspan="3">Leader : <?= $l_name ?> </td></tr>
-			<tr><td>Description :</td><td><?= $result['event_description'] ?></td><td>Email:</td><td colspan="2"><?= $l_email ?></td></tr>
+			<tr><td><?= $result['event_time'] ?></td><td><?= $result['event_description'] ?></td><td>Email:</td><td colspan="2"><?= $l_email ?></td></tr>
 			</table>
 			</form>
 			<?php

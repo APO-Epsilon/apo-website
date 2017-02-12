@@ -192,15 +192,13 @@ function display($event_type) {
 				<input type='hidden' name='event_id' value=<?= $next ?>>
 				<p>Event Title:
 				<input type="text" name="event_name" required></p>
-				<p>Leadership Points:
-				<input type="number" step="0.25" name="L_val" value="0"></p>
+				<input type="hidden" step="0.25" name="L_val" value="0">
 				<input type="hidden" step="0.25" name="F_val" value="0"></p>
 				<p>Service Points:
 				<input type="number" step="0.25" name="S_val" value="0"></p>
 				<p>Date: (leave blank if not applicable)
 				<input type='date' name='event_time' value=0></p>
-				<p>Meeting Location:
-				<input type='text' name='event_place' value='Circle Drive'></p>
+				<input type='hidden' name='event_place' value='Circle Drive'>
 				<p>Description:<p>
 				<input type="text" name="event_description" value=<?= $task_desc ?>></p>
 				<p>Event Cap: (use 0 if there is no cap)
