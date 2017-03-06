@@ -28,8 +28,10 @@ function show_active() {
 	//check for proper parameters
 	if(isset($_POST['submit']))
 	{
+		global $current_semester;
 		$eid = $_POST['event_id'];
 		$uid = $_POST['user'];
+		$semester = $current_semester;
 		
 		if (!isset($_POST['Factor']))
 		{
@@ -48,7 +50,7 @@ function show_active() {
 		}
 		include('mysql_access.php');
 		//add their signup to the database
-		$SQL = "INSERT INTO events_signup (event_id,user_id,semester,Factor,drive,day,week) VALUES ($eid,$uid,'Spring 2017',$factor,'$drive','$day',$week)";
+		$SQL = "INSERT INTO events_signup (event_id,user_id,semester,Factor,drive,day,week) VALUES ($eid,$uid,'$semester',$factor,'$drive','$day',$week)";
 		$result = $db->query($SQL) or die("Signup Failed");
 
 	}

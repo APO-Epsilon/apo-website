@@ -20,6 +20,9 @@ $next_semester = $final['next_semester'];
 $previous_year =  $final['previous_year'];
 $current_year =  $final['current_year'];
 
+//query that must be adjusted each semester
+$total_query = "FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM Fall16Hours UNION SELECT * FROM recorded_hours";
+
 function page_header() {
     // Evil code to force memembers to update their information each new semester.
     // Seriously, evil.  You cannot do anything until you update.

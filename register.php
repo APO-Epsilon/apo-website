@@ -108,13 +108,7 @@ require_once ('mysql_access.php');
         <br>
         <label for="status">Status</label>
           <select name="status">
-            <option value="Active">Active</option>
-            <option value="Associate">Associate</option>
             <option value="Pledge">Pledge</option>
-            <option value="Alumni">Alumni</option>
-            <option value="Early Alum">Early Alum</option>
-            <option value="Advisor">Advisor</option>
-            <option value="Inactive">Inactive</option>
           </select>
         <br>
         <label for="bigbro">Big Brothers</label>

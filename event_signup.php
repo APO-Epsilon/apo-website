@@ -259,7 +259,6 @@ function display($event_type) {
 			$yresponse=$db->query("SELECT firstname,lastname,email FROM contact_information WHERE id='$l_id'");
 			$yresult=mysqli_fetch_array($yresponse);
 
-			$l_email = $yresult['email'];
 			$event = $result['event_id'];
 
 			$response=$db->query("SELECT * FROM events_listing WHERE event_id = $event");
@@ -280,11 +279,28 @@ function display($event_type) {
 			else if (($already['user_id'] == $user_id) && ($result['repeatable'] == 0))
 			{
 			}
+			//check if closed
+			else if ($result['closed'] == 1)
+			{
+				
+			}
 			//create a table entry
 			else
 			{
-				
-			$l_name = $yresult['firstname'] . " " . $yresult['lastname'];
+			
+				if ($result['event_type'] == 'Chapter')
+				{
+					//pull rec sec info
+					$vesponse=$db->query("SELECT firstname,lastname,email FROM contact_information WHERE position = 'Recording Secretary' LIMIT 1");
+					$vesult=mysqli_fetch_array($vesponse);
+					$l_name = $vesult['firstname'] . " " . $vesult['lastname'];
+					$l_email = $vesult['email'];
+				}
+				else
+				{
+					$l_name = $yresult['firstname'] . " " . $yresult['lastname'];
+					$l_email = $yresult['email'];
+				}
 			?>
 			<form method="post" action="event_signup_done.php">
 				<input type="hidden" name="user" value="<?php echo htmlspecialchars($user_id); ?>">

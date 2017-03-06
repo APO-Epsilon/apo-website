@@ -1,5 +1,6 @@
 <?php
 include ('session.php');
+include ('requirements.php');
 include ('mysql_access.php');
 ?>
 <!doctype html>
@@ -97,6 +98,7 @@ return $result;
 }
 function list_stats($hours_id, $semester) {
   include ('mysql_access.php');
+  global $total_query;
   // Total Hours
   $sql = "SELECT SUM(hours) AS `sum_hours` FROM `recorded_hours` WHERE `user_id` = '$hours_id' AND `semester` = '$semester' LIMIT 1";
   $results = $db->query($sql) or die("Error Calculating Hours. $db->error");
@@ -159,42 +161,42 @@ function list_stats($hours_id, $semester) {
   // Total Hours
   echo "<br><br><h2>Total Hours</h2><br>";
   $user_id = $_SESSION['sessionID'];
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id'";
+  $sql = "SELECT sum(hours) FROM (SELECT * " . $total_query . ")mctable WHERE user_id='$user_id'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Lifetime Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();
   // Total APO Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND event!='Non-APO Hours'";
+  $sql = "SELECT sum(hours) FROM (SELECT * " . $total_query . ")mctable WHERE user_id='$user_id' AND event!='Non-APO Hours'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>APO Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Chapter Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='chapter'";
+  $sql = "SELECT sum(hours) FROM (SELECT * " . $total_query . ")mctable WHERE user_id='$user_id' AND servicetype='chapter'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Chapter Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Campus Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='campus'";
+  $sql = "SELECT sum(hours) FROM (SELECT * " . $total_query . ")mctable WHERE user_id='$user_id' AND servicetype='campus'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Campus Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Community Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='community'";
+  $sql = "SELECT sum(hours) FROM (SELECT * " . $total_query . ")mctable WHERE user_id='$user_id' AND servicetype='community'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Community Hours: </span>" . $result['sum(hours)'] . "<br/>";
   }
   $results->free();  
   // Total Country Hours
-  $sql = "SELECT sum(hours) FROM (SELECT * FROM Spring12Hours UNION SELECT * FROM Fall12Hours UNION SELECT * FROM Spring13Hours UNION SELECT * FROM Fall13Hours UNION SELECT * FROM Spring14Hours UNION SELECT * FROM Fall14Hours UNION SELECT * FROM Spring15Hours UNION SELECT * FROM Fall15Hours UNION SELECT * FROM Spring16Hours UNION SELECT * FROM recorded_hours)mctable WHERE user_id='$user_id' AND servicetype='country'";
+  $sql = "SELECT sum(hours) FROM (SELECT * " . $total_query . ")mctable WHERE user_id='$user_id' AND servicetype='country'";
   $results = $db->query($sql) or die("Error Calculating Hours");
   while ($result = mysqli_fetch_array($results)) {
     echo "<span>Country Hours: </span>" . $result['sum(hours)'] . "<br/>";
@@ -246,6 +248,20 @@ global $current_semester;
 global $next_semester;
 global $previous_year;
 global $current_year;
+
+global $required_hours;
+global $apo_hours;
+global $c_number;
+global $fundraising_hours;
+global $max_bought_hours;
+global $associate_hours;
+
+global $leadership_points;
+global $friendship_points;
+global $taskforce_events;
+
+global $excused_absences;
+global $unexcused_absences;
 ?>
 <h1>Service Hours</h1>
 
@@ -387,13 +403,13 @@ END;
 </table>
   <div class="large-7 medium-6 small-12 column">
     <h2>Service Policy</h2>
-    Active: <b>25</b> hours of service.<br>
-    <b>15</b> max non-APO hours.<br>
-    <b>3</b> out of the 4 fields of service: Chapter, Campus, Community, Country.<br>
-    <b>3</b> hours of fundraising.<br>
+    Active: <b><?= $required_hours ?></b> hours of service.<br>
+    <b><?= $apo_hours ?></b> APO hours.<br>
+    <b><?= $c_number ?></b> out of the 4 fields of service: Chapter, Campus, Community, Country.<br>
+    <b><?= $fundraising_hours ?></b> hours of fundraising.<br>
     No cap on tabling hours.<br>
-    Maximum of <b>5</b> bought hours<br>
-    Associate: <b>12.5</b> hours of service <br>
+    Maximum of <b><?= $max_bought_hours ?></b> bought hours<br>
+    Associate: <b><?= $associate_hours ?></b> hours of service <br>
     <hr>
 <?php echo <<<END
   <h2>Current Hours for $current_semester</h2>

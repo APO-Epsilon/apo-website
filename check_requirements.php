@@ -22,10 +22,12 @@ require_once ('mysql_access.php');
 $exec_page = False;
 $active_page = True;
 $public_page = False;
+
 require_once('permissions.php');
 
 function list_stats($hours_id, $semester) {
   include ('mysql_access.php');
+  include('requirements.php');
   // Total Hours
   $sql = "SELECT SUM(hours) AS `sum_hours` FROM `recorded_hours` WHERE `user_id` = '$hours_id' AND `semester` = '$semester' LIMIT 1";
   $results = $db->query($sql) or die("Error Calculating Hours. $db->error");
@@ -35,7 +37,7 @@ function list_stats($hours_id, $semester) {
 	{
 		$hrs = round($i['sum_hours'], 2);
 	}
-    echo "<span>Total Hours:</span> $hrs of 25<br/>";
+    echo "<span>Total Hours:</span> $hrs of $required_hours<br/>";
   }
   $results->free();
   // APO Hours
@@ -47,7 +49,7 @@ function list_stats($hours_id, $semester) {
 	{
 		$hrs = round($i['sum_hours'], 2);
 	}
-    echo "<span>APO Hours:</span> $hrs of 10<br/>";
+    echo "<span>APO Hours:</span> $hrs of $apo_hours<br/>";
   }
   $results->free();
   // Fundraising Hours
@@ -59,7 +61,7 @@ function list_stats($hours_id, $semester) {
 	{
 		$hrs = $i['sum_hours'];
 	}
-    echo "<span>Fundraising Hours:</span> $hrs of 3<br/>";
+    echo "<span>Fundraising Hours:</span> $hrs of $fundraising_hours<br/>";
   }
   $results->free();
   // Bought Hours
@@ -71,10 +73,10 @@ function list_stats($hours_id, $semester) {
 	{
 		$hrs = $i['sum_hours'];
 	}
-    echo "<span>Bought Hours:</span> $hrs of maximum 5<br/>";
+    echo "<span>Bought Hours:</span> $hrs of maximum $max_bought_hours<br/>";
   }
   $results->free();
-  echo "<br><p>You need 3 of the four C categories :</p>";
+  echo "<br><p>You need $c_number of the four C categories :</p>";
   $c_count = 0;
   // Chapter Hours
   $sql = "SELECT SUM(hours) AS sum_hours FROM `recorded_hours` WHERE `user_id` = '$hours_id' AND `servicetype` = 'Chapter'  AND `semester` = '$semester' LIMIT 1";
@@ -146,15 +148,16 @@ function display_event_table($rtype)
 	
 	if ($rtype == "Leadership" || $rtype == "Friendship")
 	{
+	include('requirements.php');
 	if ($rtype == "Leadership")
 	{
 		$val = "L_val";
-		$points_needed = 4;
+		$points_needed = $leadership_points;
 	}
 	else if ($rtype == "Friendship")
 	{
 		$val = "F_val";
-		$points_needed = 4;
+		$points_needed = $friendship_points;
 	}
 		echo "<h3>" . $rtype . " - " . $points_needed . " Points</h3>";
 		echo "<a href='event_signup.php'>Add events here.</a><br>";
@@ -193,17 +196,63 @@ function display_event_table($rtype)
 			
 		echo "<h3>Service - 25 Hours</h3>";
 		echo "More Service information and add hours <a href='service_hours.php'>HERE!</a><br><br>";
-		list_stats($user_id,"Fall 2016");
+		global $current_semester;
+		list_stats($user_id,$current_semester);
 	}
 	else if ($rtype == "Required")
 	{
+		include('retrieve_event.php');
+		include('requirements.php');
 		echo "<h3>Required Events</h3>";
-		$theresponse=$db->query("SELECT event_name FROM events_listing WHERE required=1");
+		echo "<table><tr><th>Event</th><th>Attended?</th></tr>";
+		$excused = 0;
+		$unexcused = 0;
+		$theresponse=$db->query("SELECT event_name,event_id FROM events_listing WHERE required=1");
 		while($reqevent=mysqli_fetch_array($theresponse))
 		{
-			echo $reqevent['event_name'] . '<br>';
+			echo "<tr><td>" . $reqevent['event_name'] . '</td><td>';
+			//check if attended
+			if ( did_user_attend($user_id,$reqevent['event_id']) )
+			{
+				echo 'attended</td></tr>'; 
+			}
+			//check if excused
+			else if ( is_user_excused($user_id,$reqevent['event_id']) )
+			{
+				echo 'excused</td></tr>';
+				$excused++;
+			}
+			//else unexcused
+			else
+			{
+				echo 'x</td></tr>';
+				$unexcused++;
+			}
 		}
-		echo "Meetings (5 excused and 3 unexcused absences)<br>";
+		echo "</table>";
+		$mm = 0;
+		echo "<table><tr><th>missed meeting</th><th>excuse</th></tr>";
+		global $current_semester;
+		$mresponse=$db->query("SELECT meeting,excuse FROM meetings_missed WHERE user_id=$user_id AND semester='$current_semester'");
+		while($meetingevent=mysqli_fetch_array($mresponse))
+		{
+			$mtg = $meetingevent['meeting'];
+			$ex = $meetingevent['excuse'];
+			echo "<tr><td>$mtg</td><td>$ex</td></tr>";
+			$mm++;
+			if ($ex == 'none')
+			{
+				$unexcused++;
+			}
+			else
+			{
+				$excused++;
+			}
+		}
+		echo "</table>";
+		echo "Meetings Missed : $mm<br><br>";
+		echo "$excused of $excused_absences excused absences.<br>";
+		echo "$unexcused of $unexcused_absences unexcused absences.<br>";
 
 	}
 	else
@@ -238,8 +287,8 @@ function show_active() {
 		$eid = $_GET['delete'];
 		delete_event($eid, $user_id);
 	}
-	
-	echo "<h3>Committee - 3 taskforce events</h3>";
+	include('requirements.php');
+	echo "<h3>Committee - $taskforce_events taskforce events</h3>";
 	$c_events = 0;
 	echo "<table><tr><th>#</th><th>Event Name</th><th>Event Leader</th></tr>";
 	$zresponse=$db->query("SELECT event_id FROM events_signup WHERE user_id='" . $user_id . "'");
