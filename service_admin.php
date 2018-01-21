@@ -22,10 +22,10 @@ $position = $_SESSION['sessionposition'];
 <div class="row">
   <div class="small-12 columns">
 <?php
-if($position != "Webmaster" && $position != "VP of Regular Service"){
+if($position != "Webmaster" && $position != "VP of Regular Service" && %position != "VP of Service"){
   die("you do not have permission to view this page.");
 }
-echo "<h1>Service Manager: VP of Regular Service</h1><hr/>";
+echo "<h1>Service Manager: VP of Service</h1><hr/>";
 echo "<h4><a href=\"service_admin_week.php\">back to dashboard</a></h4>";
 
 //if a form has been submitted, do the associated action
