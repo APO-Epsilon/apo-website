@@ -85,6 +85,7 @@ require_once ('mysql_access.php');
             <option value="Spring">Spring</option>
           </select>
           <select name="pledgeyear">
+            <option value="2018">2018</option>
             <option value="2017">2017</option>
             <option value="2016">2016</option>
             <option value="2015">2015</option>
@@ -142,6 +143,7 @@ require_once ('mysql_access.php');
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
+            <option value="2022">2022</option>
           </select>
         <br>
 
